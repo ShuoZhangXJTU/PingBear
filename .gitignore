@@ -1,0 +1,29 @@
+# 运行数据、快照、日志、缓存（体积大且含登录态）
+.research/
+.trash/
+
+# 个人内容（知识库本体，不进代码仓库）
+日报/
+论文/
+灵感/
+问答/
+专题/
+索引/
+今日简报.md
+附件/
+收件箱/
+
+# Obsidian 本地状态
+.obsidian/workspace*.json
+.obsidian/cache/
+.obsidian/plugins/*/data.json
+
+# 系统
+.DS_Store
+*.log
+*.tmp
+
+
+# 登录态/会话文件
+cookies.json
+*.session.json

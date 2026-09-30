@@ -1,0 +1,9 @@
+{
+  "id": "research-archive",
+  "name": "科研论文归档",
+  "version": "1.0.0",
+  "minAppVersion": "1.5.0",
+  "description": "在科研日报中一键归档论文，可附加简短备注。",
+  "author": "Local Research",
+  "isDesktopOnly": true
+}

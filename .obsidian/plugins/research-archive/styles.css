@@ -1,0 +1,22 @@
+.research-archive-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 4px 0 20px; }
+.research-archive-controls button { font-size: 12px; height: 28px; padding: 2px 10px; }
+.research-archive-add { background: transparent !important; box-shadow: none !important; color: var(--text-muted); }
+.research-archive-note { width: 100%; resize: vertical; margin: 8px 0; font-size: 14px; }
+.research-archive-note[hidden] { display: none; }
+
+/* 今日简报/日报 左侧悬浮目录 */
+.view-content { position: relative; }
+.research-toc {
+  position: absolute; left: 10px; top: 10px; width: 200px; max-height: 78vh; overflow-y: auto;
+  padding: 8px 10px; border-radius: 8px; font-size: 12px; line-height: 1.5; z-index: 20;
+  background: var(--background-secondary); border: 1px solid var(--background-modifier-border);
+  box-shadow: 0 2px 10px rgba(0,0,0,.12);
+}
+.research-toc-title { font-weight: 600; margin-bottom: 4px; color: var(--text-normal); }
+.research-toc-item {
+  display: block; color: var(--text-muted); text-decoration: none; cursor: pointer;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 1px 0;
+}
+.research-toc-item:hover { color: var(--text-accent); }
+.research-toc-h2 { padding-left: 8px; }
+.research-toc-h3 { padding-left: 18px; color: var(--text-faint); }

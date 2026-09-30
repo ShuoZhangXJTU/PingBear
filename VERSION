@@ -1,0 +1,17 @@
+# 科研早报 · 能力包
+
+version: 0.1.0
+date: 2026-09-30
+
+能力清单：
+- HF Daily Papers 每日全量中文速读（3 个月历史可补跑）
+- 小红书 tabris 跟踪：主页 → 截图 OCR → 逐张认出论文 → 同款简报
+- 官方博客源：OpenAI / Anthropic / Google Research / Microsoft Research / ByteDance Seed
+- 我的链接：粘贴链接即入队，次日进日报；支持 arXiv / 小红书 / 任意网页
+- 归档：一键入库（论文/<主题>/<论文标题>.md）+ 深读 takeaway + 标签索引
+- 知识体系：专题页（概念地图 / 交叉观察 / 开放问题）+ 归档问答
+- 逐条提问：带论文正文回答，问答沉淀回笔记与专题
+- 微信通道：hhh 记灵感、转发链接入队、早报分发（受会话窗口限制）
+- 灵感速记：一句话入库，按主题自动归档
+
+运行依赖：macOS、Codex CLI（登录态）、Obsidian、Google Chrome、Python 3.9
