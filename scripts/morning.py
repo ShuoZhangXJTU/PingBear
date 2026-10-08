@@ -101,7 +101,8 @@ def run(args):
         if (now.hour, now.minute) < (8, 30):
             return
         completed = status.get('completed_at')
-        if status.get('completed_date') == date and completed:
+        # 只有「拿到当天自己的列表」才算真正完成；否则留到后面 15 分钟一次的检查里继续等
+        if status.get('completed_date') == date and status.get('source_date') == date and completed:
             finished = dt.datetime.fromisoformat(completed).astimezone(TZ)
             if (finished.hour, finished.minute) >= (8, 30):
                 return
@@ -134,6 +135,18 @@ def run(args):
             reviews = summarize(papers, source_date)
             research.publish(SimpleNamespace(date=source_date, reviews=str(reviews), update=True), ROOT)
         note = '' if source_date == date else f'{date} 的 HF 列表尚为空，展示最近可用的 {source_date} 全量列表。'
+        # HF 当天列表常常是白天才发布：把最近 8 天里「有数据但没有日报」的日期补上
+        try:
+            import backfill
+            for offset in range(1, 8):
+                day = (dt.date.fromisoformat(date) - dt.timedelta(days=offset)).isoformat()
+                if (STATE / 'digests' / (day + '.json')).exists():
+                    continue
+                summarized, total = backfill.backfill_day(day, per_day=3)
+                if total:
+                    print(f'补上 {day}：简介 {summarized} 篇 / 共 {total} 篇', flush=True)
+        except Exception as error:
+            print('补跑检查失败:', type(error).__name__, error, flush=True)
         # 小红书部分尽力而为：它失败不影响 HF 早报发布。
         xhs_note, xhs_count = '', 0
         try:
