@@ -15,9 +15,9 @@ from pathlib import Path
 
 LOCAL = Path.home() / 'Research'
 CLOUD = Path.home() / 'Library/Mobile Documents/iCloud~md~obsidian/Documents/research'
-NOTE_DIRS = ['日报', '论文', '专题', '问答', '灵感', '索引', '配置', '附件', '收件箱']
-NOTE_FILES = ['今日简报.md']
 CODE_DIRS = ['scripts', '.obsidian/plugins']
+# 除这些之外，本地顶层的东西全部镜像到云盘（新增目录自动带上，不用改代码）
+EXCLUDE = {'.git', '.research', '.Trash', '.obsidian', '.DS_Store', '.github'}
 
 
 def rsync(src, dst, extra=None):
@@ -33,13 +33,16 @@ def push():
     for name in CODE_DIRS:
         if (LOCAL / name).exists():
             rsync(str(LOCAL / name) + '/', str(CLOUD / name) + '/')
-    for name in NOTE_DIRS:
-        if (LOCAL / name).exists():
-            rsync(str(LOCAL / name) + '/', str(CLOUD / name) + '/')
-    for name in NOTE_FILES:
-        if (LOCAL / name).exists():
-            rsync(str(LOCAL / name), str(CLOUD / name))
-    print(f'已推送本地 → 云盘：{len(NOTE_DIRS)} 个目录 + {len(CODE_DIRS)} 个代码目录')
+    count = 0
+    for entry in sorted(LOCAL.iterdir()):
+        if entry.name in EXCLUDE:
+            continue
+        if entry.is_dir():
+            rsync(str(entry) + '/', str(CLOUD / entry.name) + '/')
+        else:
+            rsync(str(entry), str(CLOUD / entry.name))
+        count += 1
+    print(f'已推送本地 → 云盘：{count} 个顶层条目（含新增目录）+ {len(CODE_DIRS)} 个代码目录')
 
 
 def pull():
