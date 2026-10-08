@@ -1,7 +1,8 @@
 # 科研早报 · 能力包
 
-version: 0.1.0
-date: 2026-09-30
+version: 0.2.1
+date: 2026-10-08
+license: MIT
 
 能力清单：
 - HF Daily Papers 每日全量中文速读（3 个月历史可补跑）
