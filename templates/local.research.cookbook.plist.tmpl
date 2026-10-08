@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key><string>local.research.cookbook</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>__PYTHON__</string>
+		<string>__VAULT__/scripts/cookbook.py</string>
+		<string>update</string>
+	</array>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PATH</key><string>__BIN_PATH__</string>
+		<key>TZ</key><string>Asia/Shanghai</string>
+	</dict>
+	<key>WorkingDirectory</key><string>__VAULT__</string>
+	<key>StartCalendarInterval</key>
+	<dict><key>Hour</key><integer>0</integer><key>Minute</key><integer>30</integer></dict>
+	<key>StandardOutPath</key><string>__VAULT__/.research/logs/cookbook.log</string>
+	<key>StandardErrorPath</key><string>__VAULT__/.research/logs/cookbook.log</string>
+</dict>
+</plist>

@@ -1,6 +1,33 @@
-# 科研早报
+# 科研早报 · research-inbox
 
-双击桌面「科研早报」即可在 Obsidian 打开 [[今日简报]]。Obsidian 已安装于 `~/Applications/Obsidian.app`，已连接本仓库，首页标签已固定。
+把「多个信息源」变成「每天一份可归档、可提问、能长成知识体系的中文简报」，全部跑在你自己的电脑上，复用本机已登录的 Codex 额度，数据不出本机（除模型调用本身）。
+
+## 快速开始（新用户，3 步）
+
+```sh
+# 1. 克隆
+git clone https://github.com/ShuoZhangXJTU/PingBear.git ~/Research
+cd ~/Research
+
+# 2. 一键安装（装插件、编译本机 OCR、写定时任务；先看一遍可用 --dry-run）
+./install.sh
+
+# 3. 打开 Obsidian → 「打开文件夹作为仓库」→ 选 ~/Research → 看「今日简报」
+```
+
+装完就有：每天 8:30 的 HF Daily Papers 中文速读、归档按钮（含深读 takeaways）、标签索引、历史目录、归档问答、灵感速记、最佳实践手册（每天 00:30 增量更新）。
+
+**可选模块**（按需开）：小红书跟踪（见 `配置/小红书.md`，需扫码一次）、官方博客源（`scripts/blogs.py`，开箱可用）、我的链接（`收件箱/我的链接.md` 贴链接）、微信通道（见 `配置/微信接入.md`，该接口有会话窗口限制）。
+
+**依赖**：macOS、Python 3.9+、[Codex CLI](https://learn.chatgpt.com/docs/non-interactive-mode)（已登录）、Obsidian、Google Chrome（抓前端渲染页面用）、Xcode Command Line Tools（编译本机 OCR）。
+
+完整说明见 [INSTALL.md](INSTALL.md)，架构见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)，拆包/产品化路线见 [docs/PACKAGING.md](docs/PACKAGING.md)。
+
+---
+
+## 本机使用说明
+
+双击桌面「科研早报」即可在 Obsidian 打开 [[今日简报]]。
 
 ## 每天怎样看
 

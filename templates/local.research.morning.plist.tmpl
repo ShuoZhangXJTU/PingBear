@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key><string>local.research.morning</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>__PYTHON__</string>
+		<string>__VAULT__/scripts/morning.py</string>
+	</array>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PATH</key><string>__BIN_PATH__</string>
+		<key>TZ</key><string>Asia/Shanghai</string>
+	</dict>
+	<key>WorkingDirectory</key><string>__VAULT__</string>
+	<key>RunAtLoad</key><true/>
+	<key>StartCalendarInterval</key>
+	<dict><key>Hour</key><integer>8</integer><key>Minute</key><integer>30</integer></dict>
+	<key>StartInterval</key><integer>900</integer>
+	<key>StandardOutPath</key><string>__VAULT__/.research/logs/scheduler.log</string>
+	<key>StandardErrorPath</key><string>__VAULT__/.research/logs/scheduler-error.log</string>
+</dict>
+</plist>
