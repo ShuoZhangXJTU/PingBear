@@ -127,6 +127,73 @@ def archive_command(text, today):
     return date.isoformat(), numbers
 
 
+CN_NUM = {'一': 1, '二': 2, '两': 2, '三': 3, '四': 4, '五': 5, '六': 6, '七': 7, '八': 8, '九': 9, '十': 10}
+
+
+def archive_intent(text, today):
+    """听得懂人话的归档意图：支持编号、中文数字、以及「归档 <论文名片段>」。
+    返回 (date, numbers, keyword)。"""
+    if not re.search(r'归档|存档|收进|存进|加入.*(论文库|资料库)', text):
+        return None
+    day = today
+    if '昨天' in text:
+        day = today - dt.timedelta(days=1)
+    else:
+        found = re.search(r'(\d{4})-(\d{1,2})-(\d{1,2})', text)
+        if found:
+            day = dt.date(*[int(x) for x in found.groups()])
+        else:
+            found = re.search(r'(\d{1,2})\s*月\s*(\d{1,2})\s*[日号]', text)
+            if found:
+                day = dt.date(today.year, int(found.group(1)), int(found.group(2)))
+    # 先把日期从文本里去掉，免得把 2026-10-01 拆成编号
+    stripped = re.sub(r'\d{4}-\d{1,2}-\d{1,2}|\d{1,2}\s*月\s*\d{1,2}\s*[日号]', ' ', text)
+    numbers = [int(n) for n in re.findall(r'\d{1,3}', stripped) if int(n) > 0]
+    if not numbers:
+        groups = re.findall(r'第\s*([一二三四五六七八九十两、，和及\s]+?)\s*篇', text) or \
+            re.findall(r'([一二三四五六七八九十两]+)\s*[篇、，和及]', text)
+        for group in groups:
+            numbers += [CN_NUM[ch] for ch in group if ch in CN_NUM]
+    if numbers:
+        return day.isoformat(), sorted(dict.fromkeys(numbers)), ''
+    keyword = re.sub(r'(请|帮我|把|这篇|那篇|这个|那个|归档|存档|收进|存进|一下|论文|笔记|的|吧|吗|，|,|。|！|!|？|\?|\s)+', '', text).strip()
+    return (day.isoformat(), [], keyword) if keyword else None
+
+
+def day_entries(date):
+    """汇总某天所有来源的条目（HF / 小红书 / 博客 / 我的链接）。"""
+    entries = []
+    for path, source in [(ROOT/'.research/digests'/(date + '.json'), 'hf'),
+                         (ROOT/'.research/xhs/digests'/(date + '.json'), 'xiaohongshu'),
+                         (ROOT/'.research/blogs/digests'/(date + '.json'), 'blog'),
+                         (ROOT/'.research/inbox/digests'/(date + '.json'), 'link')]:
+        if not path.exists():
+            continue
+        try:
+            for paper in research.load(path).get('papers', []):
+                entries.append(dict(paper, source=source))
+        except Exception:
+            continue
+    return entries
+
+
+def archive_entry(entry, date):
+    """按条目写归档笔记（HF 走 research.archive；其他来源直接落盘）。"""
+    if entry.get('source') == 'hf':
+        research.archive(SimpleNamespace(date=date, numbers=[entry['number']], reason='通过个人微信明确选择'), ROOT)
+        return research.note_path(ROOT, entry)
+    head, _tags = research.note_fields(entry, date)
+    path = research.note_path(ROOT, entry)
+    if path.exists():
+        return path
+    body = head + f"\n# [{entry['title']}]({entry.get('url','')})\n\n" + research.card(entry)
+    if entry.get('note_url'):
+        body += f"\n[小红书原帖]({entry['note_url']})\n"
+    body += f"\n来源：{entry.get('note_title') or entry.get('origin_name') or entry.get('source')}\n\n## 我的备注\n"
+    research.save_new(path, body)
+    return path
+
+
 def response(text, history):
     today = dt.datetime.now(TZ).date()
     # 微信里转发过来的链接（小红书分享、arXiv、博客…）直接加进「我的链接」，第二天进日报
@@ -166,6 +233,39 @@ def response(text, history):
             return '编号不在该日报中，未归档。请发送：归档 '+date+' 2 4'
         research.archive(SimpleNamespace(date=date,numbers=numbers,reason='通过个人微信明确选择'),ROOT)
         return '已归档到 Obsidian：\n'+'\n'.join(str(n)+'. '+index[n]['title_zh'] for n in numbers)
+    # 听得懂人话的归档：编号 / 中文数字 / 论文名片段
+    intent = archive_intent(text, today)
+    if intent:
+        date, numbers, keyword = intent
+        entries = day_entries(date)
+        if not entries:
+            return f'{date} 还没有日报，没东西可归档。'
+        if numbers:
+            hits = [e for e in entries if e.get('number') in numbers]
+        else:
+            key = keyword.lower()
+            hits = [e for e in entries
+                if key and (key in (e.get('title') or '').lower() or key in (e.get('title_zh') or '').lower())]
+        if not hits:
+            target = ('、'.join(str(n) for n in numbers) if numbers else keyword)
+            return f'{date} 的{ "这批编号" if numbers else "匹配「"+target+"」的条目" }没找到，未归档。'
+        if len(hits) > 4:
+            listing = '\n'.join(f"{e['number']}. {(e.get('title') or '')[:40]}" for e in hits[:8])
+            return f'匹配到 {len(hits)} 条，请用编号确认（例如「归档 {date} {hits[0]["number"]}」）：\n{listing}'
+        done = []
+        for entry in hits:
+            try:
+                path = archive_entry(entry, date)
+                done.append(f"{entry.get('number')}. {(entry.get('title') or '')[:40]}")
+            except Exception as error:
+                return f'归档失败：{type(error).__name__} {error}'
+        research.build_index(ROOT)
+        try:
+            import knowledge
+            knowledge.deepen([str(hits[0].get('arxiv') or hits[0].get('id'))], force=True)
+        except Exception:
+            pass
+        return '已归档到 Obsidian：\n' + '\n'.join(done)
     if text.strip() in ['帮助','help']:
         return '已连接本地科研助手。可直接问论文问题，或发送：\n今日简报\n展开今天第 2 篇\n归档今天第 2、4 篇\n清空会话\n\n记灵感：以 hhh 开头发一句话（例：hhh 记忆是不是也能只让验证器判），我会记进 灵感/收件箱，早报后按主题归档。\n\n提示：微信通道在你与机器人互动后会失效，早上发一句「早报」即可拿到当天完整日报；错过的话，你下次发消息时会自动补发。\n\n只处理你与此 Bot 的消息，共享本地 Research 资料库。当前支持文字及微信提供的语音转写，图片和文件暂未接入。'
     home = ROOT/'今日简报.md'
@@ -300,6 +400,28 @@ def push(date=None, wait=False):
     return True
 
 
+def push_text(text):
+    """主动发一段任意文本（用最近一次对话的上下文；失败就抛错，由调用方排队）。"""
+    auth = research.load(DATA/'account.json')
+    owner = auth.get('ilink_user_id')
+    if not owner:
+        raise RuntimeError('还没绑定微信账号')
+    db = sqlite3.connect(DATA/'messages.sqlite3')
+    row = db.execute('SELECT id, body FROM inbox ORDER BY rowid DESC LIMIT 1').fetchone()
+    if not row:
+        raise RuntimeError('没有可用会话上下文（需要先给机器人发一条消息）')
+    mid, body = row
+    message = json.loads(body)
+    stamp = dt.datetime.now(TZ).strftime('%Y%m%d%H%M%S')
+    parts = chunks(text)
+    for index, part in enumerate(parts):
+        client_id = 'alert-' + hashlib.sha256((mid + ':' + str(index) + ':' + stamp).encode()).hexdigest()[:32]
+        request('ilink/bot/sendmessage', {'msg': {'from_user_id': '', 'to_user_id': owner, 'client_id': client_id,
+            'message_type': 2, 'message_state': 2, 'context_token': message['context_token'],
+            'item_list': [{'type': 1, 'text_item': {'text': part}}]}}, auth, auth['baseurl'])
+    return True
+
+
 def serve():
     auth=research.load(DATA/'account.json')
     owner=auth['ilink_user_id']
@@ -331,6 +453,17 @@ def serve():
                             pending = research.load(pending_file)
                             pending_file.unlink()
                             reply = pending.get('text','') + '\n\n————\n\n' + reply
+                        except Exception:
+                            pass
+                    # 运行故障告警：排队等用户下次说话时补发
+                    alert_queue = research.ROOT/'.research/alert-queue.json'
+                    if alert_queue.exists():
+                        try:
+                            items = research.load(alert_queue)
+                            alert_queue.unlink()
+                            notes = '\n\n'.join(item.get('text', '') for item in items if item.get('text'))
+                            if notes:
+                                reply = notes + '\n\n————\n\n' + reply
                         except Exception:
                             pass
                     if text!='清空会话':save('history.json',(history+[{'role':'user','content':text},{'role':'assistant','content':reply}])[-20:])

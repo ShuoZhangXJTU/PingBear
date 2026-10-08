@@ -196,10 +196,32 @@ def run(args):
         status.update(state='ready', completed_date=date, completed_at=dt.datetime.now(TZ).isoformat(), source_date=source_date,
             count=len(papers), xhs_count=xhs_count, xhs_note=xhs_note, inbox_count=inbox_count,
             inbox_note=inbox_note, blog_count=blog_count, blog_note=blog_note, knowledge=knowledge_note, error=None)
+        # 有段落失败就主动发微信告警（同一天同一类故障只发一次）
+        problems = []
+        if xhs_note:
+            hint = '（多半是登录态过期，跟我说「重登小红书」我给你弹扫码）' if '内嵌数据' in xhs_note else ''
+            problems.append(f'小红书：{xhs_note}{hint}')
+        if blog_note:
+            problems.append(f'官方博客：{blog_note}')
+        if inbox_note:
+            problems.append(f'我的链接：{inbox_note}')
+        if problems:
+            try:
+                import alert
+                alert.send(f'⚠️ {date} 早报有段落没跑成功：\n' + '\n'.join(f'· {item}' for item in problems) +
+                    '\n（其余部分正常，明早会自动重试）', key='morning-partial:' + date)
+            except Exception as error:
+                print('告警发送失败:', type(error).__name__, error, flush=True)
         research.replace(status_path, status)
         print(f'Ready: {date}, source {source_date}, {len(papers)} papers, xhs {xhs_count}, links {inbox_count}', flush=True)
     except Exception as error:
         status.update(state='failed', error=str(error))
+        try:
+            import alert
+            alert.send(f'⚠️ {date} 早报整体失败：{error}\n（明天会自动重试；如果是网络或代理问题，麻烦你看一眼）',
+                key='morning-failed:' + date)
+        except Exception:
+            pass
         research.replace(status_path, status)
         home = ROOT/'今日简报.md'
         old = home.read_text(encoding='utf-8') if home.exists() else '# 科研早报\n'
