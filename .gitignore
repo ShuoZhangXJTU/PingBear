@@ -27,3 +27,6 @@
 # 登录态/会话文件
 cookies.json
 *.session.json
+
+# Obsidian Bases 临时文件
+未命名*.base
