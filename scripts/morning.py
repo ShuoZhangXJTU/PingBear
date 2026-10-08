@@ -17,7 +17,7 @@ STATE = ROOT / '.research'
 TZ = ZoneInfo('Asia/Shanghai')
 
 
-def summarize(papers, date):
+def summarize(papers, date, tolerant=False):
     output = STATE / 'reviews' / (date + '.auto.json')
     schema = STATE / 'review.schema.json'
     strings = ['id', 'title_zh', 'summary']
@@ -61,6 +61,10 @@ summary 只写一句日常、简短、顺口的话，通常 35–75 字，最多
     research.replace(output, {'papers': generated})
     ids = [p['id'] for p in generated]
     if len(ids) != len(set(ids)) or set(ids) != {p['id'] for p in papers}:
+        if tolerant:
+            covered = set(ids) & {p['id'] for p in papers}
+            if covered:
+                return output
         raise ValueError('中文生成没有完整覆盖全部论文，未发布')
     return output
 

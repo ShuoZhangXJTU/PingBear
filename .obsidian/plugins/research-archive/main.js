@@ -8,6 +8,8 @@ const valid = (date, id) => /^\d{4}-\d{2}-\d{2}$/.test(date || '')
 const safe = text => String(text || '').replace(/[\\/:*?"<>|\n\r\t]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 90);
 const entryPath = record => `论文/${safe((record.tags || [])[0] || '其他')}/${safe(record.title || record.id)}.md`;
 const sleep = ms => new Promise(resolve => window.setTimeout(resolve, ms));
+let Platform = { isDesktopApp: true };
+try { Platform = require('obsidian').Platform || Platform; } catch (e) { /* 移动端兜底 */ }
 
 class AskModal extends Modal {
   constructor(plugin, id) { super(plugin.app); Object.assign(this, {plugin, id}); }
@@ -262,6 +264,8 @@ module.exports = class ResearchArchive extends Plugin {
       callback: () => { this.runScript('scripts/inbox.py', ['process']); new Notice('开始处理收件箱里的链接，稍后看今日简报的「我的链接」段落'); }});
     this.addCommand({id: 'refresh-archive-state', name: '刷新归档状态',
       callback: () => { this.archiveMap = null; this.refresh(); new Notice('归档状态已刷新'); }});
+    this.addCommand({id: 'sync-cloud', name: '同步到云盘（手机阅读）',
+      callback: () => { this.runScript('scripts/sync_cloud.py', ['both']); new Notice('正在同步到云盘…'); }});
     this.addCommand({id: 'library-ask', name: '归档问答', callback: () => new LibraryModal(this).open()});
     this.addCommand({id: 'capture-idea', name: '记一条灵感', callback: () => new IdeaModal(this).open()});
     this.addRibbonIcon('pencil', '记一条灵感', () => new IdeaModal(this).open());
@@ -400,6 +404,8 @@ module.exports = class ResearchArchive extends Plugin {
   }
   // 在后台跑本地脚本（归档深读、体系重建、读收件箱链接）。
   runScript(script, args) {
+    const action = this.inferAction([script, ...(args || [])]);
+    if (!Platform?.isDesktopApp) return this.queueRequest({action, ...this.inferPayload(args)});
     try {
       const { execFile } = require('child_process');
       const base = this.app.vault.adapter.getBasePath();
@@ -410,6 +416,51 @@ module.exports = class ResearchArchive extends Plugin {
     } catch (error) {
       new Notice('知识体系任务没启动：' + error.message);
     }
+  }
+  inferPayload(args) {
+    const list = args || [];
+    const text = list.find(item => typeof item === 'string' && item && !item.startsWith('--')) || '';
+    const idIndex = list.indexOf('--id');
+    const questionIndex = list.indexOf('--question');
+    const queryIndex = list.indexOf('--query');
+    return {
+      id: idIndex >= 0 ? list[idIndex + 1] : text,
+      question: questionIndex >= 0 ? list[questionIndex + 1] : text,
+      text: queryIndex >= 0 ? list[queryIndex + 1] : text,
+      mode: list.includes('search') ? 'search' : 'ask',
+    };
+  }
+  // 手机端：把动作写进 .research/requests/，Mac 端 scripts/requests.py 会执行
+  async queueRequest(payload) {
+    try {
+      const dir = '.research/requests';
+      if (!(await this.app.vault.adapter.exists(dir))) await this.app.vault.adapter.mkdir(dir);
+      const name = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}.json`;
+      const body = {
+        action: payload.action === 'run' ? this.inferAction(payload.args) : payload.action,
+        ...payload,
+        queued_at: new Date().toISOString(),
+        device: 'mobile',
+      };
+      await this.app.vault.adapter.write(`${dir}/${name}`, JSON.stringify(body, null, 2));
+      new Notice('已发给电脑执行，稍后同步回结果（需 Mac 开机）');
+      return name;
+    } catch (error) {
+      new Notice('排队失败：' + error.message);
+    }
+  }
+  inferAction(args) {
+    const joined = (args || []).join(' ');
+    if (joined.includes('knowledge.py')) {
+      if (joined.includes(' ask')) return 'ask';
+      if (joined.includes(' deepen')) return 'deepen';
+      return 'rebuild';
+    }
+    if (joined.includes('library.py')) return 'library';
+    if (joined.includes('inbox.py')) return 'process-inbox';
+    if (joined.includes('ideas.py')) return 'idea';
+    if (joined.includes('catalog.py')) return 'catalog';
+    return 'unknown';
   }
   runKnowledge(args) { this.runScript('scripts/knowledge.py', args); }
   async archive(date,id,note='') {

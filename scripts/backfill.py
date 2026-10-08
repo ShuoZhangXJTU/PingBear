@@ -50,7 +50,7 @@ def tags_from_candidate(candidate):
     return (tags or ['其他'])[:5]
 
 
-def backfill_day(date, per_day=3, force=False):
+def backfill_day(date, per_day=3, force=False, full=False):
     """抓一天的 HF，挑 top-k 让模型写简介，其余写成轻量条目。"""
     digest = ROOT / '.research/digests' / f'{date}.json'
     if digest.exists() and not force:
@@ -62,13 +62,22 @@ def backfill_day(date, per_day=3, force=False):
     if not papers:
         return 0, 0
     ranked = sorted(papers, key=lambda p: -p.get('score', 0))
-    chosen = [p for p in ranked if p.get('score', 0) > 0][:per_day]
+    # full=True：这一天全部论文都写中文简介（历史补跑补全用）
+    chosen = ranked if full else [p for p in ranked if p.get('score', 0) > 0][:per_day]
     summarized = {}
+    import morning
     if chosen:
-        import morning
-        review_path = morning.summarize(chosen, date)
-        for paper in research.load(review_path)['papers']:
-            summarized[paper['id']] = paper
+        if full:
+            # 分批调用（每批 12 篇），避免单次 prompt 过大
+            for start in range(0, len(chosen), 12):
+                batch = chosen[start:start + 12]
+                review_path = morning.summarize(batch, date, tolerant=True)
+                for paper in research.load(review_path)['papers']:
+                    summarized[paper['id']] = paper
+        else:
+            review_path = morning.summarize(chosen, date)
+            for paper in research.load(review_path)['papers']:
+                summarized[paper['id']] = paper
     entries, number = [], 0
     for paper in ranked:
         number += 1
