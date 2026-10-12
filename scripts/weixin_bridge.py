@@ -160,6 +160,15 @@ def archive_intent(text, today):
     return (day.isoformat(), [], keyword) if keyword else None
 
 
+def star_intent(text):
+    """「收藏 <论文名片段>」/「取消收藏 …」→ (value, keyword)。"""
+    if '收藏' not in text:
+        return None
+    value = '取消' not in text
+    keyword = re.sub(r'(请|帮我|把|这篇|那篇|这个|那个|取消|收藏|星标|一下|论文|笔记|的|吧|吗|，|,|。|！|!|？|\?|\s)+', '', text).strip()
+    return (value, keyword) if keyword else None
+
+
 def day_entries(date):
     """汇总某天所有来源的条目（HF / 小红书 / 博客 / 我的链接）。"""
     entries = []
@@ -198,6 +207,19 @@ def response(text, history):
     today = dt.datetime.now(TZ).date()
     # 微信里转发过来的链接（小红书分享、arXiv、博客…）直接加进「我的链接」，第二天进日报
     stripped = (text or '').strip()
+    # 收藏 / 取消收藏（按论文名片段）
+    star = star_intent(stripped)
+    if star:
+        value, keyword = star
+        import star as star_script
+        result = star_script.set_star(keyword, value=value)
+        if result is None:
+            return f'没找到匹配「{keyword}」的归档论文，未改收藏。'
+        if isinstance(result, list):
+            titles = '\n'.join(item['title'][:40] for item in result[:5])
+            return f'匹配到 {len(result)} 篇，说得更具体一点：\n{titles}'
+        star_script.build()
+        return ('⭐️ 已收藏：' if value else '已取消收藏：') + result['title'] + '\n（收藏夹：索引/收藏.md）'
     urls = [u.rstrip('，。；)）】」"\'>') for u in re.findall(r'https?://[^\s]+', stripped)]
     if urls:
         import inbox

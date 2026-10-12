@@ -268,8 +268,59 @@ module.exports = class ResearchArchive extends Plugin {
       callback: () => { this.runScript('scripts/sync_cloud.py', ['both']); new Notice('正在同步到云盘…'); }});
     this.addCommand({id: 'library-ask', name: '归档问答', callback: () => new LibraryModal(this).open()});
     this.addCommand({id: 'capture-idea', name: '记一条灵感', callback: () => new IdeaModal(this).open()});
+    this.addCommand({id: 'unread-papers', name: '未读论文清单',
+      callback: async () => {
+        this.runScript('scripts/unread.py', ['build']);
+        await sleep(1500);
+        const file = this.app.vault.getAbstractFileByPath('索引/未读.md');
+        if (file) await this.app.workspace.getLeaf(false).openFile(file);
+        else new Notice('清单还在生成，稍等一下');
+      }});
+    this.addCommand({id: 'star-current', name: '收藏当前论文（再按一次取消）',
+      callback: async () => {
+        const file = this.app.workspace.getActiveFile();
+        if (!file || !file.path.startsWith('论文/')) { new Notice('先打开一篇 论文/ 里的笔记'); return; }
+        const fm = this.app.metadataCache.getFileCache(file)?.frontmatter || {};
+        const starred = String(fm.starred || '').toLowerCase() === 'true';
+        await this.app.fileManager.processFrontMatter(file, front => {
+          front.starred = !starred;
+          if (!starred) front.starred_at = new Date().toISOString().slice(0, 10);
+          else delete front.starred_at;
+        });
+        new Notice(starred ? '已取消收藏' : '⭐️ 已收藏');
+        this.runScript('scripts/star.py', ['build']);
+      }});
+    this.addCommand({id: 'open-stars', name: '打开收藏夹',
+      callback: async () => {
+        this.runScript('scripts/star.py', ['build']);
+        await sleep(1500);
+        const file = this.app.vault.getAbstractFileByPath('索引/收藏.md');
+        if (file) await this.app.workspace.getLeaf(false).openFile(file);
+      }});
+    this.addCommand({id: 'open-recent', name: '最近操作过的归档',
+      callback: async () => {
+        this.runScript('scripts/star.py', ['build']);
+        await sleep(1500);
+        const file = this.app.vault.getAbstractFileByPath('索引/最近.md');
+        if (file) await this.app.workspace.getLeaf(false).openFile(file);
+      }});
+    this.addRibbonIcon('star', '收藏当前论文', async () => {
+      const file = this.app.workspace.getActiveFile();
+      if (!file || !file.path.startsWith('论文/')) { new Notice('先打开一篇归档笔记'); return; }
+      const fm = this.app.metadataCache.getFileCache(file)?.frontmatter || {};
+      const starred = String(fm.starred || '').toLowerCase() === 'true';
+      await this.app.fileManager.processFrontMatter(file, front => {
+        front.starred = !starred;
+        if (!starred) front.starred_at = new Date().toISOString().slice(0, 10);
+        else delete front.starred_at;
+      });
+      new Notice(starred ? '已取消收藏' : '⭐️ 已收藏（索引/收藏）');
+    });
     this.addRibbonIcon('pencil', '记一条灵感', () => new IdeaModal(this).open());
     this.registerEvent(this.app.workspace.on('file-open', () => this.attachToc()));
+    // 打开归档笔记就自动标记已读（未读红点靠这个）
+    this.registerEvent(this.app.workspace.on('file-open', file => this.markRead(file)));
+    window.setTimeout(() => this.reportUnread(), 4000);
     this.registerEvent(this.app.workspace.on('active-leaf-change', () => this.attachToc()));
     this.registerEvent(this.app.vault.on('modify', file => {
       if (/(今日简报|日报)/.test(file?.basename || '')) this.attachToc();
@@ -285,6 +336,31 @@ module.exports = class ResearchArchive extends Plugin {
       if (!c.box.isConnected) this.controls.delete(c);
       else c.update();
     }
+  }
+  // 打开 论文/ 下的笔记 → 标记 status: read + opened 日期
+  async markRead(file) {
+    try {
+      if (!file || !file.path.startsWith('论文/')) return;
+      const cache = this.app.metadataCache.getFileCache(file)?.frontmatter || {};
+      if (cache.status === 'read') return;
+      await this.app.fileManager.processFrontMatter(file, front => {
+        front.status = 'read';
+        front.opened = new Date().toISOString().slice(0, 10);
+      });
+      this.unreadCache = null;
+    } catch (error) { /* 标记失败不影响阅读 */ }
+  }
+  // 启动时数一下未读，用通知提示（等价于小红点）
+  async reportUnread() {
+    try {
+      if (!Platform?.isDesktopApp) return;
+      const { execFile } = require('child_process');
+      const base = this.app.vault.adapter.getBasePath();
+      execFile('/usr/bin/python3', [`${base}/scripts/unread.py`, 'count'], {cwd: base}, (error, stdout) => {
+        const count = parseInt((stdout || '').trim(), 10);
+        if (!error && count > 0) new Notice(`📕 还有 ${count} 篇归档论文没点开过（命令面板搜「未读论文清单」）`, 8000);
+      });
+    } catch (error) { /* 忽略 */ }
   }
   // 归档笔记现在按「主题/论文名」存放，用 frontmatter 里的 entry_id 反查。
   findArchived(id) {

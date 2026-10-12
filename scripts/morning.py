@@ -50,7 +50,12 @@ summary 只写一句日常、简短、顺口的话，通常 35–75 字，最多
     if result.returncode:
         raise RuntimeError('中文生成失败，详见 ' + str(log))
     # Validate coverage before publication; publish performs field validation too.
-    generated = research.load(output)['papers']
+    try:
+        generated = research.load(output)['papers']
+    except Exception:
+        # 模型偶尔先解释再给 JSON，或输出被截断：用容错解析兜一次
+        import knowledge
+        generated = knowledge.load_json_tolerant(output)['papers']
     # Keep every tag inside the fixed vocabulary so 论文/ stays searchable by tag.
     for paper in generated:
         tags = [t for t in paper.get('tags', []) if t in research.TAGS]

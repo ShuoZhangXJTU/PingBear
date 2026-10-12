@@ -418,6 +418,14 @@ def process_note(note, target):
         shot.pop('found', None)
     if not entries:
         return []
+    # 同一条笔记里「认不出论文」的截图（系列讲解、多页说明）合成一条，避免刷屏
+    resolved = [item for item in entries if item.get('arxiv')]
+    unresolved = [item for item in entries if not item.get('arxiv')]
+    if len(unresolved) > 2:
+        unresolved.sort(key=lambda item: -len(item.get('ocr', '')))
+        merged = dict(unresolved[0])
+        merged['merged_count'] = len(unresolved)
+        entries = resolved + [merged]
     reviews = summarize(detail, entries, link)
     records = []
     for entry in entries:

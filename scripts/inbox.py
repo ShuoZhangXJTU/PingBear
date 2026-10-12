@@ -31,7 +31,8 @@ TZ = ZoneInfo('Asia/Shanghai')
 URL = re.compile(r'https?://[^\s<>()（）「」【】]+')
 ARXIV = re.compile(r'(?:arxiv\.org/(?:abs|pdf|html)/|arXiv[:\s]*)?(?<!\d)(\d{4}\.\d{4,5})(?:v\d+)?(?!\d)', re.I)
 HF_PAPER = re.compile(r'huggingface\.co/papers/(\d{4}\.\d{4,5})', re.I)
-XHS_NOTE = re.compile(r'xiaohongshu\.com/explore/([0-9a-f]{16,32})', re.I)
+# 小红书分享链接有两种形态：/explore/<id> 和 /discovery/item/<id>（App 复制链接常用后者）
+XHS_NOTE = re.compile(r'xiaohongshu\.com/(?:explore|discovery/item)/([0-9a-f]{16,32})', re.I)
 XHS_TOKEN = re.compile(r'xsec_token=([^&\s]+)')
 
 INBOX_TEMPLATE = '''# 我的链接

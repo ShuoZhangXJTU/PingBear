@@ -39,6 +39,17 @@ def send(text, key=None, force=False):
     if key and not force and sent_today(key, day):
         print(f'（{key} 今天已告警过，跳过）')
         return False
+    # 优先走 PushPlus（不受微信会话窗口限制），失败再退回微信
+    try:
+        import notify
+        if notify.token():
+            notify.send('⚠️ 科研早报告警', text)
+            if key:
+                mark(key, day)
+            print('✅ 已通过 PushPlus 发出告警')
+            return True
+    except Exception as error:
+        print('PushPlus 告警失败，改用微信：', type(error).__name__, str(error)[:80])
     sys.path.insert(0, str(ROOT / 'scripts'))
     import weixin_bridge
     try:
