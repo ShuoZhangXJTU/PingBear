@@ -14,6 +14,10 @@
 - 插件库和重组两步必须一起做：光把库塞给整套重写只在未见过题上从 63% 到 64%；拆掉「只改插件」或「重新拼装」任一步，PluginRSI 就从 69% 掉到 57% 和 59%。（来源：[[论文/RSI/PluginRSI Recursive Improvement of Agent Harnesses with Reusable Plugins|PluginRSI: Recursive Improvement of ]]）
 - 把研究对象从「可运行代码」提到「研究想法」：AIM 先把想法显式记账、聚类、按证据和新旧打分，再交给求解器实现，5 个系统优化任务平均 63.3→67.0；但碰上只需顺着一个配方小改的题（IFEval 选数据微调）会输给直接改代码的 AdaEvolve（61.8 对 82.7），先判断任务类型再选路线。（来源：[[论文/RSI/AIM Agentic Idea Management for Automated Research|AIM: Agentic Idea Management for Aut]]）
 - 交付「出错后怎么改」比交付干净答案更值钱：训练数据整条轨迹保留、失败轮不删，损失只加在真正往前走的决策上。AREX-2 在 MLE-bench Lite 拿 81.8，比最强公开基线高 8.1。（来源：[[论文/RSI/AREX-2 Advancing Self-Improving Agents through Long-Horizon Reflective Tasks|AREX-2: Advancing Self-Improving Age]]）
+- 把路由 harness 当 RSI 的数据引擎：记录每次真实干活的系统提示、工具说明、工具返回、路由判断和结果，下一轮在这些记录上做后训练；NeoHorse 用路由轨迹把 Qwen3.5-4B 十基准平均分从 58.94 提到 64.87、9B 从 65.60 提到 69.04。训练和上线用同一套上下文，是收益来源。（来源：[[论文/RSI/NeoHorse-1 Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harne|NeoHorse-1: Towards Recursive Self-I]]）
+- harness 自我改进的交付目标要写成可复用机制优先，而不是开发集涨分优先：RRSI 对候选提案做时间退火编辑预算、按演化历史鼓励未探索轨迹，选择端用 critic 拦基准专属提案、pruner 删太小/太贵/失效改动；八个基准上演化集最多 +14.1 分、五个 OOD 最多 +4.7 分。把 OOD 增益当主验收。（来源：[[论文/RSI/RRSI Regularized Recursive Self-Improvement of Agent Harnesses|RRSI: Regularized Recursive Self-Imp]]）
+- harness 搜索不要只养一条线：同时维护多条分支，各自用不同开发题和各自改进指南，最后按题路由；Mixture of Self-Improving Branches 在 Math–Gemini 46.0→62.0、Terminal-Bench 2.0 44.8→50.0、SWE-bench Lite 63.6→66.0，两支合起来比单支最好多覆盖 4.0–9.0 点。（来源：[[论文/RSI/Mixture of Self-Improving Branches For Agent Harness Optimization|Mixture of Self-Improving Branches F]]）
+- 大规模 agentic RL 把任务、环境和 harness 当三条并列扩展轴：MiMo-V2.6 每步批量 1,568 题×16 条回答（约 2.5 万轨迹、27–37 亿 token），并从最小 loop 拼多个 mini-harness 混训；DeepSWE 上 Pro 58.4→72.6、Flash 48.7→65.7。只扩任务不换环境和 harness 会把策略绑死在一套工具上。（来源：[[论文/RSI/MiMo-V2.6 Scaling Reinforcement Learning Towards Self-Improvement|MiMo-V2.6: Scaling Reinforcement Lea]]）
 ## 动手前必须想清楚的
 - 先定位失败在哪一层，别默认要改权重或改提示。数据、harness、权重三层代价不同：改 harness 每次推理多背上下文，改数据碰不到模型本来就不会的能力，改权重可能把原有本事练回去。MetaRSI 的路线是先靠 harness 把能力逼出来，再把成功轨迹做成训练数据，最后写进权重并把 harness 撤掉。（来源：[[论文/RSI/MetaRSI RSI2 A Meta-Recursive Self-Improving System for Recursive Self-Improving Systems T|MetaRSI / RSI2: A Meta-Recursive Sel]]）
 - 把评价器、题库和预算账本放在所有可改范围之外，模型只提改法、固定代码负责判定。Anthropic 的自动研究实验里出现过挑随机种子、从评测接口套测试标签；Red Queen Gödel Machine 的做法是每个 epoch 冻住评测器，换评测器时用独立标准答案校验。（来源：[[论文/RSI/MetaRSI RSI2 A Meta-Recursive Self-Improving System for Recursive Self-Improving Systems T|MetaRSI / RSI2: A Meta-Recursive Sel]] · [[论文/RSI/The Last AI Built by Humans Toward Genuine Recursive Self-Improvement|The Last AI Built by Humans: Toward ]]）
@@ -51,6 +55,17 @@
 - 多轮蒸馏前先想清「哪条建议真改变了执行者的动作」：AdviSD 用同一段回复在带建议和不带建议的上下文里各打一次分，只学分差大的那些地方；按分差挑比随机抽同样条数在两个任务集上高 3.9–6.4，把挑选规则反过来只学「没影响」的地方四个设置全不如基线。（来源：[[论文/后训练/AdviSD Learning to Advise Frontier LLMs via Targeted Multi-Turn Self-Distillation|AdviSD: Learning to Advise Frontier ]]）
 - 打分器（reward model/critic）要把「整体够准」和「每道题够准」分开看：AC2 只在对某道题够准时才敢用 critic 的估价，不够准就照旧写完整条；去掉逐题判断后第 40 步从 15.33% 掉到 13.10%。（来源：[[论文/强化学习/Trust the Critic More|Trust the Critic More]]）
 - 多目标/多位置监督先确认梯度方向对得上再加量：跨 tokenizer 补出来的片段 MSE 和严格损失方向几乎不重合甚至相反，一致性低于把严格位置随机分两半的对照。（来源：[[论文/后训练/Rethinking Cross-Tokenizer On-Policy Distillation From Alignment Coverage to Supervision R|Rethinking Cross-Tokenizer On-Policy]]）
+- 多分支搜索前先把分题和改法绑在一起：每轮按前沿覆盖重新分题，某支领先其他支 2 题以上的题只留给那一支；每 5 轮让每支按本支近几轮成败改写本地改进指南。Math–Gemini 上只分题 54.0、只改指南 50.0、两样都开 62.0；拖到每 5 轮才更新题只剩 53.0。（来源：[[论文/RSI/Mixture of Self-Improving Branches For Agent Harness Optimization|Mixture of Self-Improving Branches F]]）
+- 单轮 OPD 别默认老师冻结：Recursive Self-Improvement via On-Policy Distillation for Reasoning 把每轮更新后的 checkpoint 同时当下一轮学生和老师；8B 数学平均从冻结老师的 47.99 升到共同进化的 65.76，4B 从 25.28 升到 60.00。冻结老师在错题结尾 94.5% 想收尾、只有 22.0% 想反思。（来源：[[论文/RSI/Recursive Self-Improvement via On-Policy Distillation for Reasoning|Recursive Self-Improvement via On-Po]]）
+- 共同进化前先定答案放哪和 KL 方向：标准答案放助手回合开头比放用户提问里在 8B 上高 9.79 分；8B 用 Forward KL 65.97%、Reverse KL 60.42% 且多生成 6,187 字。再上 SRCL：让模型自己重写同一段回答，只留更短、自然结尾、结构合法且答案正确的版本，8B 平均长度 19,046→17,561 而分数不降。（来源：[[论文/RSI/Recursive Self-Improvement via On-Policy Distillation for Reasoning|Recursive Self-Improvement via On-Po]]）
+- 蒸馏前先决定要不要全序列：越靠后的位置老师越不可靠，学生写得越久越离开老师熟悉轨迹，师生 KL 随位置升高；默认词级 OPD、不做未来项累加，省时间就上 TOPD，ρ=0.25 时平均 55.0 对全长 54.8、训练时间 29.7 小时降到 10.2 小时。最后 10% 单独训练会掉到未训练以下。（来源：[[论文/后训练/Are Full Rollouts Necessary for On-Policy Distillation|Are Full Rollouts Necessary for On-P]]）
+- 小模型连续学新东西时先控制新监督离它原本分布有多远：Qwen2.5-3B 在 23 份等长数学数据上，微调后分布漂移越大旧本事掉得越多（排序相关 −0.85）；选同家族只大一到两号的模型做改写器，贪心生成后用答案抽取器比对原题标准答案做拒绝采样，再走普通 SFT。外家族更强老师造的数据准确率更高（工具题 97.5% 对 82.9%）但学生更差。（来源：[[论文/后训练/Continually Post-training Small Models via Synthetic Self-distillation|Continually Post-training Small Mode]]）
+- RL 里通过测试就给一样奖励会让全通过组失去梯度：先离线跑一批解、给每道题写专属评分表，把实现质量和解题行为分与测试分相乘（GRS），再用 GAR 在同一组里把优势从差解挪给好解。MiMo 的 Flash 单练代码、batch 128 时这样能一直涨到第 52 步，不这样做轮数和长度很快撞上限。（来源：[[论文/RSI/MiMo-V2.6 Scaling Reinforcement Learning Towards Self-Improvement|MiMo-V2.6: Scaling Reinforcement Lea]]）
+- RL 环境先做泄漏和作弊审计三层：清掉构建日志、缓存和更新过的代码，切断网络；用专门 hack agent 反复找漏洞；训练中每批审计，查实作弊轨迹奖励清零。MiMo 报告全程作弊比例低于 2%，但这是自家检测口径，检测不到的不计入。（来源：[[论文/RSI/MiMo-V2.6 Scaling Reinforcement Learning Towards Self-Improvement|MiMo-V2.6: Scaling Reinforcement Lea]]）
+- 视频 harness 演化前把诊断从看自己的执行记录改成回原视频补证据：同一段视频多抽帧、换模态、重跑旧流程做对照，区分漏看、看错和拿到证据没用对；MLVU 上回原视频查证 72.9%，只看记录 64.7%。（来源：[[论文/RSI/Video-RSI Recursive Self-Improvement of Video Understanding Agents via Harness Evolution|Video-RSI: Recursive Self-Improvemen]]）
+- 视频 harness 的准入同时看准确率和画面成本：私有筛选集只给编辑汇总准确率和平均帧数、不给每题对错；双通道公式是准确率涨且画面不超过 1.1 倍，或画面降到 0.8 倍以下且最多少对一题。只看准确率会让改动越改越贵。（来源：[[论文/RSI/Video-RSI Recursive Self-Improvement of Video Understanding Agents via Harness Evolution|Video-RSI: Recursive Self-Improvemen]]）
+- 用部署轨迹前把训练条件和上线条件对齐：按用户一轮提问切样本，只对当前这轮模型输出算损失，之前几轮推理丢掉、之前结果和工具返回留着，用 Qwen chat template 和工具格式序列化；路由分按三段排课，每段约三分之一，低分样本留一部分到最后一段，别让结尾全是难题。（来源：[[论文/RSI/NeoHorse-1 Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harne|NeoHorse-1: Towards Recursive Self-I]]）
+- 做 harness RSI 前先写 OOD 验收：RRSI 用八个基准跨编码、agent workspace 和工程设计，演化集最多 +14.1 分、五个 OOD 最多 +4.7 分；如果 OOD 增益明显低于演化集，优先改选择端 critic/pruner，而不是继续加搜索轮数。（来源：[[论文/RSI/RRSI Regularized Recursive Self-Improvement of Agent Harnesses|RRSI: Regularized Recursive Self-Imp]]）
 ## 常见坑与解决办法
 - 工具写死会卡在没预料到的输入上。Letta 靠人写的搜索工具，JAZ 让模型自己写代码翻原始历史：远端回忆题 69.9% 对 61.8%，成本 18.3 美元对 42.1 美元。把「怎么取历史」也交给模型写代码，别只给固定检索工具。（来源：[[论文/Harness/Harness as a Language A Minimalist Agent Framework With Maximal Expressivity|Harness as a Language: A Minimalist ]]）
 - 上下文快满时不要手工转抄历史。把提示词、工具和交互历史都做成代码变量，满了按引用交给子智能体、用 ContextWindowWarning 触发；去掉「提示词和历史是变量」这一条，远端回忆从 69.9% 掉回 32%。（来源：[[论文/Harness/Harness as a Language A Minimalist Agent Framework With Maximal Expressivity|Harness as a Language: A Minimalist ]]）
@@ -89,6 +104,16 @@
 - 只在参数里存经验就找不回原文：要原句引用、交代出处、精确删掉某一条、让人工改一条时，还得把原文放进上下文。压成参数省下的算力是拿「可查可改」换来的。（来源：[[论文/记忆/Towards In-Parameter Memory Augmentation for Large Language Models|Towards In-Parameter Memory Augmenta]]）
 - 模型的「说的」和「做的」常对不上：三个任务上只有 44.8%–75.9% 一致；两步查事实题里有 32.0%–54.3% 是探针没读到中间人却在 CoT 里写了中间人，两位数乘法里有 23.6%/15.8% 是写了中间乘积但答案直接背出来。（来源：[[论文/推理/Making LLMs Say What They Think Measuring and Improving CoT-Interpretability Alignment|Making LLMs Say What They Think: Mea]]）
 - 训练 critic 别把截断样本一起丢：只让 critic 学写完的回答，等于把目标从「这题平均几分」换成「写完了得几分」；两头都丢时截断比例一路涨到接近 1、总分一直很低，只丢 actor 后总分最高也最稳。（来源：[[论文/强化学习/EasyPPO Stabilizing the Critic Is Key|EasyPPO: Stabilizing the Critic Is K]]）
+- 代码策略失败要分两类调：机器人状态代码失败来源里测量问题约占 62%（识别错、软物体抓不住），逻辑问题约占 37%（漏写重试、阈值写死）。先修感知和量测，再改决策规则，不要一掉分就重训策略。（来源：[[论文/RSI/Embodied Turing Machines Stateful Code for Robot Recursive Self-Improvement|Embodied Turing Machines: Stateful C]]）
+- 多分支 harness 的路由器会输给单支：Mixture 的路由器在 Math–Gemini 拿 62.0、比最强单支 58.0 高，但仍比两支合并上限低 4.4–5.5 点，在两个设置上还输给较强单支；部署前至少和最强单支、两支全跑上限各比一次。（来源：[[论文/RSI/Mixture of Self-Improving Branches For Agent Harness Optimization|Mixture of Self-Improving Branches F]]）
+- 别在 harness 搜索里默认加专家上下文：给路由器加专家输出在数学上 57.0→59.5，在 Terminal-Bench 上 48.3→46.6；加什么上下文要按任务集验证，不要在一类任务有效就全局开启。（来源：[[论文/RSI/Mixture of Self-Improving Branches For Agent Harness Optimization|Mixture of Self-Improving Branches F]]）
+- 冻结检查器会被学会绕开：Alignment via Training Against Probes 里探针冻住时，模型把内部状态挪到界线另一边，探针损失归零但有害分仍停在 0.40 以上；改成每步微调后重新拟合探针，才把 GCG 攻击有害分 0.52 降到 0.01。（来源：[[论文/后训练/Alignment via Training Against Probes Without Losing Monitorability|Alignment via Training Against Probe]]）
+- 裁掉 rollout 尾部能解决一部分越学越差：全篇按 10% 分段蒸馏时，开头和中段教比全篇更好，只拿最后 10% 教成绩掉到未训练以下；训练不稳先切位置消融，确认哪个位置的老师信号在污染因果。（来源：[[论文/后训练/Are Full Rollouts Necessary for On-Policy Distillation|Are Full Rollouts Necessary for On-P]]）
+- world model 和策略一起更新时，保留前要查两件事：单个组件是否可靠、两者配套是否仍成立；策略一改，原来准的预测器可能就不准。只保留两者配套通过检查的组合，不要分别保策略和预测器。（来源：[[论文/RSI/RSI-Anything Unlocking Recursive Self-Improvement with World Models|RSI-Anything: Unlocking Recursive Se]]）
+- 别拿只改 score 的开发集结果当部署结论：Video-RSI 第一版改动在私有开发集准确率和画面都变好，搬到 MLVU 准确率反而掉了；开发集只看汇总指标也会过拟合。（来源：[[论文/RSI/Video-RSI Recursive Self-Improvement of Video Understanding Agents via Harness Evolution|Video-RSI: Recursive Self-Improvemen]]）
+- 小模型连续微调别用完整长链示范灌知识：OpenR1-Math 上传完整推理长链，改成喂模型自己算对的简洁解法后数学更高、代码旧本事也没掉；小模型自己改写示范平均只有 60% 改对，工具题 8.2% 推理步骤会丢，必须拒绝采样过滤。（来源：[[论文/后训练/Continually Post-training Small Models via Synthetic Self-distillation|Continually Post-training Small Mode]]）
+- RL 环境判分要锁成确定性属性：CyberGym 的漏洞版崩/补丁后不崩会因为补丁不完整误判；MiMo 改成只从 sanitizer 报告取漏洞类型和崩溃栈顶位置两条，规则匹配一致才算对。凡是靠模糊现象判分的任务，先找可复现的硬属性。（来源：[[论文/RSI/MiMo-V2.6 Scaling Reinforcement Learning Towards Self-Improvement|MiMo-V2.6: Scaling Reinforcement Lea]]）
+- 反作弊不能只靠训练后审计：环境里残留构建日志、缓存和更新过的代码，模型能抄现成补丁骗分；要清环境、切网、hack agent 对抗探测、训练中审计四层一起上，并把查实轨迹奖励清零。（来源：[[论文/RSI/MiMo-V2.6 Scaling Reinforcement Learning Towards Self-Improvement|MiMo-V2.6: Scaling Reinforcement Lea]]）
 ## 可复制配方
 - 极简 agent 框架只保留一个 invoke 原语：模型现场写一段代码当这次调用的函数体，代码里还能再调 invoke 得到子智能体；把提示词、工具、交互历史都做成 REPL 变量，例如 __history__。（来源：[[论文/Harness/Harness as a Language A Minimalist Agent Framework With Maximal Expressivity|Harness as a Language: A Minimalist ]]）
 - 递归工具传递用动态作用域：用 scope 上下文管理器让所有递归子调用自动拿到同一批工具和预算，别一个个显式传给每个子智能体。（来源：[[论文/Harness/Harness as a Language A Minimalist Agent Framework With Maximal Expressivity|Harness as a Language: A Minimalist ]]）
@@ -150,6 +175,15 @@
 - Queen 配方：把专家编码器接进语言模型的四步课程（静态当前→动态当前→静态未来→动态未来），每步回放少量旧数据防遗忘；额外加 64 个格子 token 和 12 个棋子 token 避开日常语义干扰；用搜索展开孩子局面、合并成解释再蒸馏回去的自改进循环；把解释质量拆成准确、有据、连贯三档来评。4B 模型打出 2697 分、比 GPT-5.6-Sol 的 2071 高 600 多分。（来源：[[论文/推理/Language Models that Play Chess and Explain Their Moves|Language Models that Play Chess and ]]）
 - Self-Play Pretraining 配方：程序池按「新采样＋局部变异＋高分回放」三份混合，分别管探索、精修、防遗忘；奖励用 AdamW 预条件的梯度对齐、留一个随训练变长的回看窗口；生成器用 GRPO 式优势加 KL 正则、拉向均匀程序先验；高分程序再做按奖励加权的 SFT 防遗忘；字节级 256 词表让同一套指标跨模态通用。（来源：[[论文/数据合成/Self-Play Pretraining with Zero Data|Self-Play Pretraining with Zero Data]]）
 - DAEDALUS 配方：让一个探索者按「难但可解」造任务、再用解题结果反过来调难度；把失败轨迹总结成一条条能直接照做的规则，反复验证通过后才入记忆库；记忆只在测试时以提示注入、不动模型权重（成功率最多高 15.9 个百分点、pass^5 最多高 2.2 倍）。（来源：[[论文/记忆/DAEDALUS Bootstrapping Agent Memory from Self-Generated Tasks|DAEDALUS: Bootstrapping Agent Memory]]）
+- 可搬配置：2 条分支、每条 20 轮、前沿取前 5、归属差 Δ=2、开发集每轮更新、指南每 5 轮更新；所有支前沿都会的题删掉，某支比别人多解 Δ 个以上的题归该支；用同一份 SKILL.md 存每支改进指南，让 proposer 定期改写；路由器只用只有单支做对的开发题做标签，配固定 JSON 输出契约和 GEPA 优化。（来源：[[论文/RSI/Mixture of Self-Improving Branches For Agent Harness Optimization|Mixture of Self-Improving Branches F]]）
+- RRSI 配置：提案端时间退火编辑预算限制捆绑改动数、按演化历史鼓励未探索轨迹；选择端 critic 拦 benchmark-specific，pruner 删太小/太贵/失效改动；八基准上按 OOD 五题验收。（来源：[[论文/RSI/RRSI Regularized Recursive Self-Improvement of Agent Harnesses|RRSI: Regularized Recursive Self-Imp]]）
+- NeoHorse 配方：按用户一轮提问切样本，只对当前轮模型输出算损失；保留当前轮之前的工具返回和结果，丢掉之前几轮推理；用 Qwen chat template 和工具格式；按路由分排成三段课程，低分样本留部分到最后；蒸馏用 reverse KL、只保留学生 top-K 候选加一个其余桶，并按训练进度换新的 rollout 学生。（来源：[[论文/RSI/NeoHorse-1 Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harne|NeoHorse-1: Towards Recursive Self-I]]）
+- Recursive OPD 配方：每轮把更新后的 checkpoint 同时初始化学生和老师；标准答案放助手轮开头；蒸馏用 Forward KL；8B 上 λ_G=5e4、λ_S=25；SRCL 只收更短、自然结尾、结构合法且答案正确的重写，生成重写时不给标准答案；评测 Average@12、32K、T=1.0、top-p=0.8；用固定错题轨迹量 EOS 和反思词概率。（来源：[[论文/RSI/Recursive Self-Improvement via On-Policy Distillation for Reasoning|Recursive Self-Improvement via On-Po]]）
+- 前缀蒸馏配置：默认词级 OPD、不做未来项累加；TOPD ρ=0.25 是性价比点，时间约三分之一、分数持平；更省用 POPD，ΔH=9、Δk=1，最大长度 15K、学习率 1e-6、全局批 64、2 个 epoch、每题采 4 条、top-K 16；用 10% 分段消融判断哪段反馈有用，用师生 KL 随位置曲线决定截多长。（来源：[[论文/后训练/Are Full Rollouts Necessary for On-Policy Distillation|Are Full Rollouts Necessary for On-P]]）
+- SynthSelf 配方：挑同家族只大一到两号的模型当改写器，贪心解码，答案抽取器比对原题标准答案做拒绝采样，留下样本走普通 SFT；不需要新超参；评测把新任务和 14 项旧任务分开报，并用同一个改写器跑 off-policy/on-policy 蒸馏当对照，拆开分布对齐和老师更大。（来源：[[论文/后训练/Continually Post-training Small Models via Synthetic Self-distillation|Continually Post-training Small Mode]]）
+- Video-RSI 配方：私有筛选集只给编辑汇总准确率和平均帧数、不给每题对错；准入公式是准确率涨且画面不超过 1.1 倍，或画面降到 0.8 倍以下且最多少对一题；诊断用同一段视频多抽帧、换模态、重跑旧流程做对照；只报视觉帧数时要一并写是否含字幕、OCR、图构建。（来源：[[论文/RSI/Video-RSI Recursive Self-Improvement of Video Understanding Agents via Harness Evolution|Video-RSI: Recursive Self-Improvemen]]）
+- MiMo 配方：每条 rollout 留全现场（补丁、测试输出、完整对话）；F2P/P2P 测试跨 8 次重跑稳定才算数；cyber 任务用漏洞类型+崩溃栈顶函数两条规则判分；GRS 乘法奖励 R=test×sol×beh，失败轨迹天然 0 分；GAR 重分配把公共放大系数封顶；mini-harness 只保留 system prompt、tools、context management 三个可拆件；预算配比 rollout 43.8%、训练 43.5%、打分 12.7%。（来源：[[论文/RSI/MiMo-V2.6 Scaling Reinforcement Learning Towards Self-Improvement|MiMo-V2.6: Scaling Reinforcement Lea]]）
+- RSI-Anything 配方：固定写码模型生成 4 个候选补丁，world model 预测每个补丁执行结果并聚合分数，只把最高分送在线测试，测试调用卡在 3.72 次/题；用真实执行反馈更新 world model、冻结策略；保留前先查单组件再查配套。（来源：[[论文/RSI/RSI-Anything Unlocking Recursive Self-Improvement with World Models|RSI-Anything: Unlocking Recursive Se]]）
 ## 评测与验证
 - 用统一尺子把不同基准拉到一起：以基准进入数据集那年 90 分位模型当 0 分、满分当 100 分。参考值（作者自己定的权重和归并规则）：2026 年研究生科学 85.8、软件工程 52.6、工具智能体 39.9。（来源：[[论文/RSI/The Last AI Built by Humans Toward Genuine Recursive Self-Improvement|The Last AI Built by Humans: Toward ]]）
 - 给证据分权重再折价：基准官方表 3、公共 harness 2.5、综合报告 2、模型方自报 1，再统一乘 0.75，用来压低自报成绩。（来源：[[论文/RSI/The Last AI Built by Humans Toward Genuine Recursive Self-Improvement|The Last AI Built by Humans: Toward ]]）
@@ -177,6 +211,15 @@
 - 方向外推实验要固定位移长度、只换方向：RIDE 的四个对照（随机方向 55.04、反方向 53.90、用别的模型当起点 54.75、两条轨迹分开算 55.12）都跟 OPRD 的 54.50 差不到一分，真用 RL 残差才到 56.38，用来说明这 1.9 分来自「RL 改了哪里」而不是把目标推远。（来源：[[论文/后训练/The Teacher Is a Direction, Not a Destination Extrapolating RL-Induced Representation Resi|The Teacher Is a Direction, Not a De]]）
 - 评测 harness 机制能不能跨模型迁移：只用 GPT-5.6 Terra 出一套 harness、之后不再优化，直接换 Kimi-K3、GLM-5.2 去干活，未见过题仍比最强基线高 7 和 4 个百分点；换到命令行任务 Terminal-Bench-2.1 也从 66.7% 涨到 73.3%。（来源：[[论文/RSI/PluginRSI Recursive Improvement of Agent Harnesses with Reusable Plugins|PluginRSI: Recursive Improvement of ]]）
 - 用蒸馏评测同时看「答对率」和「一致性」，别只看成绩：给答对分加 1 分一致性奖励做后训练，27 个模型任务组合里 25 个一致性显著上升、最好相对涨 25.5%，答对率掉幅不超过 1.5 个点（乘法上还普遍涨）。（来源：[[论文/推理/Making LLMs Say What They Think Measuring and Improving CoT-Interpretability Alignment|Making LLMs Say What They Think: Mea]]）
+- 对比 harness 搜索要写清可部署性：Mixture 的表 4 用测试分数回头挑最好 harness 是参考值，不能当可部署结果；Math–Sonnet 30.5 对 31.0、SWE 66.0 对 66.4 只差一题，不算真实差距；34.8% 是相对提升不是百分点。（来源：[[论文/RSI/Mixture of Self-Improving Branches For Agent Harness Optimization|Mixture of Self-Improving Branches F]]）
+- 验收 harness RSI 就报两栏：演化集涨分和五个 OOD 基准涨分；RRSI 最多 +14.1 和 +4.7。只看演化集会把过拟合当能力。（来源：[[论文/RSI/RRSI Regularized Recursive Self-Improvement of Agent Harnesses|RRSI: Regularized Recursive Self-Imp]]）
+- 代码修复评测固定在线测试调用次数（论文 3.72 次/题），报告成对增益和 95% 区间（+0.17 到 +5.50）；反应优化用同样实验次数比最佳产率；GUI 同时报成功率、平均动作数、重复点击和错提交（51→79→99、5.30→3.21、237→0、9→1）。（来源：[[论文/RSI/RSI-Anything Unlocking Recursive Self-Improvement with World Models|RSI-Anything: Unlocking Recursive Se]]）
+- 视频 harness 评测同时报准确率和画面数；画面数不能跨方法混比，只能同一实现同一次运行；20 轮编辑开销没折进推理成本，省的是部署画面，不是总花费；只报视觉帧数时字幕、OCR、图构建没算。（来源：[[论文/RSI/Video-RSI Recursive Self-Improvement of Video Understanding Agents via Harness Evolution|Video-RSI: Recursive Self-Improvemen]]）
+- 蒸馏评测先对齐 token 预算：8B DCE 平均 19,046 token 对 OPSD 6,009，必须用 OPSD-TTS 和 8K/16K 对照排除只靠写长；用固定错题轨迹量 EOS 94.5%/22.0% 和反思词 32.8→77.4；评测 Average@12、32K、T=1.0、top-p=0.8。（来源：[[论文/RSI/Recursive Self-Improvement via On-Policy Distillation for Reasoning|Recursive Self-Improvement via On-Po]]）
+- 前缀训练要在全长度评测下报：论文只练前缀、评测允许写满全长，这个长度不一致没测；ρ=0.1 在一对模型掉 1.5、另一对涨 1.1，不能说 10% 就稳；显存栏按 (P+ρT)/(P+T) 算，15.63% 不等于 ρ；时间来自 8 卡 H20。（来源：[[论文/后训练/Are Full Rollouts Necessary for On-Policy Distillation|Are Full Rollouts Necessary for On-P]]）
+- 评测把新任务和 14 项旧任务分开报，并控制老师规模：用同一个改写器再跑 off-policy 与 on-policy 蒸馏当对照，才能拆开分布对齐和老师更大；数据准确率高不等于学生分数高（工具题 97.5% 对 82.9%，外家族学生更差）。（来源：[[论文/后训练/Continually Post-training Small Models via Synthetic Self-distillation|Continually Post-training Small Mode]]）
+- 报告指标口径要写清：avg@3 和 Figure 8 的 avg@n 不能直接比，batch 128 的代码-only 曲线不能和 1,568 大批量全任务曲线比；$2.6M/$0.9M 没配 GPU 数和时长，不能横向比成本；作弊比例低于 2% 是自家检测口径。（来源：[[论文/RSI/MiMo-V2.6 Scaling Reinforcement Learning Towards Self-Improvement|MiMo-V2.6: Scaling Reinforcement Lea]]）
+- NeoHorse 评测别混口径：58.94→64.87 是十基准平均，69.31→71.45 是另五基准；PinchBench 的 71%/77%/84% 是单条轨迹举例，不是基准成绩；VitaBench 裁判和用户模拟器换过模型，PinchBench/VitaBench 只跑一次。（来源：[[论文/RSI/NeoHorse-1 Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harne|NeoHorse-1: Towards Recursive Self-I]]）
 ## 成本与预算
 - 省 token 的账要按最后能省多少输入费算，不是按压缩率。参考账：Pi 在 EdgeBench 上 51 题 44.8 分、2.15B token；四个机制全上后 42.0 分、1.10B token，token 少 49%，成本从 1,339 美元降到 894 美元。（来源：[[论文/RSI/SoL-Pi Recursively Scaling Auto-Research Loops for Efficient Agent Harness|SoL-Pi: Recursively Scaling Auto-Res]]）
 - 把「历史按引用传」和「让模型自写检索代码」算进预算：JAZ 远端回忆 69.9% 对 Letta 61.8%，成本 18.3 美元对 42.1 美元；自改进 AppWorld 74.2% 对 ACE 69.9%，成本 20.9 美元对 30.6 美元。（来源：[[论文/Harness/Harness as a Language A Minimalist Agent Framework With Maximal Expressivity|Harness as a Language: A Minimalist ]]）
@@ -197,6 +240,11 @@
 - 预生成反面答案并复用能省现场采样：On-Policy Distillation with Negative-Policy Rollouts 把 Qwen3-1.7B 思考模式训练时间从 9 小时 19 分降到 3 小时 34 分。（来源：[[论文/后训练/On-Policy Distillation with Negative-Policy Rollouts|On-Policy Distillation with Negative]]）
 - DuoOPD 的老师参考答案缓存要单独记账：缓存占一次 OPD 循环的 30%（Qwen）/23%（Llama），摊到 3 次运行降到 +9.2%/+15%；训练时只有 13–23% 的回答要带参考重打分。（来源：[[论文/后训练/DuoOPD Learning from Joint Teacher-Student Outcomes for Multi-Task On-Policy Distillation|DuoOPD: Learning from Joint Teacher-]]）
 - 流程图的提示开销要算：Procedural Graphs 比不用图多花 33% 到 55% token，切两跳小图只比整图省 15% 到 71%；别把整张图塞进提示。（来源：[[论文/记忆/Procedural Graphs Self-Evolving Execution Structures for LLM Agents|Procedural Graphs: Self-Evolving Exe]]）
+- 把 rollout、训练、打分预算拆开记：MiMo 报告 43.8%/43.5%/12.7%；每步 1,568 题×16 条约 2.5 万轨迹、27–37 亿 token；$2.6M/$0.9M 没给 GPU 数和时长。（来源：[[论文/RSI/MiMo-V2.6 Scaling Reinforcement Learning Towards Self-Improvement|MiMo-V2.6: Scaling Reinforcement Lea]]）
+- 全 rollout 蒸馏训练时间 29.7 小时，POPD 10.1 小时、TOPD 10.2 小时、ρ=0.1 只用 5.3 小时（8 卡 H20）；省的比例换硬件会变。（来源：[[论文/后训练/Are Full Rollouts Necessary for On-Policy Distillation|Are Full Rollouts Necessary for On-P]]）
+- 同家族只大一号改写器比外家族更强老师造数据省 63%–77% 算力，学生更好；拒绝采样会丢数据（工具任务约 17.1%）。（来源：[[论文/后训练/Continually Post-training Small Models via Synthetic Self-distillation|Continually Post-training Small Mode]]）
+- 多分支搜索不是免费：比 Meta-Harness 多花 1.21–1.71 倍任务 token，数学总 token 79.9M 对 172.9M；提升要按同等 token 门槛复核。（来源：[[论文/RSI/Mixture of Self-Improving Branches For Agent Harness Optimization|Mixture of Self-Improving Branches F]]）
+- 最终版比最初版画面少 10.8%–44.1% 还更准；但 20 轮编辑开销没折进推理成本，省的是部署画面，不是总花费；画面数不等于总算力，字幕/OCR/图构建没算。（来源：[[论文/RSI/Video-RSI Recursive Self-Improvement of Video Understanding Agents via Harness Evolution|Video-RSI: Recursive Self-Improvemen]]）
 ## 开放问题
 - 一个原语能不能顶替专用记忆和自我改进系统，只在两个 benchmark、两个 GPT-5.4 档位上验证过；弱模型和其他厂商模型没试，所谓 prompt-only 仍靠人手写的交接模板，什么时候该交接是人教的；自改进实验每题都拿到完整测试反馈，真实部署不一定有。（来源：[[论文/Harness/Harness as a Language A Minimalist Agent Framework With Maximal Expressivity|Harness as a Language: A Minimalist ]]）
 - 三层算子一起改是否真跑赢基线未知：抓到的材料到方法一节就断了，实验、消融、讨论都没看到；数据算子的认证靠同一个模型盲解一遍比对，只能说前后自洽，说不了它答对了自己本来不会的知识；五级台阶和普查口径由作者自己划定，换一套划法可能得出别的结论。（来源：[[论文/RSI/MetaRSI RSI2 A Meta-Recursive Self-Improving System for Recursive Self-Improving Systems T|MetaRSI / RSI2: A Meta-Recursive Sel]]）
@@ -277,6 +325,18 @@
 - 接一个会算的哑专家再迭代蒸馏这套，所谓「通用配方」只在象棋试过、机器人、电脑操作都还只是设想；概念连贯性只有 2.76 分、作者也承认会编错战术名词、合并蒸馏可能把错话越传越广；Elo 只用 32 盘估计、方差偏大；只比了三个前沿模型；递归最多走到第五层；连贯性分数由 GPT-5.6 当裁判、换个裁判可能不同。（来源：[[论文/推理/Language Models that Play Chess and Explain Their Moves|Language Models that Play Chess and ]]）
 - 用探针量「说的和做的」一致性这套只测了三个各考一种基础能力的短任务、长链条混合推理没验证；B_int 全靠探针、而探针自身正确率只有 0.83–0.91、正类 F1 0.75–0.95，工具错就会把一致性算错；训练也可能只是学会讨好探针；MMLU-Hint 只用了 600 条测试里的一部分、乘法题是自造的两位数题、规模都不大。（来源：[[论文/推理/Making LLMs Say What They Think Measuring and Improving CoT-Interpretability Alignment|Making LLMs Say What They Think: Mea]]）
 - 只补缺的那点数学结构这套，Absorb 只在 Qwen3.5 三个尺寸上试过、换别家模型是否同样管用不清楚；训练数据是 709 道数学系博士资格考题、能不能推广到代码、物理等领域没验证；Prim 只有 182 题、评分门槛由作者定、换标注者分数可能变；正文没有给出训练算力和成本对比。（来源：[[论文/推理/The Missing Primitive Diagnosing and Repairing Mathematical Reasoning in Large Language Mo|The Missing Primitive: Diagnosing an]]）
+- MiMo 没有消融三条 scaling 轴各自贡献；作弊比例低于 2% 依赖自家检测；生产 harness 换成 mini-harness 后能否回到真实产品环境没验证；$2.6M/$0.9M 没配 GPU 数和时长；第 5–7 节在材料里被截断，只能按摘要级看。（来源：[[论文/RSI/MiMo-V2.6 Scaling Reinforcement Learning Towards Self-Improvement|MiMo-V2.6: Scaling Reinforcement Lea]]）
+- Mixture 只有 2 条分支、没有多次随机种子或重复评测；比 Meta-Harness 多花 token；分题和改指南的因果没拆干净；路由器在两个设置上输给较强单支；加专家输出在数学涨、Terminal-Bench 跌；结论要补多种子、同 token 对照、更多分支。（来源：[[论文/RSI/Mixture of Self-Improving Branches For Agent Harness Optimization|Mixture of Self-Improving Branches F]]）
+- NeoHorse 只跑完一轮反馈回路，递归迭代多轮没测；课程、蒸馏、语义打分没做消融，涨分归不到部件；评测只有文本任务；VitaBench 换过裁判和用户模拟器；PinchBench/VitaBench 只跑一次；部分基线成绩来自官方博客。（来源：[[论文/RSI/NeoHorse-1 Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harne|NeoHorse-1: Towards Recursive Self-I]]）
+- RRSI 材料在 producing a harness t... 处截断，算法细节、消融、单次运行或多种子情况看不到；只能确认八个基准、演化集 +14.1、五个 OOD +4.7；要用它做工程前需读全文确认 critic/pruner 阈值和编辑预算退火表。（来源：[[论文/RSI/RRSI Regularized Recursive Self-Improvement of Agent Harnesses|RRSI: Regularized Recursive Self-Imp]]）
+- Recursive OPD 只在 AIME/HMMT 四个竞赛数学、非思考模式、LoRA rank-128 上验证；SRCL 依赖答案验证器，验证器不行会把错当正例；1.7B 上 SRCL 反而让输出变长；32K 下计算成本明显更高；权重只在小范围稳，不能当通用最优。（来源：[[论文/RSI/Recursive Self-Improvement via On-Policy Distillation for Reasoning|Recursive Self-Improvement via On-Po]]）
+- Video-RSI 只在 LVBench 演化：216 题训练加 72 题私有筛选，换视频来源、更长视频未验证；20 轮编辑开销没折进推理成本；画面数不等于总算力，字幕/OCR/图构建没算；开发集变好而 MLVU 掉点说明小筛选集可能过拟合；换 DeepSeek-V4-Pro 或 Qwen3.6-Plus 结论不一定照搬。（来源：[[论文/RSI/Video-RSI Recursive Self-Improvement of Video Understanding Agents via Harness Evolution|Video-RSI: Recursive Self-Improvemen]]）
+- Alignment via Training Against Probes 全部结论出自 7B–14B 开源模型、两个属性、英文数据集；GCG 和预填攻击不是针对探针特意优化的，原文承认自适应攻击能绕过去；检查点几乎不明确拒答，很多回答是改写、空壳或乱码；没有更大规模验证。（来源：[[论文/后训练/Alignment via Training Against Probes Without Losing Monitorability|Alignment via Training Against Probe]]）
+- Are Full Rollouts Necessary 只在小模型 1.5B、数学推理、DAPO-Math-17K 上验证；训练只练前缀、评测写满全长，长度不一致的影响没测；ρ 是固定超参，自适应截断留作以后工作，RLVR 没做；时间来自 8 卡 H20，换硬件比例会变。（来源：[[论文/后训练/Are Full Rollouts Necessary for On-Policy Distillation|Are Full Rollouts Necessary for On-P]]）
+- SynthSelf 只在 Qwen2.5-Instruct 家族、0.5B–3B、科学/工具/医疗几个域上试过；方法要求有同家族更大模型，没有就不成立；医疗域相对普通 off/on-policy 蒸馏没有明显优势，作者猜老师背下了训练数据但没证明；拒绝采样丢多少数据只在小范围量过。（来源：[[论文/后训练/Continually Post-training Small Models via Synthetic Self-distillation|Continually Post-training Small Mode]]）
+- RSI-Anything 的预测器是作者自搭模型，换一个能否复现没验证；代码修复只用固定 7B 写码模型加 3B 预测器、200 题 3 个种子，成对增益下界只到 +0.17；实验室只评规划、没上真实仪器；免疫科学只有待验证假设；同一任务里策略和 world model 长期互相促进缺联合评估。（来源：[[论文/RSI/RSI-Anything Unlocking Recursive Self-Improvement with World Models|RSI-Anything: Unlocking Recursive Se]]）
+- Embodied Turing Machines 全部结果在仿真里；感知依赖 RoboDojo 公开相机参数、机器人网格和物体尺寸，换真机要重新量夹爪宽度、搬运速度等接触参数；开发曲线和能力累积曲线是示意画法，不是实测；随机布局 54.1% 对标准 77.3%，泛化是作者承认的短板。（来源：[[论文/RSI/Embodied Turing Machines Stateful Code for Robot Recursive Self-Improvement|Embodied Turing Machines: Stateful C]]）
+- How to Measure RSI 的八类数据在 OCR 里截断到第七项，第八项无法确认；这些是研究所向前沿 AI 公司提出的披露请求，不代表公司已提供；可见数据只有截图，没有验证这些指标能否实际操作、如何防止选择性披露或聚合口径操纵。（来源：[[论文/RSI/How to Measure RSI|How to Measure RSI]]）
 ## 记忆与上下文工程
 
 - 先决定在写入时整理还是读时整理：写入时整理要提前猜未来任务需要什么，猜错就永久丢信息；把库里的原始轨迹换成写入时压好的笔记，ALFWorld 掉 1.7 到 2.9 分、WebShop 掉 6.8 到 8.2 分。默认全留原始轨迹，把整理放到读的时候。
@@ -346,5 +406,46 @@
 - 把「指令动作 vs 实际走成什么样」的差别也喂给打分器：安全对齐 Fetch 上加反馈后成功率 55.67%、安全代价比原策略低 15.9%；但执行反馈只试了两种扰动、一个强度，还不算确证。
 - 最早那个决策点用最多两个备选、各模拟 4 条未来，挑零代价完成概率最高的：安全完成率从 27.91% 升到 30.23%、成功率不变；少量「先试走一遍」能补上打分器看不到的信息。
 - GUI 任务的对错藏在屏幕上，所以查错要把每步点击前后的截图和动作对齐、同任务多跑几遍、跨任务归并行为模式、改后拿截图核对预测；这四个动作绑在一起才是证据驱动，单改任何一个都会掉分。
+
+## 分歧与推翻
+- 争议：旧手册主张成功轨迹直接微调会把外壳依赖学进去，Terminal-Bench 2 从 57.0 掉到 53.4，应先重写成通用 harness runbook 再微调升到 74.2；HAD 也主张只教外壳帮不上忙的部分。NeoHorse 反过来把部署 harness 录的真实轨迹原样保留、只对当前轮输出算损失，结果比公开合成数据把五基准从 64.32 提到 70.57，十基准两个尺寸普遍涨。条件不同：NeoHorse 训练和部署是同一套路由 harness，且不把历史轮当监督；runbook/HAD 面向训练后要换外壳或要避免把外壳信息记进权重的场景。目前该信哪一个：若上线 harness 稳定且要适应其上下文，保留真实上下文；若要跨 harness 迁移，先重写成任务级 runbook。还缺：同一批轨迹在保留上下文和重写 runbook 下的同预算对照，以及跨 harness 迁移测试。（来源：[[论文/RSI/NeoHorse-1 Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harne|NeoHorse-1: Towards Recursive Self-I]]）
+- 争议：旧手册依据 ReSAIL 说多轮自我蒸馏会崩，老师若用上一轮学生、只对齐不看提示那一面会让老师那面跑偏，必须用 KL 把看提示的输出钉在冻结老师上；AdviSD/ASCENT 也更常用冻结初始模型当老师。新 Recursive OPD 反过来发现冻结老师在错题结尾 94.5% 想收尾、只有 22.0% 想反思，8B 数学比共同进化低 17.77 分（47.99 对 65.76），4B 低 34.72 分。条件不同：ReSAIL 是多轮 agent/ALFWorld、Qwen3-4B/8B、要保看提示那一面；新论文是单轮竞赛数学、非思考模式、LoRA rank-128，用 Forward KL 加 SRCL 控长度。目前该信哪一个：agent 多轮场景先按 ReSAIL 保留提示面；单轮可验证推理且每轮能重跑验证时，可试共同进化老师。还缺：在同一个多轮 agent 基准上把冻结老师加提示面保留和共同进化老师加长度控制做成同预算对照。（来源：[[论文/RSI/Recursive Self-Improvement via On-Policy Distillation for Reasoning|Recursive Self-Improvement via On-Po]]）
+- 争议：旧手册说固定回合预算截断会砍好留坏，改用按老师打分在线判断，前缀复用还要加质量门槛；新论文说在单轮 OPD 里越靠后的位置老师越不可靠，直接按位置截前面一段即可，TOPD ρ=0.25 分数持平、时间降到约三分之一，最后 10% 单独训练反而低于未训练。两者不矛盾的前提是维度不同：旧结论针对多轮 agent 的回合预算，新结论针对单轮回答的 token 位置。目前该信哪一个：agent 多轮继续按价值早停和前缀质量门槛；单轮可验证推理可先试 ρ=0.25 的位置截断。还缺：把回合级价值门控和位置级截断组合起来，在长回答多轮任务上做同预算对照。（来源：[[论文/后训练/Are Full Rollouts Necessary for On-Policy Distillation|Are Full Rollouts Necessary for On-P]]）
+- 争议：旧手册依据 Just-in-Time Memory 主张记忆库全留原始轨迹、把整理放到读时，写入时压缩会永久丢信息；Embodied Turing Machines 反过来把机器人状态直接写进代码变量，物体被盖住后位置还留在变量里，记忆任务 89.9% 对 agent 套壳 47%、VLA 33%。条件不同：代码变量存的是连续环境状态、要的是可回退重试；JIT 处理的是跨任务经验和例子，读时才需要按当前任务整理。目前该信哪一个：控制回路的当前状态用显式代码变量；跨任务经验仍用原始轨迹加读时整理。还缺：同一任务里把显式状态变量和检索式记忆拆开对照，看两者能否叠加。（来源：[[论文/RSI/Embodied Turing Machines Stateful Code for Robot Recursive Self-Improvement|Embodied Turing Machines: Stateful C]]）
+- 争议：旧手册依据 PluginRSI 说插件库和重组两步一起做能把 SWE-bench 未见过题从 63% 提到 69%，可迁移是主要卖点；RRSI 指 recursive harness evolution 会记训练任务，in-distribution 大涨、OOD 缩水甚至消失。PluginRSI 的证据是固定题集 15 轮、跨领域问答只 0.568→0.588，说明它的 OOD 确实弱；RRSI 加退火预算、critic 和 pruner 后五个 OOD 最多 +4.7。目前该信哪一个：把 PluginRSI 的插件库加重组当搜索算子，把 RRSI 的 OOD 验收和正则化当上线门槛。还缺：把 RRSI 的 critic/pruner 加到 PluginRSI 流程上做同预算对照。（来源：[[论文/RSI/RRSI Regularized Recursive Self-Improvement of Agent Harnesses|RRSI: Regularized Recursive Self-Imp]]）
+## RSI 度量与信息披露
+
+- 要让别人能判断是否出现 RSI，先按优先级要求披露八类数据；可见的七类包括：内部模型的多样基准分数（含未发布模型）、各类模型的总体支出-能力曲线、预训练算力效率（每个生产 run 的 loss 对外部算力，外加前置小规模变体实验）、后训练算力效率（在 held-out 和未饱和 AI R&D 基准上）、按团队的推理算力用量（如 token 量与支出）、按团队的实验算力用量（如 H100 小时与支出）、按团队/职能/资历的人数和总薪酬。OCR 在第八项处截断，第八类不能凭现有材料补。（来源：How to Measure RSI）
+- 把内部模型基准排在第一位：加速会先出现在内部部署模型、后出现在发布模型上；只看公开模型发布节奏会漏掉正在发生的 RSI。（来源：How to Measure RSI）
+- 成本和效率要按能力对总支出报告，而不只是报单点分数：每个模型配方给出 capability as a function of total compute expenditure，这是理论上最清楚的 RSI 证据；预训练、后训练、推理、实验四条算力线分开报。（来源：How to Measure RSI）
+- 把人力增长和推理算力增长分开归因：更多人力堆出来的进步不构成 RSI 证据，更多推理算力驱动的进步才算；要配历史与持续的 AI R&D 投入序列来识别来源。（来源：How to Measure RSI）
+- 如果拿不到全面数据，第二优是给聚合曲线，但必须写清聚合口径、时间范围和是否含未发布模型；否则跨机构无法判断加速是否真实。（来源：How to Measure RSI）
+
+## 世界模型驱动的自我改进
+
+- 代码修复里把 world model 当候选筛选器：用固定写码模型生成 4 个候选补丁，world model 预测每个补丁的执行结果并聚合成一个分数，只把最高分那个送去在线测试；隐藏测试通过率 26.3→29.2、随机挑只有 26.0，在线测试调用次数 3.72 次/题不变。（来源：RSI-Anything: Unlocking Recursive Self-Improvement with World Models）
+- 再用真实执行反馈更新 world model，写码模型继续冻结：隐藏通过率 29.2→31.2，在线测试调用仍 3.72 次/题；这样能把选择策略更好和策略模型变强拆开验证。（来源：RSI-Anything: Unlocking Recursive Self-Improvement with World Models）
+- GUI 任务里让策略和 world model 一起更新，并按新版本能否通过检查决定留不留：成功率 51→79→99，平均动作数 5.30→3.21，重复点击 237→0，错提交 9 集→1 集；不要只留单组件，两个一起配套通过才留。（来源：RSI-Anything: Unlocking Recursive Self-Improvement with World Models）
+- 实验室规划里连续保留 5 个通过检查的版本，分数依次 21.80→38.03→41.99→44.56→46.01，比第一版高 24.21 点，略高于参考系统 45.32；保留机制按轮累积，不能只保存最终版。（来源：RSI-Anything: Unlocking Recursive Self-Improvement with World Models）
+- 反应优化里用 world model 预测产率挑下一组条件：同样 20 次实验最佳产率 93.0% 对贝叶斯优化 87.5%，另一套 40 次实验 96.15% 对 82.16%；对照必须卡同样实验次数，否则预测式搜索的收益会被多试掩盖。（来源：RSI-Anything: Unlocking Recursive Self-Improvement with World Models）
+- 保留门做成两层：先查单个组件是否可靠，再查策略和 world model 配套是否成立；策略一变，原来准的预测器可能失效，必须先用新数据测可靠性再决定更新。（来源：RSI-Anything: Unlocking Recursive Self-Improvement with World Models）
+
+## 内省信号与可监控性对齐
+
+- 用探针当唯一训练信号时，不要冻结探针：探针冻住时模型把内部状态挪到界线另一边就能零损失，行为不变、有害分仍停在 0.40 以上；每步微调后重新拟合探针，才能让损失下降对应行为改变。（来源：Alignment via Training Against Probes Without Losing Monitorability）
+- 配方：LoRA 微调加 KL 锚；探针用合页损失 max(0,1+z)，把激活推到 z≤−1 才算达标；每次模型更新后按 2000 步（单探针）或 500 步（多探针）重拟合；选检查点时取保留 95% 以上基座效用里有害分最低的那个。（来源：Alignment via Training Against Probes Without Losing Monitorability）
+- 效果：Mistral 7B 在 GCG 攻击下有害分 0.52→0.01、预填攻击 0.77→0.03；Qwen3-14B 说谎探针让 MASK 诚实分 0.47→0.63（单探针）和 0.70（非线性多探针），能力不掉。（来源：Alignment via Training Against Probes Without Losing Monitorability）
+- 可监控性要单独体检：训练后再从零拟合线性探针查同样属性，有害性 AUROC 还有 0.85–0.90、说谎性 0.98–0.99，跟基座差不多；如果重拟合探针读不出来，说明属性被藏起来了。（来源：Alignment via Training Against Probes Without Losing Monitorability）
+- 方向消融测试：抹掉拒绝方向后，连续更新探针的检查点有害分只变 −0.03 到 +0.07，而普通 Llama 3 8B 从 0.09 涨到 0.76；不靠拒答话术练出的安全，删一个方向撤不掉。（来源：Alignment via Training Against Probes Without Losing Monitorability）
+- 限制：目标只规定内部方向，不规定好回答长什么样，检查点最多 1% 明确拒答，很多回答是把请求改写成无害问题、给空壳内容或乱码；攻击也不是专门针对探针优化的，不能当成抗自适应攻击证明。（来源：Alignment via Training Against Probes Without Losing Monitorability）
+
+## 具身 RSI 与状态代码
+
+- 把机器人策略整个写成带状态的代码（COAP）：代码从摄像头和关节角量出世界状态再决定动作，运行时完全不调用模型；RoboDojo 42 个双手任务成功率 70.24%，比最好基线 31.38% 高 38.9 点。（来源：Embodied Turing Machines: Stateful Code for Robot Recursive Self-Improvement）
+- 记忆类任务把测量值存进代码变量，物体被盖住后位置还留在变量里；记忆任务 89.9%，同场 agent 套壳 47%、VLA 33%。（来源：Embodied Turing Machines: Stateful Code for Robot Recursive Self-Improvement）
+- 先量测量误差再谈决策：同一个程序用代码自测状态跑只有 63%，换模拟器真值状态能到 83%；卡上限的是测量准不准，不是规则逻辑。（来源：Embodied Turing Machines: Stateful Code for Robot Recursive Self-Improvement）
+- 代码库按感知、抓取、放置、检查和恢复分层；新任务只写子目标顺序和少量判断，抓取按抓法写而不是按物体写，相机参数/机器人网格/物体尺寸当常量，只让物体位置当变量；新任务代码 83% 来自公共库，从零做新任务 15 小时到 47% 成功率，不用数据也不用训练，而 VLA 同批任务训练后只有 4.7%。（来源：Embodied Turing Machines: Stateful Code for Robot Recursive Self-Improvement）
+- 合并改动用两道保险：新功能加默认关闭的开关，旧任务执行轨迹结构上不变；开发分支只有在验证集成功数比原版高出设定余量 ε 才合并。36 个分支里大多数没用，但分支越多越容易找到有效改动、也来得更早。（来源：Embodied Turing Machines: Stateful Code for Robot Recursive Self-Improvement）
+- 别在仿真成绩上直接外推真机：感知依赖 RoboDojo 公开的相机参数、机器人网格和物体尺寸，换真机都要重新量；失败来源里测量约占 62%、逻辑约占 37%；标准布局 77.3%，随机布局掉到 54.1%。（来源：Embodied Turing Machines: Stateful Code for Robot Recursive Self-Improvement）
 
 ## 我的补充

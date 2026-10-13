@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Criterion",
+  "type": "object",
+  "required": ["id", "judgment", "situation", "motivation", "lineage"],
+  "properties": {
+    "id": {"type": "string", "description": "稳定编号，如 r-2026-0001"},
+    "judgment": {
+      "type": "object",
+      "required": ["text", "strength", "mode"],
+      "properties": {
+        "text": {"type": "string", "description": "一句话说清这条标准"},
+        "strength": {"type": "string", "enum": ["veto", "must", "prefer", "penalty"]},
+        "mode": {"type": "string", "enum": ["mechanical", "heuristic"]},
+        "positive_examples": {"type": "array", "items": {"type": "string"}},
+        "negative_examples": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "situation": {
+      "type": "object",
+      "required": ["object", "decision", "state"],
+      "properties": {
+        "object": {"type": "string"},
+        "decision": {"type": "string"},
+        "state": {"type": "string"},
+        "constraints": {"type": "array", "items": {"type": "string"}},
+        "trigger": {"type": "string", "description": "什么证据出现才激活"}
+      }
+    },
+    "motivation": {
+      "type": "object",
+      "required": ["goal", "value"],
+      "properties": {
+        "goal": {"type": "string"},
+        "value": {"type": "string"},
+        "cost": {"type": "string"},
+        "role": {"type": "string"}
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "properties": {
+        "created": {"type": "string", "format": "date"},
+        "source": {"type": "string", "description": "哪次对话/哪篇论文/哪条灵感"},
+        "superseded_by": {"type": "array", "items": {"type": "string"}},
+        "supersedes": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

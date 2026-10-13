@@ -23,7 +23,8 @@ STATE = ROOT / '.research/cookbook.json'
 OUT = ROOT / '最佳实践'
 TZ = ZoneInfo('Asia/Shanghai')
 
-SECTIONS = ['目标与产出', '动手前必须想清楚的', '常见坑与解决办法', '可复制配方', '评测与验证', '成本与预算', '开放问题']
+SECTIONS = ['目标与产出', '动手前必须想清楚的', '常见坑与解决办法', '可复制配方', '评测与验证', '成本与预算',
+    '分歧与推翻', '开放问题']
 USER_SECTION = '我的补充'
 
 TOPICS = {
@@ -84,6 +85,23 @@ def empty_cookbook(topic):
     return '\n'.join(lines)
 
 
+def ensure_sections(topic):
+    """老手册缺「分歧与推翻」等新栏目时补上（放在「我的补充」之前）。"""
+    path = OUT / f'{topic}.md'
+    if not path.exists():
+        return
+    text = path.read_text(encoding='utf-8')
+    missing = [name for name in SECTIONS if f'## {name}' not in text]
+    if not missing:
+        return
+    lines = text.splitlines()
+    block = []
+    for name in missing:
+        block += [f'## {name}', '']
+    index = lines.index(f'## {USER_SECTION}') if f'## {USER_SECTION}' in lines else len(lines)
+    research.replace(path, '\n'.join(lines[:index] + block + lines[index:]).rstrip('\n') + '\n')
+
+
 def existing_points(text):
     return {re.sub(r'\W+', '', line)[:40] for line in (text or '').splitlines() if line.startswith('- ')}
 
@@ -139,6 +157,7 @@ def update_topics(topics=None, limit_per_topic=None):
     state = load_state()
     updated = []
     for topic in (topics or list(TOPICS)):
+        ensure_sections(topic)
         notes = topic_notes(topic)
         folded = set(state.get(topic, []))
         fresh = [note for note in notes if note['id'] not in folded]
@@ -154,6 +173,8 @@ def update_topics(topics=None, limit_per_topic=None):
 下面是新归档论文的深读 takeaways，请把它们提炼成**增量条目**：
 - 每条都要具体、可操作（写清"怎么做/设什么/避免什么"，带条件或数字），不要抽象口号，不要翻译腔；
 - section 只能取：{ '、'.join(SECTIONS) }；
+- **分歧与推翻最重要**：如果新材料与手册里已有的结论**矛盾**，或者**推翻**了它（例如"以前说 X 有用，新论文在更严格条件下发现 X 没用/反而有害"），必须写进「分歧与推翻」栏，并写清：争议是什么、双方各自的证据与条件、目前该信哪一个、还缺什么才能判定。**绝对不要为了统一口径把冲突抹平、也不要两边罗列了事。**
+- 如果新材料只是补充已有结论的适用条件，放进对应栏目即可，不要当成分歧。
 - sources 填这些条目的来源论文标题（必须来自下面材料里的标题原文）；
 - 如果新论文引出了一个现有分类装不下的新角度，放到 new_sections（name 用简短中文，points 是条目数组）。
 
