@@ -1,0 +1,12 @@
+{
+  "sources": {
+    "conversation": true,
+    "archive_notes": false,
+    "ideas": false,
+    "cookbook_conflicts": false
+  },
+  "mounted": true,
+  "observe_hours": [3],
+  "conversation_paths": ["~/.codex/sessions"],
+  "note": "sources 决定监听哪些来源；mounted 只决定 rubrics 是否影响后续执行（监听总结永远照跑）。"
+}
