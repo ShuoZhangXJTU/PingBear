@@ -97,7 +97,8 @@ def push_brief(date=None, wait=True):
         content_date = research.load(ROOT / '.research/morning-status.json').get('completed_date') or day
     except Exception:
         content_date = day
-    send('科研早报 · ' + dt.date.fromisoformat(content_date).strftime('%-m月%-d日'), flatten_headings(text))
+    _d = dt.date.fromisoformat(content_date)
+    send(f'科研早报 · {_d.month}月{_d.day}日', flatten_headings(text))
     research.replace(ROOT / '.research/push-state.json',
         {'last_date': day, 'at': dt.datetime.now(TZ).isoformat(), 'chars': len(text), 'channel': 'pushplus'})
     print(f'已通过 PushPlus 推送 {day} 日报（{len(text)} 字）', flush=True)

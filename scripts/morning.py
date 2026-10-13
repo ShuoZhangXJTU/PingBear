@@ -77,7 +77,8 @@ summary 只写一句日常、简短、顺口的话，通常 35–75 字，最多
 def homepage(date, source_date, message=''):
     path = ROOT / '日报' / (source_date + '.md')
     now = dt.datetime.now(TZ).strftime('%Y-%m-%d %H:%M')
-    pretty = dt.date.fromisoformat(source_date).strftime('%-m月%-d日')
+    _d = dt.date.fromisoformat(source_date)
+    pretty = f'{_d.month}月{_d.day}日'
     body = (f'# 科研早报 · {pretty}\n\n'
         f'生成：{now}（北京时间，错峰生成） · 数据日期：{source_date}'
         + ('' if source_date == date else f'（{date} 的 HF 列表当时尚未发布，展示最近可用日期）') + '\n\n')
