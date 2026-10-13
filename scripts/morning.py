@@ -77,10 +77,14 @@ summary 只写一句日常、简短、顺口的话，通常 35–75 字，最多
 def homepage(date, source_date, message=''):
     path = ROOT / '日报' / (source_date + '.md')
     now = dt.datetime.now(TZ).strftime('%Y-%m-%d %H:%M')
-    body = f'# 科研早报\n\n更新：{now}（北京时间） · 查看日：{date}\n\n'
+    pretty = dt.date.fromisoformat(source_date).strftime('%-m月%-d日')
+    body = (f'# 科研早报 · {pretty}\n\n'
+        f'生成：{now}（北京时间，错峰生成） · 数据日期：{source_date}'
+        + ('' if source_date == date else f'（{date} 的 HF 列表当时尚未发布，展示最近可用日期）') + '\n\n')
     if message:
         body += f'> {message}\n\n'
-    body += f'[[日报/{source_date}|按日期查看]] · [[索引/目录|历史目录]] · [[索引/标签|按标签查归档]] · 点「归档」保存，想补充时点「加备注」。\n\n'
+    body += (f'[[日报/{source_date}|按日期查看]] · [[索引/目录|历史目录]] · [[索引/标签|按标签查归档]] · '
+        '[[索引/收藏|收藏夹]] · [[索引/未读|未读清单]] · 点「归档」保存，想补充时点「加备注」。\n\n')
     text = path.read_text(encoding='utf-8')
     if text.startswith('---\n'):
         text = text.split('---\n', 2)[-1]
@@ -103,12 +107,16 @@ def homepage(date, source_date, message=''):
 
 def run(args):
     now = dt.datetime.now(TZ)
-    date = args.date or now.date().isoformat()
+    # 错峰：半夜跑时总结「前一天」的列表（HF 当天列表常白天才发布，半夜跑前一天最稳）
+    if args.date:
+        date = args.date
+    elif now.hour < 8:
+        date = (now.date() - dt.timedelta(days=1)).isoformat()
+    else:
+        date = now.date().isoformat()
     status_path = STATE/'morning-status.json'
     status = research.load(status_path) if status_path.exists() else {}
     if not args.force and not args.date:
-        if (now.hour, now.minute) < (8, 30):
-            return
         completed = status.get('completed_at')
         # 只有「拿到当天自己的列表」才算真正完成；否则留到后面 15 分钟一次的检查里继续等
         if status.get('completed_date') == date and status.get('source_date') == date and completed:
