@@ -15,5 +15,13 @@
       "key": "N"
     }
   ],
-  "file-explorer:new-file": []
+  "file-explorer:new-file": [],
+  "research-archive:star-current": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "M"
+    }
+  ]
 }
