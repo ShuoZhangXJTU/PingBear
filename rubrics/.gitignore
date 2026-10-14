@@ -1,3 +1,6 @@
 # 运行时数据（条目内容），与代码分开管理
 data/
 proposals/
+# 第一层：对话原文（含隐私），只在本机；代码与设计进版本库
+episodes/
+annotations/
