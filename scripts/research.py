@@ -199,7 +199,9 @@ def collect(args, root):
         snapshot = load(raw_path)
         rows = snapshot['items']
     else:
-        url = 'https://huggingface.co/api/daily_papers?date=' + args.date
+        # 这个接口默认一页只给 50 篇，一天超过 50 篇就会静默丢掉后半截（10-14 实际 97 篇）。
+        # limit 上限是 100，所以显式要满。再多的历史天数靠 settle.py 补。
+        url = 'https://huggingface.co/api/daily_papers?date=' + args.date + '&limit=100'
         if args.input:
             rows = load(Path(args.input))
             proxy_used = None
@@ -240,7 +242,7 @@ def collect(args, root):
         out.unlink()
     if not out.exists():
         save_new(out, {'date': args.date, 'source': snapshot['source'], 'papers': candidates})
-    print(f'{len(candidates)} papers; candidates: {out}')
+    print(f'{len(candidates)} papers; candidates: {out}', flush=True)
 
 
 def card(p):
@@ -290,6 +292,7 @@ def publish(args, root):
     if (output.exists() or manifest.exists()) and not getattr(args, 'update', False):
         raise ValueError('Digest already exists; preserved to keep numbering and edits stable')
     candidates = {p['id']: p for p in load(root / '.research/candidates' / (args.date + '.json'))['papers']}
+    old = load(manifest)['papers'] if manifest.exists() else []
     reviews = load(Path(args.reviews))
     if isinstance(reviews, dict):
         reviews = reviews['papers']
@@ -314,9 +317,11 @@ def publish(args, root):
         fields['tags'] = list(dict.fromkeys(tags))
         reviewed[pid] = dict(candidates[pid], **fields, highlight=review.get('highlight', True))
         seen.add(pid)
-    if seen != set(candidates):
-        raise ValueError('Reviews must cover ALL papers; missing: ' + ', '.join(set(candidates)-seen))
-    old = load(manifest)['papers'] if manifest.exists() else []
+    # 已经发布过的论文用原文保留（编号和你做过的归档都不动），所以只要求「还没发布过的」
+    # 论文都有简介。HF 的当天列表是陆续补的，这样才允许只对新增的那几篇写简介再补进去。
+    missing = set(candidates) - seen - {p['id'] for p in old}
+    if missing:
+        raise ValueError('Reviews must cover ALL new papers; missing: ' + ', '.join(sorted(missing)))
     # Preserve published numbers, including entries no longer returned by HF.
     for p in old:
         updated = reviewed.pop(p['id'], p)

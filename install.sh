@@ -64,6 +64,9 @@ install_plist() {
 }
 install_plist local.research.morning
 install_plist local.research.cookbook
+install_plist local.research.settle
+install_plist local.research.settle-sweep
+install_plist local.research.sync
 
 say "6/6 自检"
 if [ -z "$DRY_RUN" ]; then
