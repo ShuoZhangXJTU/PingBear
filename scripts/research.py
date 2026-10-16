@@ -16,6 +16,7 @@ TOPICS = {
     'RSI': ['self-improv', 'self-evol', 'recursive', 'self-play', 'curriculum', 'experimental understanding', 'environment generation', 'generating agentic', 'past experience'],
     'Harness': ['harness', 'agent', 'memory', 'tool use', 'tool-use', 'swe-bench', 'trajectory', 'trajectories', 'context management'],
     '后训练': ['post-training', 'reinforcement learning', 'policy optimization', 'grpo', 'ppo', 'distillation', 'credit assignment', 'critic', 'reward', 'rlvr'],
+    'GUI Agent': ['gui', 'computer-use', 'computer use', 'web agent', 'screenshot', 'screen agent', 'mobile ui', 'android'],
 }
 ORGS = ['google', 'deepmind', 'openai', 'anthropic', 'meta', 'microsoft', 'nvidia', 'amazon', 'apple', 'salesforce', 'alibaba', 'qwen', 'bytedance', 'tencent', 'huawei', 'baidu', 'deepseek', 'stanford', 'massachusetts institute', 'berkeley', 'carnegie', 'princeton', 'oxford', 'cambridge', 'tsinghua', 'peking', 'jiao tong', 'zhejiang', 'science and technology of china', 'hong kong']
 # Fixed tag vocabulary: one canonical set so 论文/ stays searchable by tag.

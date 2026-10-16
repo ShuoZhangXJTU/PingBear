@@ -1,0 +1,204 @@
+[
+  {
+    "schema_version": "0.3",
+    "id": "r-2026-0001",
+    "kind": "project_spec",
+    "genome": {
+      "evaluator": {
+        "identity": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "role": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "stakeholders": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        }
+      },
+      "target": {
+        "referent": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "kind": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "artifact_version": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "aspect": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        }
+      },
+      "context": {
+        "time": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "project": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "task": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "decision": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "state": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "audience": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "channel": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "platform": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "constraints": [],
+        "available_information": []
+      },
+      "trigger": {
+        "event": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "observations": [],
+        "expectation_violated": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        }
+      },
+      "motivation": {
+        "goals": [],
+        "values": [],
+        "experienced_costs": [],
+        "anticipated_costs": [],
+        "tradeoffs": []
+      },
+      "judgment": {
+        "statement": {
+          "value": "给外行写日报时，用大白话。",
+          "basis": "explicit",
+          "evidence_ids": [
+            "e1"
+          ]
+        },
+        "valence": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "strength": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "criterion": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "comparison": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "alternatives": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "desired_change": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "positive_examples": [],
+        "negative_examples": []
+      },
+      "outcome": {
+        "observed_result": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        },
+        "later_feedback": {
+          "value": null,
+          "basis": "unknown",
+          "evidence_ids": []
+        }
+      }
+    },
+    "evidence": [
+      {
+        "id": "e1",
+        "episode_id": "ep-test",
+        "quote": "给外行写日报时，用大白话。"
+      }
+    ],
+    "applicability": {
+      "reviewed": true,
+      "required": [
+        {
+          "field": "project",
+          "op": "eq",
+          "value": "brief"
+        },
+        {
+          "field": "audience",
+          "op": "eq",
+          "value": "nonexpert"
+        },
+        {
+          "field": "trigger.event",
+          "op": "eq",
+          "value": "write_brief"
+        }
+      ],
+      "excluded": [],
+      "valid_from": null,
+      "valid_until": null,
+      "review_note": "test boundary review"
+    },
+    "lifecycle": {
+      "status": "confirmed",
+      "created_at": "2026-01-02T00:00:00Z",
+      "confirmed_at": "2026-01-03T00:00:00Z",
+      "supersedes": [],
+      "review_note": "test human review"
+    },
+    "legacy": null
+  }
+]

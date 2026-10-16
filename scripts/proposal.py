@@ -126,7 +126,16 @@ def main():
     args = parser.parse_args()
     date = args.date or dt.datetime.now(TZ).date().isoformat()
     STATE.mkdir(parents=True, exist_ok=True)
-    proposals = generate(date, limit_per_run=args.limit or None)
+    try:
+        proposals = generate(date, limit_per_run=args.limit or None)
+    except Exception as error:
+        try:
+            import alert
+            alert.send(f'⚠️ 科研提案没生成出来：{type(error).__name__} {error}\n'
+                '（01:30/05:30 那次没跑成，明天会自动重试）', key='proposal-failed:' + date)
+        except Exception:
+            pass
+        raise
     if proposals:
         path = render(date, proposals)
         print(f'生成 {len(proposals)} 条提案 -> {path}')

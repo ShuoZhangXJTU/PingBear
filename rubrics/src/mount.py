@@ -30,16 +30,16 @@ def render(snapshot):
     items = core.match(snapshot)
     if not items:
         lines.append("【我的评价体系】当前线索没有匹配到检索层条目，"
-            "不确定时应当直接问，不要用近似条目套用。")
+            "不要硬套旧标准；只有缺失信息会改变当前决策时才询问。")
         return "\n".join(lines)
     lines.append("【我的评价体系（按当前情境匹配）】")
     for item in items:
-        judgment = item.get("judgment", {})
-        lines.append(f"- ({judgment.get('strength', 'prefer')}) {judgment.get('text', '')}")
-        motivation = item.get("motivation", {})
-        if motivation.get("value") or motivation.get("cost"):
-            why = "；".join(x for x in [motivation.get("value"), motivation.get("cost")] if x)
-            lines.append(f"  出于：{why}")
+        g = item['genome']
+        lines.append(f"- [{item['id']}] {g['judgment']['statement']['value']}")
+        lines.append("  适用条件：" + json.dumps(item['applicability'], ensure_ascii=False))
+        lines.append("  评价依据：" + json.dumps(item['evidence'], ensure_ascii=False))
+        lines.append("  当时动机：" + json.dumps(g['motivation'], ensure_ascii=False))
+    lines.append("这些是有适用边界的历史评价；冲突必须显式呈现，不自行按分数覆盖。")
     lines.append("（由 rubrics 模块提供；只列与当前情境匹配的条目，未匹配的不推断）")
     return "\n".join(lines)
 
@@ -55,9 +55,9 @@ def main():
         print(render(json.loads(args.snapshot or "{}")))
     else:
         data = cfg.load()
-        print(f"挂载：{'已挂载（rubrics 会影响后续执行）' if data['mounted'] else '未挂载（只监听、不影响执行）'}")
+        print(f"挂载：{'渲染已启用（仅调用接口的工作流受影响）' if data['mounted'] else '未挂载（只监听、不影响执行）'}")
         print("关注源：" + "、".join(cfg.enabled_sources()))
-        print(f"监听时间：每天 {data['observe_hours']} 点（错峰）")
+        print(f"配置的监听时间（非运行验证）：每天 {data['observe_hours']} 点（错峰）")
         print(f"条目数：{len(core.load())}")
 
 

@@ -50,11 +50,12 @@ def iter_messages():
                 # 只收「我们的对话」：开发者/系统指令不属于用户表达，不入库
                 if role not in ("user", "assistant"):
                     continue
-                text = "".join(part.get("text", "") for part in payload.get("content", [])).strip()
-                if not text or any(marker in text for marker in SKIP):
+                text = "".join(part.get("text", "") for part in payload.get("content", []))
+                if not text.strip() or any(marker in text for marker in SKIP):
                     continue
                 yield {"kind": "message", "session": session, "ts": item.get("timestamp"),
-                    "role": role, "text": text, "cwd": payload.get("cwd") or ""}
+                    "role": role, "text": text, "cwd": payload.get("cwd") or "",
+                    "origin": "injected_context" if text.startswith("# AGENTS.md instructions") else "conversation"}
 
 
 def ingest():
@@ -66,24 +67,21 @@ def ingest():
                 existing[json.loads(line)["id"]] = True
             except Exception:
                 continue
-    added, current_cwd, handled_sessions = 0, "", set()
+    added, cwd_by_session = 0, {}
     handles = {}
     for item in iter_messages():
         if item["kind"] == "context":
-            current_cwd = item.get("cwd") or current_cwd
+            cwd_by_session[item["session"]] = item.get("cwd") or cwd_by_session.get(item["session"], "")
             continue
         session = item["session"]
-        if session not in handled_sessions:
-            current_cwd = ""
-            handled_sessions.add(session)
         ident = episode_id(session, item.get("ts"), item.get("role"), item["text"])
         if ident in existing:
             continue
         month = (item.get("ts") or "")[:7] or "unknown"
         path = STORE / f"{month}.jsonl"
         record = {"id": ident, "ts": item.get("ts"), "role": item.get("role"),
-            "session": session, "cwd": item.get("cwd") or current_cwd, "text": item["text"],
-            "artifact_refs": []}
+            "session": session, "cwd": item.get("cwd") or cwd_by_session.get(session, ""), "text": item["text"],
+            "artifact_refs": [], "origin": item.get("origin", "conversation")}
         handle = handles.get(path) or path.open("a", encoding="utf-8")
         handles[path] = handle
         handle.write(json.dumps(record, ensure_ascii=False) + "\n")

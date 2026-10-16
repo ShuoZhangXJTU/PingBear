@@ -17,7 +17,7 @@ LOCAL = Path.home() / 'Research'
 CLOUD = Path.home() / 'Library/Mobile Documents/iCloud~md~obsidian/Documents/research'
 CODE_DIRS = ['scripts', '.obsidian/plugins']
 # 除这些之外，本地顶层的东西全部镜像到云盘（新增目录自动带上，不用改代码）
-EXCLUDE = {'.git', '.research', '.Trash', '.obsidian', '.DS_Store', '.github'}
+EXCLUDE = {'.git', '.research', '.Trash', '.obsidian', '.DS_Store', '.github', '研究路线'}
 
 
 def rsync(src, dst, extra=None):
@@ -33,11 +33,19 @@ def push():
     for name in CODE_DIRS:
         if (LOCAL / name).exists():
             rsync(str(LOCAL / name) + '/', str(CLOUD / name) + '/')
+    # Route notes use merge bases so phone-written goals and feedback survive.
+    result = subprocess.run([sys.executable, '-B', str(LOCAL / 'rubrics/src/publish_review.py')], check=False)
+    if result.returncode:
+        print('路线页面保留冲突或未同步；其余资料继续同步，不覆盖路线页面。')
     count = 0
     for entry in sorted(LOCAL.iterdir()):
         if entry.name in EXCLUDE:
             continue
-        if entry.is_dir():
+        if entry.name == 'rubrics':
+            rsync(str(entry) + '/', str(CLOUD / entry.name) + '/',
+                  ['--exclude', 'episodes/', '--exclude', 'data/', '--exclude', 'proposals/',
+                   '--exclude', 'annotations/', '--exclude', 'system/'])
+        elif entry.is_dir():
             rsync(str(entry) + '/', str(CLOUD / entry.name) + '/')
         else:
             rsync(str(entry), str(CLOUD / entry.name))

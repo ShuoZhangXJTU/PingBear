@@ -37,7 +37,7 @@ KEEP_SECTIONS = ('## 我的备注', '## 我的想法', '## 我的选择理由', 
 # 版面顺序：我的备注 → 深读 takeaways → 这些材料性内容全部沉到最后
 TAIL_SECTIONS = ('## 问答沉淀', '## 截图', '## 截图文字（OCR）', '## 我的选择理由', '## 精读笔记')
 ALL_SECTIONS = set(KEEP_SECTIONS) | set(TAIL_SECTIONS)
-DEFAULT_TOPICS = ['RSI', 'Harness', '后训练']
+DEFAULT_TOPICS = ['RSI', 'Harness', '后训练', 'GUI Agent']
 PROMPT_FILE = ROOT / '配置/提示词-深读.md'
 DEFAULT_DEEP_PROMPT = '''你在帮一位 NLP 博士把论文变成可复用的知识。只依据给定材料，不调用工具。
 重点从实验章节提取经过验证的结论：设置、基线、具体数字、消融、在什么条件下不成立。
@@ -285,22 +285,42 @@ def paper_text(note):
 
 # ---------- 调模型 ----------
 
-def codex_json(prompt, payload, schema_object, out_path, log_path, timeout=1800):
+def codex_json(prompt, payload, schema_object, out_path, log_path, timeout=1800, attempts=3):
+    import rubrics_bridge
+    parts = str(out_path).split('/')
+    task = next((name for name in ('deepen', 'topics', 'ask', 'cookbook', 'proposal') if name in parts), 'research_generation')
+    personal_context = rubrics_bridge.context(task)
+    if personal_context:
+        prompt = personal_context + '\n\n' + prompt
     out_path.parent.mkdir(parents=True, exist_ok=True)
     log_path.parent.mkdir(parents=True, exist_ok=True)
     schema_path = out_path.with_suffix('.schema.json')
     research.replace(schema_path, schema_object)
-    if out_path.exists():
-        out_path.unlink()
-    command = [str(Path.home()/'.local/bin/codex'), 'exec', '--skip-git-repo-check', '--ephemeral',
+    command = [str(Path.home()/'.local/bin/codex'), '--profile', 'deepseek', 'exec', '--skip-git-repo-check', '--ephemeral',
         '--sandbox', 'read-only', '-C', str(ROOT), '-c', 'features.shell_tool=false',
         '-c', 'web_search="disabled"', '--output-schema', str(schema_path), '-o', str(out_path), '-']
-    with log_path.open('a', encoding='utf-8') as handle:
-        result = subprocess.run(command, input=prompt + json.dumps(payload, ensure_ascii=False),
-            text=True, stdout=handle, stderr=handle, timeout=timeout)
-    if result.returncode or not out_path.exists():
-        raise RuntimeError('模型生成失败，详见 ' + str(log_path))
-    return load_json_tolerant(out_path)
+    text = prompt + json.dumps(payload, ensure_ascii=False)
+    # 夜里这一步经常死在「流被截断」这类网络抖动上，而一次失败就等于当天任务白跑，
+    # 所以失败重试两次、每次都记进日志。
+    reason = ''
+    for attempt in range(1, attempts + 1):
+        if out_path.exists():
+            out_path.unlink()
+        with log_path.open('a', encoding='utf-8') as handle:
+            handle.write(f'\n===== 第 {attempt}/{attempts} 次调用 {dt.datetime.now(TZ):%Y-%m-%d %H:%M:%S} =====\n')
+            result = subprocess.run(command, input=text, text=True, stdout=handle, stderr=handle, timeout=timeout)
+        if result.returncode or not out_path.exists():
+            reason = f'退出码 {result.returncode}'
+        else:
+            try:
+                return load_json_tolerant(out_path)
+            except Exception as error:
+                reason = f'输出无法解析（{type(error).__name__}: {error}）'
+        if attempt < attempts:
+            wait = 60 * attempt
+            print(f'模型生成失败（{reason}），{wait} 秒后重试（第 {attempt + 1}/{attempts} 次）', flush=True)
+            time.sleep(wait)
+    raise RuntimeError(f'模型生成失败（{reason}，已重试 {attempts} 次），详见 ' + str(log_path))
 
 
 def load_json_tolerant(path):
@@ -443,6 +463,24 @@ def topic_notes(topic):
     return [note for note in archived_notes() if topic in note['tags'] or note['primary_tag'] == topic]
 
 
+def topic_data(topic, prompt, payload):
+    """生成一张体系页的数据。模型偶尔会漏字段（'positioning' / 'groups'），漏了就重试一次，
+    两次都不全就报错——调用方会跳过这一个主题，别的主题照常更新。"""
+    out_path = STATE / 'topics' / f'{topic}.json'
+    log_path = STATE / 'logs' / f'topic-{topic}.log'
+    required = TOPIC_SCHEMA['required']
+    missing = []
+    for attempt in range(2):
+        data = codex_json(prompt, payload, TOPIC_SCHEMA, out_path, log_path)
+        missing = [key for key in required if not data.get(key)]
+        if not missing:
+            if attempt:
+                print(f'体系页 {topic}: 重试后生成正常', flush=True)
+            return data
+        print(f'体系页 {topic}: 模型这次少了 {missing}，重试一次', flush=True)
+    raise RuntimeError(f'体系页 {topic} 生成不完整，缺 {missing}')
+
+
 def rebuild_topic(topic, force=True):
     notes = topic_notes(topic)
     path = TOPICS_DIR / f'{topic}.md'
@@ -459,8 +497,7 @@ def rebuild_topic(topic, force=True):
         'takeaways': note['body'].split(MARK_START, 1)[1].split(MARK_END, 1)[0] if MARK_START in note['body'] else '',
         'qa_points': section_text(note['body'], '## 问答沉淀')}
         for note in notes]
-    data = codex_json(prompt, payload, TOPIC_SCHEMA, STATE / 'topics' / f'{topic}.json',
-        STATE / 'logs' / f'topic-{topic}.log')
+    data = topic_data(topic, prompt, payload)
     lookup = {note['title']: note for note in notes}
     def link(title):
         note = lookup.get(title)
@@ -473,13 +510,13 @@ def rebuild_topic(topic, force=True):
     lines = [f'# {topic}', '', '自动生成的体系页；「我的想法」由你自己写，重建时不会覆盖。', '',
         f'归档笔记 {len(notes)} 篇 · 最近重建 {dt.datetime.now(TZ):%Y-%m-%d %H:%M}', '',
         '## 定位', '', data['positioning'], '', '## 概念地图', '']
-    for group in data['groups']:
-        lines += [f"### {group['name']}", '', f"- 解决什么问题：{group['question']}",
-            f"- 通行做法：{group['approach']}",
-            f"- 组内差异：{group['differences']}",
-            '- 代表工作：' + ' · '.join(link(title) for title in group['works']), '']
-    lines += ['## 交叉观察', ''] + [f'- {item}' for item in data['cross']] + ['']
-    lines += ['## 开放问题', ''] + [f'- {item}' for item in data['open_questions']] + ['']
+    for group in data.get('groups') or []:
+        lines += [f"### {group.get('name', '未命名分组')}", '', f"- 解决什么问题：{group.get('question', '')}",
+            f"- 通行做法：{group.get('approach', '')}",
+            f"- 组内差异：{group.get('differences', '')}",
+            '- 代表工作：' + ' · '.join(link(title) for title in group.get('works') or []), '']
+    lines += ['## 交叉观察', ''] + [f'- {item}' for item in data.get('cross') or []] + ['']
+    lines += ['## 开放问题', ''] + [f'- {item}' for item in data.get('open_questions') or []] + ['']
     lines += [kept.strip('\n'), '', '## 归档索引', '']
     for note in notes:
         marker = '' if MARK_START in note['body'] else '（待深读）'
@@ -498,7 +535,12 @@ def rebuild(topics=None):
     for topic in topics:
         if not topic_notes(topic):
             continue
-        path, count = rebuild_topic(topic)
+        # 一个主题生成失败不能连累其它主题（以前一个 KeyError 会让后面全部不更新）。
+        try:
+            path, count = rebuild_topic(topic)
+        except Exception as error:
+            print(f'体系页 {topic} 更新失败: {type(error).__name__} {error}', flush=True)
+            continue
         done.append(topic)
         print(f'体系页更新: {topic}（{count} 篇）-> {path}', flush=True)
     return done

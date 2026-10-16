@@ -332,7 +332,7 @@ title 用论文原标题（英文原样保留）；如果这张截图不是论�
 小红书笔记标题（仅供参考）：''' + (note.get('title') or '') + '\n笔记正文（仅供参考）：' + (note.get('desc') or '')[:1500] + '\n'
     log = STATE / 'logs' / (note['id'] + '-summary.log')
     log.parent.mkdir(parents=True, exist_ok=True)
-    command = [str(Path.home()/'.local/bin/codex'), 'exec', '--skip-git-repo-check', '--ephemeral',
+    command = [str(Path.home()/'.local/bin/codex'), '--profile', 'deepseek', 'exec', '--skip-git-repo-check', '--ephemeral',
         '--sandbox', 'read-only', '-C', str(ROOT), '-c', 'features.shell_tool=false',
         '-c', 'web_search="disabled"', '--output-schema', str(schema), '-o', str(out), '-']
     payload = [{k: v for k, v in entry.items() if k in ('index', 'resolved_title', 'abstract', 'ocr')} for entry in entries]

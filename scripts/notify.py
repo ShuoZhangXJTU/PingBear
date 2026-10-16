@@ -79,11 +79,16 @@ def flatten_headings(text):
     return '\n'.join(lines)
 
 
-def push_brief(date=None, wait=True):
+def push_brief(date=None, wait=True, force=False):
+    day = date or dt.datetime.now(TZ).date().isoformat()
+    state_path = ROOT / '.research/push-state.json'
+    # 同一天只推一次：早上会反复触发（等日报生成），不能变成反复打扰。
+    if not force and state_path.exists() and research.load(state_path).get('last_date') == day:
+        print(f'{day} 已经推送过，跳过', flush=True)
+        return False
     if wait:
         sys.path.insert(0, str(ROOT / 'scripts'))
         import weixin_bridge
-        day = date or dt.datetime.now(TZ).date().isoformat()
         weixin_bridge.wait_for_brief(day)
     text = brief_text(date)
     try:
@@ -91,7 +96,6 @@ def push_brief(date=None, wait=True):
         text += f"\n\n📕 未读归档论文：{unread.count()} 篇（Obsidian 命令面板搜「未读论文清单」）"
     except Exception:
         pass
-    day = date or dt.datetime.now(TZ).date().isoformat()
     # 标题用「内容日期」：半夜生成、早上推送，内容其实是前一天的
     try:
         content_date = research.load(ROOT / '.research/morning-status.json').get('completed_date') or day
@@ -99,9 +103,10 @@ def push_brief(date=None, wait=True):
         content_date = day
     _d = dt.date.fromisoformat(content_date)
     send(f'科研早报 · {_d.month}月{_d.day}日', flatten_headings(text))
-    research.replace(ROOT / '.research/push-state.json',
+    research.replace(state_path,
         {'last_date': day, 'at': dt.datetime.now(TZ).isoformat(), 'chars': len(text), 'channel': 'pushplus'})
     print(f'已通过 PushPlus 推送 {day} 日报（{len(text)} 字）', flush=True)
+    return True
 
 
 def main():

@@ -315,7 +315,7 @@ def response(text, history):
     out = DATA/'reply.txt'
     if out.exists():out.unlink()
     with (DATA/'codex.log').open('a') as log:
-        proc = subprocess.run([str(Path.home()/'.local/bin/codex'),'exec','--skip-git-repo-check','--ephemeral',
+        proc = subprocess.run([str(Path.home()/'.local/bin/codex'),'--profile','deepseek','exec','--skip-git-repo-check','--ephemeral',
             '--sandbox','read-only','-C',str(ROOT),'-c','features.shell_tool=false','-c','web_search="disabled"','-o',str(out),'-'],
             input=prompt,text=True,stdout=log,stderr=log,timeout=900)
     if proc.returncode or not out.exists():

@@ -212,7 +212,17 @@ def main():
     parser.add_argument('--topic', action='append')
     parser.add_argument('--limit', type=int)
     args = parser.parse_args()
-    update_topics(args.topic, args.limit)
+    try:
+        update_topics(args.topic, args.limit)
+    except Exception as error:
+        # 手册没更新以前是只写进日志、没人知道。失败就直接告警，不拖到你发现它停更。
+        try:
+            import alert
+            alert.send(f'⚠️ 最佳实践手册没更新成功：{type(error).__name__} {error}\n'
+                '（00:30 那次没跑成，明天会自动重试）', key='cookbook-failed:' + dt.date.today().isoformat())
+        except Exception:
+            pass
+        raise
 
 
 if __name__ == '__main__':

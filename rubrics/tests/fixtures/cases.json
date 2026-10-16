@@ -1,0 +1,73 @@
+[
+  {
+    "id": "positive",
+    "category": "positive",
+    "cutoff": "2026-01-05T00:00:00Z",
+    "snapshot": {
+      "project": "brief",
+      "audience": "nonexpert",
+      "trigger": {
+        "event": "write_brief"
+      }
+    },
+    "expected_ids": [
+      "r-2026-0001"
+    ]
+  },
+  {
+    "id": "wrong_project",
+    "category": "wrong_project",
+    "cutoff": "2026-01-05T00:00:00Z",
+    "snapshot": {
+      "project": "other",
+      "audience": "nonexpert",
+      "trigger": {
+        "event": "write_brief"
+      }
+    },
+    "expected_ids": []
+  },
+  {
+    "id": "wrong_audience",
+    "category": "wrong_audience",
+    "cutoff": "2026-01-05T00:00:00Z",
+    "snapshot": {
+      "project": "brief",
+      "audience": "expert",
+      "trigger": {
+        "event": "write_brief"
+      }
+    },
+    "expected_ids": []
+  },
+  {
+    "id": "missing_trigger",
+    "category": "missing_trigger",
+    "cutoff": "2026-01-05T00:00:00Z",
+    "snapshot": {
+      "project": "brief",
+      "audience": "nonexpert"
+    },
+    "expected_ids": []
+  },
+  {
+    "id": "wrong_trigger",
+    "category": "wrong_trigger",
+    "cutoff": "2026-01-05T00:00:00Z",
+    "snapshot": {
+      "project": "brief",
+      "audience": "nonexpert",
+      "trigger": {
+        "event": "write_paper"
+      }
+    },
+    "expected_ids": []
+  },
+  {
+    "id": "empty",
+    "category": "empty",
+    "cutoff": "2026-01-05T00:00:00Z",
+    "snapshot": {},
+    "expected_ids": []
+  }
+]

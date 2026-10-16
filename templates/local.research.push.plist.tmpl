@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key><string>local.research.push</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>__PYTHON__</string>
+		<string>-u</string>
+		<string>__VAULT__/scripts/notify.py</string>
+		<string>brief</string>
+	</array>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PATH</key><string>__BIN_PATH__</string>
+		<key>TZ</key><string>Asia/Shanghai</string>
+	</dict>
+	<key>WorkingDirectory</key><string>__VAULT__</string>
+	<key>StartCalendarInterval</key>
+	<array>
+		<dict><key>Hour</key><integer>8</integer><key>Minute</key><integer>0</integer></dict>
+		<dict><key>Hour</key><integer>8</integer><key>Minute</key><integer>20</integer></dict>
+		<dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>0</integer></dict>
+		<dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>5</integer></dict>
+		<dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>35</integer></dict>
+		<dict><key>Hour</key><integer>10</integer><key>Minute</key><integer>5</integer></dict>
+	</array>
+	<key>StandardOutPath</key><string>__VAULT__/.research/logs/push.log</string>
+	<key>StandardErrorPath</key><string>__VAULT__/.research/logs/push.log</string>
+</dict>
+</plist>

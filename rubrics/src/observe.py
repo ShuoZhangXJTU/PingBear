@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""监听总结（每天半夜错峰跑）：从关注源里抽候选评价标准 → 提案，不自动入库。
+"""监听总结（每天半夜错峰跑）：从关注源保留完整用户发言 → 候选材料，不自动入库。
 
-当前默认只关注「我们的对话」：读本地 Codex 会话记录里的用户发言，挑出评价性表述，
+当前默认只关注「我们的对话」：读本地 Codex 会话记录里的用户发言，保留完整发言，
 整理成候选条目写进 rubrics/proposals/<日期>.md，等你确认后才进 seed/。
 
 注意：监听总结与「挂载」开关无关，永远照跑；挂载只决定 rubrics 是否影响后续执行。
@@ -23,30 +23,13 @@ SIGNALS = ["不对", "不行", "不要", "应该", "必须", "要求", "重要",
 
 def conversation_turns(days=1):
     """读最近几天的用户发言（本地 jsonl，仅本机读取）。"""
-    since = dt.datetime.now() - dt.timedelta(days=days)
-    turns = []
-    for base in cfg.load()["conversation_paths"]:
-        root = Path(base).expanduser()
-        if not root.exists():
-            continue
-        for path in sorted(root.rglob("*.jsonl")):
-            if dt.datetime.fromtimestamp(path.stat().st_mtime) < since:
-                continue
-            for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
-                try:
-                    item = json.loads(line)
-                except ValueError:
-                    continue
-                if item.get("type") != "response_item":
-                    continue
-                payload = item.get("payload") or {}
-                if payload.get("type") != "message" or payload.get("role") != "user":
-                    continue
-                text = "".join(part.get("text", "") for part in payload.get("content", []))
-                if "<environment_context>" in text or text.startswith("<"):
-                    continue
-                turns.append(text.strip())
-    return turns
+    import episodes
+    import genome
+    since = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=days)
+    return [m['text'] for m in episodes.iter_messages()
+            if m.get('kind') == 'message' and m.get('role') == 'user'
+            and m.get('origin') != 'injected_context'
+            and m.get('ts') and genome.parse_time(m['ts']) >= since]
 
 
 def extract(turns):
@@ -65,8 +48,8 @@ def write_proposals(snippets, date):
     path = PROPOSALS / f"{date}.md"
     lines = [f"# {date} 候选评价标准（待确认）", "",
         f"来源：{ '、'.join(cfg.enabled_sources()) }（挂载状态：{'已挂载' if cfg.is_mounted() else '未挂载'}）", "",
-        "下面是今天从对话里抽出的评价性表述。确认后（或直接改）我再把它们整理成条目进 `seed/`；"
-        "不确认的会留在提案里，不会进体系。", ""]
+        "下面是时间窗口内保留的完整发言；尚未判断哪些属于评价标准。通过 build 构建带证据的基因组草稿并复核后才可启用；"
+        "未确认的不会影响执行。", ""]
     for index, snippet in enumerate(snippets, 1):
         lines += [f"## C{index}. {snippet[:60]}", "", f"> {snippet}", ""]
     if not snippets:
@@ -80,10 +63,14 @@ def main():
     parser.add_argument("--days", type=int, default=1)
     args = parser.parse_args()
     date = dt.date.today().isoformat()
+    import episodes
+    episodes.ingest()
     turns = conversation_turns(args.days)
-    snippets = extract(turns)
+    snippets = turns  # 完整发言进入候选材料，分类留给体系构建
     path = write_proposals(snippets, date)
     print(f"读对话 {len(turns)} 轮 → 候选 {len(snippets)} 条 → {path}")
+    import activity
+    activity.run()
 
 
 if __name__ == "__main__":
