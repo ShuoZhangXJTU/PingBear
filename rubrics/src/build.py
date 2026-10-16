@@ -135,46 +135,51 @@ origin=injected_context 的 AGENTS 指令是自动注入上下文，不是用户
     return directory
 
 
-def import_result(path):
+UNKNOWN_ALTERNATIVE = {'value': None, 'basis': 'unknown', 'evidence_ids': []}
+
+
+def normalize_shape(raw):
+    """把模型常见的形状偏差收敛到规范形状（只改形状，不改内容）。"""
+    judgment = ((raw.get('genome') or {}).get('judgment') or {})
+    alternatives = judgment.get('alternatives')
+    if isinstance(alternatives, list):
+        first = next((item for item in alternatives if isinstance(item, dict)), None)
+        judgment['alternatives'] = first or dict(UNKNOWN_ALTERNATIVE)
+        return 'alternatives 列表转对象'
+    return None
+
+
+def import_result(path, tolerant=False):
+    """导入模型产出的条目。
+
+    tolerant=False（默认，也是命令行 --import-result 的行为）：整批校验，
+    任何一条不合格就整体不落库——不允许悄悄只存一半。
+    tolerant=True（夜里无人值守的飞轮用）：逐条校验，形状可归一的先归一，
+    仍不合格的跳过并打印原因，好的照常进 draft；否则一次小的形状偏差就白跑一晚。
+    """
     data = json.loads(Path(path).read_text())
     episode_map = {ep['id']: ep for ep in episodes.load()}
-    unknown_alternative = {'value': None, 'basis': 'unknown', 'evidence_ids': []}
-
-    def normalize(raw):
-        """把模型常见的形状偏差收敛到规范形状（只改形状，不改内容）。"""
-        judgment = ((raw.get('genome') or {}).get('judgment') or {})
-        alternatives = judgment.get('alternatives')
-        if isinstance(alternatives, list):
-            first = next((item for item in alternatives if isinstance(item, dict)), None)
-            judgment['alternatives'] = first or dict(unknown_alternative)
-            return 'alternatives 列表转对象'
-        return None
-
-    # 逐条校验：模型偶尔把某个字段写成别的形状（例如 alternatives 给了数组）。
-    # 一条不合格不该让整批作废——跳过它、把原因打出来，其余照常进 draft。
+    if not tolerant:
+        genome.check_schema(data, OUT_SCHEMA)
     candidates, rejected = [], []
     for n, raw in enumerate(data.get('criteria') or []):
-        note = normalize(raw)
-        if note:
-            print(f'形状归一：第 {n + 1} 条 {note}', flush=True)
+        raw = copy.deepcopy(raw)
+        if tolerant:
+            note = normalize_shape(raw)
+            if note:
+                print(f'形状归一：第 {n + 1} 条 {note}', flush=True)
         try:
             genome.check_schema(raw, GENERATION_SCHEMA)
-        except ValueError as error:
-            rejected.append(f'#{n} {error}')
+            raw['lifecycle'].update(status='draft', confirmed_at=None, created_at=genome.now(), supersedes=[])
+            raw['applicability']['reviewed'] = False
+            raw['legacy'] = None
+            genome.validate(raw, episode_map)
+        except (ValueError, KeyError, TypeError) as error:
+            if not tolerant:
+                raise ValueError(f'第 {n + 1} 条不合格，整批未落库：{error}') from None
+            rejected.append(f'第 {n + 1} 条 {raw.get("id", "?")} {error}')
             continue
-        candidates.append(copy.deepcopy(raw))
-    kept = []
-    for item in candidates:
-        try:
-            item['lifecycle'].update(status='draft', confirmed_at=None, created_at=genome.now(), supersedes=[])
-            item['applicability']['reviewed'] = False
-            item['legacy'] = None
-            genome.validate(item, episode_map)
-        except ValueError as error:
-            rejected.append(f'{item.get("id", "?")} {error}')
-            continue
-        kept.append(item)
-    candidates = kept
+        candidates.append(raw)
     for note in rejected:
         print(f'跳过一条不合格的草稿：{note}', flush=True)
     with core.transaction():
@@ -228,7 +233,8 @@ def generate(directory):
             if attempt == 2:
                 raise subprocess.CalledProcessError(result.returncode, command)
             time.sleep(60)
-        import_result(out)
+        # 无人值守：坏条目跳过，别让一整晚白跑（命令行导入仍是整批原子）。
+        import_result(out, tolerant=True)
 
 
 def main():
