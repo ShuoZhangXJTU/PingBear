@@ -129,6 +129,49 @@ class LibraryModal extends Modal {
   }
 }
 
+// 按题目搜论文：标题优先（BM25 + 子串 + 拼错兜底），回车即搜，结果可直接点开
+class PaperSearchModal extends Modal {
+  constructor(plugin) { super(plugin.app); this.plugin = plugin; }
+  onOpen() {
+    this.contentEl.createEl('h3', {text: '搜论文（按题目）'});
+    this.status = this.contentEl.createEl('div', {cls: 'research-archive-ask-status',
+      text: '输入标题里的几个词或半句话，拼错一两个字也能找到。回车搜索。'});
+    this.input = this.contentEl.createEl('input', {type: 'text',
+      placeholder: '例如：gui harvest ／ 1% of tokens ／ gradient estimaton', cls: 'research-archive-note'});
+    this.input.style.width = '100%';
+    this.resultsEl = this.contentEl.createDiv({cls: 'research-archive-answer'});
+    this.input.addEventListener('keydown', event => { if (event.key === 'Enter') this.run(); });
+    this.input.focus();
+  }
+  onClose() { this.contentEl.empty(); }
+  async run() {
+    const query = this.input.value.trim();
+    if (!query) return;
+    const out = '.research/search/last.json';
+    const started = Date.now();
+    this.resultsEl.empty();
+    this.status.setText('正在搜…');
+    this.plugin.runScript('scripts/search.py', ['--out', out, '--limit', '12', query]);
+    for (let attempt = 0; attempt < 40; attempt++) {
+      await sleep(500);
+      try {
+        const data = JSON.parse(await this.app.vault.adapter.read(out));
+        if (data.query !== query || Date.parse(data.at) < started - 3000) continue;
+        if (!data.hits.length) { this.resultsEl.setText('没有命中，换个词试试。'); }
+        else {
+          const markdown = data.hits.map(hit =>
+            `- [[${hit.path.replace(/\.md$/, '')}|${hit.title}]]　<sub>${hit.topic} · ${hit.score}</sub>`).join('\n');
+          const { MarkdownRenderer } = require('obsidian');
+          await MarkdownRenderer.render(this.app, markdown, this.resultsEl, '', this);
+        }
+        this.status.setText(`命中 ${data.hits.length} 篇`);
+        return;
+      } catch (error) { /* 结果还没写出来，继续等 */ }
+    }
+    this.status.setText('没拿到结果，检查一下 scripts/search.py 是否存在。');
+  }
+}
+
 // 灵感速记：一个输入框，Cmd+Enter 保存，写完自动按主题归档
 class IdeaModal extends Modal {
   constructor(plugin) { super(plugin.app); this.plugin = plugin; }
@@ -267,6 +310,7 @@ module.exports = class ResearchArchive extends Plugin {
     this.addCommand({id: 'sync-cloud', name: '同步到云盘（手机阅读）',
       callback: () => { this.runScript('scripts/sync_cloud.py', ['both']); new Notice('正在同步到云盘…'); }});
     this.addCommand({id: 'library-ask', name: '归档问答', callback: () => new LibraryModal(this).open()});
+    this.addCommand({id: 'search-papers', name: '搜论文（按题目）', callback: () => new PaperSearchModal(this).open()});
     this.addCommand({id: 'capture-idea', name: '记一条灵感', callback: () => new IdeaModal(this).open()});
     this.addCommand({id: 'unread-papers', name: '未读论文清单',
       callback: async () => {
