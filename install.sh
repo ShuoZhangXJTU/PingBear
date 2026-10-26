@@ -68,6 +68,7 @@ install_plist local.research.settle
 install_plist local.research.settle-sweep
 install_plist local.research.sync
 install_plist local.research.flywheel
+install_plist local.research.xhs-following
 # 每天推日报到手机是可选功能：默认不装（templates/local.research.push.plist.tmpl 里可按需启用）
 
 say "6/6 自检"

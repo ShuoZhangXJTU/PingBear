@@ -21,11 +21,23 @@ EXCLUDE = {'.git', '.research', '.Trash', '.obsidian', '.DS_Store', '.github', '
 
 
 def rsync(src, dst, extra=None):
-    args = ['rsync', '-a', '--exclude', '.DS_Store', '--exclude', '.git']
+    # iCloud 容器不允许改目录时间（launchd 下会报 failed to set times，rsync 退出 23），
+    # 用 -O 忽略目录时间：文件照常同步，任务不再被误判为失败。
+    args = ['rsync', '-a', '-O', '--inplace', '--exclude', '.DS_Store', '--exclude', '.git']
     if extra:
         args += extra
     args += [str(src), str(dst)]
-    subprocess.run(args, check=True)
+    # 文件名里有中文时 rsync 的输出可能不是合法 UTF-8，按字节收再宽松解码。
+    result = subprocess.run(args, capture_output=True)
+    stderr = (result.stderr or b'').decode('utf-8', 'replace')
+    if result.returncode == 0:
+        return True
+    # launchd 后台进程覆盖 iCloud 里已有文件会被系统拒绝（Operation not permitted）。
+    # 这不是内容问题；交给 Obsidian 插件那条路径同步，任务本身不算失败。
+    if result.returncode == 23 and 'Operation not permitted' in stderr:
+        print('iCloud 拒绝后台覆盖已有文件，本次跳过（Obsidian 插件会继续同步）')
+        return False
+    raise subprocess.CalledProcessError(result.returncode, args, result.stdout, result.stderr)
 
 
 def push():

@@ -47,11 +47,11 @@ def idea_pool():
     return list(dict.fromkeys(lines))
 
 
-def paper_pool(limit=80):
+def paper_pool(limit=40):
     notes = knowledge.archived_notes()
     notes.sort(key=lambda note: (note['date'] or ''), reverse=True)
     return [{'title': note['title'], 'summary': note['summary'], 'tags': note['tags'],
-        'takeaway': knowledge.section_text(note['body'], '## 深读 takeaway')[:1200]} for note in notes[:limit]]
+        'takeaway': knowledge.section_text(note['body'], '## 深读 takeaway')[:700]} for note in notes[:limit]]
 
 
 def cookbook_pool():
@@ -87,7 +87,7 @@ def generate(date, limit_per_run=6):
 "minimal_experiment":"1–2 周最小实验","metric":"判断指标","falsify":"什么结果算想法被推翻",
 "risks":"风险与和已有工作的关系","tags":["固定词表里的标签"]}]}
 '''
-    payload = {'date': date, 'my_ideas': ideas[:60], 'my_papers': papers, 'handbook_open_questions': books,
+    payload = {'date': date, 'my_ideas': ideas[:40], 'my_papers': papers, 'handbook_open_questions': books,
         'tag_vocabulary': list(research.TAGS)}
     data = knowledge.codex_json(prompt, payload, SCHEMA, STATE / f'{date}.json',
         ROOT / '.research/logs' / f'proposal-{date}.log', timeout=3600)

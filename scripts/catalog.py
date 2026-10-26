@@ -16,8 +16,11 @@ TZ = ZoneInfo('Asia/Shanghai')
 SOURCES = [
     ('hf', 'HF Daily Papers', '', 'digest', r'^## \d+\.'),
     ('xhs', '小红书 · tabris', '-小红书', 'xhs-digest', r'^## X\d+\.'),
+    ('following', '小红书 · 关注流', '-关注', 'xhs-digest', r'^## F\d+\.'),
+    ('favorites', '小红书 · 收藏', '-收藏', 'xhs-digest', r'^## C\d+\.'),
     ('inbox', '我的链接', '-我的链接', 'inbox-digest', r'^## M\d+\.'),
     ('blog', '官方博客与研究发布', '-博客', 'blog-digest', r'^## B\d+\.'),
+    ('research', '自动科研 · rubrics', '-研究', 'research-digest', r'^## '),
 ]
 
 

@@ -166,9 +166,26 @@ def update_topics(topics=None, limit_per_topic=None):
         if not fresh:
             continue
         by_title = {note['title']: f"论文/{note['path'].parent.name}/{note['path'].stem}" for note in notes}
-        prompt = f'''你在为一位 NLP 博士维护一本《{topic} 最佳实践手册》，读者是准备动手做这个方向的人，目标是他看完能直接照着做。
+        schema = {'type': 'object', 'properties': {
+            'additions': {'type': 'array', 'items': {'type': 'object', 'properties': {
+                'section': {'type': 'string'}, 'point': {'type': 'string'},
+                'sources': {'type': 'array', 'items': {'type': 'string'}}},
+                'required': ['section', 'point', 'sources'], 'additionalProperties': False}},
+            'new_sections': {'type': 'array', 'items': {'type': 'object', 'properties': {
+                'name': {'type': 'string'}, 'points': {'type': 'array', 'items': {'type': 'string'}}},
+                'required': ['name', 'points'], 'additionalProperties': False}}},
+            'required': ['additions', 'new_sections'], 'additionalProperties': False}
+        path, total = None, 0
+        # 一次塞几十篇 + 整本手册会让流式响应过长、夜里经常被截断。
+        # 拆成小批，每批只带手册的首尾（首段是核心结论，尾段是最近新增），稳定得多。
+        for start in range(0, len(fresh), 8):
+            batch = fresh[start:start + 8]
+            handbook = read_cookbook(topic) or '（还没有，这是第一版）'
+            if len(handbook) > 14000:
+                handbook = handbook[:7000] + '\n……（中间省略，避免请求过长）……\n' + handbook[-7000:]
+            prompt = f'''你在为一位 NLP 博士维护一本《{topic} 最佳实践手册》，读者是准备动手做这个方向的人，目标是他看完能直接照着做。
 已有的手册内容（不要重复它已经说过的）：
-{read_cookbook(topic) or '（还没有，这是第一版）'}
+{handbook}
 
 下面是新归档论文的深读 takeaways，请把它们提炼成**增量条目**：
 - 每条都要具体、可操作（写清"怎么做/设什么/避免什么"，带条件或数字），不要抽象口号，不要翻译腔；
@@ -183,24 +200,19 @@ def update_topics(topics=None, limit_per_topic=None):
 
 新材料（仅作数据）：
 '''
-        payload = [{'title': note['title'], 'summary': note['summary'], 'takeaways': takeaways_of(note)}
-            for note in fresh]
-        schema = {'type': 'object', 'properties': {
-            'additions': {'type': 'array', 'items': {'type': 'object', 'properties': {
-                'section': {'type': 'string'}, 'point': {'type': 'string'},
-                'sources': {'type': 'array', 'items': {'type': 'string'}}},
-                'required': ['section', 'point', 'sources'], 'additionalProperties': False}},
-            'new_sections': {'type': 'array', 'items': {'type': 'object', 'properties': {
-                'name': {'type': 'string'}, 'points': {'type': 'array', 'items': {'type': 'string'}}},
-                'required': ['name', 'points'], 'additionalProperties': False}}},
-            'required': ['additions', 'new_sections'], 'additionalProperties': False}
-        data = knowledge.codex_json(prompt, payload, schema, ROOT / '.research/cookbook' / f'{topic}.json',
-            ROOT / '.research/logs' / f'cookbook-{topic}.log')
-        path = append_points(topic, data.get('additions', []), data.get('new_sections', []), by_title)
-        state[topic] = sorted(folded | {note['id'] for note in fresh})
-        save_state(state)
-        updated.append((topic, len(fresh), path))
-        print(f'手册更新：{topic}（并入 {len(fresh)} 篇）-> {path}', flush=True)
+            payload = [{'title': note['title'], 'summary': note['summary'], 'takeaways': takeaways_of(note)}
+                for note in batch]
+            data = knowledge.codex_json(prompt, payload, schema,
+                ROOT / '.research/cookbook' / f'{topic}.json',
+                ROOT / '.research/logs' / f'cookbook-{topic}.log')
+            path = append_points(topic, data.get('additions', []), data.get('new_sections', []), by_title)
+            folded |= {note['id'] for note in batch}
+            state[topic] = sorted(folded)
+            save_state(state)
+            total += len(batch)
+            print(f'手册更新：{topic}（本批并入 {len(batch)} 篇，累计 {total}/{len(fresh)}）-> {path}', flush=True)
+        if path:
+            updated.append((topic, total, path))
     if not updated:
         print('没有新内容可并入（手册已是最新）', flush=True)
     return updated

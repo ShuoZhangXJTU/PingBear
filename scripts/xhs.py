@@ -130,11 +130,21 @@ def state_from_html(path):
 def fetch_page(mode, ident, token, base):
     base.parent.mkdir(parents=True, exist_ok=True)
     env = dict(os.environ, XHS_BROWSER_BIN=CHROME, TZ='Asia/Shanghai')
-    result = subprocess.run([str(FETCH), mode, ident, token, str(base)], cwd=str(TOOL_HOME),
-        env=env, text=True, errors='replace', capture_output=True, timeout=300)
+    started = time.time()
+    process = subprocess.Popen([str(FETCH), mode, ident, token, str(base)], cwd=str(TOOL_HOME),
+        env=env, text=True, errors='replace', stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    try:
+        out, err = process.communicate(timeout=300)
+    except subprocess.TimeoutExpired:
+        process.kill()
+        out, err = process.communicate()
+        # 浏览器关闭偶尔会挂住，但页面已经写出来了：只要快照是新的就直接用。
+        print('  xhsfetch 关闭超时，检查页面是否已落盘', flush=True)
     path = Path(str(base) + '.html')
-    if result.returncode or not path.exists():
-        raise RuntimeError((result.stderr or result.stdout or 'xhsfetch 失败').strip()[:400])
+    if path.exists() and path.stat().st_size > 20000 and path.stat().st_mtime >= started - 5:
+        return path
+    if process.returncode or not path.exists():
+        raise RuntimeError((err or out or 'xhsfetch 失败').strip()[:400])
     return path
 
 

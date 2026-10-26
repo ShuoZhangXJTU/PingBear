@@ -232,6 +232,11 @@ module.exports = class ResearchArchive extends Plugin {
     // Load marker so the daily pipeline can confirm the plugin really loaded.
     this.app.vault.adapter.write('.research/plugin-loaded.json',
       JSON.stringify({ loaded_at: new Date().toISOString(), version: this.manifest.version }, null, 2) + '\n').catch(() => {});
+    // iCloud 同步：后台 launchd 无法覆盖已有文件，改由 Obsidian（有 iCloud 权限）定时推。
+    if (Platform?.isDesktopApp) {
+      this.registerInterval(window.setInterval(() => this.runScript('scripts/sync_cloud.py', ['push']), 15 * 60 * 1000));
+      window.setTimeout(() => this.runScript('scripts/sync_cloud.py', ['push']), 20000);
+    }
     this.registerMarkdownPostProcessor(el => {
       // 诊断：Obsidian 是否还把 obsidian:// 链接渲染成 <a>（写进 .research/plugin-diag.json）
       try {

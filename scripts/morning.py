@@ -106,7 +106,7 @@ def homepage(date, source_date, message=''):
         if text.startswith('---\n'):
             text = text.split('---\n', 2)[-1]
         return text.lstrip('\n')
-    for name in ('小红书', '我的链接', '博客'):
+    for name in ('小红书', '关注', '收藏', '我的链接', '博客', '研究'):
         part = section(name)
         if part:
             body += '\n\n---\n\n' + part
@@ -207,6 +207,12 @@ def run(args):
             _, blog_count = blogs.process(date)
         except Exception as error:
             blog_note = f'官方博客部分本次未更新（{type(error).__name__}: {error}）'
+        # 自动科研与 rubrics 当天做了什么，单独写一节供首页引用。
+        try:
+            import daily_research
+            daily_research.write(date)
+        except Exception as error:
+            print('科研动态那一节生成失败:', type(error).__name__, error, flush=True)
         homepage(date, source_date, note)
         research.build_index(ROOT)
         try:
