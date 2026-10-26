@@ -480,7 +480,8 @@ def card(record):
         links.append(f"[PDF]({record['pdf']})")
     links.append(f"[原帖]({record['note_url']})")
     links.append(f"[归档](obsidian://research-archive?date={record['date']}&id={record['id']})")
-    origin = f"来自 tabris 的笔记《{record.get('note_title') or ''}》第 {record.get('shot_index')} 张截图"
+    who = record.get('author') or 'tabris'
+    origin = f"来自 {who} 的笔记《{record.get('note_title') or ''}》第 {record.get('shot_index')} 张截图"
     return f"{record['summary']}\n\n{tags}\n\n" + ' · '.join(links) + f"\n\n<sub>{origin}</sub>\n"
 
 
