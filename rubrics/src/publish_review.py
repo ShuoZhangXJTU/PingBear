@@ -66,7 +66,7 @@ def publish(root=ROOT, cloud=CLOUD):
             content = text.split(start, 1)[1].split(end, 1)[0].strip()
             replace_block(remote, content, '# ' + name[:-3])
     links = ('[[研究路线/飞轮|科研飞轮]] · [[研究路线/近期关注|近期关注]] · [[研究路线/当前路线|当前路线]] · '
-        '[[研究路线/审视记录|路线审视]] · [[研究路线/评价体系|评价体系]] · [[索引/调研|调研]]')
+        '[[研究路线/审视记录|路线审视]] · [[研究路线/评价体系|评价体系]] · [[索引/调研|调研]] · [[索引/业界洞察|业界洞察]]')
     for home in (root / '今日简报.md', cloud / '今日简报.md'):
         if home.exists():
             replace_block(home, links)
