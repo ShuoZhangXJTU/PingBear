@@ -172,7 +172,9 @@ def insight(topic, planned, web, local):
 2. differences：横向比出真实差异（实时还是静态、是否主动引导、是否有系统数据权限、硬件载体、目标人群、语言/地区）。
 3. scenarios：竞品各自押的场景，以及同一场景下做法差异。
 4. gaps / opportunities：这些竞品还没做好什么；结合一位 NLP 博士做 RSI / harness / 后训练的背景，哪里能切入。
-5. watchlist：接下来值得盯的信号。
+5. business_models：这些竞品各自怎么变现（硬件溢价/订阅/企业 SaaS/API 按量/交易佣金/免费公共服务），谁付钱；
+6. commercial_bets：3–6 个可商用变现的切入点，写清目标客户、为什么现在能做、靠什么收钱、壁垒与风险；
+7. watchlist：接下来值得盯的信号。
 材料里没有写的（例如具体模型、准确率、上线时间）就写「材料未说明」，不要补。
 只输出 JSON。'''
     schema = {'type': 'object', 'properties': {
@@ -190,10 +192,19 @@ def insight(topic, planned, web, local):
         'scenarios': {'type': 'array', 'items': {'type': 'object', 'properties': {
             'scenario': {'type': 'string'}, 'who': {'type': 'string'}, 'difference': {'type': 'string'}},
             'required': ['scenario', 'who', 'difference'], 'additionalProperties': False}},
+        'business_models': {'type': 'array', 'items': {'type': 'object', 'properties': {
+            'model': {'type': 'string'}, 'examples': {'type': 'string'}, 'who_pays': {'type': 'string'},
+            'evidence_ids': {'type': 'array', 'items': {'type': 'string'}}},
+            'required': ['model', 'examples', 'who_pays', 'evidence_ids'], 'additionalProperties': False}},
+        'commercial_bets': {'type': 'array', 'items': {'type': 'object', 'properties': {
+            'idea': {'type': 'string'}, 'customer': {'type': 'string'}, 'why_now': {'type': 'string'},
+            'revenue': {'type': 'string'}, 'moat': {'type': 'string'}, 'risk': {'type': 'string'}},
+            'required': ['idea', 'customer', 'why_now', 'revenue', 'moat', 'risk'], 'additionalProperties': False}},
         'gaps': {'type': 'array', 'items': {'type': 'string'}},
         'opportunities': {'type': 'array', 'items': {'type': 'string'}},
         'watchlist': {'type': 'array', 'items': {'type': 'string'}}},
-        'required': ['answer', 'competitors', 'differences', 'scenarios', 'gaps', 'opportunities', 'watchlist'],
+        'required': ['answer', 'competitors', 'differences', 'scenarios', 'business_models', 'commercial_bets',
+            'gaps', 'opportunities', 'watchlist'],
         'additionalProperties': False}
     payload = {'topic': topic, 'players': planned['players'], 'web_evidence': web, 'local_evidence': local}
     return knowledge.codex_json(prompt, payload, schema, STATE / 'answer.json', STATE / 'logs' / 'answer.log')
@@ -215,6 +226,14 @@ def render(topic, planned, web, local, data, slug):
     lines += ['', '## 场景拆解', '']
     for row in data['scenarios']:
         lines += [f'### {row["scenario"]}', '', f'- 谁在做：{row["who"]}', f'- 做法差异：{row["difference"]}', '']
+    lines += ['## 怎么变现', '', '| 模式 | 代表 | 谁付钱 | 证据 |', '|---|---|---|---|']
+    for row in data['business_models']:
+        lines.append(f'| {row["model"]} | {row["examples"]} | {row["who_pays"]} | '
+            + '、'.join(row['evidence_ids']) + ' |')
+    lines += ['', '## 可商用变现的切入点', '']
+    for row in data['commercial_bets']:
+        lines += [f'### {row["idea"]}', '', f'- 目标客户：{row["customer"]}', f'- 为什么现在能做：{row["why_now"]}',
+            f'- 怎么收钱：{row["revenue"]}', f'- 壁垒：{row["moat"]}', f'- 风险：{row["risk"]}', '']
     lines += ['## 空白与机会', '']
     lines += [f'- **空白**：{item}' for item in data['gaps']]
     lines += [f'- **机会**：{item}' for item in data['opportunities']]
