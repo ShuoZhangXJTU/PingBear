@@ -493,10 +493,24 @@ def rebuild_topic(topic, force=True):
 用费曼学习法写：外行也能看懂的大白话，短句，术语当场解释；不要出现「跨模型评审的路由收益」这类看不懂的说法。
 只输出 JSON 本身，不要任何解释文字，不要 Markdown 代码块。
 '''
-    payload = [{'title': note['title'], 'tags': note['tags'], 'summary': note['summary'],
-        'takeaways': note['body'].split(MARK_START, 1)[1].split(MARK_END, 1)[0] if MARK_START in note['body'] else '',
-        'qa_points': section_text(note['body'], '## 问答沉淀')}
-        for note in notes]
+    # 主题下笔记可能上百篇，整包发给模型会让流式响应中途截断。
+    # 先放有深读 takeaway 的，再按字符预算截断；页面底部的归档索引仍然列全部笔记。
+    def material(note):
+        return {'title': note['title'], 'tags': note['tags'], 'summary': note['summary'],
+            'takeaways': (note['body'].split(MARK_START, 1)[1].split(MARK_END, 1)[0]
+                if MARK_START in note['body'] else '')[:1500],
+            'qa_points': section_text(note['body'], '## 问答沉淀')[:800]}
+    ordered = sorted(notes, key=lambda note: MARK_START not in note['body'])
+    payload, used = [], 0
+    for note in ordered:
+        item = material(note)
+        size = len(json.dumps(item, ensure_ascii=False))
+        if payload and used + size > 60000:
+            break
+        payload.append(item)
+        used += size
+    if len(payload) < len(notes):
+        print(f'体系页 {topic}: 材料 {len(notes)} 篇，按 60KB 预算取前 {len(payload)} 篇（索引仍全量）', flush=True)
     data = topic_data(topic, prompt, payload)
     lookup = {note['title']: note for note in notes}
     def link(title):
