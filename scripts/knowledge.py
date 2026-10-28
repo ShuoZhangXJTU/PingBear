@@ -37,7 +37,7 @@ KEEP_SECTIONS = ('## 我的备注', '## 我的想法', '## 我的选择理由', 
 # 版面顺序：我的备注 → 深读 takeaways → 这些材料性内容全部沉到最后
 TAIL_SECTIONS = ('## 问答沉淀', '## 截图', '## 截图文字（OCR）', '## 我的选择理由', '## 精读笔记')
 ALL_SECTIONS = set(KEEP_SECTIONS) | set(TAIL_SECTIONS)
-DEFAULT_TOPICS = ['RSI', 'Harness', '后训练', 'GUI Agent']
+DEFAULT_TOPICS = ['RSI', 'Harness', '后训练', 'GUI Agent', '多模态交互']
 PROMPT_FILE = ROOT / '配置/提示词-深读.md'
 DEFAULT_DEEP_PROMPT = '''你在帮一位 NLP 博士把论文变成可复用的知识。只依据给定材料，不调用工具。
 重点从实验章节提取经过验证的结论：设置、基线、具体数字、消融、在什么条件下不成立。
