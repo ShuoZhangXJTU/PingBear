@@ -1,0 +1,165 @@
+{
+  "schema": "ppt-master.svg-quality-report.v1",
+  "stage": "final",
+  "target": "/Users/zhangshuo/Research/产品/multimodal-timeline-horizontal_ppt169_20261029",
+  "source_fingerprint": {
+    "algorithm": "sha256",
+    "digest": "e38a0b4d4c4c47778aa60aeb9f3704279c01af807fa21be1dc9e2d4effbd28da",
+    "file_count": 1,
+    "files": [
+      {
+        "file": "01_complete-timeline-horizontal.svg",
+        "sha256": "ebcbf42dcda2819f219c698f80152d62b6ef992848a6c0d6cb51d43fb6601238"
+      }
+    ]
+  },
+  "summary": {
+    "total": 1,
+    "passed": 1,
+    "warnings": 0,
+    "errors": 0
+  },
+  "issue_types": {},
+  "categories": {
+    "blocking": {
+      "count": 0,
+      "issues": []
+    },
+    "introduced": {
+      "count": 0,
+      "issues": []
+    },
+    "inherited": {
+      "count": 0,
+      "issues": []
+    },
+    "source-import": {
+      "count": 0,
+      "summary": {
+        "warning_count": 0,
+        "by_code": {}
+      }
+    }
+  },
+  "drift": {
+    "colors": {},
+    "fonts": {},
+    "sizes": {}
+  },
+  "carrier_receipt": {
+    "scope": "informational-not-a-quota",
+    "pages": 1,
+    "totals": {
+      "text_elements": 84,
+      "image_placements": 0,
+      "icons": 0,
+      "svg_geometry_elements": 81,
+      "preset_shapes": 0,
+      "page_frame_elements": 5,
+      "marker_uses": 0,
+      "inline_emphasis_runs": 0,
+      "gradient_uses": 0,
+      "filter_uses": 0,
+      "text_effects": 0
+    },
+    "pages_with": {
+      "images": 0,
+      "icons": 0,
+      "presets": 0,
+      "charts": 0,
+      "tables": 0,
+      "formulas": 0,
+      "inline_emphasis_runs": 0,
+      "gradient_uses": 0,
+      "filter_uses": 0,
+      "text_effects": 0
+    },
+    "relationship_pages": null,
+    "geometry_elements": {
+      "circle": 22,
+      "ellipse": 0,
+      "line": 28,
+      "path": 0,
+      "polygon": 0,
+      "polyline": 0,
+      "rect": 31
+    },
+    "preset_names": {},
+    "native_objects": {
+      "chart": 0,
+      "formula_block": 0,
+      "formula_inline": 0,
+      "other": 0,
+      "table": 0
+    },
+    "image_page_max_frame_share_range": []
+  },
+  "project_issues": {
+    "template": [],
+    "animation": [],
+    "illustration": [],
+    "communication_trace": [],
+    "pptx_structure": []
+  },
+  "files": [
+    {
+      "file": "01_complete-timeline-horizontal.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-timeline-horizontal_ppt169_20261029/svg_output/01_complete-timeline-horizontal.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 84,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 31,
+              "circle": 22,
+              "ellipse": 0,
+              "line": 28,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 5,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 84,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "ebcbf42dcda2819f219c698f80152d62b6ef992848a6c0d6cb51d43fb6601238"
+    }
+  ]
+}
