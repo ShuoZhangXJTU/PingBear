@@ -81,6 +81,36 @@ summary 只写一句日常、简短、顺口的话，通常 35–75 字，最多
     return output
 
 
+def ongoing_banner():
+    """有进行中的调研待办时，在日报最上方放一条可点击的进度入口。"""
+    path = ROOT / '.research/reminders/store.json'
+    if not path.exists():
+        return ''
+    try:
+        data = research.load(path)
+    except Exception:
+        return ''
+    titles = []
+    for task in data.get('tasks') or []:
+        if task.get('status') != 'open':
+            continue
+        title = task.get('title') or ''
+        if any(word in title for word in ('多模态', '调研', '洞察')) and title not in titles:
+            titles.append(title)
+    if not titles:
+        return ''
+    labels = {'multimodal-interaction-global': '全球竞品全景',
+        'multimodal-product': '产品层洞察', 'multimodal-open-source-product': '开源产品化'}
+    links = []
+    for report in sorted((ROOT / '业界洞察').glob('*multimodal*.md')):
+        slug = report.stem.split('-', 3)[-1]
+        links.append(f'[[业界洞察/{report.stem}|{labels.get(slug, slug)}]]')
+    line = f'> 🔬 进行中：{" / ".join(titles[:2])} · 进度 [[研究路线/运行总览|运行总览]]'
+    if links:
+        line += ' · 产物 ' + ' · '.join(links[-3:])
+    return line + '\n\n'
+
+
 def homepage(date, source_date, message=''):
     path = ROOT / '日报' / (source_date + '.md')
     now = dt.datetime.now(TZ).strftime('%Y-%m-%d %H:%M')
@@ -89,6 +119,7 @@ def homepage(date, source_date, message=''):
     body = (f'# 科研早报 · {pretty}\n\n'
         f'生成：{now}（北京时间，错峰生成） · 数据日期：{source_date}'
         + ('' if source_date == date else f'（{date} 的 HF 列表当时尚未发布，展示最近可用日期）') + '\n\n')
+    body += ongoing_banner()
     if message:
         body += f'> {message}\n\n'
     body += ('<!-- research:navigation:start -->\n'
