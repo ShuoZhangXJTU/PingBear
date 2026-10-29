@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key><string>local.research.reminders</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/sh</string>
+		<string>-c</string>
+		<string>cd __VAULT__ &amp;&amp; __PYTHON__ -u scripts/reminders.py sync &amp;&amp; __PYTHON__ -u scripts/reminders.py scan</string>
+	</array>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PATH</key><string>__BIN_PATH__</string>
+		<key>TZ</key><string>Asia/Shanghai</string>
+	</dict>
+	<key>WorkingDirectory</key><string>__VAULT__</string>
+	<key>StartInterval</key>
+	<integer>900</integer>
+	<key>StandardOutPath</key><string>__VAULT__/.research/logs/reminders.log</string>
+	<key>StandardErrorPath</key><string>__VAULT__/.research/logs/reminders.log</string>
+</dict>
+</plist>
