@@ -68,6 +68,15 @@ launchctl kickstart -k gui/$(id -u)/local.research.morning     # 立刻跑一次
 - **标签词表**：`配置/标签.md`，改动后重新生成日报生效
 - **深读提示词**：`配置/提示词-深读.md`，改完新的深读就用新版本
 
+### 可选：安装 PPT 制作能力
+
+```sh
+cd ~/Research
+./scripts/install_ppt.sh
+```
+
+脚本安装 Python 3.12、两个 Codex skills（`brainstorm` 与 `ppt-master`）以及隔离的 PPT 依赖。以后制作 PPT 时，先用 `brainstorm` 确认受众、叙事和逐页提纲，再用 `ppt-master` 生成可编辑 PPTX。`brainstorm` 只用于 PPT，不用于其他任务。
+
 ## 7. 常见问题
 
 | 现象 | 处理 |

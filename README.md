@@ -19,6 +19,8 @@ cd ~/Research
 
 **可选模块**（按需开）：小红书跟踪（见 `配置/小红书.md`，需扫码一次）、官方博客源（`scripts/blogs.py`，开箱可用）、我的链接（`收件箱/我的链接.md` 贴链接）、微信通道（见 `配置/微信接入.md`，该接口有会话窗口限制）。
 
+**PPT 模块**：运行 `./scripts/install_ppt.sh`。它安装 PPT 专用的 `brainstorm` 和可编辑 PPTX 工具 `ppt-master`；后续做 PPT 会先确认逐页大纲，再开始生成。
+
 **依赖**：macOS、Python 3.9+、[Codex CLI](https://learn.chatgpt.com/docs/non-interactive-mode)（已登录）、Obsidian、Google Chrome（抓前端渲染页面用）、Xcode Command Line Tools（编译本机 OCR）。
 
 完整说明见 [INSTALL.md](INSTALL.md)，架构见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)，拆包/产品化路线见 [docs/PACKAGING.md](docs/PACKAGING.md)。
@@ -50,6 +52,7 @@ HF 当次抓取返回的论文全部列出，每篇一句中文概述；标题�
 - `专题/`：主题知识体系页（RSI、Harness、后训练…），归档后自动重建；你自己的「我的想法」段落不会被覆盖。
 - `收件箱/我的链接.md`：你自己贴链接的入口，处理成同款条目。
 - `rubrics/`：**独立模块（试点中）**——个人评价体系引擎，不依赖主仓库代码；详见 [rubrics/README.md](rubrics/README.md)。
+- `配置/PPT制作.md`：PPT 两阶段工作流。先由 `brainstorm` skill 确认逐页大纲，再由 `ppt-master` skill 生成可编辑 PPTX；`brainstorm` 不用于其他任务。
 - [[配置/研究偏好]]：RSI、Harness、后训练及机构偏好。
 - `专题/`、`附件/`、`收件箱/`：阅读问题、附件和社交线索。
 
