@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">竞品全景</text>
+    <text x="60" y="82" font-size="32">五类玩家构成多模态交互的真实竞争地图</text>
+  </g>
+
+  <g id="five-category-map" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="148" font-size="15" fill="#4D4942">同一列表中不可直接排名：系统助手的终端入口、硬件的传感器、基础设施的 API 是不同层。</text>
+    <line x1="278" y1="166" x2="278" y2="602" stroke="#D6CFC3" stroke-width="1"/>
+    <line x1="504" y1="166" x2="504" y2="602" stroke="#D6CFC3" stroke-width="1"/>
+    <line x1="730" y1="166" x2="730" y2="602" stroke="#D6CFC3" stroke-width="1"/>
+    <line x1="956" y1="166" x2="956" y2="602" stroke="#D6CFC3" stroke-width="1"/>
+
+    <text x="60" y="194" font-size="14" font-weight="700" letter-spacing="2" fill="#1F5A49">系统 / App 助手</text>
+    <text x="60" y="230" font-size="16" font-weight="700" fill="#1D1C19">Gemini Live</text>
+    <text x="60" y="254" font-size="14" fill="#3F3B35">ChatGPT / SeedRealtime</text>
+    <text x="60" y="278" font-size="14" fill="#3F3B35">Muse / 小艺 / 超级小爱</text>
+    <text x="60" y="302" font-size="15" fill="#3F3B35">Copilot / Bixby</text>
+    <text x="60" y="326" font-size="15" fill="#3F3B35">Apple Visual Intelligence</text>
+    <text x="60" y="372" font-size="14" font-weight="700" fill="#6B6760">竞争点</text>
+    <text x="60" y="394" font-size="13" fill="#6B6760">入口、系统权限和数据；</text>
+    <text x="60" y="414" font-size="13" fill="#6B6760">账号与连续对话。</text>
+    <text x="60" y="440" font-size="14" font-weight="700" fill="#A33B27">证据缺口</text>
+    <text x="60" y="466" font-size="14" fill="#6B6760">独立任务成功率与付费</text>
+
+    <text x="294" y="194" font-size="14" font-weight="700" letter-spacing="2" fill="#C14E2C">眼镜 / 穿戴</text>
+    <text x="294" y="230" font-size="16" font-weight="700" fill="#1D1C19">Ray-Ban Meta</text>
+    <text x="294" y="254" font-size="15" fill="#3F3B35">Meta Display</text>
+    <text x="294" y="278" font-size="15" fill="#3F3B35">Android XR / Snap Specs</text>
+    <text x="294" y="302" font-size="15" fill="#3F3B35">华为眼镜 / 小米 / 夸克</text>
+    <text x="294" y="326" font-size="15" fill="#3F3B35">Glass / Stories / Pin / R1</text>
+    <text x="294" y="372" font-size="14" font-weight="700" fill="#6B6760">竞争点</text>
+    <text x="294" y="394" font-size="13" fill="#6B6760">第一视角、免手、显示；</text>
+    <text x="294" y="414" font-size="13" fill="#6B6760">佩戴舒适度与生态。</text>
+    <text x="294" y="440" font-size="14" font-weight="700" fill="#A33B27">证据缺口</text>
+    <text x="294" y="466" font-size="14" fill="#6B6760">留存、日常频次、隐私接受度</text>
+
+    <text x="520" y="194" font-size="14" font-weight="700" letter-spacing="2" fill="#1F5A49">电视 / 家庭</text>
+    <text x="520" y="230" font-size="16" font-weight="700" fill="#1D1C19">Samsung Vision AI</text>
+    <text x="520" y="254" font-size="15" fill="#3F3B35">海信星海+DeepSeek</text>
+    <text x="520" y="278" font-size="15" fill="#3F3B35">小度超能小度</text>
+    <text x="520" y="326" font-size="14" font-weight="700" fill="#6B6760">主要任务</text>
+    <text x="520" y="348" font-size="13" fill="#6B6760">内容问答、点选搜索、</text>
+    <text x="520" y="368" font-size="13" fill="#6B6760">看护与陪伴。</text>
+    <text x="520" y="394" font-size="14" font-weight="700" fill="#A33B27">核心风险</text>
+    <text x="520" y="416" font-size="13" fill="#6B6760">多数任务手机可替代；</text>
+    <text x="520" y="436" font-size="13" fill="#6B6760">摄像头隐私敏感。</text>
+    <text x="520" y="466" font-size="14" fill="#6B6760">多数只有厂商功能材料</text>
+
+    <text x="746" y="194" font-size="14" font-weight="700" letter-spacing="2" fill="#C14E2C">汽车 / 空间</text>
+    <text x="746" y="230" font-size="16" font-weight="700" fill="#1D1C19">理想同学</text>
+    <text x="746" y="254" font-size="15" fill="#3F3B35">蔚来 NOMI</text>
+    <text x="746" y="302" font-size="14" fill="#6B6760">多音区麦克风 + 3D ToF + IR</text>
+    <text x="746" y="326" font-size="14" fill="#6B6760">判断谁、坐哪、指向哪、需要什么</text>
+    <text x="746" y="372" font-size="14" font-weight="700" fill="#6B6760">差异化</text>
+    <text x="746" y="394" font-size="13" fill="#6B6760">手机没有的空间、位置；</text>
+    <text x="746" y="414" font-size="13" fill="#6B6760">车身上下文更完整。</text>
+    <text x="746" y="440" font-size="14" font-weight="700" fill="#A33B27">核心风险</text>
+    <text x="746" y="466" font-size="14" fill="#6B6760">车规、安全、隐私与 OEM 绑定</text>
+
+    <text x="972" y="194" font-size="14" font-weight="700" letter-spacing="2" fill="#1F5A49">基础设施 / 无障碍</text>
+    <text x="972" y="230" font-size="16" font-weight="700" fill="#1D1C19">Seeing AI / Be My AI</text>
+    <text x="972" y="254" font-size="15" fill="#3F3B35">vivo 看见 / Be My Eyes Workplace</text>
+    <text x="972" y="278" font-size="15" fill="#3F3B35">TwelveLabs / 拍立淘</text>
+    <text x="972" y="302" font-size="15" fill="#3F3B35">Vision-Agents / LiveKit / Pipecat</text>
+    <text x="972" y="326" font-size="15" fill="#3F3B35">Dograh / VLX-Flow</text>
+    <text x="972" y="372" font-size="14" font-weight="700" fill="#6B6760">竞争点</text>
+    <text x="972" y="394" font-size="13" fill="#6B6760">模型、传输、编排、</text>
+    <text x="972" y="414" font-size="13" fill="#6B6760">检索与垂直服务。</text>
+    <text x="972" y="440" font-size="14" font-weight="700" fill="#A33B27">证据缺口</text>
+    <text x="972" y="462" font-size="13" fill="#6B6760">总成本、延迟、</text>
+    <text x="972" y="482" font-size="13" fill="#6B6760">生产案例与付费。</text>
+
+    <line x1="60" y1="536" x2="1220" y2="536" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="570" font-size="16" font-weight="700" fill="#1D1C19">比较原则</text>
+    <text x="60" y="600" font-size="15" fill="#3F3B35">同层比较；记录输入、上下文、行动、载体、商业模式与证据强度。仓库 star、功能上线和厂商演示都不能代替真实采用。</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">来源：2026-10-28 全球竞品报告及产品层、开源产品化报告</text>
+    <text x="1220" y="672" text-anchor="end">09 / 21</text>
+  </g>
+</svg>

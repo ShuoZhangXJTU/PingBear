@@ -4,8 +4,8 @@
   "target": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029",
   "source_fingerprint": {
     "algorithm": "sha256",
-    "digest": "6e7e0d053901d95e2338cfc8488c603c870f293cb319738d6d04491b23278d73",
-    "file_count": 21,
+    "digest": "d94b94f776c050dc5820feacf6f8d2d92953b5352e7bdd88ea7801d7801190ac",
+    "file_count": 26,
     "files": [
       {
         "file": "01_cover.svg",
@@ -90,13 +90,33 @@
       {
         "file": "21_sources-coverage.svg",
         "sha256": "ba8a28a685e8f92414bfd35047cd9509e1234aae7699e556f4df7ad80ff13309"
+      },
+      {
+        "file": "22_extra-complete-timeline.svg",
+        "sha256": "c9d9411236de2630c962774d92d3dd16c00e303fb9bf188f725821a058b22a2e"
+      },
+      {
+        "file": "23_extra-product-experience.svg",
+        "sha256": "e23456a709fe97f42cb5b21f81d42e6c06c92620e141655e93d14b4c51c2e477"
+      },
+      {
+        "file": "24_extra-landscape-map.svg",
+        "sha256": "fd06fc8138713a365142f49dcc76aa5c0674d7350e3b81d2160da49c0a6467b0"
+      },
+      {
+        "file": "25_extra-lessons.svg",
+        "sha256": "c4b071502c564f5ef8c016a3ad8e53103d9a8d396c29e46ca667c043f0ebbcb5"
+      },
+      {
+        "file": "26_extra-cloud-future.svg",
+        "sha256": "d1522d40306bf74039223e85b2abc601b46e2d00bee032974b75390ee53c4a66"
       }
     ]
   },
   "summary": {
-    "total": 21,
-    "passed": 13,
-    "warnings": 8,
+    "total": 26,
+    "passed": 15,
+    "warnings": 11,
     "errors": 0
   },
   "issue_types": {},
@@ -106,7 +126,7 @@
       "issues": []
     },
     "introduced": {
-      "count": 8,
+      "count": 11,
       "issues": [
         {
           "file": "01_cover.svg",
@@ -139,6 +159,18 @@
         {
           "file": "18_opportunities.svg",
           "message": "Detected 6 paragraph-like line run(s) split across sibling <text> elements (<g id=\"opportunity-grid\"> x=60.0, y=242.0..264.0, 2 lines; <g id=\"opportunity-grid\"> x=365.0, y=242.0..264.0, 2 lines; <g id=\"opportunity-grid\"> x=655.0, y=242.0..264.0, 2 lines; +3 more). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+        },
+        {
+          "file": "22_extra-complete-timeline.svg",
+          "message": "Detected 1 paragraph-like line run(s) split across sibling <text> elements (<g id=\"complete-timeline\"> x=954.0, y=488.0..510.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+        },
+        {
+          "file": "24_extra-landscape-map.svg",
+          "message": "Detected 2 paragraph-like line run(s) split across sibling <text> elements (<g id=\"landscape-map\"> x=204.0, y=320.0..342.0, 2 lines; <g id=\"landscape-map\"> x=760.0, y=318.0..340.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+        },
+        {
+          "file": "26_extra-cloud-future.svg",
+          "message": "Detected 3 paragraph-like line run(s) split across sibling <text> elements (<g id=\"cloud-core-future\"> x=78.0, y=228.0..250.0, 2 lines; <g id=\"cloud-core-future\"> x=630.0, y=228.0..250.0, 2 lines; <g id=\"cloud-core-future\"> x=906.0, y=228.0..250.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
         }
       ]
     },
@@ -161,16 +193,16 @@
   },
   "carrier_receipt": {
     "scope": "informational-not-a-quota",
-    "pages": 21,
+    "pages": 26,
     "totals": {
-      "text_elements": 820,
+      "text_elements": 1011,
       "image_placements": 0,
       "icons": 0,
-      "svg_geometry_elements": 121,
+      "svg_geometry_elements": 165,
       "preset_shapes": 0,
-      "page_frame_elements": 22,
+      "page_frame_elements": 27,
       "marker_uses": 0,
-      "inline_emphasis_runs": 0,
+      "inline_emphasis_runs": 54,
       "gradient_uses": 0,
       "filter_uses": 0,
       "text_effects": 0
@@ -182,20 +214,20 @@
       "charts": 0,
       "tables": 0,
       "formulas": 0,
-      "inline_emphasis_runs": 0,
+      "inline_emphasis_runs": 1,
       "gradient_uses": 0,
       "filter_uses": 0,
       "text_effects": 0
     },
     "relationship_pages": null,
     "geometry_elements": {
-      "circle": 16,
+      "circle": 25,
       "ellipse": 0,
-      "line": 60,
+      "line": 77,
       "path": 0,
       "polygon": 0,
       "polyline": 0,
-      "rect": 45
+      "rect": 63
     },
     "preset_names": {},
     "native_objects": {
@@ -1470,6 +1502,307 @@
       },
       "passed": true,
       "source_sha256": "ba8a28a685e8f92414bfd35047cd9509e1234aae7699e556f4df7ad80ff13309"
+    },
+    {
+      "file": "22_extra-complete-timeline.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/22_extra-complete-timeline.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Detected 1 paragraph-like line run(s) split across sibling <text> elements (<g id=\"complete-timeline\"> x=954.0, y=488.0..510.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+      ],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 48,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 5,
+              "circle": 4,
+              "ellipse": 0,
+              "line": 2,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 48,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "c9d9411236de2630c962774d92d3dd16c00e303fb9bf188f725821a058b22a2e"
+    },
+    {
+      "file": "23_extra-product-experience.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/23_extra-product-experience.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 40,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 54,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 1,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 4,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 40,
+        "tspan_elements": 54
+      },
+      "passed": true,
+      "source_sha256": "e23456a709fe97f42cb5b21f81d42e6c06c92620e141655e93d14b4c51c2e477"
+    },
+    {
+      "file": "24_extra-landscape-map.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/24_extra-landscape-map.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Detected 2 paragraph-like line run(s) split across sibling <text> elements (<g id=\"landscape-map\"> x=204.0, y=320.0..342.0, 2 lines; <g id=\"landscape-map\"> x=760.0, y=318.0..340.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+      ],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 34,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 6,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 5,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 34,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "fd06fc8138713a365142f49dcc76aa5c0674d7350e3b81d2160da49c0a6467b0"
+    },
+    {
+      "file": "25_extra-lessons.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/25_extra-lessons.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 31,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 1,
+              "circle": 5,
+              "ellipse": 0,
+              "line": 5,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 31,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "c4b071502c564f5ef8c016a3ad8e53103d9a8d396c29e46ca667c043f0ebbcb5"
+    },
+    {
+      "file": "26_extra-cloud-future.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/26_extra-cloud-future.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Detected 3 paragraph-like line run(s) split across sibling <text> elements (<g id=\"cloud-core-future\"> x=78.0, y=228.0..250.0, 2 lines; <g id=\"cloud-core-future\"> x=630.0, y=228.0..250.0, 2 lines; <g id=\"cloud-core-future\"> x=906.0, y=228.0..250.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+      ],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 38,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 5,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 1,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 38,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "d1522d40306bf74039223e85b2abc601b46e2d00bee032974b75390ee53c4a66"
     }
   ]
 }

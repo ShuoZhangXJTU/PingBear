@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">补页 04 · 经验教训</text>
+    <text x="60" y="82" font-size="32">行业不是没有技术，而是很多产品没把任务做完</text>
+  </g>
+
+  <g id="lessons" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="148" font-size="15" fill="#4D4942">把每代产品放在同一张因果链里，会发现成败并不神秘。</text>
+    <text x="90" y="190" font-size="17" font-weight="700" fill="#1D1C19">看懂</text>
+    <text x="300" y="190" font-size="17" font-weight="700" fill="#1D1C19">会说</text>
+    <text x="520" y="190" font-size="17" font-weight="700" fill="#1D1C19">会判断</text>
+    <text x="740" y="190" font-size="17" font-weight="700" fill="#1D1C19">会执行</text>
+    <text x="960" y="190" font-size="17" font-weight="700" fill="#C14E2C">会负责</text>
+    <line x1="90" y1="212" x2="1130" y2="212" stroke="#B6AEA1" stroke-width="3"/>
+    <circle cx="140" cy="212" r="9" fill="#1D1C19"/>
+    <circle cx="360" cy="212" r="9" fill="#1D1C19"/>
+    <circle cx="580" cy="212" r="9" fill="#1D1C19"/>
+    <circle cx="800" cy="212" r="9" fill="#1D1C19"/>
+    <circle cx="1020" cy="212" r="11" fill="#C14E2C"/>
+    <text x="140" y="242" font-size="12" text-anchor="middle" fill="#6B6760">识别画面</text>
+    <text x="360" y="242" font-size="12" text-anchor="middle" fill="#6B6760">连续解释</text>
+    <text x="580" y="242" font-size="12" text-anchor="middle" fill="#6B6760">决定下一步</text>
+    <text x="800" y="242" font-size="12" text-anchor="middle" fill="#6B6760">调用工具/系统</text>
+    <text x="1020" y="242" font-size="12" text-anchor="middle" fill="#C14E2C">确认/接管/审计</text>
+
+    <line x1="60" y1="278" x2="1220" y2="278" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="310" font-size="14" font-weight="700" fill="#A33B27">坑 1：把“看懂”当成“完成”</text>
+    <text x="60" y="336" font-size="14" fill="#3F3B35">看图回答很酷，但用户真正想要的是订成功、装正确、问题解决。</text>
+    <text x="60" y="360" font-size="13" fill="#6B6760">Lens 单次搜索成立；Muse 和 Copilot 的差别在于是否进入行动链。</text>
+    <text x="680" y="310" font-size="14" font-weight="700" fill="#1F5A49">启示：先定义任务终点，再选模态和模型。</text>
+    <text x="680" y="336" font-size="14" fill="#3F3B35">交付标准是结果可验证、失败可恢复，而不是答得像人。</text>
+
+    <line x1="60" y1="382" x2="1220" y2="382" stroke="#D6CFC3" stroke-width="1"/>
+    <text x="60" y="414" font-size="14" font-weight="700" fill="#A33B27">坑 2：要求用户换设备，却没带来十倍省事</text>
+    <text x="60" y="440" font-size="14" fill="#3F3B35">Glass、Stories、Humane、Rabbit 都在提醒：新入口不是需求。</text>
+    <text x="60" y="464" font-size="13" fill="#6B6760">用户不会为了新奇长期忍受充电、配对、隐私和失败。</text>
+    <text x="680" y="414" font-size="14" font-weight="700" fill="#1F5A49">启示：优先寄生现有手机、眼镜、车机、电视入口。</text>
+    <text x="680" y="440" font-size="14" fill="#3F3B35">新硬件必须回答“为什么手机做不了、为什么现在要买”。</text>
+
+    <line x1="60" y1="486" x2="1220" y2="486" stroke="#D6CFC3" stroke-width="1"/>
+    <text x="60" y="518" font-size="14" font-weight="700" fill="#A33B27">坑 3：把演示当稳定体验，把下载当长期采用</text>
+    <text x="60" y="544" font-size="14" fill="#3F3B35">背景噪声、错识别、断网、权限、支付和人工接管都会发生。</text>
+    <text x="60" y="568" font-size="13" fill="#6B6760">Muse 有 1000 万设置，但留存、退货、责任和费率仍需验证。</text>
+    <text x="680" y="518" font-size="14" font-weight="700" fill="#1F5A49">启示：产品能力必须带失败路径。</text>
+    <text x="680" y="544" font-size="14" fill="#3F3B35">确认、拒答、重来、转人工、撤销、审计，才是完整体验。</text>
+
+    <line x1="60" y1="590" x2="1220" y2="590" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="620" font-family="SimSun" font-size="21" font-weight="700" fill="#1D1C19">分：真正留下来的产品，都是把“理解、执行、纠错、信任”一起做成了系统。</text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">补页 04 / 05 · 综合历史竞品、失败案例与新增 Muse 证据</text>
+    <text x="1220" y="672" text-anchor="end">EXT 04</text>
+  </g>
+</svg>
