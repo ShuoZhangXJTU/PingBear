@@ -243,6 +243,16 @@ def response(text, history):
             ideas.capture(content)
             return f'已记下 ✅：{content}\n（早报跑完自动归档到 灵感/<主题>）'
         return 'hhh 后面写点内容我才好记 🙂'
+    # 微信里以 nnn 开头 = 记一件要做的事（先压本地，重要的才进 things）
+    if re.match(r'^n{3,}', stripped, re.I):
+        content = re.sub(r'^n{3,}[\s，,：:、.。]*', '', stripped, flags=re.I).strip()
+        if not content:
+            return 'nnn 后面写点内容我才好记 🙂'
+        try:
+            import reminders
+            return reminders.capture(content)
+        except Exception as error:
+            return f'已收到，但暂存失败（{type(error).__name__}）。请稍后再发一次。'
     command = archive_command(text,today)
     if command:
         date,numbers = command

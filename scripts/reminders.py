@@ -65,6 +65,58 @@ def add_task(title, due='', notes='', source='local', ident=None):
     return task
 
 
+def capture(text, dry_run=False):
+    """把微信里 nnn 开头的一段话变成本地任务；重要的直接进 things。"""
+    import knowledge
+    today = now().date().isoformat()
+    prompt = f'''用户从微信发来一条要做的事，可能带日期、时间、依赖或风险。今天是 {today}。
+请提取成 JSON：
+- title：一句话说清要做什么（不要带「提醒我」）；
+- due：截止/要做的时间，格式 YYYY-MM-DD HH:MM；只说了日期没说时间就补 09:00；完全没提时间就留空字符串；
+- importance：high 或 normal（有明确截止、涉及别人、错过代价大 → high）；
+- milestones：中间节点数组，每项 {{"title":"…","due":"YYYY-MM-DD HH:MM"}}，没有就空数组；
+- risk：你能看出的一两句潜在风险（时间太紧、依赖别人、和别的安排冲突、信息不足），没有就空字符串。
+只输出 JSON。'''
+    schema = {'type': 'object', 'properties': {
+        'title': {'type': 'string'}, 'due': {'type': 'string'},
+        'importance': {'type': 'string', 'enum': ['high', 'normal']},
+        'milestones': {'type': 'array', 'items': {'type': 'object', 'properties': {
+            'title': {'type': 'string'}, 'due': {'type': 'string'}},
+            'required': ['title', 'due'], 'additionalProperties': False}},
+        'risk': {'type': 'string'}},
+        'required': ['title', 'due', 'importance', 'milestones', 'risk'], 'additionalProperties': False}
+    data = knowledge.codex_json(prompt, {'text': text}, schema,
+        STORE.parent / 'capture.json', STORE.parent / 'logs' / 'capture.log')
+    due = (data.get('due') or '').strip()
+    if due and len(due) == 10:
+        due += ' 09:00'
+    if dry_run:
+        return {'parsed': data, 'would_add': [data.get('title')], 'due': due}
+    task = add_task(data.get('title') or text, due, data.get('risk') or '', source='wechat')
+    created = 0
+    if data.get('importance') == 'high' and due:
+        task['reminder_id'] = things.add(task['title'], due, task.get('notes', ''), 'things')
+        created += 1
+    for milestone in data.get('milestones') or []:
+        m_due = (milestone.get('due') or '').strip()
+        if len(m_due) == 10:
+            m_due += ' 09:00'
+        m = add_task(milestone.get('title') or task['title'], m_due, '来自：' + task['title'], source='wechat')
+        if data.get('importance') == 'high' and m_due:
+            m['reminder_id'] = things.add(m['title'], m_due, m.get('notes', ''), 'things')
+            created += 1
+    if created:
+        save(load())  # add_task 已经保存过，这里确保 reminder_id 落盘
+    parts = [f'已记下：{task["title"]}']
+    if due:
+        parts.append(f'时间 {due}')
+    if data.get('importance') == 'high':
+        parts.append('重要的，已经放到手机 things')
+    if data.get('risk'):
+        parts.append('风险：' + data['risk'])
+    return '；'.join(parts) + '。其余我先压在本地，临近再提醒。'
+
+
 def sync(initial=False):
     data = load()
     rows = things.dump('things')
@@ -155,6 +207,9 @@ def main():
     sync_p.add_argument('--init', action='store_true')
     scan_p = sub.add_parser('scan')
     scan_p.add_argument('--dry-run', action='store_true')
+    cap = sub.add_parser('capture')
+    cap.add_argument('text')
+    cap.add_argument('--dry-run', action='store_true')
     args = parser.parse_args()
     STORE.parent.mkdir(parents=True, exist_ok=True)
     if args.action == 'add':
@@ -162,6 +217,9 @@ def main():
         print(json.dumps(task, ensure_ascii=False))
     elif args.action == 'sync':
         sync(args.init)
+    elif args.action == 'capture':
+        result = capture(args.text, args.dry_run)
+        print(result if isinstance(result, str) else json.dumps(result, ensure_ascii=False))
     else:
         scan(args.dry_run)
 
