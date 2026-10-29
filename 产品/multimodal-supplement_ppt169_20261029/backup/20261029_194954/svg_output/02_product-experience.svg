@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">补页 02 · 产品体验</text>
+    <text x="60" y="82" font-size="32">每个产品到底能帮人干什么</text>
+  </g>
+
+  <g id="experience-roster" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="148" font-size="14" fill="#4D4942">“这是什么？” · “下一步怎么做？” · “能帮我订吗？” · “陪我一起做” · “记住并提醒我”</text>
+    <line x1="60" y1="164" x2="1220" y2="164" stroke="#C9C1B4" stroke-width="1"/>
+    <line x1="420" y1="176" x2="420" y2="610" stroke="#D6CFC3" stroke-width="1"/>
+    <line x1="820" y1="176" x2="820" y2="610" stroke="#D6CFC3" stroke-width="1"/>
+
+    <text x="60" y="194" font-size="13" font-weight="700" letter-spacing="2" fill="#1F5A49">系统 / App 助手</text>
+    <text x="60" y="224" font-size="12"><tspan font-weight="700" fill="#1D1C19">小艺</tspan><tspan fill="#3F3B35">：看画面后直接问，也能调系统服务</tspan></text>
+    <text x="60" y="254" font-size="12"><tspan font-weight="700" fill="#1D1C19">Gemini Live</tspan><tspan fill="#3F3B35">：共享镜头/屏幕，实时解释并纠错</tspan></text>
+    <text x="60" y="284" font-size="12"><tspan font-weight="700" fill="#1D1C19">ChatGPT</tspan><tspan fill="#3F3B35">：指着现场问，连续追问</tspan></text>
+    <text x="60" y="314" font-size="12"><tspan font-weight="700" fill="#1D1C19">Apple Visual Intelligence</tspan><tspan fill="#3F3B35">：对准物体识物/翻译/查地点</tspan></text>
+    <text x="60" y="344" font-size="12"><tspan font-weight="700" fill="#1D1C19">Copilot Vision</tspan><tspan fill="#3F3B35">：看工作画面，总结并高亮重点</tspan></text>
+    <text x="60" y="374" font-size="12"><tspan font-weight="700" fill="#1D1C19">Bixby / 超级小爱</tspan><tspan fill="#3F3B35">：语音找内容、控设备、圈屏提问</tspan></text>
+    <text x="60" y="404" font-size="12"><tspan font-weight="700" fill="#C14E2C">Muse</tspan><tspan fill="#3F3B35">：说出目标，后台跨 App 执行并确认</tspan></text>
+    <text x="60" y="434" font-size="12"><tspan font-weight="700" fill="#C14E2C">SeedRealtime</tspan><tspan fill="#3F3B35">：边看、边听、边说，持续协作</tspan></text>
+    <text x="60" y="478" font-size="12" fill="#6B6760">共同体验：少打字、少切 App，让系统接住现场上下文。</text>
+
+    <text x="440" y="194" font-size="13" font-weight="700" letter-spacing="2" fill="#C14E2C">眼镜、屏幕、家庭与汽车</text>
+    <text x="440" y="224" font-size="12"><tspan font-weight="700" fill="#1D1C19">Ray-Ban Meta</tspan><tspan fill="#3F3B35">：免手持看、问、拍、翻译</tspan></text>
+    <text x="440" y="254" font-size="12"><tspan font-weight="700" fill="#1D1C19">Meta Display</tspan><tspan fill="#3F3B35">：镜片里看导航、字幕和提醒</tspan></text>
+    <text x="440" y="284" font-size="12"><tspan font-weight="700" fill="#1D1C19">Meta Audio</tspan><tspan fill="#3F3B35">：不拍画面，只用声音和助手</tspan></text>
+    <text x="440" y="314" font-size="12"><tspan font-weight="700" fill="#1D1C19">Android XR / Snap</tspan><tspan fill="#3F3B35">：第一视角共享与主动提醒</tspan></text>
+    <text x="440" y="344" font-size="12"><tspan font-weight="700" fill="#1D1C19">华为/小米/夸克</tspan><tspan fill="#3F3B35">：拍录、识别、导航、支付</tspan></text>
+    <text x="440" y="374" font-size="12"><tspan font-weight="700" fill="#1D1C19">Samsung Vision / 海信</tspan><tspan fill="#3F3B35">：电视内容问答、看护、画质</tspan></text>
+    <text x="440" y="404" font-size="12"><tspan font-weight="700" fill="#1D1C19">小度</tspan><tspan fill="#3F3B35">：家庭看护、陪伴与设备控制</tspan></text>
+    <text x="440" y="434" font-size="12"><tspan font-weight="700" fill="#1D1C19">理想 / NOMI</tspan><tspan fill="#3F3B35">：分辨谁、坐哪、指向哪并服务</tspan></text>
+    <text x="440" y="474" font-size="12"><tspan font-weight="700" fill="#A33B27">Glass / Stories</tspan><tspan fill="#3F3B35">：早期穿戴入口，日常价值不足</tspan></text>
+    <text x="440" y="504" font-size="12"><tspan font-weight="700" fill="#A33B27">Humane / Rabbit</tspan><tspan fill="#3F3B35">：想替代手机，真实执行不稳</tspan></text>
+
+    <text x="840" y="194" font-size="13" font-weight="700" letter-spacing="2" fill="#1F5A49">无障碍与能力基础设施</text>
+    <text x="840" y="224" font-size="12"><tspan font-weight="700" fill="#1D1C19">Seeing AI</tspan><tspan fill="#3F3B35">：读文字、认物件、描述场景</tspan></text>
+    <text x="840" y="254" font-size="12"><tspan font-weight="700" fill="#1D1C19">Be My AI</tspan><tspan fill="#3F3B35">：解释图片并继续追问</tspan></text>
+    <text x="840" y="284" font-size="12"><tspan font-weight="700" fill="#1D1C19">vivo 看见</tspan><tspan fill="#3F3B35">：实时描述环境和寻找物品</tspan></text>
+    <text x="840" y="314" font-size="12"><tspan font-weight="700" fill="#1D1C19">Be My Eyes Workplace</tspan><tspan fill="#3F3B35">：AI 协助，必要时人工接手</tspan></text>
+    <text x="840" y="344" font-size="12"><tspan font-weight="700" fill="#1D1C19">拍立淘</tspan><tspan fill="#3F3B35">：拍图找同款、比价、溯源</tspan></text>
+    <text x="840" y="374" font-size="12"><tspan font-weight="700" fill="#1D1C19">TwelveLabs</tspan><tspan fill="#3F3B35">：上传视频后搜索、分析和标注</tspan></text>
+    <text x="840" y="404" font-size="12"><tspan font-weight="700" fill="#1D1C19">Vision-Agents</tspan><tspan fill="#3F3B35">：让开发者搭会看会听的 Agent</tspan></text>
+    <text x="840" y="434" font-size="12"><tspan font-weight="700" fill="#1D1C19">LiveKit / Pipecat</tspan><tspan fill="#3F3B35">：实时音视频、打断、多 Agent 接力</tspan></text>
+    <text x="840" y="464" font-size="12"><tspan font-weight="700" fill="#1D1C19">Dograh / VLX-Flow</tspan><tspan fill="#3F3B35">：自托管工作流与流式视觉理解</tspan></text>
+    <text x="840" y="504" font-size="12" fill="#6B6760">这些不是终端助手，而是别人产品背后的“耳朵、眼睛和行动管线”。</text>
+
+    <line x1="60" y1="546" x2="1220" y2="546" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="578" font-size="14" font-weight="700" fill="#A33B27">用词原则</text>
+    <text x="160" y="578" font-size="14" fill="#3F3B35">先说用户要完成什么，再说产品怎么帮；不要用“学习、办公、赋能”代替具体动作。</text>
+    <text x="60" y="614" font-family="SimSun" font-size="21" font-weight="700" fill="#1D1C19">分：同一个“多模态”，有人帮我查，有人陪我做，也有人替我把事办完。</text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">补页 02 / 05 · 产品能力按公开材料整理；具体体验仍需同任务实测</text>
+    <text x="1220" y="672" text-anchor="end">EXT 02</text>
+  </g>
+</svg>

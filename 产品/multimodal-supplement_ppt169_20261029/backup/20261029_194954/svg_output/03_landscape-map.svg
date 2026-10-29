@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">补页 03 · 横向布局</text>
+    <text x="60" y="82" font-size="32">大家不在同一层竞争：从“答一下”到“替我做”</text>
+  </g>
+
+  <g id="landscape-map" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="148" font-size="15" fill="#4D4942">横轴看行动深度，纵轴看上下文范围；位置是产品能力对比，不是市场份额。</text>
+    <line x1="170" y1="520" x2="1210" y2="520" stroke="#B6AEA1" stroke-width="2"/>
+    <line x1="170" y1="520" x2="170" y2="184" stroke="#B6AEA1" stroke-width="2"/>
+    <text x="690" y="552" font-size="14" font-weight="700" text-anchor="middle" fill="#6B6760">回答一个问题 → 指引下一步 → 执行操作 → 承担任务结果</text>
+    <text x="148" y="360" font-size="14" font-weight="700" text-anchor="middle" transform="rotate(-90 148 360)" fill="#6B6760">单次 / 单设备 → 持续 / 跨设备</text>
+
+    <line x1="690" y1="184" x2="690" y2="520" stroke="#D6CFC3" stroke-width="1" stroke-dasharray="6,6"/>
+    <line x1="170" y1="352" x2="1210" y2="352" stroke="#D6CFC3" stroke-width="1" stroke-dasharray="6,6"/>
+
+    <text x="204" y="478" font-size="14" font-weight="700" fill="#6B6760">视觉搜索 / 内容识别</text>
+    <text x="204" y="502" font-size="13" fill="#3F3B35">Lens：看到就搜/译；Seeing AI：看图朗读</text>
+
+    <text x="204" y="296" font-size="14" font-weight="700" fill="#1F5A49">实时感知与对话</text>
+    <text x="204" y="320" font-size="13" fill="#3F3B35">Gemini Live：边看边聊；SeedRealtime：连续看听说</text>
+    <text x="204" y="342" font-size="13" fill="#3F3B35">Guided Vision：镜头不对就教你调整</text>
+
+    <text x="760" y="478" font-size="14" font-weight="700" fill="#C14E2C">工作 / 设备执行</text>
+    <text x="760" y="502" font-size="13" fill="#3F3B35">Copilot：看工作画面并高亮；Bixby：调用系统功能</text>
+
+    <text x="760" y="294" font-size="14" font-weight="700" fill="#C14E2C">全情境 Agent</text>
+    <text x="760" y="318" font-size="13" fill="#3F3B35">Muse：记住目标、后台跑任务、付款前确认</text>
+    <text x="760" y="340" font-size="13" fill="#3F3B35">Be My Eyes：AI 协助，必要时人工接管</text>
+
+    <rect x="196" y="196" width="250" height="54" fill="#1F5A49" fill-opacity="0.08"/>
+    <text x="208" y="218" font-size="13" font-weight="700" fill="#1F5A49">多模态系统助手</text>
+    <text x="208" y="240" font-size="12" fill="#3F3B35">小艺 / 超级小爱 / ChatGPT / Apple</text>
+    <rect x="684" y="196" width="250" height="54" fill="#C14E2C" fill-opacity="0.08"/>
+    <text x="696" y="218" font-size="13" font-weight="700" fill="#C14E2C">可执行个人代理</text>
+    <text x="696" y="240" font-size="12" fill="#3F3B35">Muse / Copilot / Bixby</text>
+
+    <rect x="492" y="458" width="176" height="42" fill="#1F5A49" fill-opacity="0.06"/>
+    <text x="504" y="484" font-size="12" font-weight="700" fill="#1F5A49">视觉交易 / API</text>
+    <text x="620" y="484" font-size="11" fill="#6B6760">拍立淘 · TwelveLabs</text>
+    <rect x="492" y="388" width="176" height="42" fill="#A33B27" fill-opacity="0.06"/>
+    <text x="504" y="414" font-size="12" font-weight="700" fill="#A33B27">无障碍可视化</text>
+    <text x="590" y="414" font-size="11" fill="#6B6760">vivo · Be My AI</text>
+
+    <rect x="1032" y="188" width="176" height="156" fill="#F4F0E7" stroke="#C14E2C" stroke-width="2"/>
+    <text x="1048" y="216" font-size="12" font-weight="700" letter-spacing="1" fill="#C14E2C">2026 最新边界</text>
+    <text x="1048" y="242" font-size="13" font-weight="700" fill="#1D1C19">Muse</text>
+    <text x="1048" y="264" font-size="11" fill="#6B6760">全情境 / 后台执行</text>
+    <text x="1048" y="286" font-size="13" font-weight="700" fill="#1D1C19">SeedRealtime</text>
+    <text x="1048" y="308" font-size="11" fill="#6B6760">连续音视频全双工</text>
+    <text x="1048" y="330" font-size="13" font-weight="700" fill="#1D1C19">Guided Vision</text>
+    <text x="1048" y="352" font-size="11" fill="#6B6760">主动纠错镜头</text>
+
+    <line x1="60" y1="584" x2="1220" y2="584" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="612" font-size="13" font-weight="700" fill="#6B6760">六个判断维度</text>
+    <text x="190" y="612" font-size="13" fill="#3F3B35">连续上下文 · 行动深度 · 终端绑定 · 视觉/空间 · 生态权限 · 隐私与信任成本</text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">补页 03 / 05 · 位置为定性映射；高亮框表示 2026 年新扩展边界</text>
+    <text x="1220" y="672" text-anchor="end">EXT 03</text>
+  </g>
+</svg>

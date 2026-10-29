@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">补页 01 · 时间串联</text>
+    <text x="60" y="82" font-size="32">2011–2026：从“帮我查”走到“看着我一起做”</text>
+  </g>
+
+  <g id="complete-timeline" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="148" font-size="15" fill="#4D4942">底部四个阶段依次回答：能问什么、能看懂什么、能持续做什么、能替我完成什么。</text>
+    <line x1="70" y1="192" x2="1210" y2="192" stroke="#B6AEA1" stroke-width="2"/>
+    <circle cx="190" cy="192" r="9" fill="#1D1C19"/>
+    <circle cx="500" cy="192" r="9" fill="#1D1C19"/>
+    <circle cx="810" cy="192" r="9" fill="#1D1C19"/>
+    <circle cx="1120" cy="192" r="11" fill="#C14E2C"/>
+
+    <text x="190" y="172" font-size="13" font-weight="700" text-anchor="middle" fill="#6B6760">2011–2017</text>
+    <text x="190" y="222" font-family="SimSun" font-size="22" font-weight="700" text-anchor="middle" fill="#1D1C19">入口出现</text>
+    <text x="190" y="246" font-size="13" text-anchor="middle" fill="#3F3B35">“这是什么东西？”</text>
+    <text x="190" y="280" font-size="13" text-anchor="middle" fill="#3F3B35">Siri · Echo · Google Assistant · Bixby</text>
+    <text x="190" y="304" font-size="13" text-anchor="middle" fill="#3F3B35">Lens · Seeing AI</text>
+    <text x="190" y="328" font-size="12" text-anchor="middle" fill="#6B6760">语音、识图分头发展</text>
+
+    <text x="500" y="172" font-size="13" font-weight="700" text-anchor="middle" fill="#6B6760">2018–2021</text>
+    <text x="500" y="222" font-family="SimSun" font-size="22" font-weight="700" text-anchor="middle" fill="#1D1C19">边看边问</text>
+    <text x="500" y="246" font-size="13" text-anchor="middle" fill="#3F3B35">“镜头对着它，下一步呢？”</text>
+    <text x="500" y="280" font-size="13" text-anchor="middle" fill="#3F3B35">Lens 实时取景/翻译 · Smart Display</text>
+    <text x="500" y="304" font-size="13" text-anchor="middle" fill="#3F3B35">Alexa APL · Echo Show 10</text>
+    <text x="500" y="328" font-size="12" text-anchor="middle" fill="#6B6760">语音与屏幕组合；CLIP 打底</text>
+
+    <text x="810" y="172" font-size="13" font-weight="700" text-anchor="middle" fill="#6B6760">2022–2023</text>
+    <text x="810" y="222" font-family="SimSun" font-size="22" font-weight="700" text-anchor="middle" fill="#1D1C19">理解与对话</text>
+    <text x="810" y="246" font-size="13" text-anchor="middle" fill="#3F3B35">“你能帮我读懂、一起想办法吗？”</text>
+    <text x="810" y="280" font-size="13" text-anchor="middle" fill="#3F3B35">Flamingo · GPT-4V · Gemini</text>
+    <text x="810" y="304" font-size="13" text-anchor="middle" fill="#3F3B35">Be My AI · Ray-Ban Meta</text>
+    <text x="810" y="328" font-size="12" text-anchor="middle" fill="#6B6760">多轮解释、即时翻译、无障碍</text>
+
+    <text x="1120" y="172" font-size="13" font-weight="700" text-anchor="middle" fill="#C14E2C">2024–2026</text>
+    <text x="1120" y="222" font-family="SimSun" font-size="22" font-weight="700" text-anchor="middle" fill="#C14E2C">实时协作</text>
+    <text x="1120" y="246" font-size="13" text-anchor="middle" fill="#3F3B35">“看着我一起做，能帮我做完吗？”</text>
+    <text x="1120" y="280" font-size="12" text-anchor="middle" fill="#3F3B35">GPT-4o · Gemini Live</text>
+    <text x="1120" y="302" font-size="12" text-anchor="middle" fill="#3F3B35">SeedRealtime · Muse</text>
+    <text x="1120" y="324" font-size="12" text-anchor="middle" fill="#3F3B35">Guided Vision · 多品牌眼镜</text>
+    <text x="1120" y="346" font-size="11" text-anchor="middle" fill="#6B6760">持续视频、主动纠错、后台执行</text>
+
+    <rect x="60" y="366" width="282" height="180" fill="#E9E1D4"/>
+    <text x="78" y="396" font-size="14" font-weight="700" fill="#6B6760">阶段 1 · 单模态入口</text>
+    <text x="78" y="424" font-size="14" fill="#3F3B35">语音帮我查，摄像头帮我搜；</text>
+    <text x="78" y="450" font-size="14" fill="#3F3B35">用户还要自己完成中间步骤。</text>
+    <text x="78" y="490" font-size="14" font-weight="700" fill="#A33B27">问题：不会追问、不会纠错、换场景就断。</text>
+
+    <rect x="352" y="366" width="282" height="180" fill="#EEE7DC"/>
+    <text x="370" y="396" font-size="14" font-weight="700" fill="#6B6760">阶段 2 · 视听屏幕融合</text>
+    <text x="370" y="424" font-size="14" fill="#3F3B35">用户看到的结果可以在屏幕上叠加；</text>
+    <text x="370" y="450" font-size="14" fill="#3F3B35">语音可以指方向，但任务仍常靠人做。</text>
+    <text x="370" y="490" font-size="14" font-weight="700" fill="#A33B27">问题：跨 App 权限、记忆和真实动作缺失。</text>
+
+    <rect x="644" y="366" width="282" height="180" fill="#E9E1D4"/>
+    <text x="662" y="396" font-size="14" font-weight="700" fill="#6B6760">阶段 3 · 多轮理解</text>
+    <text x="662" y="424" font-size="14" fill="#3F3B35">用户能连续追问，系统能解释、比较；</text>
+    <text x="662" y="450" font-size="14" fill="#3F3B35">无障碍场景第一次出现明确价值。</text>
+    <text x="662" y="490" font-size="14" font-weight="700" fill="#A33B27">问题：仍是“说给你听”，不是“帮你做完”。</text>
+
+    <rect x="936" y="366" width="284" height="180" fill="#C14E2C" fill-opacity="0.09"/>
+    <text x="954" y="396" font-size="14" font-weight="700" fill="#C14E2C">阶段 4 · 实时代理</text>
+    <text x="954" y="424" font-size="14" fill="#3F3B35">用户共享现场，系统持续看、听、指导；</text>
+    <text x="954" y="450" font-size="14" fill="#3F3B35">Muse 开始后台执行、付款并请求确认。</text>
+    <text x="954" y="488" font-size="13" font-weight="700" fill="#A33B27">新问题：何时开口、谁负责、</text>
+    <text x="954" y="510" font-size="13" font-weight="700" fill="#A33B27">出错怎么接管。</text>
+
+    <line x1="60" y1="568" x2="1220" y2="568" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="600" font-family="SimSun" font-size="21" font-weight="700" fill="#1D1C19">分：每跨一个阶段，用户少做一步，但系统要承担更多理解、纠正和责任。</text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">补页 01 / 05 · 时间线覆盖 2011–2026；具体日期与证据见第 20、21 页</text>
+    <text x="1220" y="672" text-anchor="end">EXT 01</text>
+  </g>
+</svg>

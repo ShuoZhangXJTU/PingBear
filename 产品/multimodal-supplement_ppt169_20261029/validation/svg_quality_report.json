@@ -1,0 +1,436 @@
+{
+  "schema": "ppt-master.svg-quality-report.v1",
+  "stage": "final",
+  "target": "/Users/zhangshuo/Research/产品/multimodal-supplement_ppt169_20261029",
+  "source_fingerprint": {
+    "algorithm": "sha256",
+    "digest": "75cc9203f478e122b1e950f9deeadc5c541cd83c268cf452db1a6617686393c3",
+    "file_count": 5,
+    "files": [
+      {
+        "file": "01_complete-timeline.svg",
+        "sha256": "c9d9411236de2630c962774d92d3dd16c00e303fb9bf188f725821a058b22a2e"
+      },
+      {
+        "file": "02_product-experience.svg",
+        "sha256": "e23456a709fe97f42cb5b21f81d42e6c06c92620e141655e93d14b4c51c2e477"
+      },
+      {
+        "file": "03_landscape-map.svg",
+        "sha256": "fd06fc8138713a365142f49dcc76aa5c0674d7350e3b81d2160da49c0a6467b0"
+      },
+      {
+        "file": "04_lessons.svg",
+        "sha256": "c4b071502c564f5ef8c016a3ad8e53103d9a8d396c29e46ca667c043f0ebbcb5"
+      },
+      {
+        "file": "05_cloud-future.svg",
+        "sha256": "d1522d40306bf74039223e85b2abc601b46e2d00bee032974b75390ee53c4a66"
+      }
+    ]
+  },
+  "summary": {
+    "total": 5,
+    "passed": 2,
+    "warnings": 3,
+    "errors": 0
+  },
+  "issue_types": {},
+  "categories": {
+    "blocking": {
+      "count": 0,
+      "issues": []
+    },
+    "introduced": {
+      "count": 3,
+      "issues": [
+        {
+          "file": "01_complete-timeline.svg",
+          "message": "Detected 1 paragraph-like line run(s) split across sibling <text> elements (<g id=\"complete-timeline\"> x=954.0, y=488.0..510.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+        },
+        {
+          "file": "03_landscape-map.svg",
+          "message": "Detected 2 paragraph-like line run(s) split across sibling <text> elements (<g id=\"landscape-map\"> x=204.0, y=320.0..342.0, 2 lines; <g id=\"landscape-map\"> x=760.0, y=318.0..340.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+        },
+        {
+          "file": "05_cloud-future.svg",
+          "message": "Detected 3 paragraph-like line run(s) split across sibling <text> elements (<g id=\"cloud-core-future\"> x=78.0, y=228.0..250.0, 2 lines; <g id=\"cloud-core-future\"> x=630.0, y=228.0..250.0, 2 lines; <g id=\"cloud-core-future\"> x=906.0, y=228.0..250.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+        }
+      ]
+    },
+    "inherited": {
+      "count": 0,
+      "issues": []
+    },
+    "source-import": {
+      "count": 0,
+      "summary": {
+        "warning_count": 0,
+        "by_code": {}
+      }
+    }
+  },
+  "drift": {
+    "colors": {},
+    "fonts": {},
+    "sizes": {}
+  },
+  "carrier_receipt": {
+    "scope": "informational-not-a-quota",
+    "pages": 5,
+    "totals": {
+      "text_elements": 191,
+      "image_placements": 0,
+      "icons": 0,
+      "svg_geometry_elements": 44,
+      "preset_shapes": 0,
+      "page_frame_elements": 5,
+      "marker_uses": 0,
+      "inline_emphasis_runs": 54,
+      "gradient_uses": 0,
+      "filter_uses": 0,
+      "text_effects": 0
+    },
+    "pages_with": {
+      "images": 0,
+      "icons": 0,
+      "presets": 0,
+      "charts": 0,
+      "tables": 0,
+      "formulas": 0,
+      "inline_emphasis_runs": 1,
+      "gradient_uses": 0,
+      "filter_uses": 0,
+      "text_effects": 0
+    },
+    "relationship_pages": null,
+    "geometry_elements": {
+      "circle": 9,
+      "ellipse": 0,
+      "line": 17,
+      "path": 0,
+      "polygon": 0,
+      "polyline": 0,
+      "rect": 18
+    },
+    "preset_names": {},
+    "native_objects": {
+      "chart": 0,
+      "formula_block": 0,
+      "formula_inline": 0,
+      "other": 0,
+      "table": 0
+    },
+    "image_page_max_frame_share_range": []
+  },
+  "project_issues": {
+    "template": [],
+    "animation": [],
+    "illustration": [],
+    "communication_trace": [],
+    "pptx_structure": []
+  },
+  "files": [
+    {
+      "file": "01_complete-timeline.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-supplement_ppt169_20261029/svg_output/01_complete-timeline.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Detected 1 paragraph-like line run(s) split across sibling <text> elements (<g id=\"complete-timeline\"> x=954.0, y=488.0..510.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+      ],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 48,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 5,
+              "circle": 4,
+              "ellipse": 0,
+              "line": 2,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 48,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "c9d9411236de2630c962774d92d3dd16c00e303fb9bf188f725821a058b22a2e"
+    },
+    {
+      "file": "02_product-experience.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-supplement_ppt169_20261029/svg_output/02_product-experience.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 40,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 54,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 1,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 4,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 40,
+        "tspan_elements": 54
+      },
+      "passed": true,
+      "source_sha256": "e23456a709fe97f42cb5b21f81d42e6c06c92620e141655e93d14b4c51c2e477"
+    },
+    {
+      "file": "03_landscape-map.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-supplement_ppt169_20261029/svg_output/03_landscape-map.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Detected 2 paragraph-like line run(s) split across sibling <text> elements (<g id=\"landscape-map\"> x=204.0, y=320.0..342.0, 2 lines; <g id=\"landscape-map\"> x=760.0, y=318.0..340.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+      ],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 34,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 6,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 5,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 34,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "fd06fc8138713a365142f49dcc76aa5c0674d7350e3b81d2160da49c0a6467b0"
+    },
+    {
+      "file": "04_lessons.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-supplement_ppt169_20261029/svg_output/04_lessons.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 31,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 1,
+              "circle": 5,
+              "ellipse": 0,
+              "line": 5,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 31,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "c4b071502c564f5ef8c016a3ad8e53103d9a8d396c29e46ca667c043f0ebbcb5"
+    },
+    {
+      "file": "05_cloud-future.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-supplement_ppt169_20261029/svg_output/05_cloud-future.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Detected 3 paragraph-like line run(s) split across sibling <text> elements (<g id=\"cloud-core-future\"> x=78.0, y=228.0..250.0, 2 lines; <g id=\"cloud-core-future\"> x=630.0, y=228.0..250.0, 2 lines; <g id=\"cloud-core-future\"> x=906.0, y=228.0..250.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+      ],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 38,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 5,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 1,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 38,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "d1522d40306bf74039223e85b2abc601b46e2d00bee032974b75390ee53c4a66"
+    }
+  ]
+}
