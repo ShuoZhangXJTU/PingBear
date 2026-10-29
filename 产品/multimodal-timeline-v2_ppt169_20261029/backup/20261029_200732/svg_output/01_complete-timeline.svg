@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 18 1176 98" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">多模态交互 · 全产品时间线</text>
+    <text x="60" y="82" font-size="30">2011–2026：产品如何从“帮我查”走到“看着我一起做”</text>
+  </g>
+
+  <g id="timeline" data-pptx-bounds="52 126 1176 530">
+    <line x1="72" y1="174" x2="1210" y2="174" stroke="#B6AEA1" stroke-width="2"/>
+    <circle cx="200" cy="174" r="8" fill="#1D1C19"/>
+    <circle cx="480" cy="174" r="8" fill="#1D1C19"/>
+    <circle cx="760" cy="174" r="8" fill="#1D1C19"/>
+    <circle cx="1080" cy="174" r="10" fill="#C14E2C"/>
+    <text x="200" y="154" font-size="12" font-weight="700" text-anchor="middle" fill="#6B6760">2011–2017</text>
+    <text x="480" y="154" font-size="12" font-weight="700" text-anchor="middle" fill="#6B6760">2018–2021</text>
+    <text x="760" y="154" font-size="12" font-weight="700" text-anchor="middle" fill="#6B6760">2022–2023</text>
+    <text x="1080" y="154" font-size="12" font-weight="700" text-anchor="middle" fill="#C14E2C">2024–2026</text>
+    <line x1="200" y1="184" x2="200" y2="222" stroke="#C9C1B4" stroke-width="1"/>
+    <line x1="480" y1="184" x2="480" y2="222" stroke="#C9C1B4" stroke-width="1"/>
+    <line x1="760" y1="184" x2="760" y2="222" stroke="#C9C1B4" stroke-width="1"/>
+    <line x1="1080" y1="184" x2="1080" y2="222" stroke="#C9C1B4" stroke-width="1"/>
+
+    <rect x="60" y="222" width="218" height="380" fill="#1D1C19" fill-opacity="0.045" stroke="#B6AEA1" stroke-width="1"/>
+    <rect x="288" y="222" width="218" height="380" fill="#1F5A49" fill-opacity="0.045" stroke="#B6AEA1" stroke-width="1"/>
+    <rect x="516" y="222" width="218" height="380" fill="#C14E2C" fill-opacity="0.045" stroke="#B6AEA1" stroke-width="1"/>
+    <rect x="744" y="222" width="476" height="380" fill="#C14E2C" fill-opacity="0.075" stroke="#C14E2C" stroke-width="1.5"/>
+
+    <text x="76" y="252" font-size="14" font-weight="700" fill="#1D1C19">2011–2017 · 入口出现</text>
+    <text x="76" y="275" font-size="11" fill="#6B6760">问一句 / 看一眼 · 语音、视觉各自发力</text>
+    <line x1="92" y1="292" x2="92" y2="566" stroke="#C9C1B4" stroke-width="1.5"/>
+    <circle cx="92" cy="320" r="4" fill="#1D1C19"/><text x="108" y="324" font-size="10.5"><tspan font-weight="700" fill="#1D1C19">2011 Siri</tspan><tspan fill="#3F3B35">｜用嘴问天气日程</tspan></text>
+    <circle cx="92" cy="362" r="4" fill="#1D1C19"/><text x="108" y="366" font-size="10.5"><tspan font-weight="700" fill="#1D1C19">2014 Echo</tspan><tspan fill="#3F3B35">｜在家免手问Alexa</tspan></text>
+    <circle cx="92" cy="404" r="4" fill="#1D1C19"/><text x="108" y="408" font-size="10.5"><tspan font-weight="700" fill="#1D1C19">2016 Assistant</tspan><tspan fill="#3F3B35">｜跨设备连续对话</tspan></text>
+    <circle cx="92" cy="446" r="4" fill="#1D1C19"/><text x="108" y="450" font-size="10.5"><tspan font-weight="700" fill="#1D1C19">2017 Bixby</tspan><tspan fill="#3F3B35">｜让手机执行系统动作</tspan></text>
+    <circle cx="92" cy="488" r="4" fill="#C14E2C"/><text x="108" y="492" font-size="10.5"><tspan font-weight="700" fill="#1D1C19">2017 Lens</tspan><tspan fill="#3F3B35">｜拍一下搜物/译字</tspan></text>
+    <circle cx="92" cy="530" r="4" fill="#C14E2C"/><text x="108" y="534" font-size="10.5"><tspan font-weight="700" fill="#1D1C19">2017 Seeing AI</tspan><tspan fill="#3F3B35">｜镜头读给视障者听</tspan></text>
+    <text x="76" y="582" font-size="10" fill="#6B6760">体验：能问、能搜，但用户仍要自己串联步骤。</text>
+
+    <text x="304" y="252" font-size="14" font-weight="700" fill="#1D1C19">2018–2021 · 边看边问</text>
+    <text x="304" y="275" font-size="11" fill="#6B6760">实时取景 + 语音屏幕 · 信息叠加到现场</text>
+    <line x1="320" y1="292" x2="320" y2="566" stroke="#C9C1B4" stroke-width="1.5"/>
+    <circle cx="320" cy="314" r="4" fill="#1F5A49"/><text x="336" y="318" font-size="10.5"><tspan font-weight="700" fill="#1D1C19">2018 Lens</tspan><tspan fill="#3F3B35">｜镜头实时取景搜索</tspan></text>
+    <circle cx="320" cy="352" r="4" fill="#1F5A49"/><text x="336" y="356" font-size="10.5"><tspan font-weight="700" fill="#1D1C19">2018 智能屏</tspan><tspan fill="#3F3B35">｜说话同时看地图/视频</tspan></text>
+    <circle cx="320" cy="390" r="4" fill="#1F5A49"/><text x="336" y="394" font-size="10.5"><tspan font-weight="700" fill="#1D1C19">2018 APL</tspan><tspan fill="#3F3B35">｜语音+图文动画+触控</tspan></text>
+    <circle cx="320" cy="428" r="4" fill="#1F5A49"/><text x="336" y="432" font-size="10.5"><tspan font-weight="700" fill="#1D1C19">2019 Lens</tspan><tspan fill="#3F3B35">｜原图上叠实时翻译</tspan></text>
+    <circle cx="320" cy="466" r="4" fill="#1F5A49"/><text x="336" y="470" font-size="10.5"><tspan font-weight="700" fill="#1D1C19">2020 Show 10</tspan><tspan fill="#3F3B35">｜屏幕跟着人移动</tspan></text>
+    <circle cx="320" cy="504" r="4" fill="#1F5A49"/><text x="336" y="508" font-size="10.5"><tspan font-weight="700" fill="#1D1C19">2021 CLIP</tspan><tspan fill="#3F3B35">｜图文语义对齐，做模型底座</tspan></text>
+    <circle cx="320" cy="542" r="4" fill="#A33B27"/><text x="336" y="546" font-size="10.5"><tspan font-weight="700" fill="#1D1C19">2021 Stories</tspan><tspan fill="#3F3B35">｜第一视角拍摄，日活不足</tspan></text>
+    <text x="304" y="582" font-size="10" fill="#6B6760">体验：边看边问开始成立，但跨 App 和记忆仍弱。</text>
+
+    <text x="532" y="252" font-size="14" font-weight="700" fill="#1D1C19">2022–2023 · 理解与对话</text>
+    <text x="532" y="275" font-size="11" fill="#6B6760">视觉语言模型 · 看图、解释、连续追问</text>
+    <line x1="548" y1="304" x2="548" y2="550" stroke="#C9C1B4" stroke-width="1.5"/>
+    <circle cx="548" cy="326" r="4" fill="#C14E2C"/><text x="564" y="330" font-size="10.5"><tspan font-weight="700" fill="#1D1C19">2022 Flamingo</tspan><tspan fill="#3F3B35">｜少样本读懂图/视频</tspan></text>
+    <circle cx="548" cy="370" r="4" fill="#C14E2C"/><text x="564" y="374" font-size="10.5"><tspan font-weight="700" fill="#1D1C19">2023 Be My AI</tspan><tspan fill="#3F3B35">｜读图解释并继续追问</tspan></text>
+    <circle cx="548" cy="414" r="4" fill="#C14E2C"/><text x="564" y="418" font-size="10.5"><tspan font-weight="700" fill="#1D1C19">2023 GPT-4V</tspan><tspan fill="#3F3B35">｜把图片直接发给ChatGPT</tspan></text>
+    <circle cx="548" cy="458" r="4" fill="#C14E2C"/><text x="564" y="462" font-size="10.5"><tspan font-weight="700" fill="#1D1C19">2023 Gemini</tspan><tspan fill="#3F3B35">｜原生多模态对话</tspan></text>
+    <circle cx="548" cy="502" r="4" fill="#C14E2C"/><text x="564" y="506" font-size="10.5"><tspan font-weight="700" fill="#1D1C19">2023 Ray-Ban Meta</tspan><tspan fill="#3F3B35">｜戴着看、问、翻译</tspan></text>
+    <text x="532" y="582" font-size="10" fill="#6B6760">体验：能解释“这是什么”，但不稳定执行，也少长期记忆。</text>
+
+    <text x="760" y="252" font-size="14" font-weight="700" fill="#C14E2C">2024–2026 · 实时协作与代理</text>
+    <text x="760" y="275" font-size="11" fill="#6B6760">持续视频、主动纠错、后台执行、Agent 协作</text>
+    <line x1="972" y1="286" x2="972" y2="568" stroke="#D6CFC3" stroke-width="1"/>
+    <line x1="774" y1="296" x2="774" y2="568" stroke="#C9C1B4" stroke-width="1.5"/>
+    <circle cx="774" cy="316" r="3.5" fill="#A33B27"/><text x="788" y="320" font-size="10"><tspan font-weight="700" fill="#1D1C19">2024 Humane</tspan><tspan fill="#3F3B35">｜替代手机，失败</tspan></text>
+    <circle cx="774" cy="348" r="3.5" fill="#A33B27"/><text x="788" y="352" font-size="10"><tspan font-weight="700" fill="#1D1C19">2024 Rabbit</tspan><tspan fill="#3F3B35">｜AI盒子，初期Bug多</tspan></text>
+    <circle cx="774" cy="380" r="3.5" fill="#C14E2C"/><text x="788" y="384" font-size="10"><tspan font-weight="700" fill="#1D1C19">2024 GPT-4o</tspan><tspan fill="#3F3B35">｜实时语音视频</tspan></text>
+    <circle cx="774" cy="412" r="3.5" fill="#C14E2C"/><text x="788" y="416" font-size="10"><tspan font-weight="700" fill="#1D1C19">2024 Gemini Live</tspan><tspan fill="#3F3B35">｜共享镜头/屏幕</tspan></text>
+    <circle cx="774" cy="444" r="3.5" fill="#C14E2C"/><text x="788" y="448" font-size="10"><tspan font-weight="700" fill="#1D1C19">2024 Apple</tspan><tspan fill="#3F3B35">｜按键识物翻译</tspan></text>
+    <circle cx="774" cy="476" r="3.5" fill="#C14E2C"/><text x="788" y="480" font-size="10"><tspan font-weight="700" fill="#1D1C19">2024 Copilot</tspan><tspan fill="#3F3B35">｜看工作画面并高亮</tspan></text>
+    <circle cx="774" cy="508" r="3.5" fill="#1F5A49"/><text x="788" y="512" font-size="10"><tspan font-weight="700" fill="#1D1C19">2025 小艺</tspan><tspan fill="#3F3B35">｜看画面+指向问答</tspan></text>
+    <circle cx="774" cy="540" r="3.5" fill="#1F5A49"/><text x="788" y="544" font-size="10"><tspan font-weight="700" fill="#1D1C19">2025 Meta Display</tspan><tspan fill="#3F3B35">｜导航字幕腕带</tspan></text>
+
+    <line x1="972" y1="296" x2="972" y2="568" stroke="#C9C1B4" stroke-width="1.5"/>
+    <circle cx="972" cy="316" r="3.5" fill="#1F5A49"/><text x="986" y="320" font-size="10"><tspan font-weight="700" fill="#1D1C19">2025 小米</tspan><tspan fill="#3F3B35">｜拍摄问答</tspan></text>
+    <circle cx="972" cy="348" r="3.5" fill="#1F5A49"/><text x="986" y="352" font-size="10"><tspan font-weight="700" fill="#1D1C19">2025 夸克 S1</tspan><tspan fill="#3F3B35">｜导航支付购物</tspan></text>
+    <circle cx="972" cy="380" r="3.5" fill="#1F5A49"/><text x="986" y="384" font-size="10"><tspan font-weight="700" fill="#1D1C19">2025 XR/Snap</tspan><tspan fill="#3F3B35">｜一视角/主动提醒</tspan></text>
+    <circle cx="972" cy="412" r="3.5" fill="#1F5A49"/><text x="986" y="416" font-size="10"><tspan font-weight="700" fill="#1D1C19">2025 三星/海信</tspan><tspan fill="#3F3B35">｜电视问答/画质</tspan></text>
+    <circle cx="972" cy="444" r="3.5" fill="#1F5A49"/><text x="986" y="448" font-size="10"><tspan font-weight="700" fill="#1D1C19">2025 小度</tspan><tspan fill="#3F3B35">｜家庭看护陪伴</tspan></text>
+    <circle cx="972" cy="476" r="3.5" fill="#1F5A49"/><text x="986" y="480" font-size="10"><tspan font-weight="700" fill="#1D1C19">2025 理想/NOMI</tspan><tspan fill="#3F3B35">｜座舱空间理解</tspan></text>
+    <circle cx="972" cy="508" r="3.5" fill="#C14E2C"/><text x="986" y="512" font-size="10"><tspan font-weight="700" fill="#1D1C19">2026 SeedRealtime</tspan><tspan fill="#3F3B35">｜连续看听说</tspan></text>
+    <circle cx="972" cy="540" r="3.5" fill="#C14E2C"/><text x="986" y="544" font-size="10"><tspan font-weight="700" fill="#1D1C19">2026 Muse/Audio</tspan><tspan fill="#3F3B35">｜后台执行/无摄</tspan></text>
+    <circle cx="972" cy="568" r="4.5" fill="#C14E2C"/><text x="986" y="572" font-size="10"><tspan font-weight="700" fill="#C14E2C">2026 Guided Vision</tspan><tspan fill="#3F3B35">｜教你调镜头</tspan></text>
+
+    <line x1="60" y1="616" x2="1220" y2="616" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="632" font-family="SimSun" font-size="19" font-weight="700" fill="#1D1C19">分：阶段越往后，用户少做一步，系统就多承担一层理解、行动、纠错和责任。</text>
+    <text x="60" y="650" font-size="10" fill="#6B6760">注：TwelveLabs、拍立淘、Vision-Agents、LiveKit、Pipecat、Dograh 等属于能力与基础设施层，见主稿 P15，本页只串终端产品。</text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="10">
+    <text x="60" y="672">按产品首次公开或关键体验上线年份整理；模型底座与终端产品分开理解 · 证据见主稿 P20–P21</text>
+    <text x="1220" y="672" text-anchor="end">TIMELINE</text>
+  </g>
+</svg>

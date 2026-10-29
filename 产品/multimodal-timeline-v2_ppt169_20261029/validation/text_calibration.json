@@ -1,0 +1,70 @@
+{
+  "roles": {
+    "body": {
+      "family": "Microsoft YaHei",
+      "size": 14.0,
+      "weight": "normal",
+      "cjk_chars_per_100px": 6.7,
+      "latin_chars_per_100px": 13.9,
+      "caps_chars_per_100px": 12.8,
+      "digits_chars_per_100px": 12.3,
+      "citation_chars_per_100px": 12.9,
+      "script_clusters_per_100px": {},
+      "longest_planned_line": null
+    },
+    "footnote": {
+      "family": "Microsoft YaHei",
+      "size": 10.0,
+      "weight": "normal",
+      "cjk_chars_per_100px": 9.4,
+      "latin_chars_per_100px": 19.4,
+      "caps_chars_per_100px": 17.9,
+      "digits_chars_per_100px": 17.2,
+      "citation_chars_per_100px": 18.0,
+      "script_clusters_per_100px": {},
+      "longest_planned_line": null
+    },
+    "item": {
+      "family": "Microsoft YaHei",
+      "size": 11.0,
+      "weight": "normal",
+      "cjk_chars_per_100px": 8.6,
+      "latin_chars_per_100px": 17.8,
+      "caps_chars_per_100px": 16.4,
+      "digits_chars_per_100px": 15.7,
+      "citation_chars_per_100px": 16.5,
+      "script_clusters_per_100px": {},
+      "longest_planned_line": null
+    },
+    "page-title": {
+      "family": "SimSun",
+      "size": 30.0,
+      "weight": "normal",
+      "cjk_chars_per_100px": 3.0,
+      "latin_chars_per_100px": 5.9,
+      "caps_chars_per_100px": 4.9,
+      "digits_chars_per_100px": 5.4,
+      "citation_chars_per_100px": 5.4,
+      "script_clusters_per_100px": {},
+      "longest_planned_line": null
+    },
+    "phase-title": {
+      "family": "Microsoft YaHei",
+      "size": 14.0,
+      "weight": "normal",
+      "cjk_chars_per_100px": 6.7,
+      "latin_chars_per_100px": 13.9,
+      "caps_chars_per_100px": 12.8,
+      "digits_chars_per_100px": 12.3,
+      "citation_chars_per_100px": 12.9,
+      "script_clusters_per_100px": {},
+      "longest_planned_line": null
+    }
+  },
+  "script_samples": {},
+  "source": "--role",
+  "generated_at": "2026-10-29T12:04:30Z",
+  "notes": [
+    "every role is measured at normal weight; recalibrate a role realized as bold deck-wide with --role NAME:FAMILY:SIZE:bold: bold widens Latin and digits about 7%, while the bundled advance table gives CJK one width for both weights"
+  ]
+}
