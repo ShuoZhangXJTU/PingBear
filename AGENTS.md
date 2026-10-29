@@ -17,6 +17,8 @@
 **两档语言标准**：日报/小红书/博客/我的链接的每一条简介只用于快速筛选，必须写成小学生也能看懂的大白话（不用专业术语，一眼看懂在干啥）；归档之后的深读 takeaways 才用高中生/费曼标准（可以用专业词，但要当场用一句白话解释，讲清「做了什么 → 结果 → 说明什么」）。
 用户随口记的灵感先落进 `灵感/收件箱.md`（Obsidian 命令「记一条灵感」或 `scripts/ideas.py add --text "…"`），每天早报跑完由 `scripts/ideas.py` 按主题归到 `灵感/<主题>.md`；不要把这些私人灵感发到任何外部渠道。
 每天还要扫公司官方源（`scripts/blogs.py`，默认每源取最新 2 条）：OpenAI 与 Google Research、Microsoft Research 走 RSS，Anthropic Research/Engineering 走列表页＋文章页，ByteDance Seed 用本机 Chrome 渲染；条目编号 B1、B2，归档 ID 是 arXiv 编号或 `blog-<哈希>`。
+每天还要看 GitHub Trending 日榜（`scripts/github_trending.py`）：挑今日新增 star 最多的几个项目，
+每个用一句小学生能懂的话讲清是什么、能干嘛，编号 G1、G2，写进日报单独的「GitHub 热门」一节。
 每日编号必须绑定日期，发布后不可重排。按 arXiv ID 去重，版本变化另行说明。
 保留内部数据来源，不编造数字或结论。用户不需要机构核实和阅读依据展示；不能声称读过正文、已复现、已下载 PDF。
 所有采集结果保留源地址、采集时间和上榜日期；上榜日期不等于论文发表日期。

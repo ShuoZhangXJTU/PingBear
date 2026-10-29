@@ -82,7 +82,7 @@ class TestCatalogSources(unittest.TestCase):
     def test_sources_registered(self):
         # 新增过：小红书关注流/收藏、自动科研与 rubrics 两节。
         keys = [item[0] for item in catalog.SOURCES]
-        self.assertEqual(keys, ['hf', 'xhs', 'following', 'favorites', 'inbox', 'blog', 'research'])
+        self.assertEqual(keys, ['hf', 'xhs', 'following', 'favorites', 'inbox', 'blog', 'github', 'research'])
 
 
 if __name__ == '__main__':

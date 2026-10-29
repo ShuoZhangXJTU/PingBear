@@ -110,7 +110,7 @@ def homepage(date, source_date, message=''):
         if text.startswith('---\n'):
             text = text.split('---\n', 2)[-1]
         return text.lstrip('\n')
-    for name in ('小红书', '关注', '收藏', '我的链接', '博客', '研究'):
+    for name in ('小红书', '关注', '收藏', '我的链接', '博客', 'GitHub', '研究'):
         part = section(name)
         if part:
             body += '\n\n---\n\n' + part
@@ -211,6 +211,12 @@ def run(args):
             _, blog_count = blogs.process(date)
         except Exception as error:
             blog_note = f'官方博客部分本次未更新（{type(error).__name__}: {error}）'
+        github_note, github_count = '', 0
+        try:
+            import github_trending
+            _, github_count = github_trending.process(date, limit=8)
+        except Exception as error:
+            github_note = f'GitHub 热门本次未更新（{type(error).__name__}: {error}）'
         # 自动科研与 rubrics 当天做了什么，单独写一节供首页引用。
         try:
             import daily_research
@@ -248,6 +254,8 @@ def run(args):
             problems.append(f'小红书：{xhs_note}{hint}')
         if blog_note:
             problems.append(f'官方博客：{blog_note}')
+        if github_note:
+            problems.append(f'GitHub 热门：{github_note}')
         if inbox_note:
             problems.append(f'我的链接：{inbox_note}')
         if problems:

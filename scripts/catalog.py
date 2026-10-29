@@ -20,6 +20,7 @@ SOURCES = [
     ('favorites', '小红书 · 收藏', '-收藏', 'xhs-digest', r'^## C\d+\.'),
     ('inbox', '我的链接', '-我的链接', 'inbox-digest', r'^## M\d+\.'),
     ('blog', '官方博客与研究发布', '-博客', 'blog-digest', r'^## B\d+\.'),
+    ('github', 'GitHub 热门', '-GitHub', 'github-digest', r'^## G\d+\.'),
     ('research', '自动科研 · rubrics', '-研究', 'research-digest', r'^## '),
 ]
 
