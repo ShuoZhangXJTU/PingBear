@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">2024 · 实时多模态进入平台</text>
+    <text x="60" y="82" font-size="32">现场共享成为助手能力，但执行边界被明确划出</text>
+  </g>
+
+  <g id="platform-six" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="148" font-size="15" fill="#4D4942">同一年的六个产品，分别回答“怎么实时看、谁有上下文、谁负责执行”。</text>
+    <line x1="443" y1="164" x2="443" y2="596" stroke="#D6CFC3" stroke-width="1"/>
+    <line x1="833" y1="164" x2="833" y2="596" stroke="#D6CFC3" stroke-width="1"/>
+    <line x1="60" y1="382" x2="1220" y2="382" stroke="#D6CFC3" stroke-width="1"/>
+
+    <text x="60" y="194" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">GPT-4o</text>
+    <text x="60" y="220" font-size="14" font-weight="700" fill="#6B6760">OpenAI · 2024.05</text>
+    <text x="60" y="250" font-size="15" fill="#3F3B35">语音、视频、文本低延迟互动；</text>
+    <text x="60" y="276" font-size="15" fill="#3F3B35">强调自然打断与实时对话。</text>
+    <text x="60" y="316" font-size="14" fill="#A33B27">证据：官方发布；任务成功率待独立验证</text>
+
+    <text x="465" y="194" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">Gemini Live / Astra</text>
+    <text x="465" y="220" font-size="14" font-weight="700" fill="#6B6760">Google · 2024.05 演示</text>
+    <text x="465" y="250" font-size="15" fill="#3F3B35">摄像头与屏幕共享；</text>
+    <text x="465" y="276" font-size="15" fill="#3F3B35">围绕当前画面连续对话。</text>
+    <text x="465" y="316" font-size="14" fill="#1F5A49">后续 2025 扩大上线；2026 Guided Vision</text>
+
+    <text x="855" y="194" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">Apple Visual Intelligence</text>
+    <text x="855" y="220" font-size="14" font-weight="700" fill="#6B6760">Apple · 2024.12</text>
+    <text x="855" y="250" font-size="15" fill="#3F3B35">Camera Control 触发；</text>
+    <text x="855" y="276" font-size="15" fill="#3F3B35">地点、翻译、识物、视觉搜索。</text>
+    <text x="855" y="316" font-size="14" fill="#6B6760">更偏单次工具，持续协作较少</text>
+
+    <text x="60" y="414" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">Copilot Vision</text>
+    <text x="60" y="440" font-size="14" font-weight="700" fill="#6B6760">Microsoft · 2024.12</text>
+    <text x="60" y="470" font-size="15" fill="#3F3B35">屏幕/摄像头＋工作数据；</text>
+    <text x="60" y="496" font-size="15" fill="#3F3B35">可高亮，但不代替点击和输入。</text>
+    <text x="60" y="536" font-size="14" fill="#1F5A49">价值：上下文最强；边界：行动不闭合</text>
+
+    <text x="465" y="414" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">Humane AI Pin</text>
+    <text x="465" y="440" font-size="14" font-weight="700" fill="#6B6760">2024.04 上市 · 2025.02 停服</text>
+    <text x="465" y="470" font-size="15" fill="#3F3B35">激光投影、语音与摄像头；</text>
+    <text x="465" y="496" font-size="15" fill="#3F3B35">试图替代手机，但可靠性差。</text>
+    <text x="465" y="536" font-size="14" fill="#A33B27">独立评测差；高价和依赖云端放大风险</text>
+
+    <text x="855" y="414" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">Rabbit R1</text>
+    <text x="855" y="440" font-size="14" font-weight="700" fill="#6B6760">CES 2024 发布</text>
+    <text x="855" y="470" font-size="15" fill="#3F3B35">语音与“Large Action Model”；</text>
+    <text x="855" y="496" font-size="15" fill="#3F3B35">承诺跨 App 行动，初期交付有限。</text>
+    <text x="855" y="536" font-size="14" fill="#A33B27">回应：Bug、延迟；后被指核心为 Android 应用</text>
+
+    <line x1="60" y1="568" x2="1220" y2="568" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="604" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">分：平台助手证明实时上下文可行；专用 AI 硬件证明“新入口”不是价值。</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">来源：OpenAI；Google；Apple；Microsoft；The Verge / WIRED 等独立评测</text>
+    <text x="1220" y="672" text-anchor="end">07 / 21</text>
+  </g>
+</svg>

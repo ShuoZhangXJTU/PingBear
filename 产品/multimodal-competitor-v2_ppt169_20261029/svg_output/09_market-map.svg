@@ -14,8 +14,8 @@
 
     <text x="60" y="194" font-size="14" font-weight="700" letter-spacing="2" fill="#1F5A49">系统 / App 助手</text>
     <text x="60" y="230" font-size="16" font-weight="700" fill="#1D1C19">Gemini Live</text>
-    <text x="60" y="254" font-size="15" fill="#3F3B35">ChatGPT / SeedRealtime</text>
-    <text x="60" y="278" font-size="15" fill="#3F3B35">小艺 / 超级小爱</text>
+    <text x="60" y="254" font-size="14" fill="#3F3B35">ChatGPT / SeedRealtime</text>
+    <text x="60" y="278" font-size="14" fill="#3F3B35">Muse / 小艺 / 超级小爱</text>
     <text x="60" y="302" font-size="15" fill="#3F3B35">Copilot / Bixby</text>
     <text x="60" y="326" font-size="15" fill="#3F3B35">Apple Visual Intelligence</text>
     <text x="60" y="372" font-size="14" font-weight="700" fill="#6B6760">竞争点</text>

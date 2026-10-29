@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">2022–2023 · 多模态模型产品化</text>
+    <text x="60" y="82" font-size="32">视觉语言模型让图像成为可对话上下文</text>
+  </g>
+
+  <g id="model-to-product" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="148" font-size="15" fill="#4D4942">2022 年先完成模型能力跃迁，2023 年才把它变成普通用户可调用的产品。</text>
+    <line x1="90" y1="238" x2="1180" y2="238" stroke="#B6AEA1" stroke-width="2"/>
+    <circle cx="190" cy="238" r="8" fill="#1D1C19"/><text x="190" y="216" font-size="14" font-weight="700" text-anchor="middle" fill="#6B6760">2022.04</text>
+    <text x="190" y="274" font-family="SimSun" font-size="22" font-weight="700" text-anchor="middle" fill="#1D1C19">Flamingo</text>
+    <text x="190" y="302" font-size="14" text-anchor="middle" fill="#6B6760">图文/视频交错输入</text>
+    <text x="190" y="326" font-size="14" text-anchor="middle" fill="#6B6760">少样本完成多种视觉语言任务</text>
+    <circle cx="490" cy="238" r="8" fill="#1D1C19"/><text x="490" y="216" font-size="14" font-weight="700" text-anchor="middle" fill="#6B6760">2023.03</text>
+    <text x="490" y="274" font-family="SimSun" font-size="22" font-weight="700" text-anchor="middle" fill="#1D1C19">Be My AI 测试</text>
+    <text x="490" y="302" font-size="14" text-anchor="middle" fill="#6B6760">GPT-4 驱动的视觉助手</text>
+    <text x="490" y="326" font-size="14" text-anchor="middle" fill="#6B6760">无障碍场景先跑通多轮解释</text>
+    <circle cx="790" cy="238" r="8" fill="#C14E2C"/><text x="790" y="216" font-size="14" font-weight="700" text-anchor="middle" fill="#C14E2C">2023.09</text>
+    <text x="790" y="274" font-family="SimSun" font-size="22" font-weight="700" text-anchor="middle" fill="#1D1C19">GPT-4V</text>
+    <text x="790" y="302" font-size="14" text-anchor="middle" fill="#6B6760">ChatGPT 可看图、听声、说话</text>
+    <text x="790" y="326" font-size="14" text-anchor="middle" fill="#6B6760">视觉成为通用会话输入</text>
+    <circle cx="1090" cy="238" r="8" fill="#C14E2C"/><text x="1090" y="216" font-size="14" font-weight="700" text-anchor="middle" fill="#C14E2C">2023.12</text>
+    <text x="1090" y="274" font-family="SimSun" font-size="22" font-weight="700" text-anchor="middle" fill="#1D1C19">Gemini 1.0</text>
+    <text x="1090" y="302" font-size="14" text-anchor="middle" fill="#6B6760">原生多模态模型</text>
+    <text x="1090" y="326" font-size="14" text-anchor="middle" fill="#6B6760">文本/图像/音频/视频统一建模</text>
+
+    <line x1="60" y1="374" x2="1220" y2="374" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="408" font-size="16" font-weight="700" fill="#1F5A49">体验发生了什么变化</text>
+    <text x="60" y="440" font-size="16" fill="#3F3B35">从“识别一张图”变成“围绕图片连续问、补充背景、重新聚焦”；</text>
+    <text x="60" y="468" font-size="16" fill="#3F3B35">从固定视觉任务变成自然语言定义的开放任务。</text>
+    <text x="650" y="408" font-size="16" font-weight="700" fill="#A33B27">但还没有解决</text>
+    <text x="650" y="440" font-size="16" fill="#3F3B35">实时视频、打断接话、动作执行、失败恢复和任务级验证；</text>
+    <text x="650" y="468" font-size="16" fill="#3F3B35">厂商演示也尚未等于稳定用户体验。</text>
+
+    <rect x="60" y="508" width="1160" height="100" fill="#1F5A49" fill-opacity="0.07"/>
+    <text x="78" y="540" font-size="16" font-weight="700" fill="#1F5A49">证据等级</text>
+    <text x="170" y="540" font-size="15" fill="#3F3B35">Flamingo：研究发布 · GPT-4V/Gemini：官方能力发布 · Be My AI：真实用户反馈相对更强</text>
+    <text x="78" y="574" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">分：2023 年解决了“能对话”，还没有解决“能持续协作”。</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">来源：DeepMind 2022；OpenAI 2023；Google 2023；Be My Eyes 2023</text>
+    <text x="1220" y="672" text-anchor="end">06 / 21</text>
+  </g>
+</svg>

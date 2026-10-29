@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">市场反响分层</text>
+    <text x="60" y="82" font-size="32">强反响来自明确任务，失败来自承诺超过交付能力</text>
+  </g>
+  <g id="reception-tiers" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="148" font-size="15" fill="#4D4942">证据强度从高到低：真实使用/销量 > 独立评测 > 厂商上线材料 > 概念演示。</text>
+    <rect x="60" y="166" width="1160" height="132" fill="#1F5A49" fill-opacity="0.07"/>
+    <text x="78" y="196" font-size="14" font-weight="700" letter-spacing="2" fill="#1F5A49">较强反响</text>
+    <text x="210" y="196" font-size="17" font-weight="700" fill="#1D1C19">Google Lens</text>
+    <text x="210" y="220" font-size="14" fill="#3F3B35">大规模视觉搜索；官方称<tspan x="210" dy="22">每月 80 亿次问题（2022 口径）。</tspan></text>
+    <text x="210" y="266" font-size="13" fill="#6B6760">说明：视觉入口被规模采用，但不等于连续任务闭环。</text>
+    <text x="680" y="196" font-size="17" font-weight="700" fill="#1D1C19">Seeing AI / Be My AI</text>
+    <text x="680" y="220" font-size="14" fill="#3F3B35">无障碍用户获得独立性与匿名性；<tspan x="680" dy="22">真实任务价值强。</tspan></text>
+    <text x="680" y="266" font-size="13" fill="#6B6760">限制：仍会受图片质量、理解错误和人工兜底影响。</text>
+    <text x="1005" y="196" font-size="16" font-weight="700" fill="#1D1C19">Muse / Ray-Ban</text>
+    <text x="1005" y="220" font-size="12" fill="#3F3B35">Muse 六周 1000 万设置，<tspan x="1005" dy="18">25% 日活；购物客单 $200+</tspan></text>
+    <text x="1005" y="262" font-size="12" fill="#6B6760">公司自报；眼镜端尚未铺开。</text>
+    <text x="78" y="292" font-size="13" fill="#1F5A49">强信号的共同点：任务本来就需要视觉/语音，或设备本来就是用户愿意戴的东西。</text>
+
+    <rect x="60" y="312" width="1160" height="132" fill="#C14E2C" fill-opacity="0.07"/>
+    <text x="78" y="342" font-size="14" font-weight="700" letter-spacing="2" fill="#C14E2C">混合 / 待验证</text>
+    <text x="210" y="342" font-size="17" font-weight="700" fill="#1D1C19">Gemini / Copilot</text>
+    <text x="210" y="370" font-size="15" fill="#3F3B35">入口强、上下文强；独立任务成功率与付费未公开。</text>
+    <text x="210" y="398" font-size="14" fill="#6B6760">Copilot 明确只高亮，不执行点击/输入。</text>
+    <text x="680" y="342" font-size="17" font-weight="700" fill="#1D1C19">夸克 S1 / 小艺看世界</text>
+    <text x="680" y="366" font-size="14" fill="#3F3B35">有生态与交互亮点；存在静态识别、<tspan x="680" dy="22">显示/续航/封闭生态争议。</tspan></text>
+    <text x="680" y="410" font-size="13" fill="#6B6760">缺少版本化、同任务对照与长期留存。</text>
+    <text x="1005" y="342" font-size="16" font-weight="700" fill="#1D1C19">Meta Network</text>
+    <text x="1005" y="370" font-size="13" fill="#3F3B35">Agent 协作、商家交易仍在路线图。</text>
+    <text x="1005" y="396" font-size="13" fill="#6B6760">缺互操作、责任和费率验证。</text>
+    <text x="78" y="436" font-size="13" fill="#C14E2C">混合信号的共同点：能力可见，但效果、留存或付费没有被同一份证据同时证明。</text>
+
+    <rect x="60" y="458" width="1160" height="118" fill="#A33B27" fill-opacity="0.06"/>
+    <text x="78" y="488" font-size="14" font-weight="700" letter-spacing="2" fill="#A33B27">明显失败</text>
+    <text x="210" y="488" font-size="17" font-weight="700" fill="#1D1C19">Google Glass · Ray-Ban Stories</text>
+    <text x="210" y="516" font-size="15" fill="#3F3B35">新硬件/第一视角有新鲜感，但高价、低频、隐私与手机替代导致退场或低活跃。</text>
+    <text x="210" y="544" font-size="14" fill="#6B6760">先后教训：穿戴形态必须服务清晰任务；销量不等于留存。</text>
+    <text x="760" y="488" font-size="17" font-weight="700" fill="#1D1C19">Humane · Rabbit</text>
+    <text x="760" y="508" font-size="13" fill="#3F3B35">“替代手机/替用户操作”承诺过强；<tspan x="760" dy="22">Pin 停服，R1 初审差。</tspan></text>
+    <text x="760" y="560" font-size="13" fill="#6B6760">硬件入口无法弥补任务失败、延迟、Bug 和生态缺失。</text>
+
+    <line x1="60" y1="594" x2="1220" y2="594" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="626" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">分：市场奖赏结果，不给“多模态能力”本身发奖。</text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">来源：Google、Meta、Microsoft、Be My Eyes 与第三方评测；Lens 数字为官方口径</text>
+    <text x="1220" y="672" text-anchor="end">16 / 21</text>
+  </g>
+</svg>

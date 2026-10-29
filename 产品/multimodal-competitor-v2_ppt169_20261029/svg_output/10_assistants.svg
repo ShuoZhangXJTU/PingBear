@@ -44,16 +44,16 @@
     <text x="820" y="412" font-size="14" fill="#3F3B35">知识工作、屏幕协作</text>
     <text x="1060" y="412" font-size="13" fill="#1F5A49">上下文强；执行未闭合</text>
 
-    <text x="60" y="458" font-family="SimSun" font-size="18" font-weight="700" fill="#1D1C19">Bixby</text>
-    <text x="240" y="458" font-size="14" fill="#3F3B35">相机/相册/文档/圈屏</text>
-    <text x="500" y="458" font-size="14" fill="#3F3B35">靠近系统任务；多设备生态</text>
-    <text x="820" y="458" font-size="14" fill="#3F3B35">手机内容理解</text>
-    <text x="1060" y="458" font-size="13" fill="#6B6760">能力强弱依赖机型</text>
+    <text x="60" y="458" font-family="SimSun" font-size="18" font-weight="700" fill="#1D1C19">Muse</text>
+    <text x="240" y="458" font-size="14" fill="#3F3B35">语音＋App/网页，后续眼镜</text>
+    <text x="500" y="458" font-size="14" fill="#3F3B35">后台多步；支付/邮件需确认</text>
+    <text x="820" y="458" font-size="14" fill="#3F3B35">购物、生产力、日历</text>
+    <text x="1060" y="458" font-size="13" fill="#1F5A49">1000万设置；待独立验证</text>
 
-    <text x="60" y="504" font-family="SimSun" font-size="18" font-weight="700" fill="#1D1C19">超级小爱</text>
-    <text x="240" y="504" font-size="14" fill="#3F3B35">文字/语音/图片/文档/屏幕</text>
-    <text x="500" y="504" font-size="14" fill="#3F3B35">陪伴、帮看、设备生态</text>
-    <text x="820" y="504" font-size="14" fill="#3F3B35">家庭与个人助手</text>
+    <text x="60" y="504" font-family="SimSun" font-size="18" font-weight="700" fill="#1D1C19">Bixby / 超级小爱</text>
+    <text x="240" y="504" font-size="14" fill="#3F3B35">相机/文档/圈屏/设备入口</text>
+    <text x="500" y="504" font-size="14" fill="#3F3B35">系统任务、陪伴与设备生态</text>
+    <text x="820" y="504" font-size="14" fill="#3F3B35">手机与家庭</text>
     <text x="1060" y="504" font-size="13" fill="#A33B27">官方宣传 → 待实测</text>
 
     <text x="60" y="550" font-family="SimSun" font-size="18" font-weight="700" fill="#1D1C19">SeedRealtime</text>

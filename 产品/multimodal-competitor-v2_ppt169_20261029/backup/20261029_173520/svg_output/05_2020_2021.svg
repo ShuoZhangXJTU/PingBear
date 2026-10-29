@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">2020–2021 · 从屏幕到第一视角</text>
+    <text x="60" y="82" font-size="32">设备开始跟随人，第一视角试水，模型底座同步换代</text>
+  </g>
+
+  <g id="period-2020-21" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="148" font-size="15" fill="#4D4942">2020–2021 同时出现“更自然的设备”和“更好的模型”，但产品价值仍然分裂。</text>
+    <line x1="70" y1="186" x2="1210" y2="186" stroke="#C9C1B4" stroke-width="1"/>
+    <line x1="430" y1="170" x2="430" y2="614" stroke="#D6CFC3" stroke-width="1"/>
+    <line x1="820" y1="170" x2="820" y2="614" stroke="#D6CFC3" stroke-width="1"/>
+
+    <text x="70" y="216" font-size="14" font-weight="700" letter-spacing="2" fill="#1F5A49">2020 · 屏幕与场景</text>
+    <text x="70" y="250" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">Echo Show 10</text>
+    <text x="70" y="282" font-size="15" fill="#3F3B35">屏幕可跟随用户移动；</text>
+    <text x="70" y="308" font-size="15" fill="#3F3B35">语音、屏幕和位置感知进入家庭空间。</text>
+    <text x="70" y="350" font-size="15" font-weight="700" fill="#6B6760">Google Lens</text>
+    <text x="70" y="378" font-size="15" fill="#3F3B35">学习、购物、居家办公；</text>
+    <text x="70" y="404" font-size="15" fill="#3F3B35">视觉输入开始绑定具体任务。</text>
+    <text x="70" y="452" font-size="15" font-weight="700" fill="#A33B27">反响判断</text>
+    <text x="70" y="480" font-size="15" fill="#3F3B35">设备更自然，但仍主要服务问答、内容和小任务。</text>
+
+    <text x="450" y="216" font-size="14" font-weight="700" letter-spacing="2" fill="#C14E2C">2021 · 第一视角试水</text>
+    <text x="450" y="250" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">Ray-Ban Stories</text>
+    <text x="450" y="282" font-size="15" fill="#3F3B35">摄像头+耳机+语音，</text>
+    <text x="450" y="308" font-size="15" fill="#3F3B35">第一视角硬件进入日常眼镜。</text>
+    <text x="450" y="350" font-size="15" font-weight="700" fill="#6B6760">使用结果</text>
+    <text x="450" y="378" font-size="15" fill="#3F3B35">约 30 万销量，但月活不足 10%。</text>
+    <text x="450" y="404" font-size="15" fill="#3F3B35">连接、续航、隐私和任务价值不足。</text>
+    <text x="450" y="452" font-size="15" font-weight="700" fill="#A33B27">关键教训</text>
+    <text x="450" y="480" font-size="15" fill="#3F3B35">新硬件必须先通过“比手机更省事”的门槛。</text>
+
+    <text x="840" y="216" font-size="14" font-weight="700" letter-spacing="2" fill="#1F5A49">2021 · 模型底座</text>
+    <text x="840" y="250" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">CLIP</text>
+    <text x="840" y="282" font-size="15" fill="#3F3B35">用 4 亿图文对学习共同表示；</text>
+    <text x="840" y="308" font-size="15" fill="#3F3B35">图像与文字第一次共享可检索语义空间。</text>
+    <text x="840" y="350" font-size="15" font-weight="700" fill="#6B6760">当时的产品含义</text>
+    <text x="840" y="378" font-size="15" fill="#3F3B35">提升识别与零样本分类能力，</text>
+    <text x="840" y="404" font-size="15" fill="#3F3B35">但还不是面向用户的实时交互系统。</text>
+    <text x="840" y="452" font-size="15" font-weight="700" fill="#1F5A49">后续影响</text>
+    <text x="840" y="480" font-size="15" fill="#3F3B35">为 2022 Flamingo、2023 GPT-4V/Gemini 铺路。</text>
+
+    <line x1="60" y1="526" x2="1220" y2="526" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="562" font-size="16" font-weight="700" fill="#1D1C19">看似没有“爆款”的两年，实际同时积累了设备、场景和模型三块拼图。</text>
+    <text x="60" y="602" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">分：2017–2021 是能力汇合期，不是时间线断档。</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">来源：Amazon 2020；Google 2020；Meta 2021；OpenAI 2021；WSJ 转引</text>
+    <text x="1220" y="672" text-anchor="end">05 / 21</text>
+  </g>
+</svg>
