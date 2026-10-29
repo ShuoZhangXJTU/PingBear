@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7" />
+
+  <g id="page-title" data-pptx-bounds="64 40 1152 162" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="72" y="66" font-family="Microsoft YaHei" font-size="16" letter-spacing="2" fill="#C14E2C">全片总判断</text>
+    <text x="72" y="126" font-size="36">行业已经跨过“能不能看见”<tspan x="72" dy="44">正在竞争“能不能在正确时机帮上忙”</tspan></text>
+  </g>
+
+  <g id="evolution-path" data-pptx-bounds="64 214 1152 394">
+    <text x="72" y="242" font-size="22" fill="#4D4942">能力没有停在“识图”，而是一路向“完成任务”靠近。</text>
+    <line x1="112" y1="332" x2="1142" y2="332" stroke="#B6AEA1" stroke-width="2" />
+    <circle cx="144" cy="332" r="12" fill="#1D1C19" />
+    <text x="144" y="292" font-size="16" font-weight="700" text-anchor="middle" fill="#6B6760">拍照识别</text>
+    <text x="144" y="374" font-size="20" font-weight="700" text-anchor="middle" fill="#1D1C19">看懂画面</text>
+    <text x="144" y="406" font-size="16" text-anchor="middle" fill="#6B6760">识别物体</text>
+    <text x="144" y="432" font-size="16" text-anchor="middle" fill="#6B6760">读取文字</text>
+
+    <circle cx="382" cy="332" r="12" fill="#1D1C19" />
+    <text x="382" y="292" font-size="16" font-weight="700" text-anchor="middle" fill="#6B6760">看图问答</text>
+    <text x="382" y="374" font-size="20" font-weight="700" text-anchor="middle" fill="#1D1C19">连续追问</text>
+    <text x="382" y="406" font-size="16" text-anchor="middle" fill="#6B6760">解释场景</text>
+    <text x="382" y="432" font-size="16" text-anchor="middle" fill="#6B6760">重新聚焦</text>
+
+    <circle cx="620" cy="332" r="12" fill="#1D1C19" />
+    <text x="620" y="292" font-size="16" font-weight="700" text-anchor="middle" fill="#6B6760">实时视频</text>
+    <text x="620" y="374" font-size="20" font-weight="700" text-anchor="middle" fill="#1D1C19">共享现场</text>
+    <text x="620" y="406" font-size="16" text-anchor="middle" fill="#6B6760">摄像头</text>
+    <text x="620" y="432" font-size="16" text-anchor="middle" fill="#6B6760">屏幕上下文</text>
+
+    <circle cx="858" cy="332" r="12" fill="#C14E2C" />
+    <text x="858" y="292" font-size="16" font-weight="700" text-anchor="middle" fill="#C14E2C">主动纠错</text>
+    <text x="858" y="374" font-size="20" font-weight="700" text-anchor="middle" fill="#C14E2C">发现失败</text>
+    <text x="858" y="406" font-size="16" text-anchor="middle" fill="#6B6760">提醒移动镜头</text>
+    <text x="858" y="432" font-size="16" text-anchor="middle" fill="#6B6760">判断何时开口</text>
+
+    <circle cx="1096" cy="332" r="14" fill="#C14E2C" />
+    <text x="1096" y="292" font-size="16" font-weight="700" text-anchor="middle" fill="#C14E2C">任务代理</text>
+    <text x="1096" y="374" font-size="20" font-weight="700" text-anchor="middle" fill="#C14E2C">完成事情</text>
+    <text x="1096" y="406" font-size="16" text-anchor="middle" fill="#6B6760">持续协作</text>
+    <text x="1096" y="432" font-size="16" text-anchor="middle" fill="#6B6760">人工接管</text>
+
+    <line x1="72" y1="500" x2="1208" y2="500" stroke="#C9C1B4" stroke-width="1" />
+    <text x="72" y="544" font-family="SimSun" font-size="26" font-weight="700" fill="#1D1C19">分结论：多模态产品的价值，越来越取决于“帮到什么程度”。</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="64 646 1152 22" fill="#7A756D" font-size="14">
+    <text x="72" y="662">整理自三份多模态洞察报告</text>
+    <text x="1208" y="662" text-anchor="end">02 / 14</text>
+  </g>
+</svg>

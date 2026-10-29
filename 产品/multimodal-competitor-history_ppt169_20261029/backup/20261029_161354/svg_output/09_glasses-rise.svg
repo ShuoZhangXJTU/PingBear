@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7" />
+
+  <g id="page-title" data-pptx-bounds="64 40 1152 140" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="72" y="66" font-family="Microsoft YaHei" font-size="16" letter-spacing="2" fill="#1F5A49">2025 · 第一视角回潮</text>
+    <text x="72" y="126" font-size="36">AI 眼镜重新升温，但体验仍在收敛</text>
+  </g>
+
+  <g id="glasses-market-story" data-pptx-bounds="64 188 1152 424">
+    <text x="72" y="218" font-size="22" fill="#4D4942">销量证明形态开始被接受；显示、续航、生态和使用频率还没有统一答案。</text>
+    <text x="72" y="270" font-size="16" font-weight="700" letter-spacing="2" fill="#6B6760">RAY-BAN META 的采用信号</text>
+    <text x="72" y="350" font-family="SimSun" font-size="72" font-weight="700" fill="#1D1C19">100 万+</text>
+    <text x="72" y="382" font-size="17" fill="#6B6760">2024 年销量（据公开报道）</text>
+    <text x="350" y="350" font-family="SimSun" font-size="72" font-weight="700" fill="#C14E2C">700 万</text>
+    <text x="350" y="382" font-size="17" fill="#6B6760">2025 年销量（媒体转引，待官方口径核对）</text>
+
+    <line x1="72" y1="418" x2="1208" y2="418" stroke="#C9C1B4" stroke-width="1" />
+    <text x="72" y="458" font-size="16" font-weight="700" letter-spacing="2" fill="#6B6760">三条路线同时推进</text>
+    <text x="72" y="506" font-family="SimSun" font-size="28" font-weight="700" fill="#1D1C19">轻量问答</text>
+    <text x="72" y="538" font-size="17" fill="#6B6760">Ray-Ban Meta：看、问、听、拍</text>
+    <text x="452" y="506" font-family="SimSun" font-size="28" font-weight="700" fill="#1D1C19">近眼显示</text>
+    <text x="452" y="538" font-size="17" fill="#6B6760">Meta Display：导航、字幕、腕带手势</text>
+    <text x="846" y="506" font-family="SimSun" font-size="28" font-weight="700" fill="#1D1C19">生态服务</text>
+    <text x="846" y="538" font-size="17" fill="#6B6760">夸克 S1：导航、支付、购物接入</text>
+    <text x="72" y="584" font-size="17" fill="#A33B27">负反馈集中在：显示位置、续航、跨平台生态和真正高频的任务。</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="64 646 1152 22" fill="#7A756D" font-size="14">
+    <text x="72" y="662">来源：Meta/EssilorLuxottica 销量报道；Meta Display、华为、夸克发布与独立体验</text>
+    <text x="1208" y="662" text-anchor="end">09 / 14</text>
+  </g>
+</svg>

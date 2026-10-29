@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7" />
+
+  <g id="page-title" data-pptx-bounds="64 40 1152 140" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="72" y="66" font-family="Microsoft YaHei" font-size="16" letter-spacing="2" fill="#C14E2E">2023 · 大模型转折</text>
+    <text x="72" y="126" font-size="36">“看图识物”变成了可持续的视觉对话</text>
+  </g>
+
+  <g id="turning-point" data-pptx-bounds="64 190 1152 422">
+    <text x="72" y="220" font-size="22" fill="#4D4942">用户可以追问、补充和重新聚焦，系统开始围绕一个任务持续帮助。</text>
+    <line x1="640" y1="254" x2="640" y2="560" stroke="#C9C1B4" stroke-width="1" />
+
+    <text x="72" y="286" font-size="16" font-weight="700" letter-spacing="2" fill="#1F5A49">高价值任务先跑通</text>
+    <text x="72" y="334" font-family="SimSun" font-size="44" font-weight="700" fill="#1D1C19">Be My AI</text>
+    <text x="72" y="374" font-size="19" fill="#3F3B35">Be My Eyes 用 GPT-4 为视障用户提供图片解释和多轮追问。</text>
+    <text x="72" y="414" font-size="18" fill="#6B6760">用户获得更快的独立性和匿名性；任务本来就离不开视觉帮助，<tspan x="72" dy="28">因此价值不需要靠“多模态”概念来解释。</tspan></text>
+    <text x="72" y="500" font-size="18" font-weight="700" fill="#1F5A49">反响：无障碍用户反馈较强，但效果仍受图片质量和理解错误影响。</text>
+
+    <text x="688" y="286" font-size="16" font-weight="700" letter-spacing="2" fill="#C14E2C">大众硬件找到入口</text>
+    <text x="688" y="334" font-family="SimSun" font-size="44" font-weight="700" fill="#1D1C19">Ray-Ban Meta</text>
+    <text x="688" y="374" font-size="18" fill="#3F3B35">看什么就直接问；不用掏手机，也能连续追问。</text>
+    <text x="688" y="414" font-size="18" fill="#6B6760">它借用了熟悉的眼镜形态和 Ray-Ban 品牌，把第一视角输入<tspan x="688" dy="28">变成助手能力；但这一阶段仍以问答为主，不负责完成任务。</tspan></text>
+    <text x="688" y="500" font-size="18" font-weight="700" fill="#C14E2C">反响：形态被接受，但第一代仍受续航、连接和隐私限制。</text>
+
+    <line x1="72" y1="534" x2="1208" y2="534" stroke="#C9C1B4" stroke-width="1" />
+    <text x="72" y="578" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">分：2023 年的关键变化，是“视觉输入”变成了可持续的对话上下文。</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="64 646 1152 22" fill="#7A756D" font-size="14">
+    <text x="72" y="662">来源：Be My Eyes 2023 发布与用户研究；Meta 2023/2024 官方与独立评测</text>
+    <text x="1208" y="662" text-anchor="end">06 / 14</text>
+  </g>
+</svg>

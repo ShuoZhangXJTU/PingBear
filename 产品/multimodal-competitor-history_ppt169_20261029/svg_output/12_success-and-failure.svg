@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7" />
+
+  <g id="page-title" data-pptx-bounds="64 40 1152 140" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="72" y="66" font-family="Microsoft YaHei" font-size="16" letter-spacing="2" fill="#C14E2C">成败分叉</text>
+    <text x="72" y="126" font-size="36">任务、载体、反馈和信任，决定产品能否留下</text>
+  </g>
+
+  <g id="success-failure-contrast" data-pptx-bounds="64 188 1152 424">
+    <text x="72" y="218" font-size="22" fill="#4D4942">技术和产品形态相近时，用户体验到的“是否更省事”决定结果。</text>
+    <line x1="640" y1="252" x2="640" y2="548" stroke="#C9C1B4" stroke-width="1" />
+
+    <text x="72" y="286" font-size="16" font-weight="700" letter-spacing="2" fill="#1F5A49">留下来以后，成功产品具备</text>
+    <text x="72" y="332" font-size="21" font-weight="700" fill="#1D1C19">01　任务本来就需要视觉</text>
+    <text x="72" y="358" font-size="17" fill="#6B6760">读字、找物、无障碍协助，不需要教育用户。</text>
+    <text x="72" y="396" font-size="21" font-weight="700" fill="#1D1C19">02　借用已有设备和入口</text>
+    <text x="72" y="422" font-size="17" fill="#6B6760">手机、眼镜、电视和汽车，比新建入口更自然。</text>
+    <text x="72" y="460" font-size="21" font-weight="700" fill="#1D1C19">03　允许纠正和后退</text>
+    <text x="72" y="486" font-size="17" fill="#6B6760">镜头不对会提示，系统不会时必须能找人。</text>
+    <text x="72" y="524" font-size="21" font-weight="700" fill="#1F5A49">04　用户能发现它什么时候不可信</text>
+
+    <text x="688" y="286" font-size="16" font-weight="700" letter-spacing="2" fill="#A33B27">离场产品通常卡在</text>
+    <text x="688" y="332" font-size="21" font-weight="700" fill="#1D1C19">01　要求更换设备，却没有硬任务</text>
+    <text x="688" y="358" font-size="17" fill="#6B6760">“能看见”很新鲜，但手机也能完成大部分事情。</text>
+    <text x="688" y="396" font-size="21" font-weight="700" fill="#1D1C19">02　把演示当成稳定体验</text>
+    <text x="688" y="422" font-size="17" fill="#6B6760">真实环境里的延迟、网络和误识别被低估。</text>
+    <text x="688" y="460" font-size="21" font-weight="700" fill="#1D1C19">03　没有失败恢复路径</text>
+    <text x="688" y="486" font-size="17" fill="#6B6760">用户不知道怎么重来，也没有人工兜底。</text>
+    <text x="688" y="524" font-size="21" font-weight="700" fill="#A33B27">04　隐私和旁观者压力没有解决</text>
+
+    <line x1="72" y1="560" x2="1208" y2="560" stroke="#C9C1B4" stroke-width="1" />
+    <text x="72" y="596" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">共同门槛：产品必须比用户原来的做法更省事，并且出错时更可控。</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="64 646 1152 22" fill="#7A756D" font-size="14">
+    <text x="72" y="662">综合本页之前的产品事实，不引入新样本</text>
+    <text x="1208" y="662" text-anchor="end">12 / 14</text>
+  </g>
+</svg>

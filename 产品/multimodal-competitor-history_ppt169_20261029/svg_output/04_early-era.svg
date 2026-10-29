@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7" />
+
+  <g id="page-title" data-pptx-bounds="64 40 1152 134" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="72" y="66" font-family="Microsoft YaHei" font-size="16" letter-spacing="2" fill="#C14E2C">2013–2017 · 早期产品</text>
+    <text x="72" y="126" font-size="36">视觉有价值，但用户没有接受“新硬件”</text>
+  </g>
+
+  <g id="early-comparison" data-pptx-bounds="64 188 1152 424">
+    <text x="72" y="218" font-size="22" fill="#4D4942">同一时期，新硬件失败，而放进手机的明确任务开始成立。</text>
+    <line x1="640" y1="250" x2="640" y2="570" stroke="#C9C1B4" stroke-width="1" />
+
+    <text x="72" y="278" font-size="16" font-weight="700" letter-spacing="2" fill="#A33B27">新硬件失败</text>
+    <text x="72" y="332" font-family="SimSun" font-size="50" font-weight="700" fill="#1D1C19">Google Glass</text>
+    <text x="72" y="372" font-size="20" fill="#3F3B35">2013 年进入消费视野：摄像头、近眼显示、免手持。</text>
+    <text x="72" y="414" font-size="18" fill="#6B6760">但 1500 美元价格、社交尴尬和旁观者隐私争议，让消费版<tspan x="72" dy="28">迅速失去动力；企业版也在 2023 年停止销售。</tspan></text>
+    <text x="72" y="520" font-size="18" font-weight="700" fill="#A33B27">失败点：先要求用户换一个设备，却没给出必须换的理由。</text>
+
+    <text x="688" y="278" font-size="16" font-weight="700" letter-spacing="2" fill="#1F5A49">已有设备成功</text>
+    <text x="688" y="326" font-family="SimSun" font-size="50" font-weight="700" fill="#1D1C19">Google Lens<tspan x="688" dy="54">Seeing AI</tspan></text>
+    <text x="688" y="424" font-size="20" fill="#3F3B35">2017 年：把摄像头能力直接放进用户已有的手机。</text>
+    <text x="688" y="460" font-size="18" fill="#6B6760">Lens 做视觉搜索与翻译；Seeing AI 为视障用户朗读文字、<tspan x="688" dy="28">物件和场景。任务清楚、入口熟悉、无需购买新硬件。</tspan></text>
+    <text x="688" y="520" font-size="18" font-weight="700" fill="#1F5A49">成功点：先解决一个具体问题，再让视觉能力自然出现。</text>
+
+    <line x1="72" y1="548" x2="1208" y2="548" stroke="#C9C1B4" stroke-width="1" />
+    <text x="72" y="588" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">分：视觉能力可以很强，但产品必须先回答“为什么现在要用它”。</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="64 646 1152 22" fill="#7A756D" font-size="14">
+    <text x="72" y="662">来源：Google Glass / Google Lens / Microsoft Seeing AI 官方资料与独立报道</text>
+    <text x="1208" y="662" text-anchor="end">04 / 14</text>
+  </g>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7" />
+
+  <g id="page-title" data-pptx-bounds="64 40 1152 140" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="72" y="66" font-family="Microsoft YaHei" font-size="16" letter-spacing="2" fill="#C14E2C">2024 · 平台化竞争</text>
+    <text x="72" y="126" font-size="36">实时摄像头和屏幕共享，进入主流平台入口</text>
+  </g>
+
+  <g id="platform-comparison" data-pptx-bounds="64 188 1152 424">
+    <text x="72" y="218" font-size="22" fill="#4D4942">竞争从独立 App，转向手机、电脑和操作系统的默认位置。</text>
+    <line x1="72" y1="254" x2="1208" y2="254" stroke="#C9C1B4" stroke-width="1" />
+    <line x1="440" y1="270" x2="440" y2="558" stroke="#D6CFC3" stroke-width="1" />
+    <line x1="840" y1="270" x2="840" y2="558" stroke="#D6CFC3" stroke-width="1" />
+
+    <text x="72" y="302" font-family="SimSun" font-size="34" font-weight="700" fill="#1D1C19">Gemini Live</text>
+    <text x="72" y="334" font-size="16" font-weight="700" fill="#6B6760">Google · 2024 演示 / 2025 扩大上线</text>
+    <text x="72" y="380" font-size="18" font-weight="700" fill="#C14E2C">输入</text>
+    <text x="72" y="408" font-size="18" fill="#3F3B35">语音、摄像头、屏幕共享</text>
+    <text x="72" y="448" font-size="18" font-weight="700" fill="#C14E2C">强项</text>
+    <text x="72" y="476" font-size="18" fill="#3F3B35">连续对话；后来能主动指导镜头</text>
+    <text x="72" y="516" font-size="18" font-weight="700" fill="#C14E2C">边界</text>
+    <text x="72" y="544" font-size="18" fill="#3F3B35">独立任务成功率未公开</text>
+
+    <text x="472" y="302" font-family="SimSun" font-size="34" font-weight="700" fill="#1D1C19">Visual Intelligence</text>
+    <text x="472" y="334" font-size="16" font-weight="700" fill="#6B6760">Apple · 2024.12</text>
+    <text x="472" y="380" font-size="18" font-weight="700" fill="#1F5A49">输入</text>
+    <text x="472" y="408" font-size="18" fill="#3F3B35">Camera Control 触发的画面</text>
+    <text x="472" y="448" font-size="18" font-weight="700" fill="#1F5A49">强项</text>
+    <text x="472" y="476" font-size="18" fill="#3F3B35">地点、翻译、识物、搜索的工具箱</text>
+    <text x="472" y="516" font-size="18" font-weight="700" fill="#1F5A49">边界</text>
+    <text x="472" y="544" font-size="18" fill="#3F3B35">更偏一次触发，持续协作较少</text>
+
+    <text x="872" y="302" font-family="SimSun" font-size="34" font-weight="700" fill="#1D1C19">Copilot Vision</text>
+    <text x="872" y="334" font-size="16" font-weight="700" fill="#6B6760">Microsoft · 2024.12 预览</text>
+    <text x="872" y="380" font-size="18" font-weight="700" fill="#A33B27">输入</text>
+    <text x="872" y="408" font-size="18" fill="#3F3B35">桌面、手机摄像头、工作数据</text>
+    <text x="872" y="448" font-size="18" font-weight="700" fill="#A33B27">强项</text>
+    <text x="872" y="476" font-size="18" fill="#3F3B35">理解工作上下文，高亮相关区域</text>
+    <text x="872" y="516" font-size="18" font-weight="700" fill="#A33B27">边界</text>
+    <text x="872" y="544" font-size="18" fill="#3F3B35">不代替用户点击和输入</text>
+
+    <text x="72" y="590" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">分：平台先解决“看得见、问得到”，执行任务仍然留给用户。</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="64 646 1152 22" fill="#7A756D" font-size="14">
+    <text x="72" y="662">来源：Google I/O 2024 / Project Astra；Apple iOS 18.2；Microsoft Copilot Vision</text>
+    <text x="1208" y="662" text-anchor="end">07 / 14</text>
+  </g>
+</svg>

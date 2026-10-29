@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7" />
+
+  <g id="page-title" data-pptx-bounds="64 40 1152 140" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="72" y="66" font-family="Microsoft YaHei" font-size="16" letter-spacing="2" fill="#C14E2C">市场反响</text>
+    <text x="72" y="126" font-size="36">反响好的产品，都让用户更快完成一件事</text>
+  </g>
+
+  <g id="reception-levels" data-pptx-bounds="64 188 1152 424">
+    <text x="72" y="218" font-size="22" fill="#4D4942">“多模态”不是价值本身；用户只关心更省事、更独立，或者更好玩。</text>
+    <rect x="72" y="246" width="1136" height="90" fill="#1F5A49" fill-opacity="0.08" />
+    <text x="92" y="282" font-family="SimSun" font-size="28" font-weight="700" fill="#1F5A49">较强反响</text>
+    <text x="250" y="280" font-size="19" fill="#1D1C19">Lens 的大规模使用 · Seeing AI / Be My AI 的无障碍价值 · Ray-Ban Meta 的销量</text>
+    <text x="250" y="310" font-size="15" fill="#6B6760">证据类型：使用量、用户反馈、销量；不都是独立任务测试</text>
+
+    <rect x="72" y="352" width="1136" height="90" fill="#C14E2C" fill-opacity="0.08" />
+    <text x="92" y="388" font-family="SimSun" font-size="28" font-weight="700" fill="#C14E2C">混合 / 待验证</text>
+    <text x="250" y="386" font-size="19" fill="#1D1C19">Gemini / Copilot 入口强，但独立任务效果未公开 · 夸克 S1 有热度也有体验短板</text>
+    <text x="250" y="416" font-size="15" fill="#6B6760">证据类型：厂商演示、功能上线、媒体报道；缺少任务完成率与付费拆分</text>
+
+    <rect x="72" y="458" width="1136" height="78" fill="#A33B27" fill-opacity="0.06" />
+    <text x="92" y="492" font-family="SimSun" font-size="28" font-weight="700" fill="#A33B27">明显失败</text>
+    <text x="250" y="490" font-size="19" fill="#1D1C19">Google Glass 消费版 · Ray-Ban Stories 第一代 · Humane AI Pin · Rabbit R1 初期</text>
+    <text x="250" y="518" font-size="15" fill="#6B6760">证据类型：独立评测、低持续使用、停售或停服</text>
+
+    <text x="72" y="580" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">分：市场奖赏“帮我完成了什么”，而不是“模型多了一个模态”。</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="64 646 1152 22" fill="#7A756D" font-size="14">
+    <text x="72" y="662">综合：官方发布、独立评测、销量与使用数据</text>
+    <text x="1208" y="662" text-anchor="end">11 / 14</text>
+  </g>
+</svg>

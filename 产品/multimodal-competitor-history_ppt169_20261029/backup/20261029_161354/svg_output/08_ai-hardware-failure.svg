@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7" />
+
+  <g id="page-title" data-pptx-bounds="64 40 1152 140" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="72" y="66" font-family="Microsoft YaHei" font-size="16" letter-spacing="2" fill="#A33B27">2024 · 反面案例</text>
+    <text x="72" y="126" font-size="36">独立 AI 硬件失败，不等于多模态需求失败</text>
+  </g>
+
+  <g id="hardware-failure-timeline" data-pptx-bounds="64 188 1152 424">
+    <text x="72" y="218" font-size="22" fill="#4D4942">新品试图替代手机，但用户真正感受到的是功能少、速度慢和 Bug 多。</text>
+    <line x1="90" y1="292" x2="1190" y2="292" stroke="#B6AEA1" stroke-width="2" />
+    <circle cx="270" cy="292" r="10" fill="#1D1C19" />
+    <text x="270" y="266" font-size="16" font-weight="700" text-anchor="middle" fill="#6B6760">2024.01</text>
+    <text x="270" y="342" font-family="SimSun" font-size="30" font-weight="700" text-anchor="middle" fill="#1D1C19">Rabbit R1</text>
+    <text x="270" y="374" font-size="18" text-anchor="middle" fill="#6B6760">CES 高关注</text>
+    <text x="270" y="402" font-size="16" text-anchor="middle" fill="#6B6760">上市后：Bug、延迟、功能有限</text>
+
+    <circle cx="650" cy="292" r="10" fill="#1D1C19" />
+    <text x="650" y="266" font-size="16" font-weight="700" text-anchor="middle" fill="#6B6760">2024.04</text>
+    <text x="650" y="342" font-family="SimSun" font-size="30" font-weight="700" text-anchor="middle" fill="#1D1C19">Humane AI Pin</text>
+    <text x="650" y="374" font-size="18" text-anchor="middle" fill="#6B6760">高调上市</text>
+    <text x="650" y="402" font-size="16" text-anchor="middle" fill="#6B6760">高价、发热、显示与依赖云端</text>
+
+    <circle cx="1030" cy="292" r="11" fill="#A33B27" />
+    <text x="1030" y="266" font-size="16" font-weight="700" text-anchor="middle" fill="#A33B27">2025.02</text>
+    <text x="1030" y="342" font-family="SimSun" font-size="30" font-weight="700" text-anchor="middle" fill="#A33B27">停止服务</text>
+    <text x="1030" y="374" font-size="18" text-anchor="middle" fill="#6B6760">Humane 被 HP 收购部分资产</text>
+    <text x="1030" y="402" font-size="16" text-anchor="middle" fill="#6B6760">硬件业务收场</text>
+
+    <line x1="72" y1="448" x2="1208" y2="448" stroke="#C9C1B4" stroke-width="1" />
+    <text x="72" y="490" font-size="16" font-weight="700" letter-spacing="2" fill="#6B6760">新设备必须同时跨过四道门槛</text>
+    <text x="72" y="534" font-size="20" font-weight="700" fill="#1D1C19">有明确任务</text>
+    <text x="356" y="534" font-size="20" font-weight="700" fill="#1D1C19">比手机更省事</text>
+    <text x="676" y="534" font-size="20" font-weight="700" fill="#1D1C19">稳定且可纠正</text>
+    <text x="976" y="534" font-size="20" font-weight="700" fill="#1D1C19">隐私可接受</text>
+    <text x="72" y="584" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">分：需求可以存在，但用户不会为了一个新入口持续忍受不成熟。</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="64 646 1152 22" fill="#7A756D" font-size="14">
+    <text x="72" y="662">来源：WIRED、The Verge、Ars Technica、Tom’s Guide 等独立评测</text>
+    <text x="1208" y="662" text-anchor="end">08 / 14</text>
+  </g>
+</svg>

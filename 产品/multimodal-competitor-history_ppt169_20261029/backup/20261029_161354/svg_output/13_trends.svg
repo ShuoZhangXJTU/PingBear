@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7" />
+
+  <g id="page-title" data-pptx-bounds="64 40 1152 140" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="72" y="66" font-family="Microsoft YaHei" font-size="16" letter-spacing="2" fill="#C14E2C">趋势与启示</text>
+    <text x="72" y="126" font-size="36">壁垒会落在任务闭环与交互策略，而不是视觉问答壳</text>
+  </g>
+
+  <g id="trend-rows" data-pptx-bounds="64 188 1152 424">
+    <text x="72" y="218" font-size="22" fill="#4D4942">过去有效的卖点，正在变成基础能力；新的差异是“帮得更完整”。</text>
+    <line x1="72" y1="248" x2="1208" y2="248" stroke="#C9C1B4" stroke-width="1" />
+    <text x="72" y="288" font-size="15" font-weight="700" fill="#7A756D">过去</text>
+    <text x="566" y="288" font-size="15" font-weight="700" fill="#1F5A49">现在与下一步</text>
+
+    <text x="72" y="340" font-family="SimSun" font-size="34" font-weight="700" fill="#1D1C19">单次识别</text>
+    <text x="566" y="340" font-family="SimSun" font-size="34" font-weight="700" fill="#1F5A49">连续协作</text>
+    <line x1="72" y1="360" x2="1208" y2="360" stroke="#D6CFC3" stroke-width="1" />
+    <text x="72" y="406" font-family="SimSun" font-size="34" font-weight="700" fill="#1D1C19">被动回答</text>
+    <text x="566" y="406" font-family="SimSun" font-size="34" font-weight="700" fill="#1F5A49">主动提醒与纠错</text>
+    <line x1="72" y1="426" x2="1208" y2="426" stroke="#D6CFC3" stroke-width="1" />
+    <text x="72" y="472" font-family="SimSun" font-size="34" font-weight="700" fill="#1D1C19">给答案</text>
+    <text x="566" y="472" font-family="SimSun" font-size="34" font-weight="700" fill="#1F5A49">完成一件事</text>
+    <line x1="72" y1="492" x2="1208" y2="492" stroke="#D6CFC3" stroke-width="1" />
+    <text x="72" y="538" font-family="SimSun" font-size="34" font-weight="700" fill="#1D1C19">通用助手</text>
+    <text x="566" y="538" font-family="SimSun" font-size="34" font-weight="700" fill="#1F5A49">垂直工作流</text>
+
+    <line x1="72" y1="562" x2="1208" y2="562" stroke="#C9C1B4" stroke-width="1" />
+    <text x="72" y="594" font-size="17" fill="#6B6760">评估任何多模态产品：任务是否必要 · 载体是否自然 · 失败能否纠正 · 隐私是否接受 · 结果能否验证</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="64 646 1152 22" fill="#7A756D" font-size="14">
+    <text x="72" y="662">整理：Research 多模态交互洞察</text>
+    <text x="1208" y="662" text-anchor="end">13 / 14</text>
+  </g>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7" />
+
+  <g id="page-title" data-pptx-bounds="64 40 1152 140" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="72" y="66" font-family="Microsoft YaHei" font-size="16" letter-spacing="2" fill="#C14E2C">2026 · 实时协作</text>
+    <text x="72" y="126" font-size="36">竞争转向“何时开口、如何纠偏”</text>
+  </g>
+
+  <g id="realtime-loop" data-pptx-bounds="64 188 1152 424">
+    <text x="72" y="218" font-size="22" fill="#4D4942">系统不只理解画面，还要判断自己有没有帮到、何时应该打断或求助。</text>
+    <line x1="190" y1="330" x2="1090" y2="330" stroke="#B6AEA1" stroke-width="2" />
+    <circle cx="230" cy="330" r="24" fill="#1D1C19" />
+    <text x="230" y="338" font-size="18" font-weight="700" text-anchor="middle" fill="#F4F0E7">1</text>
+    <circle cx="640" cy="330" r="24" fill="#1D1C19" />
+    <text x="640" y="338" font-size="18" font-weight="700" text-anchor="middle" fill="#F4F0E7">2</text>
+    <circle cx="1050" cy="330" r="26" fill="#C14E2C" />
+    <text x="1050" y="338" font-size="18" font-weight="700" text-anchor="middle" fill="#F4F0E7">3</text>
+
+    <text x="230" y="290" font-family="SimSun" font-size="30" font-weight="700" text-anchor="middle" fill="#1D1C19">感知</text>
+    <text x="230" y="390" font-size="18" text-anchor="middle" fill="#3F3B35">连续看和听</text>
+    <text x="230" y="418" font-size="16" text-anchor="middle" fill="#6B6760">SeedRealtime</text>
+    <text x="230" y="444" font-size="16" text-anchor="middle" fill="#6B6760">音视频全双工</text>
+
+    <text x="640" y="290" font-family="SimSun" font-size="30" font-weight="700" text-anchor="middle" fill="#1D1C19">判断时机</text>
+    <text x="640" y="390" font-size="18" text-anchor="middle" fill="#3F3B35">何时开口、提醒或沉默</text>
+    <text x="640" y="418" font-size="16" text-anchor="middle" fill="#6B6760">Guided Vision</text>
+    <text x="640" y="444" font-size="16" text-anchor="middle" fill="#6B6760">主动提示调整镜头</text>
+
+    <text x="1050" y="290" font-family="SimSun" font-size="30" font-weight="700" text-anchor="middle" fill="#C14E2C">提供帮助</text>
+    <text x="1050" y="390" font-size="18" text-anchor="middle" fill="#3F3B35">解释、纠正或转人工</text>
+    <text x="1050" y="418" font-size="16" text-anchor="middle" fill="#6B6760">Snap / 企业无障碍</text>
+    <text x="1050" y="444" font-size="16" text-anchor="middle" fill="#6B6760">先提醒或人工接管</text>
+
+    <line x1="72" y1="486" x2="1208" y2="486" stroke="#C9C1B4" stroke-width="1" />
+    <text x="72" y="526" font-size="16" font-weight="700" letter-spacing="2" fill="#1F5A49">已经看见</text>
+    <text x="72" y="558" font-size="18" fill="#3F3B35">更自然的打断与接话；镜头不对时能得到纠正。</text>
+    <text x="658" y="526" font-size="16" font-weight="700" letter-spacing="2" fill="#A33B27">还没有证实</text>
+    <text x="658" y="558" font-size="18" fill="#3F3B35">长期任务完成率、误打扰、人工接管成本和付费价值。</text>
+    <text x="72" y="596" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">分：新竞争点不是“更会看”，而是“更会判断何时帮”。</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="64 646 1152 22" fill="#7A756D" font-size="14">
+    <text x="72" y="662">来源：字节 SeedRealtime；Google Guided Vision；Snap 公开材料</text>
+    <text x="1208" y="662" text-anchor="end">10 / 14</text>
+  </g>
+</svg>

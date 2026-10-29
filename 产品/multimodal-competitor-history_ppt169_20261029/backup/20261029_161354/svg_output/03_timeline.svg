@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7" />
+
+  <g id="page-title" data-pptx-bounds="64 40 1152 118" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="72" y="66" font-family="Microsoft YaHei" font-size="16" letter-spacing="2" fill="#C14E2C">全景时间轴</text>
+    <text x="72" y="126" font-size="36">多模态交互经历四次明显转向</text>
+  </g>
+
+  <g id="timeline-panorama" data-pptx-bounds="64 176 1152 438">
+    <text x="72" y="208" font-size="22" fill="#4D4942">先看清每一阶段“产品在做什么”，再判断它为什么得到不同反响。</text>
+    <line x1="90" y1="316" x2="1192" y2="316" stroke="#B6AEA1" stroke-width="2" />
+    <line x1="210" y1="300" x2="210" y2="332" stroke="#1D1C19" stroke-width="3" />
+    <circle cx="210" cy="316" r="10" fill="#1D1C19" />
+    <line x1="500" y1="300" x2="500" y2="332" stroke="#1D1C19" stroke-width="3" />
+    <circle cx="500" cy="316" r="10" fill="#1D1C19" />
+    <line x1="790" y1="300" x2="790" y2="332" stroke="#1D1C19" stroke-width="3" />
+    <circle cx="790" cy="316" r="10" fill="#1D1C19" />
+    <line x1="1080" y1="300" x2="1080" y2="332" stroke="#C14E2C" stroke-width="3" />
+    <circle cx="1080" cy="316" r="12" fill="#C14E2C" />
+
+    <text x="210" y="280" font-family="SimSun" font-size="28" font-weight="700" text-anchor="middle" fill="#1D1C19">2013–2017</text>
+    <text x="210" y="372" font-size="20" font-weight="700" text-anchor="middle" fill="#1D1C19">单次视觉查询</text>
+    <text x="210" y="404" font-size="16" text-anchor="middle" fill="#6B6760">Google Glass 失败</text>
+    <text x="210" y="430" font-size="16" text-anchor="middle" fill="#6B6760">Lens / Seeing AI 进入手机</text>
+    <line x1="355" y1="372" x2="355" y2="582" stroke="#D6CFC3" stroke-width="1" />
+
+    <text x="500" y="280" font-family="SimSun" font-size="28" font-weight="700" text-anchor="middle" fill="#1D1C19">2021–2022</text>
+    <text x="500" y="372" font-size="20" font-weight="700" text-anchor="middle" fill="#1D1C19">可穿戴试水</text>
+    <text x="500" y="404" font-size="16" text-anchor="middle" fill="#6B6760">Ray-Ban Stories</text>
+    <text x="500" y="430" font-size="16" text-anchor="middle" fill="#6B6760">有摄像头，低持续使用</text>
+    <line x1="645" y1="372" x2="645" y2="582" stroke="#D6CFC3" stroke-width="1" />
+
+    <text x="790" y="280" font-family="SimSun" font-size="28" font-weight="700" text-anchor="middle" fill="#1D1C19">2023–2024</text>
+    <text x="790" y="372" font-size="20" font-weight="700" text-anchor="middle" fill="#1D1C19">大模型实时对话</text>
+    <text x="790" y="404" font-size="16" text-anchor="middle" fill="#6B6760">Be My AI / Ray-Ban Meta</text>
+    <text x="790" y="430" font-size="16" text-anchor="middle" fill="#6B6760">Gemini Live / Copilot Vision</text>
+    <line x1="935" y1="372" x2="935" y2="582" stroke="#D6CFC3" stroke-width="1" />
+
+    <text x="1080" y="280" font-family="SimSun" font-size="28" font-weight="700" text-anchor="middle" fill="#C14E2C">2025–2026</text>
+    <text x="1080" y="372" font-size="20" font-weight="700" text-anchor="middle" fill="#C14E2C">第一视角与主动协作</text>
+    <text x="1080" y="404" font-size="16" text-anchor="middle" fill="#6B6760">AI 眼镜规模化</text>
+    <text x="1080" y="430" font-size="16" text-anchor="middle" fill="#6B6760">全双工 / 主动纠错</text>
+
+    <text x="72" y="530" font-size="18" fill="#4D4942">主线不是“模型变强了”，而是系统获得了更多上下文，并被要求对结果负责。</text>
+    <text x="72" y="568" font-size="18" fill="#4D4942">下一步才开始回答：哪些产品真的被用起来，哪些只是演示。</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="64 646 1152 22" fill="#7A756D" font-size="14">
+    <text x="72" y="662">公开产品发布时间线 · 本地洞察报告整理</text>
+    <text x="1208" y="662" text-anchor="end">03 / 14</text>
+  </g>
+</svg>

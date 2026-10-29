@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="cover">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7" />
+  <rect id="cover-rule" data-pptx-role="decoration" x="56" y="56" width="7" height="608" fill="#C14E2C" />
+
+  <g id="cover-title" data-pptx-bounds="92 80 700 460" font-family="SimSun" fill="#1D1C19">
+    <text x="100" y="116" font-family="Microsoft YaHei" font-size="16" font-weight="700" letter-spacing="2" fill="#C14E2C">RESEARCH BRIEF / 2026</text>
+    <text x="100" y="216" font-size="60" font-weight="700">多模态交互<tspan x="100" dy="66">竞品发展脉络</tspan></text>
+    <text x="100" y="342" font-family="Microsoft YaHei" font-size="26" fill="#3F3B35">从“看懂一张图”到“在连续场景里帮上忙”</text>
+    <line x1="100" y1="380" x2="760" y2="380" stroke="#C9C1B4" stroke-width="1" />
+    <text x="100" y="420" font-family="Microsoft YaHei" font-size="18" fill="#6B6760">2013—2026 · 竞品功能与市场反馈<tspan x="100" dy="34">视觉搜索 · 连续对话 · 实时协作 · 主动任务代理</tspan></text>
+  </g>
+
+  <g id="cover-timeline" data-pptx-bounds="830 96 380 540">
+    <text x="970" y="126" font-size="16" font-weight="700" letter-spacing="2" fill="#6B6760">四个阶段</text>
+    <line x1="920" y1="168" x2="920" y2="566" stroke="#AFA79B" stroke-width="2" />
+    <circle cx="920" cy="192" r="9" fill="#1D1C19" />
+    <text x="956" y="188" font-family="SimSun" font-size="32" font-weight="700" fill="#1D1C19">2013–17</text>
+    <text x="956" y="218" font-size="16" fill="#6B6760">视觉查询</text>
+    <circle cx="920" cy="300" r="9" fill="#1D1C19" />
+    <text x="956" y="296" font-family="SimSun" font-size="32" font-weight="700" fill="#1D1C19">2021–22</text>
+    <text x="956" y="326" font-size="16" fill="#6B6760">可穿戴试水</text>
+    <circle cx="920" cy="408" r="9" fill="#1D1C19" />
+    <text x="956" y="404" font-family="SimSun" font-size="32" font-weight="700" fill="#1D1C19">2023–24</text>
+    <text x="956" y="434" font-size="16" fill="#6B6760">实时对话</text>
+    <circle cx="920" cy="516" r="11" fill="#C14E2C" />
+    <text x="956" y="512" font-family="SimSun" font-size="32" font-weight="700" fill="#C14E2C">2025–26</text>
+    <text x="956" y="542" font-size="16" fill="#C14E2C">主动协作</text>
+  </g>
+
+  <g id="cover-footer" data-pptx-bounds="92 646 1080 22" fill="#7A756D" font-size="14">
+    <text x="100" y="662">资料来源：Research 多模态交互洞察 · 2026-10-29</text>
+    <text x="1168" y="662" text-anchor="end">01 / 14</text>
+  </g>
+</svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="ending">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7" />
+
+  <g id="page-title" data-pptx-bounds="64 40 1152 116" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="72" y="66" font-family="Microsoft YaHei" font-size="16" letter-spacing="2" fill="#C14E2C">SOURCES &amp; EVIDENCE</text>
+    <text x="72" y="126" font-size="36">来源与证据边界</text>
+  </g>
+
+  <g id="source-columns" data-pptx-bounds="64 176 1152 452">
+    <text x="72" y="204" font-size="18" fill="#4D4942">厂商材料证明“功能上线”；独立评测和真实行为更接近“产品是否被接受”。</text>
+    <line x1="72" y1="228" x2="1208" y2="228" stroke="#C9C1B4" stroke-width="1" />
+    <line x1="432" y1="246" x2="432" y2="598" stroke="#D6CFC3" stroke-width="1" />
+    <line x1="832" y1="246" x2="832" y2="598" stroke="#D6CFC3" stroke-width="1" />
+
+    <text x="72" y="276" font-size="16" font-weight="700" letter-spacing="2" fill="#6B6760">官方发布与产品说明</text>
+    <a href="https://blog.google/innovation-and-ai/products/gemini-app/guided-vision-gemini-live/"><text x="72" y="314" font-size="16" fill="#1F5A49" text-decoration="underline">Google · Guided Vision</text></a>
+    <a href="https://support.microsoft.com/en-us/microsoft-365-copilot/use-vision-microsoft-365-copilot"><text x="72" y="348" font-size="16" fill="#1F5A49" text-decoration="underline">Microsoft · Copilot Vision</text></a>
+    <a href="https://about.fb.com/news/2024/09/ray-ban-meta-glasses-new-ai-features-and-partner-integrations/"><text x="72" y="382" font-size="16" fill="#1F5A49" text-decoration="underline">Meta · Ray-Ban Meta AI</text></a>
+    <a href="https://www.apple.com/newsroom/2024/12/apple-intelligence-now-features-image-playground-genmoji-and-more/"><text x="72" y="416" font-size="16" fill="#1F5A49" text-decoration="underline">Apple · Visual Intelligence</text></a>
+    <a href="https://consumer.huawei.com/cn/support/content/zh-cn16053374/"><text x="72" y="450" font-size="16" fill="#1F5A49" text-decoration="underline">Huawei · 小艺看世界</text></a>
+    <a href="https://seed.bytedance.com/zh/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction"><text x="72" y="484" font-size="16" fill="#1F5A49" text-decoration="underline">ByteDance · SeedRealtime</text></a>
+    <a href="https://www.bemyeyes.com/news/announcing-be-my-ai-soon-available-for-hundreds-of-thousands-of-be-my-eyes-users/"><text x="72" y="518" font-size="16" fill="#1F5A49" text-decoration="underline">Be My Eyes · Be My AI</text></a>
+    <text x="72" y="568" font-size="15" fill="#6B6760">厂商来源适合确认“做了什么”、发布时间与功能边界；</text>
+    <text x="72" y="592" font-size="15" fill="#6B6760">不自动等于真实任务效果或商业化成立。</text>
+
+    <text x="472" y="276" font-size="16" font-weight="700" letter-spacing="2" fill="#6B6760">独立评测与市场信号</text>
+    <a href="https://www.theinformation.com/briefings/metas-ray-ban-glasses-fall-flat-with-customers"><text x="472" y="314" font-size="16" fill="#A33B27" text-decoration="underline">The Information · Ray-Ban Stories 低使用</text></a>
+    <a href="https://www.theverge.com/news/614883/humane-ai-hp-acquisition-pin-shutdown"><text x="472" y="348" font-size="16" fill="#A33B27" text-decoration="underline">The Verge · Humane AI Pin 停服</text></a>
+    <a href="https://www.wired.com/review/rabbit-r1/"><text x="472" y="382" font-size="16" fill="#A33B27" text-decoration="underline">WIRED · Rabbit R1 评测</text></a>
+    <a href="https://www.androidauthority.com/ray-ban-meta-smart-glasses-3462348/"><text x="472" y="416" font-size="16" fill="#A33B27" text-decoration="underline">Android Authority · Meta 销量</text></a>
+    <a href="https://www.theguardian.com/technology/2026/aug/06/meta-ai-smart-glasses-privacy"><text x="472" y="450" font-size="16" fill="#A33B27" text-decoration="underline">The Guardian · 对智能眼镜的分歧</text></a>
+    <a href="https://www.ithome.com/0/963/535.htm"><text x="472" y="484" font-size="16" fill="#A33B27" text-decoration="underline">IT之家 · 华为眼镜上线时间</text></a>
+    <a href="https://www.10100.com/article/107889453"><text x="472" y="518" font-size="16" fill="#A33B27" text-decoration="underline">夸克 S1 · 一周体验限制</text></a>
+    <text x="472" y="568" font-size="15" fill="#6B6760">销量、月活、停服和独立体验是更有力的市场信号；</text>
+    <text x="472" y="592" font-size="15" fill="#6B6760">转引数字仍需回看出处与口径。</text>
+
+    <text x="872" y="276" font-size="16" font-weight="700" letter-spacing="2" fill="#6B6760">本地洞察底稿</text>
+    <text x="872" y="320" font-size="17" font-weight="700" fill="#1D1C19">多模态交互 · 全球竞品</text>
+    <text x="872" y="348" font-size="15" fill="#6B6760">2026-10-28</text>
+    <text x="872" y="394" font-size="17" font-weight="700" fill="#1D1C19">多模态交互 · 产品层</text>
+    <text x="872" y="422" font-size="15" fill="#6B6760">2026-10-29</text>
+    <text x="872" y="468" font-size="17" font-weight="700" fill="#1D1C19">多模态交互 · 开源产品化</text>
+    <text x="872" y="496" font-size="15" fill="#6B6760">2026-10-29</text>
+    <line x1="872" y1="530" x2="1208" y2="530" stroke="#C9C1B4" stroke-width="1" />
+    <text x="872" y="568" font-size="15" fill="#6B6760">底稿保留失败案例、证据缺口与竞争性解释。</text>
+    <text x="872" y="592" font-size="15" fill="#6B6760">“没找到数据”既不代表成功，也不代表失败。</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="64 646 1152 22" fill="#7A756D" font-size="14">
+    <text x="72" y="662">所有外部链接均为可点击对象</text>
+    <text x="1208" y="662" text-anchor="end">14 / 14</text>
+  </g>
+</svg>

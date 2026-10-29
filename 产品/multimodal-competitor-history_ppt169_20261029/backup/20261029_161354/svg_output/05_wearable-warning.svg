@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7" />
+
+  <g id="page-title" data-pptx-bounds="64 40 1152 134" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="72" y="66" font-family="Microsoft YaHei" font-size="16" letter-spacing="2" fill="#C14E2C">2021–2022 · 可穿戴第一次试水</text>
+    <text x="72" y="126" font-size="36">有摄像头，不等于有持续使用的理由</text>
+  </g>
+
+  <g id="rayban-stories-story" data-pptx-bounds="64 188 1152 424">
+    <text x="72" y="218" font-size="22" fill="#4D4942">Ray-Ban Stories 证明用户愿意试戴，却没有证明他们会天天使用。</text>
+    <text x="72" y="292" font-size="18" font-weight="700" fill="#6B6760">2021 年发布后销量</text>
+    <text x="72" y="398" font-family="SimSun" font-size="96" font-weight="700" fill="#1D1C19">约 30 万副</text>
+    <line x1="470" y1="286" x2="470" y2="438" stroke="#C9C1B4" stroke-width="1" />
+    <text x="526" y="292" font-size="18" font-weight="700" fill="#6B6760">据报道的月度活跃使用</text>
+    <text x="526" y="398" font-family="SimSun" font-size="96" font-weight="700" fill="#C14E2C">不足 10%</text>
+    <text x="526" y="438" font-size="16" fill="#6B6760">约 2.7 万人 / 月（公开报道口径）</text>
+
+    <line x1="72" y1="476" x2="1208" y2="476" stroke="#C9C1B4" stroke-width="1" />
+    <text x="72" y="514" font-size="16" font-weight="700" letter-spacing="2" fill="#6B6760">为什么没有持续使用</text>
+    <text x="72" y="554" font-size="20" font-weight="700" fill="#1D1C19">连接和续航不够稳定</text>
+    <text x="356" y="554" font-size="20" font-weight="700" fill="#1D1C19">任务价值不够高频</text>
+    <text x="676" y="554" font-size="20" font-weight="700" fill="#1D1C19">旁观者隐私压力</text>
+    <text x="976" y="554" font-size="20" font-weight="700" fill="#1D1C19">手机已经能完成</text>
+    <text x="72" y="590" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">分：卖得出去只是第一步，留下来才说明产品价值。</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="64 646 1152 22" fill="#7A756D" font-size="14">
+    <text x="72" y="662">来源：Meta 2021 发布；WSJ 内部数据报道及 Engadget / UploadVR 二次报道</text>
+    <text x="1208" y="662" text-anchor="end">05 / 14</text>
+  </g>
+</svg>
