@@ -50,30 +50,26 @@ return out
     return rows
 
 
-def add(title, due='', notes='', list_name='things'):
+def add(title, due='', notes='', list_name='things', alarm_minutes=10):
     due_block = ''
+    display_title = title
     if due:
         parsed = dt.datetime.strptime(due, '%Y-%m-%d %H:%M')
-        alarm = parsed - dt.timedelta(minutes=10)
+        alarm = parsed - dt.timedelta(minutes=alarm_minutes)
+        if alarm_minutes:
+            display_title = f'{title}（截止 {parsed:%m-%d %H:%M}）'
         due_block = f'''
   set dd to current date
-  set year of dd to {parsed.year}
-  set month of dd to {parsed.month}
-  set day of dd to {parsed.day}
-  set hours of dd to {parsed.hour}
-  set minutes of dd to {parsed.minute}
+  set year of dd to {alarm.year}
+  set month of dd to {alarm.month}
+  set day of dd to {alarm.day}
+  set hours of dd to {alarm.hour}
+  set minutes of dd to {alarm.minute}
   set seconds of dd to 0
-  set aa to current date
-  set year of aa to {alarm.year}
-  set month of aa to {alarm.month}
-  set day of aa to {alarm.day}
-  set hours of aa to {alarm.hour}
-  set minutes of aa to {alarm.minute}
-  set seconds of aa to 0
   set due date of r to dd
-  set remind me date of r to aa
+  set remind me date of r to dd
 '''
-    safe_title = title.replace('"', '\\"')
+    safe_title = display_title.replace('"', '\\"')
     safe_notes = notes.replace('"', '\\"')
     script = f'''
 tell application "Reminders"

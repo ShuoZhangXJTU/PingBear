@@ -27,6 +27,7 @@ ROOT = research.ROOT
 STORE = ROOT / '.research/reminders/store.json'
 TZ = ZoneInfo('Asia/Shanghai')
 RISK_WORDS = ['航班', '飞机', '机场', '面试', '考试', '提交', '截止', '医院', '挂号', '签证', '报到', '答辩', '签约', '缴费', '快递']
+EXAM_WORDS = ['考试', '科目', '面试', '答辩', '航班', '机场', '医院', '签证']
 
 
 def now():
@@ -52,8 +53,8 @@ def parse_due(text):
     return None
 
 
-def add_task(title, due='', notes='', source='local', ident=None):
-    data = load()
+def add_task(title, due='', notes='', source='local', ident=None, data=None, persist=True):
+    data = data or load()
     due_at = parse_due(due)
     if not due_at:
         raise SystemExit('需要 --due "YYYY-MM-DD HH:MM"')
@@ -61,8 +62,27 @@ def add_task(title, due='', notes='', source='local', ident=None):
         'title': title, 'due': due_at.strftime('%Y-%m-%d %H:%M'), 'notes': notes,
         'status': 'open', 'source': source, 'reminder_id': '', 'created_at': now().isoformat(timespec='seconds')}
     data['tasks'].append(task)
-    save(data)
+    if persist:
+        save(data)
     return task
+
+
+def conflicts(due_at, exclude_id=None, data=None, window_minutes=180):
+    """找出和新任务时间接近的已有事项；考试/航班/面试这类即使差得远也算同日风险。"""
+    data = data or load()
+    found = []
+    for task in data.get('tasks') or []:
+        if task.get('status') != 'open' or task.get('id') == exclude_id:
+            continue
+        other = parse_due(task.get('due'))
+        if not other:
+            continue
+        minutes = (other - due_at).total_seconds() / 60
+        exam = any(word in task['title'] for word in EXAM_WORDS)
+        if abs(minutes) <= window_minutes or (exam and other.date() == due_at.date()):
+            found.append((task, int(minutes), exam))
+    found.sort(key=lambda item: abs(item[1]))
+    return found
 
 
 def capture(text, dry_run=False):
@@ -90,23 +110,34 @@ def capture(text, dry_run=False):
     due = (data.get('due') or '').strip()
     if due and len(due) == 10:
         due += ' 09:00'
+    due_at = parse_due(due) if due else None
+    near = conflicts(due_at) if due_at else []
+    if near:
+        names = '、'.join(task['title'][:24] for task, _minutes, _exam in near[:2])
+        extra = f'和已有安排「{names}」时间接近，注意岔开'
+        data['risk'] = (data.get('risk') or '').strip('；')
+        data['risk'] = (data['risk'] + '；' + extra) if data['risk'] else extra
     if dry_run:
-        return {'parsed': data, 'would_add': [data.get('title')], 'due': due}
-    task = add_task(data.get('title') or text, due, data.get('risk') or '', source='wechat')
+        return {'parsed': data, 'would_add': [data.get('title')], 'due': due,
+            'nearby': [task['title'] for task, _m, _e in near]}
+    store = load()
+    alarm = 10
+    task = add_task(data.get('title') or text, due, data.get('risk') or '', source='wechat', data=store, persist=False)
     created = 0
     if data.get('importance') == 'high' and due:
-        task['reminder_id'] = things.add(task['title'], due, task.get('notes', ''), 'things')
+        alarm = 120 if any(exam for _t, _m, exam in near) else 10
+        task['reminder_id'] = things.add(task['title'], due, task.get('notes', ''), 'things', alarm_minutes=alarm)
         created += 1
     for milestone in data.get('milestones') or []:
         m_due = (milestone.get('due') or '').strip()
         if len(m_due) == 10:
             m_due += ' 09:00'
-        m = add_task(milestone.get('title') or task['title'], m_due, '来自：' + task['title'], source='wechat')
+        m = add_task(milestone.get('title') or task['title'], m_due, '来自：' + task['title'],
+            source='wechat', data=store, persist=False)
         if data.get('importance') == 'high' and m_due:
-            m['reminder_id'] = things.add(m['title'], m_due, m.get('notes', ''), 'things')
+            m['reminder_id'] = things.add(m['title'], m_due, m.get('notes', ''), 'things', alarm_minutes=alarm)
             created += 1
-    if created:
-        save(load())  # add_task 已经保存过，这里确保 reminder_id 落盘
+    save(store)
     parts = [f'已记下：{task["title"]}']
     if due:
         parts.append(f'时间 {due}')
@@ -172,6 +203,11 @@ def scan(dry_run=False):
             continue
         minutes = (due_at - current).total_seconds() / 60
         risky = any(word in (task['title'] + ' ' + task.get('notes', '')) for word in RISK_WORDS)
+        near = conflicts(due_at, exclude_id=task['id'], data=data)
+        hint = ''
+        if near:
+            other, gap, _exam = near[0]
+            hint = f'（附近还有「{other["title"][:24]}」，相差约 {abs(gap)} 分钟，注意岔开）'
         if minutes <= 24 * 60 and not task.get('reminder_id'):
             if dry_run:
                 print(f'[dry] 会写入 Reminders：{task["title"]} @ {task["due"]}')
@@ -179,13 +215,13 @@ def scan(dry_run=False):
                 task['reminder_id'] = things.add(task['title'], task['due'], task.get('notes', ''), 'things')
                 created += 1
         if minutes < 0:
-            message = f'已经过了时间：{task["title"]}（{task["due"]}）。要延期还是已经做完了？'
+            message = f'已经过了时间：{task["title"]}（{task["due"]}）。要延期还是已经做完了？{hint}'
             if dry_run:
                 print('[dry] 会提醒逾期：', task['title'])
             elif alert(data, task, 'overdue', message):
                 alerted += 1
         elif minutes <= 120 or (risky and minutes <= 24 * 60):
-            message = f'{task["title"]}：{task["due"]} 就到期了（还有 {int(minutes)} 分钟）。'
+            message = f'{task["title"]}：{task["due"]} 就到期了（还有 {int(minutes)} 分钟）。{hint}'
             if dry_run:
                 print('[dry] 会提醒临近：', task['title'], f'{int(minutes)} 分钟')
             elif alert(data, task, 'soon', message):
