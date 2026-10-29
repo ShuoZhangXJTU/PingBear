@@ -110,28 +110,31 @@ def write(date=None):
     books = touched_today('最佳实践', date)
     topics = touched_today('专题', date)
     lines = [f'---\ndate: {date}\ntype: research-digest\n---\n\n',
-        f'# {date} 自动科研 · rubrics\n\n', '## 自动科研（RSI 提案）\n\n']
+        f'# {date} 自动科研 · rubrics\n\n',
+        f'入口：[[提案/{date}|今日提案]] · [[研究路线/飞轮|飞轮状态]] · [[研究路线/运行总览|运行总览]] · [[研究路线/评价体系|评价体系]]\n\n',
+        '## 自动科研（RSI 提案）\n\n']
     if count:
-        lines.append(f'- 今天列出 {count} 条提案，全部写在 `提案/{date}.md`。')
-        lines += [f'- {title}' for title in titles[:6]]
+        lines.append(f'- 今天列出 {count} 条提案，全部写在 [[提案/{date}|提案/{date}.md]]。')
+        lines += [f'- [[提案/{date}#{title}|{title}]]' for title in titles[:6]]
         if count > 6:
-            lines.append(f'- ……其余 {count - 6} 条见文件')
+            lines.append(f'- ……其余 {count - 6} 条见 [[提案/{date}|提案文件]]')
     else:
         lines.append('- 今天没有生成提案（可能素材不足或任务未跑）。')
     lines += ['', '## rubrics（评价体系）\n\n',
-        f'- 今天收进 {candidates} 条完整发言作为候选材料。',
+        f'- 今天收进 {candidates} 条完整发言作为候选材料（[[rubrics/proposals/{date}|候选材料]]）。',
         f'- 基因组共 {counts["items"]} 条：草稿 {counts["draft"]}、已确认 {counts["confirmed"]}，'
-        f'其中有精确出处 {counts["with_evidence"]} 条，今天新增 {counts["created_today"]} 条。']
+        f'其中有精确出处 {counts["with_evidence"]} 条，今天新增 {counts["created_today"]} 条。'
+        f'入口：[[研究路线/评价体系|评价体系]]']
     if stages:
-        lines += ['', '## 飞轮这一轮\n'] + [f'- {stage}' for stage in stages]
+        lines += ['', '## 飞轮这一轮（[[研究路线/飞轮|状态页]]）\n'] + [f'- {stage}' for stage in stages]
     if books or topics:
         lines += ['', '## 知识沉淀\n']
         if books:
-            lines.append('- 今天更新的最佳实践：' + '、'.join(books))
+            lines.append('- 今天更新的最佳实践：' + '、'.join(f'[[最佳实践/{name}|{name}]]' for name in books))
         if topics:
-            lines.append('- 今天重建的专题：' + '、'.join(topics))
+            lines.append('- 今天重建的专题：' + '、'.join(f'[[专题/{name}|{name}]]' for name in topics))
     bad, unknown = job_health()
-    lines += ['', '## 定时任务健康\n']
+    lines += ['', '## 定时任务健康（[[研究路线/运行总览|运行总览]]）\n']
     if bad:
         lines.append('- 最近一次失败：' + '、'.join(bad) + '（日志在 .research/logs/）')
     if unknown:
