@@ -140,7 +140,10 @@ def note_fields(p, date):
     if not tags:
         tags = [t for t in p.get('topics', []) if t in TAGS] or ['其他']
     lines = ['---', f'arxiv: "{p["id"]}"', 'title: ' + json.dumps(p['title'], ensure_ascii=False),
-        'summary: ' + json.dumps(p.get('summary', ''), ensure_ascii=False), f'selected_from: {date}',
+        'title_zh: ' + json.dumps(p.get('title_zh') or p.get('title', ''), ensure_ascii=False),
+        'summary: ' + json.dumps(p.get('summary', ''), ensure_ascii=False),
+        'project_url: ' + json.dumps(p.get('code') or p.get('project') or '', ensure_ascii=False),
+        'core_claim: ""', 'business_insight: ""', f'selected_from: {date}',
         'status: to-read', f'primary_tag: {tags[0]}', 'tags:'] + ['  - ' + t for t in tags] + ['---']
     return '\n'.join(lines) + '\n', tags
 

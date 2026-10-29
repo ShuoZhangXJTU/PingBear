@@ -33,16 +33,18 @@ TZ = ZoneInfo('Asia/Shanghai')
 LOCAL_PROXY = os.environ.get('RESEARCH_PROXY', 'http://127.0.0.1:7890')
 MARK_START = '<!-- knowledge:deepen:start -->'
 MARK_END = '<!-- knowledge:deepen:end -->'
+MARK_ARCHIVE_START = '<!-- knowledge:archive:start -->'
+MARK_ARCHIVE_END = '<!-- knowledge:archive:end -->'
 KEEP_SECTIONS = ('## 我的备注', '## 我的想法', '## 我的选择理由', '## 精读笔记')
 # 版面顺序：我的备注 → 深读 takeaways → 这些材料性内容全部沉到最后
 TAIL_SECTIONS = ('## 问答沉淀', '## 截图', '## 截图文字（OCR）', '## 我的选择理由', '## 精读笔记')
-ALL_SECTIONS = set(KEEP_SECTIONS) | set(TAIL_SECTIONS)
+ALL_SECTIONS = set(KEEP_SECTIONS) | set(TAIL_SECTIONS) | {'## 论文档案'}
 DEFAULT_TOPICS = ['RSI', 'Harness', '后训练', 'GUI Agent', '多模态交互']
 PROMPT_FILE = ROOT / '配置/提示词-深读.md'
 DEFAULT_DEEP_PROMPT = '''你在帮一位 NLP 博士把论文变成可复用的知识。只依据给定材料，不调用工具。
 重点从实验章节提取经过验证的结论：设置、基线、具体数字、消融、在什么条件下不成立。
 说人话，不要翻译腔和抽象堆叠；分清「实验验证的结论」与「作者主张」；材料里没有的写“材料里没有”，不要编。
-输出 JSON：core / mechanism / experiments / conclusions（2–5 条带数字的已验证结论）/ reuse / doubts / relations / confidence。
+输出 JSON：thesis / takeaways / why / cross_check / reuse / doubts / relations / confidence / core_claim / business_insight。
 '''
 DEEP_PROMPT = PROMPT_FILE.read_text(encoding='utf-8') if PROMPT_FILE.exists() else DEFAULT_DEEP_PROMPT
 DEEP_PROMPT = DEEP_PROMPT.replace('{{TAGS}}', '、'.join(research.TAGS))
@@ -285,11 +287,11 @@ def paper_text(note):
 
 # ---------- 调模型 ----------
 
-def codex_json(prompt, payload, schema_object, out_path, log_path, timeout=1800, attempts=3):
+def codex_json(prompt, payload, schema_object, out_path, log_path, timeout=1800, attempts=3, rubric_stage=None):
     import rubrics_bridge
     parts = str(out_path).split('/')
-    task = next((name for name in ('deepen', 'topics', 'ask', 'cookbook', 'proposal') if name in parts), 'research_generation')
-    personal_context = rubrics_bridge.context(task)
+    task = 'industry_insight' if 'industry' in parts else next((name for name in ('deepen', 'topics', 'ask', 'cookbook', 'proposal') if name in parts), 'research_generation')
+    personal_context = rubrics_bridge.context(task, stage=rubric_stage) if rubric_stage else rubrics_bridge.context(task)
     if personal_context:
         prompt = personal_context + '\n\n' + prompt
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -370,8 +372,10 @@ DEEP_SCHEMA = {'type': 'object', 'properties': {
     'takeaways': {'type': 'array', 'items': {'type': 'string'}, 'minItems': 3, 'maxItems': 6},
     'why': {'type': 'string'}, 'cross_check': {'type': 'string'},
     'reuse': {'type': 'string'}, 'doubts': {'type': 'string'}, 'relations': {'type': 'string'},
-    'confidence': {'type': 'string', 'enum': ['正文级', '摘要级']}},
-    'required': ['thesis', 'takeaways', 'why', 'cross_check', 'reuse', 'doubts', 'relations', 'confidence'],
+    'confidence': {'type': 'string', 'enum': ['正文级', '摘要级']},
+    'core_claim': {'type': 'string'}, 'business_insight': {'type': 'string'}},
+    'required': ['thesis', 'takeaways', 'why', 'cross_check', 'reuse', 'doubts', 'relations', 'confidence',
+        'core_claim', 'business_insight'],
     'additionalProperties': False}
 
 
@@ -387,6 +391,14 @@ def deepen_one(note, others, force=False):
         'same_topic_notes': [{'title': other['title'], 'summary': other['summary']} for other in others]}
     data = codex_json(prompt, payload, DEEP_SCHEMA, STATE / 'deepen' / f'{note["id"]}.json',
         STATE / 'logs' / f'{note["id"]}-deepen.log')
+    fields, _ = research.frontmatter(note['path'])
+    title_zh = fields.get('title_zh') or note['title']
+    project_url = fields.get('project_url') or ''
+    archive = [MARK_ARCHIVE_START, '## 论文档案', '',
+        f'- 中文题目：{title_zh}',
+        f'- 项目链接：{project_url or "材料中未给出"}',
+        f'- 核心观点：{data.get("core_claim", "") or "材料中未说明"}',
+        f'- 业务启示：{data.get("business_insight", "") or "材料中未说明"}', MARK_ARCHIVE_END]
     section = [MARK_START, '## 深读 takeaway', '',
         f'**一句话**：{data["thesis"]}', '',
         '### Takeaways',
@@ -401,6 +413,7 @@ def deepen_one(note, others, force=False):
     head, sections = split_body(body)
     # 版面：头部（标题/一句话/标签/链接）→ 我的备注 → 深读 takeaways → 材料类内容沉底
     parts = []
+    parts.append('\n'.join(archive))
     # 我的备注永远保留（哪怕是空的，方便你随手写）
     parts.append('## 我的备注\n\n' + (sections.get('## 我的备注') or '').strip('\n'))
     parts.append('\n'.join(section))
@@ -411,7 +424,8 @@ def deepen_one(note, others, force=False):
         if name not in ALL_SECTIONS and name != '## 深读 takeaway' and sections[name]:
             parts.append(f'{name}\n\n' + sections[name].strip('\n'))
     new_body = head.rstrip('\n') + '\n\n' + '\n\n'.join(parts) + '\n'
-    fields, _ = research.frontmatter(note['path'])
+    fields['core_claim'] = data.get('core_claim', '')
+    fields['business_insight'] = data.get('business_insight', '')
     front = ['---']
     for key, value in fields.items():
         if key == 'tags':
