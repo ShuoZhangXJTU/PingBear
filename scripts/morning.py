@@ -91,6 +91,9 @@ def homepage(date, source_date, message=''):
         + ('' if source_date == date else f'（{date} 的 HF 列表当时尚未发布，展示最近可用日期）') + '\n\n')
     if message:
         body += f'> {message}\n\n'
+    body += ('<!-- research:navigation:start -->\n'
+             '> [[研究路线/运行总览|运行总览：任务进度、版本与接入说明]]\n'
+             '<!-- research:navigation:end -->\n\n')
     body += (f'[[日报/{source_date}|按日期查看]] · [[索引/目录|历史目录]] · [[索引/标签|按标签查归档]] · '
         '[[研究路线/飞轮|科研飞轮]] · [[研究路线/近期关注|近期关注]] · [[研究路线/审视记录|路线审视]] · [[研究路线/评价体系|评价体系]] · '
         '[[索引/调研|调研]] · [[索引/业界洞察|业界洞察]] · [[索引/收藏|收藏夹]] · [[索引/未读|未读清单]] · 点「归档」保存，想补充时点「加备注」。\n\n')

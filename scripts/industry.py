@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 """业界洞察：联网找竞品，看它们具体做了什么、差异在哪。
 
-流程（先找竞品，再看做法）：
-  1) 拆题：模型给出竞品检索词 + 要重点看的厂商 + 典型场景；
-  2) 联网：DuckDuckGo HTML 搜竞品与产品功能，抓前几条结果页的正文；
-  3) 本地补充：官方博客与论文（.research/blogs、.research/digests）里的实践证据；
-  4) 对比：模型输出「竞品清单 → 每家做了什么 → 场景差异 → 空白与机会」。
+流程（按沙漏分阶段，标准每次只加载当前卡）：
+  定题 → 广搜候选 → 按目标筛选 → 聚焦核验 → 综合关系与体验 → 展开决策。
+  所有候选与阶段产物保存在 .research/industry/runs/，原始候选不删除。
 
   python3 scripts/industry.py "多模态交互"
   python3 scripts/industry.py "agent harness" --slug harness --pages 10
@@ -32,20 +30,15 @@ TZ = ZoneInfo('Asia/Shanghai')
 UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140 Safari/537.36'
 
 
+def insight_standards(stage=None):
+    """Introspection helper; live generation injects this once via the shared bridge."""
+    import rubrics_bridge
+    return rubrics_bridge.context('industry_insight', stage=stage)
+
+
 def plan(topic, seed=''):
-    prompt = '''你在帮一位 AI Lab 研究员做「业界洞察」。先拆出要搜的东西。
-要求：
-- players：这个方向上值得重点看的公司/产品（6–10 个，写大家熟悉的名字）；
-- web_queries：4–6 条中文检索词，专门用来找竞品（例如「<topic> 竞品」「<topic> 产品 功能」「手机 摄像头 视觉问答 产品」）；
-- scenarios：这类技术通常落在哪些用户场景。
-只输出 JSON。'''
-    schema = {'type': 'object', 'properties': {
-        'players': {'type': 'array', 'items': {'type': 'string'}},
-        'web_queries': {'type': 'array', 'items': {'type': 'string'}},
-        'scenarios': {'type': 'array', 'items': {'type': 'string'}}},
-        'required': ['players', 'web_queries', 'scenarios'], 'additionalProperties': False}
-    return knowledge.codex_json(prompt, {'topic': topic, 'hint': seed}, schema,
-        STATE / 'plan.json', STATE / 'logs' / 'plan.log')
+    import industry_workflow
+    return industry_workflow.plan(topic, seed)
 
 
 def unwrap_ddg(href):
@@ -110,24 +103,21 @@ def page_text(url, limit=6000):
 
 
 def gather_web(queries, pages=10):
+    # Wide collection keeps every discovered candidate; page reading happens after selection.
     hits, seen = [], set()
     for query in queries:
         found = web_search(query)
         print(f'  搜索「{query}」→ {len(found)} 条', flush=True)
         for item in found:
-            key = re.sub(r'\W+', '', item['title'].lower())[:60]
-            if not key or key in seen:
+            key = item['url'].split('#', 1)[0]
+            if key in seen:
                 continue
             seen.add(key)
             hits.append(item)
-    ordered = sorted(hits, key=lambda it: -len(it.get('snippet') or ''))[:pages]
-    evidence = []
-    for index, item in enumerate(ordered, 1):
-        text = page_text(item['url'])
-        evidence.append({'id': f'web-{index}', 'kind': 'web', 'title': item['title'], 'url': item['url'],
-            'company': '', 'date': '', 'summary': item['snippet'], 'text': text, 'query': item['query']})
-        print(f'  读取 {item["url"][:70]}（{len(text)} 字）', flush=True)
-    return evidence
+    return [{'id': f'web-{n}', 'kind': 'web', 'title': item['title'], 'url': item['url'],
+             'company': '', 'date': '', 'summary': item['snippet'], 'text': '',
+             'query': item['query'], 'read_level': 'search_snippet_only'}
+            for n, item in enumerate(hits, 1)]
 
 
 def gather_local(days=120):
@@ -162,67 +152,42 @@ def pick_local(items, players, limit=40):
     return [item for _score, item in scored[:limit]]
 
 
-def insight(topic, planned, web, local):
-    prompt = '''你在给一位 AI Lab 研究员写「业界洞察」。必须先回答“有哪些竞品”，再说每家具体做了什么、差异在哪。
-
-要求：
-1. competitors：逐个竞品（产品/公司）写清楚——形态（手机助手/独立 App/眼镜/系统级）、具体能做什么、
-   怎么交互（拍照/实时视频/指向/圈选/语音）、面向什么场景、成熟度（已上线/内测/研究）。
-   evidence 只能引用给定条目的 id；优先用 web 条目。
-2. differences：横向比出真实差异（实时还是静态、是否主动引导、是否有系统数据权限、硬件载体、目标人群、语言/地区）。
-3. scenarios：竞品各自押的场景，以及同一场景下做法差异。
-4. gaps / opportunities：这些竞品还没做好什么；结合一位 NLP 博士做 RSI / harness / 后训练的背景，哪里能切入。
-5. business_models：这些竞品各自怎么变现（硬件溢价/订阅/企业 SaaS/API 按量/交易佣金/免费公共服务），谁付钱；
-6. commercial_bets：3–6 个可商用变现的切入点，写清目标客户、为什么现在能做、靠什么收钱、壁垒与风险；
-7. watchlist：接下来值得盯的信号。
-材料里没有写的（例如具体模型、准确率、上线时间）就写「材料未说明」，不要补。
-只输出 JSON。'''
-    schema = {'type': 'object', 'properties': {
-        'answer': {'type': 'string'},
-        'competitors': {'type': 'array', 'items': {'type': 'object', 'properties': {
-            'name': {'type': 'string'}, 'company': {'type': 'string'}, 'form': {'type': 'string'},
-            'what': {'type': 'string'}, 'interaction': {'type': 'string'}, 'scenario': {'type': 'string'},
-            'maturity': {'type': 'string'},
-            'evidence': {'type': 'array', 'items': {'type': 'object', 'properties': {
-                'id': {'type': 'string'}, 'claim': {'type': 'string'}},
-                'required': ['id', 'claim'], 'additionalProperties': False}}},
-            'required': ['name', 'company', 'form', 'what', 'interaction', 'scenario', 'maturity', 'evidence'],
-            'additionalProperties': False}},
-        'differences': {'type': 'array', 'items': {'type': 'string'}},
-        'scenarios': {'type': 'array', 'items': {'type': 'object', 'properties': {
-            'scenario': {'type': 'string'}, 'who': {'type': 'string'}, 'difference': {'type': 'string'}},
-            'required': ['scenario', 'who', 'difference'], 'additionalProperties': False}},
-        'business_models': {'type': 'array', 'items': {'type': 'object', 'properties': {
-            'model': {'type': 'string'}, 'examples': {'type': 'string'}, 'who_pays': {'type': 'string'},
-            'evidence_ids': {'type': 'array', 'items': {'type': 'string'}}},
-            'required': ['model', 'examples', 'who_pays', 'evidence_ids'], 'additionalProperties': False}},
-        'commercial_bets': {'type': 'array', 'items': {'type': 'object', 'properties': {
-            'idea': {'type': 'string'}, 'customer': {'type': 'string'}, 'why_now': {'type': 'string'},
-            'revenue': {'type': 'string'}, 'moat': {'type': 'string'}, 'risk': {'type': 'string'}},
-            'required': ['idea', 'customer', 'why_now', 'revenue', 'moat', 'risk'], 'additionalProperties': False}},
-        'gaps': {'type': 'array', 'items': {'type': 'string'}},
-        'opportunities': {'type': 'array', 'items': {'type': 'string'}},
-        'watchlist': {'type': 'array', 'items': {'type': 'string'}}},
-        'required': ['answer', 'competitors', 'differences', 'scenarios', 'business_models', 'commercial_bets',
-            'gaps', 'opportunities', 'watchlist'],
-        'additionalProperties': False}
-    payload = {'topic': topic, 'players': planned['players'], 'web_evidence': web, 'local_evidence': local}
-    return knowledge.codex_json(prompt, payload, schema, STATE / 'answer.json', STATE / 'logs' / 'answer.log')
+def insight(topic, planned, web, local, deep_limit=6, fetcher=None, force=None):
+    import industry_workflow
+    return industry_workflow.insight(topic, planned, web, local, deep_limit, fetcher, force=force)
 
 
 def render(topic, planned, web, local, data, slug):
+    workflow = data.get('_workflow') or {}
+    if not workflow.get('graph'):
+        return _render_snapshot(topic, planned, web, local, data, slug)
+    from industry_graph import Graph, StaleInput
+    graph = Graph(workflow['run_dir'])
+    with graph.locked() as state:
+        expected = workflow['graph']['deliver']['revision']
+        if graph.status_in(state, 'deliver') != 'fresh' or state['nodes']['deliver']['head'] != expected:
+            raise StaleInput('Report is outdated; resume this graph before publishing')
+        return _render_snapshot(topic, planned, web, local, data, slug)
+
+
+def _render_snapshot(topic, planned, web, local, data, slug):
     date = dt.datetime.now(TZ).date().isoformat()
     by_id = {item['id']: item for item in web + local}
-    lines = [f'---\ndate: {date}\ntype: industry-insight\ntopic: "{topic}"\n---', '',
+    graph_meta = data.get('_workflow') or {}
+    graph_stamp = ''
+    if graph_meta.get('graph'):
+        graph_stamp = f'run_graph: {graph_meta["run_dir"]}/graph.json\nartifact_revision: {graph_meta["graph"]["deliver"]["revision"]}\n'
+    lines = [f'---\ndate: {date}\ntype: industry-insight\ntopic: "{topic}"\n{graph_stamp}---', '',
         f'# 业界洞察：{topic}', '',
-        f'联网检索 {len(web)} 个页面 + 本机博客/论文 {len(local)} 条。', '',
-        '## 一句话结论', '', data['answer'], '', '## 竞品清单', '',
+        f'联网检索候选 {len(web)} 条 + 本机博客/论文 {len(local)} 条；正文读取范围见筛选与核验记录。', '',
+        '## 一句话结论与关系变化', '', data['answer'], '',
+        '## 核心体验变化、技术支撑与取舍', '']
+    lines += [f'- {item}' for item in data['differences']]
+    lines += ['', '## 竞品清单（对比底稿）', '',
         '| 竞品 | 公司 | 形态 | 具体做什么 | 交互方式 | 场景 | 成熟度 |', '|---|---|---|---|---|---|---|']
     for row in data['competitors']:
         lines.append(f'| {row["name"]} | {row["company"]} | {row["form"]} | {row["what"]} | '
             f'{row["interaction"]} | {row["scenario"]} | {row["maturity"]} |')
-    lines += ['', '## 差异在哪', '']
-    lines += [f'- {item}' for item in data['differences']]
     lines += ['', '## 场景拆解', '']
     for row in data['scenarios']:
         lines += [f'### {row["scenario"]}', '', f'- 谁在做：{row["who"]}', f'- 做法差异：{row["difference"]}', '']
@@ -230,13 +195,26 @@ def render(topic, planned, web, local, data, slug):
     for row in data['business_models']:
         lines.append(f'| {row["model"]} | {row["examples"]} | {row["who_pays"]} | '
             + '、'.join(row['evidence_ids']) + ' |')
-    lines += ['', '## 可商用变现的切入点', '']
+    lines += ['', '## 可商用变现的切入点（待验证）', '']
     for row in data['commercial_bets']:
         lines += [f'### {row["idea"]}', '', f'- 目标客户：{row["customer"]}', f'- 为什么现在能做：{row["why_now"]}',
             f'- 怎么收钱：{row["revenue"]}', f'- 壁垒：{row["moat"]}', f'- 风险：{row["risk"]}', '']
     lines += ['## 空白与机会', '']
     lines += [f'- **空白**：{item}' for item in data['gaps']]
     lines += [f'- **机会**：{item}' for item in data['opportunities']]
+    workflow = data.get('_workflow')
+    if workflow:
+        lines += ['', '## 本轮收口与待补证据', '',
+                  f'候选证据 {workflow["candidate_count"]} 条；深核 {workflow["deep_count"]} 条。未选条目保留，不表示被证伪。',
+                  '此处是材料核验，不表示实际运行产品测试。', '']
+        for row in workflow['selection']['selected']:
+            lines.append(f'- 深核 `{row["id"]}`：{row["reason"]}')
+        for row in workflow['selection']['deferred']:
+            lines.append(f'- 暂缓 `{row["id"]}`：{row["reason"]}')
+        lines += ['', '### 仍未解决', '']
+        lines += [f'- {gap}' for gap in workflow['verification']['gaps']]
+        lines += [f'- {claim["claim"]}：{claim["limitations"]}' for claim in workflow['verification']['claims'] if claim['status'] == 'unresolved']
+        lines += [f'- {item}' for item in workflow['synthesis']['unresolved']]
     lines += ['', '## 接下来盯什么', ''] + [f'- {item}' for item in data['watchlist']]
     lines += ['', '## 竞品证据', '']
     for row in data['competitors']:
@@ -267,39 +245,67 @@ def build_index():
     research.replace(ROOT / '索引/业界洞察.md', '\n'.join(lines) + '\n')
 
 
+def collect_candidates(planned, settings):
+    print('[2/6] 广搜候选（保留原始池）', flush=True)
+    if settings.get('web_file'):
+        web = json.loads(Path(settings['web_file']).read_text(encoding='utf-8'))
+        for item in web:
+            item.setdefault('kind', 'web'); item.setdefault('text', '')
+    else:
+        web = gather_web(planned['web_queries'], settings['pages'])
+    local = pick_local(gather_local(settings['days']), planned['players'], settings['local_limit'])
+    return web, local
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument('topic')
+    parser.add_argument('topic', nargs='?')
+    parser.add_argument('--resume', type=Path, help='复用已有依赖图，仅重建失效环节')
+    parser.add_argument('--force', choices=['scope','scan','select','selected_evidence','verify','synthesize','deliver'], help='显式重做一个节点；失败保留旧版本')
     parser.add_argument('--days', type=int, default=120)
     parser.add_argument('--slug', default='')
     parser.add_argument('--pages', type=int, default=8)
+    parser.add_argument('--deep-limit', type=int, default=6, help='本轮深核的证据条目上限；不是行业结论的样本分母')
     parser.add_argument('--local-limit', type=int, default=40)
     parser.add_argument('--seed', default='', help='点名要覆盖的竞品/厂商，逗号分隔，如「小艺看世界,Gemini Live」')
     parser.add_argument('--web-file', help='用已经搜好并落盘的网页证据 JSON（[{id,title,url,company,summary}]）')
     args = parser.parse_args()
+    if args.resume:
+        import industry_workflow
+        from industry_graph import Graph
+        graph = Graph(args.resume)
+        settings = graph.load()['meta'].get('acquisition')
+        def acquire(planned):
+            return collect_candidates(planned, settings)
+        planned, web, local, data = industry_workflow.resume(args.resume,
+            acquire=acquire if settings else None,
+            fetcher=None if settings and settings.get('web_file') else page_text,
+            force=args.force)
+        topic = graph.read('request')['topic']
+        slug = args.slug or graph.load()['meta'].get('slug') or re.sub(r'\W+', '-', topic)[:40].strip('-')
+        print('完成 →', render(topic, planned, web, local, data, slug), flush=True)
+        return
+    if not args.topic:
+        parser.error('topic or --resume is required')
+    if args.pages < 1 or args.deep_limit < 1:
+        parser.error('--pages and --deep-limit must be positive')
     STATE.mkdir(parents=True, exist_ok=True)
     OUT.mkdir(parents=True, exist_ok=True)
-    print('[1/4] 拆竞品检索词', flush=True)
+    print('[1–2/6] 定题与广搜计划', flush=True)
     planned = plan(args.topic, args.seed)
     if args.seed:
         planned['players'] = list(dict.fromkeys([p.strip() for p in args.seed.split(',') if p.strip()] + planned['players']))
     print('  玩家：' + '、'.join(planned['players']), flush=True)
     print('  检索：' + '；'.join(planned['web_queries']), flush=True)
-    print('[2/4] 联网找竞品', flush=True)
-    if args.web_file:
-        web = json.loads(Path(args.web_file).read_text(encoding='utf-8'))
-        for item in web:
-            item.setdefault('kind', 'web')
-            item.setdefault('text', '')
-        print(f'  读取网页证据 {len(web)} 条（来自 {args.web_file}）', flush=True)
-    else:
-        web = gather_web(planned['web_queries'], args.pages)
-    print('[3/4] 补本地证据', flush=True)
-    local = pick_local(gather_local(args.days), planned['players'], args.local_limit)
-    print(f'  本地相关 {len(local)} 条', flush=True)
-    print('[4/4] 写对比报告', flush=True)
-    data = insight(args.topic, planned, web, local)
+    from industry_graph import Graph
+    settings = {'days': args.days, 'pages': args.pages, 'local_limit': args.local_limit,
+                'web_file': str(Path(args.web_file).resolve()) if args.web_file else None}
+    Graph(planned['_run_dir']).set_meta(acquisition=settings, slug=args.slug)
+    web, local = collect_candidates(planned, settings)
+    print('[3–6/6] 筛选、深核、综合与决策', flush=True)
+    data = insight(args.topic, planned, web, local, min(args.pages, args.deep_limit),
+                   fetcher=None if args.web_file else page_text, force=args.force)
     slug = args.slug or re.sub(r'\W+', '-', args.topic)[:40].strip('-')
     print('完成 →', render(args.topic, planned, web, local, data, slug), flush=True)
 

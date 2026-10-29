@@ -61,3 +61,27 @@ python3 src/evaluate.py --memory frozen-memory.json --cases heldout-cases.json -
 - publish_review.py 只同步本功能页面，手写路线与反馈按共同版本合并；冲突不覆盖。sync_cloud 已对路线页使用此入口，并排除 rubrics 原始对话与运行数据的新同步。
 - 通过本轮用户明确请求新增两条有来源的已确认标准；旧草稿没有批量确认。自动注入的 AGENTS 指令标识为 injected_context，不能用来证明用户的新价值评价。
 - 挂载开关控制评价注入；关闭注入不会自动关闭每日采集或路线 heartbeat，二者独立。
+
+
+## Hourglass workflow (2026-10-29)
+
+The runtime source of truth is `配置/洞察标准/阶段卡.json`. Each call loads three common rules and one stage card. Detailed references and raw rubric genomes stay outside runtime prompts.
+
+Stages: scope, scan, select, verify, synthesize, deliver. Inspect one stage using bridge.py with task=industry_insight and stage=verify; no stage returns navigation only.
+
+All discovered candidates and intermediate artifacts are preserved under `.research/industry/runs/`. Deep-review budgets are not statistical sample sizes. Supplied --web-file evidence is not automatically fetched again.
+
+The five previously proposed improvements are now approved and stage-scoped. Model calls increase from two to six to isolate tasks; total cost and report quality have not been benchmarked. Tests passed: 37. Standard context: 243-325 characters per stage versus 5513 previously, excluding other instructions, payloads and output schemas.
+
+
+## 依赖图、版本与可见进度（2026-10-29）
+
+业界洞察六阶段使用 `scripts/industry_graph.py` 保留不可变产物与真实依赖。支持失效、修正、撤销、历史恢复与增量续跑；未采用来源的正文改变不会让整份报告重做。当前按阶段构图，尚未细分为每条主张。
+
+Git 管理实现、schema 与标准；私有运行材料不入公开代码仓库。每次模型阶段保存当时 Git 和文件哈希。`graph.json` 分开记录执行状态与产物有效性，保留事件、起止时间、耗时和错误类型。模型请求、阶段标准、输出及日志留在本地 attempts 目录。
+
+Obsidian 今日简报顶部的「运行总览」展示真实运行记录；暂无运行时明确显示未运行，不把测试或旧报告冒充上线验收。图状态变更刷新本地页，activity 与 publish_review 也刷新；后者同步到 iCloud，保留手写内容。代码入口 `python3 -B scripts/industry_status.py`；局部操作见 `配置/洞察标准/依赖图与局部重做.md`。
+
+CLI 是 AGENTS 指令约定调用桥接器；生成脚本是在调用前程序化注入阶段标准；Obsidian 是文件入口与展示。没有安装新的模型插件或外部编排器。已查官方文档比较 Prefect / Dagster / DVC，服务化时优先验证 Prefect；当前官方版需 Python 3.11+，本机默认 3.9，尚未安装。
+
+本轮 58 项本地测试通过，覆盖失效传播、分支复用、恢复、失败保留、竞态提交、状态展示与同步保护。没有为本轮检查调用模型或生成新市场报告；真实六环节端到端效果仍待验收。

@@ -65,6 +65,30 @@ class IntegrationTests(unittest.TestCase):
         self.assertEqual(publish_review.merge_manual('base', 'base\nlocal', 'base\nphone'), 'base\nlocal\nphone')
         with self.assertRaises(ValueError): publish_review.merge_manual('base', 'local edit', 'phone edit')
 
+    def test_custom_sync_markers_and_home_navigation_preserve_manual_text(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'page.md';p.write_text('# Title\n\n用户手写\n')
+            activity.replace_block(p,'first',start='<!-- x -->',end='<!-- /x -->',top=True)
+            activity.replace_block(p,'second',start='<!-- x -->',end='<!-- /x -->',top=True)
+            text=p.read_text()
+            self.assertIn('用户手写',text)
+            self.assertEqual(text.count('<!-- x -->'),1)
+            self.assertLess(text.index('second'),text.index('用户手写'))
+            self.assertNotIn(activity.START,text)
+
+    def test_publisher_keeps_flywheel_marker_namespace(self):
+        with tempfile.TemporaryDirectory() as d:
+            root,cloud=Path(d)/'local',Path(d)/'cloud'
+            (root/'研究路线').mkdir(parents=True);cloud.mkdir()
+            start,end='<!-- flywheel:start -->','<!-- flywheel:end -->'
+            (root/'研究路线/飞轮.md').write_text('# 飞轮\n'+start+'\n真实状态\n'+end)
+            (cloud/'研究路线').mkdir()
+            (cloud/'研究路线/飞轮.md').write_text('# 飞轮\n'+activity.START+'\n旧状态\n'+activity.END+'\n手机备注')
+            publish_review.publish(root,cloud)
+            value=(cloud/'研究路线/飞轮.md').read_text()
+            self.assertIn(start,value);self.assertNotIn(activity.START,value)
+            self.assertIn('手机备注',value)
+
     def test_mount_off_returns_no_context(self):
         with patch.object(config, 'is_mounted', return_value=False):
             self.assertEqual(bridge.context({'project': 'research'}), '')

@@ -29,16 +29,22 @@ def topics(text):
     return [name for name, pattern in RULES.items() if re.search(pattern, text, re.I)] or ['未分类']
 
 
-def replace_block(path, generated, title=''):
+def replace_block(path, generated, title='', start=START, end=END, top=False):
     path.parent.mkdir(parents=True, exist_ok=True)
     body = path.read_text() if path.exists() else title + '\n\n'
-    block = START + '\n' + generated.rstrip() + '\n' + END
-    if START in body:
-        if body.count(START) != 1 or body.count(END) != 1:
+    block = start + '\n' + generated.rstrip() + '\n' + end
+    if start in body or end in body:
+        if body.count(start) != 1 or body.count(end) != 1:
             raise ValueError(f'broken managed markers: {path}')
-        head, tail = body.split(START, 1)
-        _, rest = tail.split(END, 1)
+        head, tail = body.split(start, 1)
+        if end not in tail: raise ValueError(f'reversed managed markers: {path}')
+        _, rest = tail.split(end, 1)
         body = head + block + rest
+    elif top:
+        # Keep YAML and the first heading intact, place navigation above the long feed.
+        match = re.search(r'^# [^\n]*\n', body, re.M)
+        offset = match.end() if match else 0
+        body = body[:offset] + '\n' + block + '\n\n' + body[offset:].lstrip('\n')
     else:
         body = body.rstrip() + '\n\n' + block + '\n'
     path.write_text(body)
@@ -161,6 +167,15 @@ def run(root=ROOT, day=None):
         summary += ['', '原始对话和完整基因组不复制到此页面。草稿可以辅助理解，但不能当作已确认偏好。',
                     '当前新建规则只来自本次明确授权，历史 89 条没有被批量确认。']
         replace_block(root / '研究路线/评价体系.md', '\n'.join(summary), '# 评价体系')
+        status_script = root / 'scripts/industry_status.py'
+        if status_script.exists():
+            import importlib.util
+            spec = importlib.util.spec_from_file_location('research_industry_status', status_script)
+            module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
+            sys_path = str(root / 'scripts')
+            import sys
+            if sys_path not in sys.path: sys.path.insert(0, sys_path)
+            module.refresh(root)
         print(f'关注快照：{len(events)} 条证据，近14天主动表达 {len(personal)} 条；{root / "研究路线/近期关注.md"}')
         return state
 

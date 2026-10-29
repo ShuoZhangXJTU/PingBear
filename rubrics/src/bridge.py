@@ -14,6 +14,9 @@ ROOT = Path(__file__).resolve().parents[2]
 def context(snapshot):
     if not config.is_mounted():
         return ''
+    if snapshot.get('task') == 'industry_insight':
+        import insight_policy
+        return insight_policy.render(snapshot.get('stage'))
     result = mount.render(snapshot)
     if snapshot.get('project') == 'research':
         result += '\n科研路线：归档、提问、灵感是主动信号；日报采集不等于个人关注。不得凭无记录判断没有做。'

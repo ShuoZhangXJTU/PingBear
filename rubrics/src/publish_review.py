@@ -30,6 +30,13 @@ def merge_manual(base, local, remote):
 def publish(root=ROOT, cloud=CLOUD):
     if not cloud.exists():
         raise FileNotFoundError('iCloud research vault is unavailable')
+    # Refresh execution evidence before exporting; no model call and no route edits.
+    if (root / 'scripts/industry_status.py').exists():
+        import importlib.util
+        sys.path.insert(0, str(root / 'scripts'))
+        spec = importlib.util.spec_from_file_location('research_industry_status', root / 'scripts/industry_status.py')
+        module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
+        module.refresh(root)
     state_path = root / '.research/rubrics/cloud-sync.json'
     state = json.loads(state_path.read_text()) if state_path.exists() else {}
     conflicts = []
@@ -54,7 +61,8 @@ def publish(root=ROOT, cloud=CLOUD):
         state[name] = value
     # 每个页面用各自的区块标记：近期关注/评价体系 用 attention 标记，飞轮页用自己的。
     blocks = {'近期关注.md': (START, END), '评价体系.md': (START, END),
-        '飞轮.md': ('<!-- flywheel:start -->', '<!-- flywheel:end -->')}
+        '飞轮.md': ('<!-- flywheel:start -->', '<!-- flywheel:end -->'),
+        '运行总览.md': ('<!-- research:control:start -->', '<!-- research:control:end -->')}
     for name in blocks:
         local, remote = root / '研究路线' / name, cloud / '研究路线' / name
         if local.exists():
@@ -64,12 +72,17 @@ def publish(root=ROOT, cloud=CLOUD):
                 print(f'跳过 {name}：找不到区块标记')
                 continue
             content = text.split(start, 1)[1].split(end, 1)[0].strip()
-            replace_block(remote, content, '# ' + name[:-3])
-    links = ('[[研究路线/飞轮|科研飞轮]] · [[研究路线/近期关注|近期关注]] · [[研究路线/当前路线|当前路线]] · '
+            # Older versions exported the flywheel block using attention markers.
+            if name == '飞轮.md' and remote.exists():
+                old_text = remote.read_text()
+                if start not in old_text and old_text.count(START) == old_text.count(END) == 1:
+                    remote.write_text(old_text.replace(START, start).replace(END, end))
+            replace_block(remote, content, '# ' + name[:-3], start=start, end=end)
+    links = ('[[研究路线/运行总览|运行总览]] · [[研究路线/飞轮|科研飞轮]] · [[研究路线/近期关注|近期关注]] · [[研究路线/当前路线|当前路线]] · '
         '[[研究路线/审视记录|路线审视]] · [[研究路线/评价体系|评价体系]] · [[索引/调研|调研]] · [[索引/业界洞察|业界洞察]]')
     for home in (root / '今日简报.md', cloud / '今日简报.md'):
         if home.exists():
-            replace_block(home, links)
+            replace_block(home, links, start='<!-- research:navigation:start -->', end='<!-- research:navigation:end -->', top=True)
     state_path.parent.mkdir(parents=True, exist_ok=True)
     state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2))
     if conflicts:
