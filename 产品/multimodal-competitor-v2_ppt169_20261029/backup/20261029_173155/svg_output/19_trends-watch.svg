@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">趋势与观察清单</text>
+    <text x="60" y="82" font-size="32">未来竞争从“看得见”走向“判断何时帮、帮到哪一步”</text>
+  </g>
+  <g id="trend-and-watch" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="148" font-size="15" fill="#4D4942">四条趋势不是空泛预测：每一条都已有产品信号，也都还缺关键指标。</text>
+    <line x1="60" y1="164" x2="1220" y2="164" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="198" font-size="15" font-weight="700" fill="#6B6760">变化</text>
+    <text x="360" y="198" font-size="15" font-weight="700" fill="#6B6760">已发生信号</text>
+    <text x="760" y="198" font-size="15" font-weight="700" fill="#6B6760">还要看什么</text>
+
+    <text x="60" y="246" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">单次识别 → 连续协作</text>
+    <text x="360" y="246" font-size="15" fill="#3F3B35">Lens 实时取景 → Gemini Live → Guided Vision</text>
+    <text x="760" y="246" font-size="15" fill="#3F3B35">打断、镜头纠正、断线恢复、任务成功率</text>
+    <line x1="60" y1="266" x2="1220" y2="266" stroke="#D6CFC3" stroke-width="1"/>
+
+    <text x="60" y="314" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">被动回答 → 主动提醒</text>
+    <text x="360" y="314" font-size="15" fill="#3F3B35">Snap anticipatory AI；Guided Vision 主动纠错</text>
+    <text x="760" y="314" font-size="15" fill="#3F3B35">误触发、打扰成本、关闭机制、何时应沉默</text>
+    <line x1="60" y1="334" x2="1220" y2="334" stroke="#D6CFC3" stroke-width="1"/>
+
+    <text x="60" y="382" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">给答案 → 完成任务</text>
+    <text x="360" y="382" font-size="15" fill="#3F3B35">Copilot 高亮；Bixby 系统控制；夸克支付/导航</text>
+    <text x="760" y="382" font-size="15" fill="#3F3B35">权限确认、校验、撤销、人工接管、责任边界</text>
+    <line x1="60" y1="402" x2="1220" y2="402" stroke="#D6CFC3" stroke-width="1"/>
+
+    <text x="60" y="442" font-family="SimSun" font-size="23" font-weight="700" fill="#1D1C19">单体 Agent → 垂直闭环</text>
+    <text x="360" y="442" font-size="14" fill="#3F3B35">Muse Network、Personal Agent Protocol<tspan x="360" dy="22">＋无障碍、现场作业、座舱工作流</tspan></text>
+    <text x="760" y="442" font-size="14" fill="#3F3B35">权限、责任、互操作、费率与复购<tspan x="760" dy="22">能否形成可信网络</tspan></text>
+
+    <line x1="60" y1="478" x2="1220" y2="478" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="510" font-size="15" font-weight="700" fill="#C14E2C">接下来重点盯</text>
+    <text x="180" y="510" font-size="14" fill="#3F3B35">① 企业是否为 AI 视觉单独报价</text>
+    <text x="470" y="510" font-size="14" fill="#3F3B35">② 平台是否公开真实任务成功率</text>
+    <text x="790" y="510" font-size="14" fill="#3F3B35">③ 开源方案的生产延迟与总成本</text>
+    <text x="60" y="540" font-size="14" fill="#3F3B35">④ 眼镜的长期佩戴与活跃率</text>
+    <text x="340" y="540" font-size="14" fill="#3F3B35">⑤ 座舱/家庭摄像头的隐私与误报</text>
+    <text x="680" y="540" font-size="14" fill="#3F3B35">⑥ 系统操作是否可撤销、可审计</text>
+    <text x="1010" y="540" font-size="14" fill="#3F3B35">⑦ 人工接管成本</text>
+
+    <rect x="60" y="568" width="1160" height="46" fill="#1F5A49" fill-opacity="0.08"/>
+    <text x="76" y="598" font-family="SimSun" font-size="20" font-weight="700" fill="#1F5A49">分：最值得投资的不是又一个多模态入口，而是能测量并改进任务完成率的系统。</text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">综合三份报告的“趋势、空白与接下来盯什么”</text>
+    <text x="1220" y="672" text-anchor="end">19 / 21</text>
+  </g>
+</svg>

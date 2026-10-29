@@ -1,0 +1,1475 @@
+{
+  "schema": "ppt-master.svg-quality-report.v1",
+  "stage": "final",
+  "target": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029",
+  "source_fingerprint": {
+    "algorithm": "sha256",
+    "digest": "ad2a1fe20aa02f84f593c286b5cf6fac61caeb6c1fd58b5b1840ae5dac6b8203",
+    "file_count": 21,
+    "files": [
+      {
+        "file": "01_cover.svg",
+        "sha256": "6dfb19ad5bd7f96b382572038438f95c1844ac3bdcabe76db0660c3161733728"
+      },
+      {
+        "file": "02_definition.svg",
+        "sha256": "582aee59c93866bf60bb736b9419afb859ad71a75320d785c65bbe92b3d7aa47"
+      },
+      {
+        "file": "03_2011_2017.svg",
+        "sha256": "715308d6abaf2890d09d1f26a33a4af7eaf5494d5bebf9293a4e2e202596c8f7"
+      },
+      {
+        "file": "04_2018_2019.svg",
+        "sha256": "02dd7ecbe8557db58c74ff7036b388d0f151e864b13000ee7e0c28bf7c023627"
+      },
+      {
+        "file": "05_2020_2021.svg",
+        "sha256": "da5dc27c5f58b73aaf8225215008426d265c8bba66a909cd5470cdfe3aaaeaba"
+      },
+      {
+        "file": "06_2022_2023.svg",
+        "sha256": "bd0f4fb23e3492847401102bf970e6139408638e6b255a7a13bababd02e63f95"
+      },
+      {
+        "file": "07_2024.svg",
+        "sha256": "31ecc3ed04b23076d08b6105e8213852ccfa18980625bf7695ed2923de2582da"
+      },
+      {
+        "file": "08_2025_2026.svg",
+        "sha256": "8ced08cce99b4fc159405d274ac15436b3809f82c0160cc3a4a4fc66e32f1e8f"
+      },
+      {
+        "file": "09_market-map.svg",
+        "sha256": "08e042bbc5071fc5ac2e79a93c2fa183b105da1eca97060702038812e283e4f9"
+      },
+      {
+        "file": "10_assistants.svg",
+        "sha256": "6fe2d846fbef08af94e323ceefcbe01bc6e2316c74a02335e4878deea5df0547"
+      },
+      {
+        "file": "11_wearables.svg",
+        "sha256": "f48b5085dda0845027f9e10bb3a27168469a7e955065f6167abaa3e41bce6708"
+      },
+      {
+        "file": "12_tv_home.svg",
+        "sha256": "ba47bd859961c867678264167c8d034c51356f604489884f0c4761b02773c409"
+      },
+      {
+        "file": "13_car-spatial.svg",
+        "sha256": "2337a447becdf607165c47d65ca3b0d6eed08a3aff0d2ce40fe0511e290443f7"
+      },
+      {
+        "file": "14_accessibility.svg",
+        "sha256": "53c1a7de9bc18535439cadb6e475953f817090fe2953f65a4c213c3b7a71caec"
+      },
+      {
+        "file": "15_infrastructure.svg",
+        "sha256": "96a6aada81f7050c5713d375922422b23c4aa79056d380c169be7b6497a85ecf"
+      },
+      {
+        "file": "16_reception.svg",
+        "sha256": "78927c55968b52fe1c2ffacd6ddc2b3034d3ebb3d6a085270e1f6a25e8eb471b"
+      },
+      {
+        "file": "17_success-business.svg",
+        "sha256": "e99fbeded127db51977209d8bd477c19be6bfb08fbcf0a617cf69b8b223acad3"
+      },
+      {
+        "file": "18_opportunities.svg",
+        "sha256": "4b9e644b82706aa59e903f6f2c9973620417ed6d024c2ad18ceaa52819b8e4f4"
+      },
+      {
+        "file": "19_trends-watch.svg",
+        "sha256": "2b16eae37c486993bbb04be3e148d0defcc9d1418f2cf07cd7d6ea2c13e0a4f7"
+      },
+      {
+        "file": "20_date-audit.svg",
+        "sha256": "413b862bfc9518f672b486e2f119bccc8374d85ec2c487647cc6551dfdd6d7dd"
+      },
+      {
+        "file": "21_sources-coverage.svg",
+        "sha256": "ba8a28a685e8f92414bfd35047cd9509e1234aae7699e556f4df7ad80ff13309"
+      }
+    ]
+  },
+  "summary": {
+    "total": 21,
+    "passed": 13,
+    "warnings": 8,
+    "errors": 0
+  },
+  "issue_types": {},
+  "categories": {
+    "blocking": {
+      "count": 0,
+      "issues": []
+    },
+    "introduced": {
+      "count": 8,
+      "issues": [
+        {
+          "file": "01_cover.svg",
+          "message": "Detected 1 paragraph-like line run(s) split across sibling <text> elements (<g id=\"cover-tracks\"> x=700.0, y=518.0..546.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+        },
+        {
+          "file": "05_2020_2021.svg",
+          "message": "Detected 2 paragraph-like line run(s) split across sibling <text> elements (<g id=\"period-2020-21\"> x=450.0, y=282.0..308.0, 2 lines; <g id=\"period-2020-21\"> x=840.0, y=378.0..404.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+        },
+        {
+          "file": "08_2025_2026.svg",
+          "message": "Detected 4 paragraph-like line run(s) split across sibling <text> elements (<g id=\"terminal-and-interaction\"> x=78.0, y=422.0..462.0, 3 lines; <g id=\"terminal-and-interaction\"> x=408.0, y=422.0..442.0, 2 lines; <g id=\"terminal-and-interaction\"> x=690.0, y=422.0..442.0, 2 lines; +1 more). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+        },
+        {
+          "file": "09_market-map.svg",
+          "message": "Detected 8 paragraph-like line run(s) split across sibling <text> elements (<g id=\"five-category-map\"> x=60.0, y=254.0..326.0, 4 lines; <g id=\"five-category-map\"> x=294.0, y=254.0..326.0, 4 lines; <g id=\"five-category-map\"> x=520.0, y=254.0..278.0, 2 lines; +5 more). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+        },
+        {
+          "file": "12_tv_home.svg",
+          "message": "Detected 3 paragraph-like line run(s) split across sibling <text> elements (<g id=\"tv-home\"> x=462.0, y=474.0..500.0, 2 lines; <g id=\"tv-home\"> x=852.0, y=382.0..408.0, 2 lines; <g id=\"tv-home\"> x=852.0, y=474.0..500.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+        },
+        {
+          "file": "14_accessibility.svg",
+          "message": "Detected 3 paragraph-like line run(s) split across sibling <text> elements (<g id=\"accessibility-matrix\"> x=370.0, y=244.0..270.0, 2 lines; <g id=\"accessibility-matrix\"> x=370.0, y=404.0..430.0, 2 lines; <g id=\"accessibility-matrix\"> x=370.0, y=484.0..510.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+        },
+        {
+          "file": "17_success-business.svg",
+          "message": "Detected 1 paragraph-like line run(s) split across sibling <text> elements (<g id=\"mechanisms-and-models\"> x=60.0, y=566.0..594.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+        },
+        {
+          "file": "18_opportunities.svg",
+          "message": "Detected 6 paragraph-like line run(s) split across sibling <text> elements (<g id=\"opportunity-grid\"> x=60.0, y=242.0..264.0, 2 lines; <g id=\"opportunity-grid\"> x=365.0, y=242.0..264.0, 2 lines; <g id=\"opportunity-grid\"> x=655.0, y=242.0..264.0, 2 lines; +3 more). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+        }
+      ]
+    },
+    "inherited": {
+      "count": 0,
+      "issues": []
+    },
+    "source-import": {
+      "count": 0,
+      "summary": {
+        "warning_count": 0,
+        "by_code": {}
+      }
+    }
+  },
+  "drift": {
+    "colors": {},
+    "fonts": {},
+    "sizes": {}
+  },
+  "carrier_receipt": {
+    "scope": "informational-not-a-quota",
+    "pages": 21,
+    "totals": {
+      "text_elements": 820,
+      "image_placements": 0,
+      "icons": 0,
+      "svg_geometry_elements": 121,
+      "preset_shapes": 0,
+      "page_frame_elements": 22,
+      "marker_uses": 0,
+      "inline_emphasis_runs": 0,
+      "gradient_uses": 0,
+      "filter_uses": 0,
+      "text_effects": 0
+    },
+    "pages_with": {
+      "images": 0,
+      "icons": 0,
+      "presets": 0,
+      "charts": 0,
+      "tables": 0,
+      "formulas": 0,
+      "inline_emphasis_runs": 0,
+      "gradient_uses": 0,
+      "filter_uses": 0,
+      "text_effects": 0
+    },
+    "relationship_pages": null,
+    "geometry_elements": {
+      "circle": 16,
+      "ellipse": 0,
+      "line": 60,
+      "path": 0,
+      "polygon": 0,
+      "polyline": 0,
+      "rect": 45
+    },
+    "preset_names": {},
+    "native_objects": {
+      "chart": 0,
+      "formula_block": 0,
+      "formula_inline": 0,
+      "other": 0,
+      "table": 0
+    },
+    "image_page_max_frame_share_range": []
+  },
+  "project_issues": {
+    "template": [],
+    "animation": [],
+    "illustration": [],
+    "communication_trace": [],
+    "pptx_structure": []
+  },
+  "files": [
+    {
+      "file": "01_cover.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/01_cover.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Detected 1 paragraph-like line run(s) split across sibling <text> elements (<g id=\"cover-tracks\"> x=700.0, y=518.0..546.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+      ],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 22,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 2,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 3,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 2,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 22,
+        "tspan_elements": 2
+      },
+      "passed": true,
+      "source_sha256": "6dfb19ad5bd7f96b382572038438f95c1844ac3bdcabe76db0660c3161733728"
+    },
+    {
+      "file": "02_definition.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/02_definition.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 32,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 7,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 1,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 32,
+        "tspan_elements": 5
+      },
+      "passed": true,
+      "source_sha256": "582aee59c93866bf60bb736b9419afb859ad71a75320d785c65bbe92b3d7aa47"
+    },
+    {
+      "file": "03_2011_2017.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/03_2011_2017.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 32,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 1,
+              "circle": 7,
+              "ellipse": 0,
+              "line": 3,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 32,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "715308d6abaf2890d09d1f26a33a4af7eaf5494d5bebf9293a4e2e202596c8f7"
+    },
+    {
+      "file": "04_2018_2019.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/04_2018_2019.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 24,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 3,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 1,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 24,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "02dd7ecbe8557db58c74ff7036b388d0f151e864b13000ee7e0c28bf7c023627"
+    },
+    {
+      "file": "05_2020_2021.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/05_2020_2021.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Detected 2 paragraph-like line run(s) split across sibling <text> elements (<g id=\"period-2020-21\"> x=450.0, y=282.0..308.0, 2 lines; <g id=\"period-2020-21\"> x=840.0, y=378.0..404.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+      ],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 34,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 1,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 4,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 34,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "da5dc27c5f58b73aaf8225215008426d265c8bba66a909cd5470cdfe3aaaeaba"
+    },
+    {
+      "file": "06_2022_2023.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/06_2022_2023.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 30,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 2,
+              "circle": 4,
+              "ellipse": 0,
+              "line": 2,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 30,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "bd0f4fb23e3492847401102bf970e6139408638e6b255a7a13bababd02e63f95"
+    },
+    {
+      "file": "07_2024.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/07_2024.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 36,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 1,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 4,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 36,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "31ecc3ed04b23076d08b6105e8213852ccfa18980625bf7695ed2923de2582da"
+    },
+    {
+      "file": "08_2025_2026.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/08_2025_2026.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Detected 4 paragraph-like line run(s) split across sibling <text> elements (<g id=\"terminal-and-interaction\"> x=78.0, y=422.0..462.0, 3 lines; <g id=\"terminal-and-interaction\"> x=408.0, y=422.0..442.0, 2 lines; <g id=\"terminal-and-interaction\"> x=690.0, y=422.0..442.0, 2 lines; +1 more). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+      ],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 47,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 2,
+              "circle": 5,
+              "ellipse": 0,
+              "line": 2,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 47,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "8ced08cce99b4fc159405d274ac15436b3809f82c0160cc3a4a4fc66e32f1e8f"
+    },
+    {
+      "file": "09_market-map.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/09_market-map.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Detected 8 paragraph-like line run(s) split across sibling <text> elements (<g id=\"five-category-map\"> x=60.0, y=254.0..326.0, 4 lines; <g id=\"five-category-map\"> x=294.0, y=254.0..326.0, 4 lines; <g id=\"five-category-map\"> x=520.0, y=254.0..278.0, 2 lines; +5 more). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+      ],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 62,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 1,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 5,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 62,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "08e042bbc5071fc5ac2e79a93c2fa183b105da1eca97060702038812e283e4f9"
+    },
+    {
+      "file": "10_assistants.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/10_assistants.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 51,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 1,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 2,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 51,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "6fe2d846fbef08af94e323ceefcbe01bc6e2316c74a02335e4878deea5df0547"
+    },
+    {
+      "file": "11_wearables.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/11_wearables.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 26,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 4,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 1,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 26,
+        "tspan_elements": 1
+      },
+      "passed": true,
+      "source_sha256": "f48b5085dda0845027f9e10bb3a27168469a7e955065f6167abaa3e41bce6708"
+    },
+    {
+      "file": "12_tv_home.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/12_tv_home.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Detected 3 paragraph-like line run(s) split across sibling <text> elements (<g id=\"tv-home\"> x=462.0, y=474.0..500.0, 2 lines; <g id=\"tv-home\"> x=852.0, y=382.0..408.0, 2 lines; <g id=\"tv-home\"> x=852.0, y=474.0..500.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+      ],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 41,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 1,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 3,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 41,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "ba47bd859961c867678264167c8d034c51356f604489884f0c4761b02773c409"
+    },
+    {
+      "file": "13_car-spatial.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/13_car-spatial.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 32,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 2,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 2,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 32,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "2337a447becdf607165c47d65ca3b0d6eed08a3aff0d2ce40fe0511e290443f7"
+    },
+    {
+      "file": "14_accessibility.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/14_accessibility.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Detected 3 paragraph-like line run(s) split across sibling <text> elements (<g id=\"accessibility-matrix\"> x=370.0, y=244.0..270.0, 2 lines; <g id=\"accessibility-matrix\"> x=370.0, y=404.0..430.0, 2 lines; <g id=\"accessibility-matrix\"> x=370.0, y=484.0..510.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+      ],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 40,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 1,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 4,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 40,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "53c1a7de9bc18535439cadb6e475953f817090fe2953f65a4c213c3b7a71caec"
+    },
+    {
+      "file": "15_infrastructure.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/15_infrastructure.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 35,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 6,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 1,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 35,
+        "tspan_elements": 2
+      },
+      "passed": true,
+      "source_sha256": "96a6aada81f7050c5713d375922422b23c4aa79056d380c169be7b6497a85ecf"
+    },
+    {
+      "file": "16_reception.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/16_reception.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 35,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 4,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 1,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 35,
+        "tspan_elements": 5
+      },
+      "passed": true,
+      "source_sha256": "78927c55968b52fe1c2ffacd6ddc2b3034d3ebb3d6a085270e1f6a25e8eb471b"
+    },
+    {
+      "file": "17_success-business.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/17_success-business.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Detected 1 paragraph-like line run(s) split across sibling <text> elements (<g id=\"mechanisms-and-models\"> x=60.0, y=566.0..594.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+      ],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 30,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 1,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 3,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 30,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "e99fbeded127db51977209d8bd477c19be6bfb08fbcf0a617cf69b8b223acad3"
+    },
+    {
+      "file": "18_opportunities.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/18_opportunities.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [
+        "Detected 6 paragraph-like line run(s) split across sibling <text> elements (<g id=\"opportunity-grid\"> x=60.0, y=242.0..264.0, 2 lines; <g id=\"opportunity-grid\"> x=365.0, y=242.0..264.0, 2 lines; <g id=\"opportunity-grid\"> x=655.0, y=242.0..264.0, 2 lines; +3 more). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+      ],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 38,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 1,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 6,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 38,
+        "tspan_elements": 2
+      },
+      "passed": true,
+      "source_sha256": "4b9e644b82706aa59e903f6f2c9973620417ed6d024c2ad18ceaa52819b8e4f4"
+    },
+    {
+      "file": "19_trends-watch.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/19_trends-watch.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 29,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 2,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 5,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 29,
+        "tspan_elements": 2
+      },
+      "passed": true,
+      "source_sha256": "2b16eae37c486993bbb04be3e148d0defcc9d1418f2cf07cd7d6ea2c13e0a4f7"
+    },
+    {
+      "file": "20_date-audit.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/20_date-audit.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 96,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 1,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 2,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 96,
+        "tspan_elements": 0
+      },
+      "passed": true,
+      "source_sha256": "413b862bfc9518f672b486e2f119bccc8374d85ec2c487647cc6551dfdd6d7dd"
+    },
+    {
+      "file": "21_sources-coverage.svg",
+      "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/svg_output/21_sources-coverage.svg",
+      "exists": true,
+      "errors": [],
+      "warnings": [],
+      "info": {
+        "viewbox": "0 0 1280 720",
+        "carrier_receipt": {
+          "text_elements": 48,
+          "images": {
+            "placements": 0,
+            "files": [],
+            "max_frame_share": 0.0
+          },
+          "icons": 0,
+          "effects": {
+            "inline_emphasis_runs": 0,
+            "gradient_uses": 0,
+            "filter_uses": 0,
+            "text_effects": 0
+          },
+          "geometry": {
+            "svg_elements": {
+              "rect": 1,
+              "circle": 0,
+              "ellipse": 0,
+              "line": 5,
+              "polyline": 0,
+              "polygon": 0,
+              "path": 0
+            },
+            "preset_shapes": 0,
+            "preset_names": {},
+            "page_frame_elements": 1,
+            "marker_uses": {
+              "start": 0,
+              "mid": 0,
+              "end": 0
+            }
+          },
+          "native_objects": {
+            "chart": 0,
+            "table": 0,
+            "formula_block": 0,
+            "formula_inline": 0,
+            "other": 0
+          }
+        },
+        "fonts": [
+          "Microsoft YaHei",
+          "SimSun"
+        ],
+        "text_elements": 48,
+        "tspan_elements": 0,
+        "hyperlinks": 21
+      },
+      "passed": true,
+      "source_sha256": "ba8a28a685e8f92414bfd35047cd9509e1234aae7699e556f4df7ad80ff13309"
+    }
+  ]
+}

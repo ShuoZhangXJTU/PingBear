@@ -1,0 +1,106 @@
+{
+  "roles": {
+    "body": {
+      "family": "Microsoft YaHei",
+      "size": 18.0,
+      "weight": "normal",
+      "cjk_chars_per_100px": 5.2,
+      "latin_chars_per_100px": 10.8,
+      "caps_chars_per_100px": 10.0,
+      "digits_chars_per_100px": 9.5,
+      "citation_chars_per_100px": 10.0,
+      "script_clusters_per_100px": {},
+      "longest_planned_line": null
+    },
+    "subtitle": {
+      "family": "Microsoft YaHei",
+      "size": 22.0,
+      "weight": "normal",
+      "cjk_chars_per_100px": 4.3,
+      "latin_chars_per_100px": 8.8,
+      "caps_chars_per_100px": 8.2,
+      "digits_chars_per_100px": 7.8,
+      "citation_chars_per_100px": 8.2,
+      "script_clusters_per_100px": {},
+      "longest_planned_line": null
+    },
+    "annotation": {
+      "family": "Microsoft YaHei",
+      "size": 14.0,
+      "weight": "normal",
+      "cjk_chars_per_100px": 6.7,
+      "latin_chars_per_100px": 13.9,
+      "caps_chars_per_100px": 12.8,
+      "digits_chars_per_100px": 12.3,
+      "citation_chars_per_100px": 12.9,
+      "script_clusters_per_100px": {},
+      "longest_planned_line": null
+    },
+    "cover-title": {
+      "family": "SimSun",
+      "size": 54.0,
+      "weight": "normal",
+      "cjk_chars_per_100px": 1.7,
+      "latin_chars_per_100px": 3.3,
+      "caps_chars_per_100px": 2.7,
+      "digits_chars_per_100px": 3.0,
+      "citation_chars_per_100px": 3.0,
+      "script_clusters_per_100px": {},
+      "longest_planned_line": null
+    },
+    "display": {
+      "family": "SimSun",
+      "size": 48.0,
+      "weight": "normal",
+      "cjk_chars_per_100px": 1.9,
+      "latin_chars_per_100px": 3.7,
+      "caps_chars_per_100px": 3.1,
+      "digits_chars_per_100px": 3.4,
+      "citation_chars_per_100px": 3.4,
+      "script_clusters_per_100px": {},
+      "longest_planned_line": null
+    },
+    "footnote": {
+      "family": "Microsoft YaHei",
+      "size": 12.0,
+      "weight": "normal",
+      "cjk_chars_per_100px": 7.9,
+      "latin_chars_per_100px": 16.2,
+      "caps_chars_per_100px": 15.0,
+      "digits_chars_per_100px": 14.3,
+      "citation_chars_per_100px": 15.0,
+      "script_clusters_per_100px": {},
+      "longest_planned_line": null
+    },
+    "lead": {
+      "family": "Microsoft YaHei",
+      "size": 22.0,
+      "weight": "normal",
+      "cjk_chars_per_100px": 4.3,
+      "latin_chars_per_100px": 8.8,
+      "caps_chars_per_100px": 8.2,
+      "digits_chars_per_100px": 7.8,
+      "citation_chars_per_100px": 8.2,
+      "script_clusters_per_100px": {},
+      "longest_planned_line": null
+    },
+    "page-title": {
+      "family": "SimSun",
+      "size": 32.0,
+      "weight": "normal",
+      "cjk_chars_per_100px": 2.8,
+      "latin_chars_per_100px": 5.6,
+      "caps_chars_per_100px": 4.6,
+      "digits_chars_per_100px": 5.1,
+      "citation_chars_per_100px": 5.1,
+      "script_clusters_per_100px": {},
+      "longest_planned_line": null
+    }
+  },
+  "script_samples": {},
+  "source": "--role",
+  "generated_at": "2026-10-29T08:55:41Z",
+  "notes": [
+    "every role is measured at normal weight; recalibrate a role realized as bold deck-wide with --role NAME:FAMILY:SIZE:bold: bold widens Latin and digits about 7%, while the bundled advance table gives CJK one width for both weights"
+  ]
+}

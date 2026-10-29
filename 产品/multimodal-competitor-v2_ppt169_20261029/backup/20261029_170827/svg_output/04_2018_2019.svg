@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">2018–2019 · 实时叠加</text>
+    <text x="60" y="82" font-size="32">实时取景与“语音＋屏幕”，把多模态推进到边看边操作</text>
+  </g>
+
+  <g id="integration-2018-19" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="148" font-size="15" fill="#4D4942">所谓“2017–2021 断档”，其实是被忽略的多轨整合期。</text>
+    <rect x="60" y="166" width="1160" height="128" fill="#1F5A49" fill-opacity="0.07"/>
+    <text x="78" y="198" font-family="SimSun" font-size="24" font-weight="700" fill="#1F5A49">2018</text>
+    <text x="170" y="198" font-size="16" font-weight="700" fill="#1D1C19">Lens 进入手机相机并实时取景</text>
+    <text x="170" y="224" font-size="14" fill="#6B6760">Live viewfinder、智能文字选择；视觉搜索从“拍完再搜”变成持续取景。</text>
+    <text x="640" y="198" font-size="16" font-weight="700" fill="#1D1C19">Google Assistant Smart Display 上市</text>
+    <text x="640" y="224" font-size="14" fill="#6B6760">语音结果可以同时显示在地图、视频、相册和摄像头画面上。</text>
+    <text x="170" y="264" font-size="16" font-weight="700" fill="#1D1C19">Alexa APL 发布</text>
+    <text x="640" y="264" font-size="14" fill="#6B6760">语音与屏幕图形开始被同一套多模态技能编排。</text>
+
+    <rect x="60" y="306" width="1160" height="128" fill="#C14E2C" fill-opacity="0.07"/>
+    <text x="78" y="338" font-family="SimSun" font-size="24" font-weight="700" fill="#C14E2C">2019</text>
+    <text x="170" y="338" font-size="16" font-weight="700" fill="#1D1C19">Lens 实时翻译叠加到原画面</text>
+    <text x="170" y="364" font-size="14" fill="#6B6760">可自动识别语言，在 100+ 语言上直接覆盖译文；相机开始承担即时任务。</text>
+    <text x="640" y="338" font-size="16" font-weight="700" fill="#1D1C19">APL 正式 GA</text>
+    <text x="640" y="364" font-size="14" fill="#6B6760">为 Echo Show、Fire TV 等设备提供图文、视频、动画和触控组合。</text>
+    <text x="170" y="404" font-size="16" font-weight="700" fill="#1D1C19">语音助手开始走向视觉化回答</text>
+    <text x="640" y="404" font-size="14" fill="#6B6760">但仍是“用户提问 → 屏幕展示”，执行闭环尚未形成。</text>
+
+    <line x1="60" y1="458" x2="1220" y2="458" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="490" font-size="16" font-weight="700" fill="#1F5A49">真实进步</text>
+    <text x="60" y="522" font-size="16" fill="#3F3B35">连续取景、画面叠加、语音与屏幕同帧出现。</text>
+    <text x="590" y="490" font-size="16" font-weight="700" fill="#A33B27">仍未解决</text>
+    <text x="590" y="522" font-size="16" fill="#3F3B35">跨应用行动、系统数据权限、错误发现和长期记忆。</text>
+    <text x="60" y="584" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">分：这两年不是空白，而是“看图”向“在画面上行动”的过渡。</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">来源：Google Lens 2018/2019；Google Smart Display 2018；Amazon APL 2018/2019</text>
+    <text x="1220" y="672" text-anchor="end">04 / 21</text>
+  </g>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">电视与家庭</text>
+    <text x="60" y="82" font-size="32">家庭终端的优势是入口现成，风险是任务被手机替代</text>
+  </g>
+  <g id="tv-home" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="148" font-size="15" fill="#4D4942">家庭场景真正可防御的是“大屏＋共享环境＋持续看护”，而不是重复手机问答。</text>
+    <line x1="440" y1="166" x2="440" y2="592" stroke="#D6CFC3" stroke-width="1"/>
+    <line x1="830" y1="166" x2="830" y2="592" stroke="#D6CFC3" stroke-width="1"/>
+
+    <text x="60" y="198" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">Samsung Vision AI</text>
+    <text x="60" y="226" font-size="14" font-weight="700" fill="#6B6760">2025 电视 · 已上线部分机型</text>
+    <text x="60" y="264" font-size="15" font-weight="700" fill="#C14E2C">做什么</text>
+    <text x="60" y="290" font-size="15" fill="#3F3B35">问影片、画作、旅行建议；</text>
+    <text x="60" y="316" font-size="15" fill="#3F3B35">点选搜索；摄像头看护宠物和家庭。</text>
+    <text x="60" y="356" font-size="15" font-weight="700" fill="#1F5A49">价值</text>
+    <text x="60" y="382" font-size="15" fill="#3F3B35">围绕屏幕内容和客厅共享画面；</text>
+    <text x="60" y="408" font-size="15" fill="#3F3B35">电视已有大屏、联网和常开电源。</text>
+    <text x="60" y="448" font-size="15" font-weight="700" fill="#A33B27">风险</text>
+    <text x="60" y="474" font-size="15" fill="#3F3B35">内容问答可用遥控/手机；</text>
+    <text x="60" y="500" font-size="15" fill="#3F3B35">摄像头看护另有误报、隐私与安全责任。</text>
+
+    <text x="462" y="198" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">海信星海＋DeepSeek</text>
+    <text x="462" y="226" font-size="14" font-weight="700" fill="#6B6760">电视端模型接入</text>
+    <text x="462" y="264" font-size="15" font-weight="700" fill="#C14E2C">做什么</text>
+    <text x="462" y="290" font-size="15" fill="#3F3B35">万物识别、场景画质、语音对话；</text>
+    <text x="462" y="316" font-size="15" fill="#3F3B35">语言、视觉生成与多模态理解。</text>
+    <text x="462" y="356" font-size="15" font-weight="700" fill="#1F5A49">价值</text>
+    <text x="462" y="382" font-size="15" fill="#3F3B35">模型直接提升画质和电视交互；</text>
+    <text x="462" y="408" font-size="15" fill="#3F3B35">可直接捆绑硬件销售。</text>
+    <text x="462" y="448" font-size="15" font-weight="700" fill="#A33B27">风险</text>
+    <text x="462" y="474" font-size="15" fill="#3F3B35">披露偏营销，具体交互与任务效果</text>
+    <text x="462" y="500" font-size="15" fill="#3F3B35">未给出；区域与机型覆盖不清。</text>
+
+    <text x="852" y="198" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">小度超能小度</text>
+    <text x="852" y="226" font-size="14" font-weight="700" fill="#6B6760">家庭智能体</text>
+    <text x="852" y="264" font-size="15" font-weight="700" fill="#C14E2C">做什么</text>
+    <text x="852" y="290" font-size="15" fill="#3F3B35">设备看见并理解家庭环境；</text>
+    <text x="852" y="316" font-size="15" fill="#3F3B35">看护、陪伴、娱乐和设备协同。</text>
+    <text x="852" y="356" font-size="15" font-weight="700" fill="#1F5A49">价值</text>
+    <text x="852" y="382" font-size="15" fill="#3F3B35">把多模态放到家庭中枢，</text>
+    <text x="852" y="408" font-size="15" fill="#3F3B35">而不是单个 App。</text>
+    <text x="852" y="448" font-size="15" font-weight="700" fill="#A33B27">风险</text>
+    <text x="852" y="474" font-size="15" fill="#3F3B35">发布信息很宽；家庭摄像头/语音</text>
+    <text x="852" y="500" font-size="15" fill="#3F3B35">涉及持续监听、隐私和长期留存。</text>
+
+    <line x1="60" y1="532" x2="1220" y2="532" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="566" font-size="15" font-weight="700" fill="#6B6760">场景结论</text>
+    <text x="170" y="566" font-size="15" fill="#3F3B35">内容发现适合电视；持续看护适合家庭设备；重复识物更容易被手机替代。</text>
+    <text x="60" y="610" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">分：家庭多模态需要独占场景，否则只是把手机能力搬到更大的屏幕。</text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">来源：Samsung 2025；海信公开材料；小度/新华网 2026；均为摘要级证据</text>
+    <text x="1220" y="672" text-anchor="end">12 / 21</text>
+  </g>
+</svg>

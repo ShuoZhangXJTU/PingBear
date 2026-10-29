@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="ending">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">APPENDIX · SOURCES &amp; COVERAGE</text>
+    <text x="60" y="82" font-size="32">来源、证据边界与三份洞察覆盖矩阵</text>
+  </g>
+  <g id="source-coverage" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="146" font-size="14" fill="#4D4942">厂商材料证明“上线”；独立评测/销量更接近“被接受”；本地报告保留不确定性。</text>
+    <line x1="60" y1="158" x2="1220" y2="158" stroke="#C9C1B4" stroke-width="1"/>
+    <line x1="430" y1="170" x2="430" y2="470" stroke="#D6CFC3" stroke-width="1"/>
+    <line x1="830" y1="170" x2="830" y2="470" stroke="#D6CFC3" stroke-width="1"/>
+
+    <text x="60" y="194" font-size="13" font-weight="700" letter-spacing="2" fill="#1F5A49">官方 / 一手</text>
+    <a href="https://www.apple.com/newsroom/2011/10/04Apple-Launches-iPhone-4S-iOS-5-iCloud/"><text x="60" y="222" font-size="13" fill="#1F5A49" text-decoration="underline">Apple · Siri / Visual Intelligence</text></a>
+    <a href="https://www.amazon.science/blog/alexa-at-five-looking-back-looking-forward"><text x="60" y="246" font-size="13" fill="#1F5A49" text-decoration="underline">Amazon · Echo / Alexa</text></a>
+    <a href="https://blog.google/products-and-platforms/products/assistant/io-building-next-evolution-of-google/"><text x="60" y="270" font-size="13" fill="#1F5A49" text-decoration="underline">Google · Assistant</text></a>
+    <a href="https://blog.google/products-and-platforms/devices/google-lens/google-lens-real-time-answers-questions-about-world-around-you/"><text x="60" y="294" font-size="13" fill="#1F5A49" text-decoration="underline">Google · Lens 2018</text></a>
+    <a href="https://www.amazon.science/blog/how-voice-and-graphics-working-together-enhance-the-alexa-experience"><text x="60" y="318" font-size="13" fill="#1F5A49" text-decoration="underline">Amazon · Alexa APL</text></a>
+    <a href="https://openai.com/index/clip/"><text x="60" y="342" font-size="13" fill="#1F5A49" text-decoration="underline">OpenAI · CLIP 2021</text></a>
+    <a href="https://deepmind.google/blog/tackling-multiple-tasks-with-a-single-visual-language-model/"><text x="60" y="366" font-size="13" fill="#1F5A49" text-decoration="underline">DeepMind · Flamingo 2022</text></a>
+    <a href="https://openai.com/index/gpt-4v-system-card/"><text x="60" y="390" font-size="13" fill="#1F5A49" text-decoration="underline">OpenAI · GPT-4V 2023</text></a>
+    <a href="https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai/"><text x="60" y="414" font-size="13" fill="#1F5A49" text-decoration="underline">Google · Gemini 2023</text></a>
+    <a href="https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/"><text x="60" y="438" font-size="13" fill="#1F5A49" text-decoration="underline">Meta · Muse 2026</text></a>
+    <a href="https://about.fb.com/news/2026/09/introducing-ray-ban-meta-audio-glasses-new-styles-plus-muse/"><text x="60" y="462" font-size="13" fill="#1F5A49" text-decoration="underline">Meta · Audio / 眼镜路线</text></a>
+
+    <text x="450" y="194" font-size="13" font-weight="700" letter-spacing="2" fill="#C14E2C">独立评测 / 市场信号</text>
+    <a href="https://www.theinformation.com/briefings/metas-ray-ban-glasses-fall-flat-with-customers"><text x="450" y="222" font-size="13" fill="#A33B27" text-decoration="underline">The Information · Stories 低使用</text></a>
+    <a href="https://www.theverge.com/news/614883/humane-ai-hp-acquisition-pin-shutdown"><text x="450" y="246" font-size="13" fill="#A33B27" text-decoration="underline">The Verge · Humane 停服</text></a>
+    <a href="https://www.wired.com/review/rabbit-r1/"><text x="450" y="270" font-size="13" fill="#A33B27" text-decoration="underline">WIRED · Rabbit R1</text></a>
+    <a href="https://www.androidauthority.com/ray-ban-meta-smart-glasses-3462348/"><text x="450" y="294" font-size="13" fill="#A33B27" text-decoration="underline">Android Authority · Meta 销量</text></a>
+    <a href="https://www.theguardian.com/technology/2026/aug/06/meta-ai-smart-glasses-privacy"><text x="450" y="318" font-size="13" fill="#A33B27" text-decoration="underline">The Guardian · 穿戴隐私分歧</text></a>
+    <a href="https://www.bemyeyes.com/news/announcing-be-my-ai-soon-available-for-hundreds-of-thousands-of-be-my-eyes-users/"><text x="450" y="342" font-size="13" fill="#A33B27" text-decoration="underline">Be My Eyes · AI 发布</text></a>
+    <a href="https://www.10100.com/article/107889453"><text x="450" y="366" font-size="13" fill="#A33B27" text-decoration="underline">夸克 S1 · 独立体验</text></a>
+    <a href="https://seed.bytedance.com/zh/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction"><text x="450" y="390" font-size="13" fill="#1F5A49" text-decoration="underline">ByteDance · SeedRealtime</text></a>
+    <a href="https://wallstreetcn.com/articles/3782418"><text x="450" y="414" font-size="13" fill="#A33B27" text-decoration="underline">华尔街见闻 · Muse 投资视角</text></a>
+    <a href="https://www.fool.com/earnings/call-transcripts/2026/10/21/meta-meta-q3-2026-earnings-call-transcript/"><text x="450" y="438" font-size="13" fill="#A33B27" text-decoration="underline">Meta Q3 财报电话会</text></a>
+    <text x="450" y="462" font-size="12" fill="#6B6760">仓库/演示不作为需求或商业验证。</text>
+
+    <text x="850" y="194" font-size="13" font-weight="700" letter-spacing="2" fill="#6B6760">本地洞察覆盖矩阵</text>
+    <text x="850" y="224" font-size="13" font-weight="700" fill="#1D1C19">全球竞品</text>
+    <text x="970" y="224" font-size="13" fill="#3F3B35">P03–P19</text>
+    <text x="850" y="250" font-size="12" fill="#6B6760">竞品清单·差异·9类场景·变现·机会·空白</text>
+    <text x="850" y="286" font-size="13" font-weight="700" fill="#1D1C19">产品层</text>
+    <text x="970" y="286" font-size="13" fill="#3F3B35">P04–P18</text>
+    <text x="850" y="312" font-size="12" fill="#6B6760">实时视觉指导·Copilot边界·人工兜底·API</text>
+    <text x="850" y="348" font-size="13" font-weight="700" fill="#1D1C19">开源产品化</text>
+    <text x="990" y="348" font-size="13" fill="#3F3B35">P08–P19</text>
+    <text x="850" y="374" font-size="12" fill="#6B6760">无障碍优先·托管vs自建·P0/P1验证·成本</text>
+    <text x="850" y="410" font-size="13" font-weight="700" fill="#1D1C19">Muse 增补</text>
+    <text x="970" y="410" font-size="13" fill="#3F3B35">P08 / 11 / 16–20</text>
+    <text x="850" y="436" font-size="12" fill="#6B6760">后台执行·Secure VM·交易·Agent 网络</text>
+    <line x1="850" y1="448" x2="1200" y2="448" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="850" y="468" font-size="12" fill="#6B6760">完整逐章节映射：sources/coverage-map.md</text>
+
+    <line x1="60" y1="484" x2="1220" y2="484" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="514" font-size="14" font-weight="700" fill="#A33B27">证据缺口</text>
+    <text x="160" y="514" font-size="14" fill="#3F3B35">任务成功率 · 端到端时延 · 纠错恢复 · 长期留存 · 设置/活跃口径 · 交易费率与人工成本</text>
+    <text x="60" y="544" font-size="14" font-weight="700" fill="#1F5A49">判断原则</text>
+    <text x="160" y="544" font-size="14" fill="#3F3B35">优先相信同任务、同用户、同指标下的结果；厂商与媒体都只能证明各自层级。</text>
+    <text x="60" y="592" font-family="SimSun" font-size="21" font-weight="700" fill="#1D1C19">最终结论：Agent 的竞争已进入上下文、执行、信任和交易闭环。</text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">完整链接均为可点击对象；证据等级和日期口径见 P20</text>
+    <text x="1220" y="672" text-anchor="end">21 / 21</text>
+  </g>
+</svg>

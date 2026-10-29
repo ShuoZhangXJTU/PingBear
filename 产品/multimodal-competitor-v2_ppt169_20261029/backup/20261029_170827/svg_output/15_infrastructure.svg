@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">基础设施、API 与开源</text>
+    <text x="60" y="82" font-size="32">开源降低了“能做”的门槛，但没有证明“能卖”</text>
+  </g>
+  <g id="stack-and-open-source" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="148" font-size="15" fill="#4D4942">五层技术栈必须分开看：模型、实时传输、Agent 编排、能力 API、垂直应用。</text>
+    <rect x="60" y="168" width="720" height="70" fill="#1D1C19"/>
+    <text x="78" y="198" font-size="16" font-weight="700" fill="#F4F0E7">应用层</text>
+    <text x="180" y="198" font-size="15" fill="#F4F0E7">无障碍服务 · 现场作业 · 家庭/座舱 · 视觉导购</text>
+    <text x="180" y="224" font-size="13" fill="#D6CFC3">价值来自工作流、责任边界和付费方，不来自模型名称。</text>
+    <rect x="60" y="246" width="720" height="70" fill="#1F5A49"/>
+    <text x="78" y="276" font-size="16" font-weight="700" fill="#F4F0E7">能力 / API 层</text>
+    <text x="180" y="276" font-size="15" fill="#F4F0E7">SeedRealtime · TwelveLabs · 拍立淘</text>
+    <text x="180" y="302" font-size="13" fill="#E6EFEA">实时交互模型、视频理解、视觉商品检索；按量/平台收费。</text>
+    <rect x="60" y="324" width="720" height="70" fill="#C14E2C"/>
+    <text x="78" y="354" font-size="16" font-weight="700" fill="#F4F0E7">Agent 编排层</text>
+    <text x="180" y="354" font-size="15" fill="#F4F0E7">Vision-Agents · Pipecat · Dograh</text>
+    <text x="180" y="380" font-size="13" fill="#F8E9E2">多模型、工具调用、会话接力、工作流与可视化测试。</text>
+    <rect x="60" y="402" width="720" height="70" fill="#B8AA98"/>
+    <text x="78" y="432" font-size="16" font-weight="700" fill="#F4F0E7">实时传输层</text>
+    <text x="180" y="432" font-size="15" fill="#F4F0E7">LiveKit · Stream 边缘网络</text>
+    <text x="180" y="458" font-size="13" fill="#F4F0E7">WebRTC/SFU、音视频与数据流、并发和断线恢复。</text>
+    <rect x="60" y="480" width="720" height="70" fill="#6B6760"/>
+    <text x="78" y="510" font-size="16" font-weight="700" fill="#F4F0E7">模型 / 研究层</text>
+    <text x="180" y="510" font-size="15" fill="#F4F0E7">CLIP · Flamingo · GPT-4V/Gemini · VLX-Flow</text>
+    <text x="180" y="536" font-size="13" fill="#EDE9E1">图文/视频理解、流式视觉模型和低延迟推理。</text>
+    <text x="60" y="586" font-size="15" fill="#6B6760">已废弃：Landing AI vision-agent → 转向文档抽取，说明“视觉代码生成”并不天然形成产品。</text>
+
+    <text x="820" y="180" font-size="14" font-weight="700" letter-spacing="2" fill="#C14E2C">开源 vs 托管</text>
+    <text x="820" y="216" font-size="15" font-weight="700" fill="#1F5A49">开源可获得</text>
+    <text x="820" y="244" font-size="15" fill="#3F3B35">数据控制、定制、私有化、可自托管、避免单一供应商。</text>
+    <text x="820" y="284" font-size="15" font-weight="700" fill="#A33B27">同时接手</text>
+    <text x="820" y="306" font-size="14" fill="#3F3B35">视频传输、模型兼容、安全更新、并发、<tspan x="820" dy="24">断线恢复、现场支持。</tspan></text>
+    <text x="820" y="352" font-size="15" font-weight="700" fill="#6B6760">总成本应包含</text>
+    <text x="820" y="374" font-size="14" fill="#3F3B35">推理＋带宽＋设备＋实施＋培训＋误判纠正，<tspan x="820" dy="24">再加人工接管与合规。</tspan></text>
+    <line x1="820" y1="418" x2="1200" y2="418" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="820" y="452" font-size="15" font-weight="700" fill="#A33B27">目前没有证据</text>
+    <text x="820" y="480" font-size="15" fill="#3F3B35">证明开源在同任务下端到端更便宜、更可靠或延迟更低。</text>
+    <text x="820" y="522" font-size="15" font-weight="700" fill="#1F5A49">合理策略</text>
+    <text x="820" y="550" font-size="14" fill="#3F3B35">先用托管能力建立体验基线，再比较自建的隐私与定制收益。</text>
+    <text x="820" y="596" font-family="SimSun" font-size="19" font-weight="700" fill="#1D1C19">分：技术开放 ≠ 产品优势。</text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">来源：开源产品化报告；GitHub README；各 API/平台公开材料</text>
+    <text x="1220" y="672" text-anchor="end">15 / 21</text>
+  </g>
+</svg>

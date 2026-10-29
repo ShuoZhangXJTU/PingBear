@@ -1,0 +1,58 @@
+[
+  {
+    "id": "muse-official",
+    "kind": "official",
+    "title": "Introducing Muse",
+    "url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+    "date": "2026-09-08",
+    "summary": "Muse 是跨应用执行、后台运行、带 Secure VM、记忆、权限确认和审计轨迹的个人 AI Agent。"
+  },
+  {
+    "id": "glasses-official",
+    "kind": "official",
+    "title": "Ray-Ban Meta Audio and More AI Glasses Styles",
+    "url": "https://about.fb.com/news/2026/09/introducing-ray-ban-meta-audio-glasses-new-styles-plus-muse/",
+    "date": "2026-09-23",
+    "summary": "发布无摄像头 Ray-Ban Meta Audio，并宣布 Muse 将进入 AI 眼镜；带摄像头 Gen 3 同时存在。"
+  },
+  {
+    "id": "wsc-connect-2026",
+    "kind": "market-media",
+    "title": "Meta Connect 大会：Muse 唱主角，新眼镜发布",
+    "url": "https://wallstreetcn.com/articles/3782418",
+    "date": "2026-09-24",
+    "summary": "面向投资人提炼 Muse 全情境、后台运行、免费策略与交易抽佣、Agent 协作等商业化含义。"
+  },
+  {
+    "id": "reuters-muse",
+    "kind": "news",
+    "title": "Meta launches AI agent that can access other apps",
+    "url": "https://www.reuters.com/business/meta-launches-ai-agent-that-can-access-other-apps-send-emails-make-payments-2026-09-08/",
+    "date": "2026-09-08",
+    "summary": "Muse 初期仅在美国通过独立 App 或 WhatsApp 提供。"
+  },
+  {
+    "id": "meta-q3-call",
+    "kind": "earnings-transcript",
+    "title": "Meta Q3 2026 earnings call",
+    "url": "https://www.fool.com/earnings/call-transcripts/2026/10/21/meta-meta-q3-2026-earnings-call-transcript/",
+    "date": "2026-10-21",
+    "summary": "公司称 Muse 在美加六周 1000 万设置用户、约 25% 日活、购物为最常见场景；同时提出 Muse Network、Personal Agent Protocol 和交易/订阅商业模式。"
+  },
+  {
+    "id": "reuters-human-concierge",
+    "kind": "news",
+    "title": "Meta testing a human concierge for its new personal AI agent, Muse",
+    "url": "https://www.reuters.com/business/meta-testing-human-concierge-its-new-personal-ai-agent-muse-2026-09-22/",
+    "date": "2026-09-22",
+    "summary": "Reuters 看到内部帖子并报道，Meta 正测试由人工承包商处理部分通过 Muse 发起的电话。"
+  },
+  {
+    "id": "wsj-muse-payoff",
+    "kind": "market-media",
+    "title": "Meta's Muse Is Going Gangbusters. But Where Is the Payoff?",
+    "url": "https://www.wsj.com/finance/stocks/metas-muse-is-going-gangbusters-but-where-is-the-payoff-648d310d",
+    "date": "2026-10-24",
+    "summary": "WSJ 引述财报电话会称 Muse 在美加下载超过 1000 万；下载量不等于活跃、留存或收入。"
+  }
+]

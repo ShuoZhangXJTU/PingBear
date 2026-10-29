@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">眼镜与可穿戴</text>
+    <text x="60" y="82" font-size="32">第一视角入口正在成立，但日常价值还没有统一答案</text>
+  </g>
+
+  <g id="wearable-tiers" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="148" font-size="15" fill="#4D4942">成功与失败的关键不在是否“像眼镜”，而在能否借用熟悉形态完成明确任务。</text>
+    <rect x="60" y="166" width="1160" height="122" fill="#1F5A49" fill-opacity="0.07"/>
+    <text x="78" y="194" font-size="14" font-weight="700" letter-spacing="2" fill="#1F5A49">较强反响</text>
+    <text x="230" y="194" font-size="17" font-weight="700" fill="#1D1C19">Ray-Ban Meta</text>
+    <text x="230" y="222" font-size="15" fill="#3F3B35">看、问、听、拍；2024 年销量报道超 100 万，2025 年媒体口径约 700 万。</text>
+    <text x="230" y="250" font-size="15" fill="#3F3B35">优势：熟悉镜架、品牌、轻量第一视角；限制：隐私、续航、社交接受度。</text>
+    <text x="900" y="194" font-size="17" font-weight="700" fill="#1D1C19">Meta Display</text>
+    <text x="900" y="222" font-size="15" fill="#3F3B35">镜片导航、字幕翻译、腕带手势。</text>
+    <text x="900" y="250" font-size="15" fill="#3F3B35">早期评价偏正面，规模与留存仍未知。</text>
+
+    <rect x="60" y="302" width="1160" height="122" fill="#C14E2C" fill-opacity="0.07"/>
+    <text x="78" y="330" font-size="14" font-weight="700" letter-spacing="2" fill="#C14E2C">混合 / 待验证</text>
+    <text x="230" y="330" font-size="17" font-weight="700" fill="#1D1C19">Android XR · Snap Specs</text>
+    <text x="230" y="358" font-size="15" fill="#3F3B35">Gemini 第一视角共享；AR 主动提醒。能力有差异，上市范围与真实留存有限。</text>
+    <text x="620" y="330" font-size="17" font-weight="700" fill="#1D1C19">华为 / 小米 / 夸克</text>
+    <text x="620" y="358" font-size="15" fill="#3F3B35">实时画面、近眼导航、支付与购物生态；同时存在续航、显示和平台封闭限制。</text>
+    <text x="230" y="396" font-size="14" fill="#6B6760">共同问题：缺少同任务、同网络条件下的长期使用对比。</text>
+
+    <rect x="60" y="438" width="1160" height="122" fill="#A33B27" fill-opacity="0.06"/>
+    <text x="78" y="466" font-size="14" font-weight="700" letter-spacing="2" fill="#A33B27">明显失败 / 反例</text>
+    <text x="230" y="466" font-size="17" font-weight="700" fill="#1D1C19">Google Glass</text>
+    <text x="230" y="494" font-size="15" fill="#3F3B35">高价、社交尴尬、隐私；消费版退场，企业版 2023 停售。</text>
+    <text x="620" y="466" font-size="17" font-weight="700" fill="#1D1C19">Ray-Ban Stories</text>
+    <text x="620" y="494" font-size="15" fill="#3F3B35">约 30 万销量，月活不足 10%；功能价值弱于手机。</text>
+    <text x="230" y="538" font-size="17" font-weight="700" fill="#1D1C19">Humane AI Pin · Rabbit R1</text>
+    <text x="620" y="538" font-size="15" fill="#3F3B35">以新设备替代手机：Pin 不到一年停服；R1 初审 Bug/延迟严重。</text>
+
+    <line x1="60" y1="580" x2="1220" y2="580" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="612" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">分：眼镜成功的前提是“现有形态 + 明确任务 + 可控隐私”，不是更大屏幕。</text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">来源：Meta/EssilorLuxottica；Google；The Information/WSJ 转引；独立评测</text>
+    <text x="1220" y="672" text-anchor="end">11 / 21</text>
+  </g>
+</svg>

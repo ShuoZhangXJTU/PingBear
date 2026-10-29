@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">无障碍与高信任场景</text>
+    <text x="60" y="82" font-size="32">无障碍最接近真实价值，但付费来自服务、管理与人工兜底</text>
+  </g>
+  <g id="accessibility-matrix" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="148" font-size="15" fill="#4D4942">任务明确、视觉不可替代、失败可转人工，使无障碍比通用视觉问答更容易形成闭环。</text>
+    <line x1="350" y1="166" x2="350" y2="568" stroke="#D6CFC3" stroke-width="1"/>
+    <line x1="650" y1="166" x2="650" y2="568" stroke="#D6CFC3" stroke-width="1"/>
+    <line x1="950" y1="166" x2="950" y2="568" stroke="#D6CFC3" stroke-width="1"/>
+    <text x="60" y="194" font-size="13" font-weight="700" fill="#6B6760">产品</text>
+    <text x="370" y="194" font-size="13" font-weight="700" fill="#6B6760">做什么 / 谁用</text>
+    <text x="670" y="194" font-size="13" font-weight="700" fill="#6B6760">价值与反馈</text>
+    <text x="970" y="194" font-size="13" font-weight="700" fill="#6B6760">商业模式 / 缺口</text>
+
+    <text x="60" y="244" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">Seeing AI</text>
+    <text x="370" y="244" font-size="15" fill="#3F3B35">手机摄像头朗读文字、人物、</text>
+    <text x="370" y="270" font-size="15" fill="#3F3B35">物体与场景；面向视障用户。</text>
+    <text x="670" y="244" font-size="15" fill="#3F3B35">免费公共服务基线；</text>
+    <text x="670" y="270" font-size="15" fill="#3F3B35">2017 年上线，任务明确。</text>
+    <text x="970" y="244" font-size="15" fill="#3F3B35">免费、由平台/机构承担；</text>
+    <text x="970" y="270" font-size="15" fill="#3F3B35">使用频率、留存未公开。</text>
+
+    <text x="60" y="324" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">Be My AI</text>
+    <text x="370" y="324" font-size="15" fill="#3F3B35">GPT-4 图片解释、多轮追问；</text>
+    <text x="370" y="350" font-size="15" fill="#3F3B35">替代/补充远程人工志愿。</text>
+    <text x="670" y="324" font-size="15" fill="#1F5A49">用户研究出现“game changer”</text>
+    <text x="670" y="350" font-size="15" fill="#3F3B35">反馈；提升独立性和匿名性。</text>
+    <text x="970" y="324" font-size="15" fill="#3F3B35">个人免费；</text>
+    <text x="970" y="350" font-size="15" fill="#3F3B35">仍需验证理解错误和图片质量。</text>
+
+    <text x="60" y="404" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">vivo 看见</text>
+    <text x="370" y="404" font-size="15" fill="#3F3B35">实时环境描述、多轮对话、</text>
+    <text x="370" y="430" font-size="15" fill="#3F3B35">物品查找、辅助拍摄。</text>
+    <text x="670" y="404" font-size="15" fill="#3F3B35">国内无障碍入口；</text>
+    <text x="670" y="430" font-size="15" fill="#3F3B35">依赖镜头对准与播报质量。</text>
+    <text x="970" y="404" font-size="15" fill="#3F3B35">免费 App；</text>
+    <text x="970" y="430" font-size="15" fill="#3F3B35">官方说明为主，独立评测少。</text>
+
+    <text x="60" y="484" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">Be My Eyes Workplace</text>
+    <text x="370" y="484" font-size="15" fill="#3F3B35">个人免费；企业无障碍管理，</text>
+    <text x="370" y="510" font-size="15" fill="#3F3B35">配置培训过的远程人工代理。</text>
+    <text x="670" y="484" font-size="15" fill="#1F5A49">组织采购、SSO、SOC 2、</text>
+    <text x="670" y="510" font-size="15" fill="#3F3B35">人工兜底形成完整交付。</text>
+    <text x="970" y="484" font-size="15" fill="#3F3B35">企业授权/服务收费；</text>
+    <text x="970" y="510" font-size="15" fill="#A33B27">价格、客户、复购、毛利未知。</text>
+
+    <line x1="60" y1="552" x2="1220" y2="552" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="586" font-size="15" font-weight="700" fill="#1F5A49">最关键的产品结论</text>
+    <text x="240" y="586" font-size="15" fill="#3F3B35">企业可能为管理、合规、培训和人工接管付费，而不一定为 AI 视觉单独付费。</text>
+    <text x="60" y="622" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">分：这是当前最值得做小样本验证的垂直方向，但仍不是已验证赛道。</text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">来源：Microsoft Seeing AI；Be My Eyes；vivo；开源产品化报告</text>
+    <text x="1220" y="672" text-anchor="end">14 / 21</text>
+  </g>
+</svg>

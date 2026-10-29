@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">汽车座舱与空间交互</text>
+    <text x="60" y="82" font-size="32">汽车提供手机没有的空间信息：谁在说、坐哪里、指向什么</text>
+  </g>
+  <g id="cabin-context" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="148" font-size="15" fill="#4D4942">座舱是多传感器融合最具体的消费场景，也是安全与隐私门槛最高的场景。</text>
+    <rect x="60" y="172" width="1160" height="94" fill="#1F5A49" fill-opacity="0.07"/>
+    <text x="78" y="204" font-size="15" font-weight="700" fill="#1F5A49">输入链</text>
+    <text x="170" y="204" font-size="16" font-weight="700" fill="#1D1C19">多音区麦克风</text>
+    <text x="350" y="204" font-size="14" fill="#6B6760">谁在说</text>
+    <text x="500" y="204" font-size="16" font-weight="700" fill="#1D1C19">3D ToF / IR</text>
+    <text x="640" y="204" font-size="14" fill="#6B6760">坐哪、指向哪</text>
+    <text x="820" y="204" font-size="16" font-weight="700" fill="#1D1C19">图像＋车身传感器</text>
+    <text x="1030" y="204" font-size="14" fill="#6B6760">内外环境与服务</text>
+    <text x="170" y="242" font-size="14" fill="#3F3B35">语音与位置先被消歧，再进入座舱服务；这和手机上的“单一用户假设”不同。</text>
+
+    <line x1="640" y1="292" x2="640" y2="566" stroke="#D6CFC3" stroke-width="1"/>
+    <text x="60" y="322" font-family="SimSun" font-size="25" font-weight="700" fill="#1D1C19">理想同学</text>
+    <text x="60" y="350" font-size="14" font-weight="700" fill="#6B6760">空间多模态感知</text>
+    <text x="60" y="390" font-size="15" fill="#3F3B35">MVS / MIMO / MSE 三网协同；</text>
+    <text x="60" y="416" font-size="15" fill="#3F3B35">判断“谁、坐哪、指向哪、需要什么”。</text>
+    <text x="60" y="458" font-size="15" font-weight="700" fill="#1F5A49">价值</text>
+    <text x="60" y="484" font-size="15" fill="#3F3B35">多人车内对话、指向控制、个性化服务；</text>
+    <text x="60" y="510" font-size="15" fill="#3F3B35">语音不需要先知道用户坐在哪里。</text>
+    <text x="60" y="552" font-size="15" font-weight="700" fill="#A33B27">疑问</text>
+    <text x="60" y="578" font-size="15" fill="#3F3B35">量产车型覆盖、误识别率、隐私回传和车规验证未披露。</text>
+
+    <text x="670" y="322" font-family="SimSun" font-size="25" font-weight="700" fill="#1D1C19">蔚来 NOMI</text>
+    <text x="670" y="350" font-size="14" font-weight="700" fill="#6B6760">端云多模态与陪伴</text>
+    <text x="670" y="390" font-size="15" fill="#3F3B35">融合图像、音频和车身传感器；</text>
+    <text x="670" y="416" font-size="15" fill="#3F3B35">识别座舱内外人与物，提供情感化陪伴。</text>
+    <text x="670" y="458" font-size="15" font-weight="700" fill="#1F5A49">价值</text>
+    <text x="670" y="484" font-size="15" fill="#3F3B35">空间上下文＋车辆服务＋长期陪伴；</text>
+    <text x="670" y="510" font-size="15" fill="#3F3B35">比通用语音助手更贴近驾驶与乘车场景。</text>
+    <text x="670" y="552" font-size="15" font-weight="700" fill="#A33B27">疑问</text>
+    <text x="670" y="578" font-size="15" fill="#3F3B35">材料多为能力宣称；执行安全、情绪识别和隐私边界不清。</text>
+
+    <line x1="60" y1="606" x2="1220" y2="606" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="632" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">分：座舱的空间输入有差异化，但最终价值取决于安全执行与数据责任。</text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">来源：全球竞品报告引用的理想同学、NOMI 公开/媒体报道</text>
+    <text x="1220" y="672" text-anchor="end">13 / 21</text>
+  </g>
+</svg>

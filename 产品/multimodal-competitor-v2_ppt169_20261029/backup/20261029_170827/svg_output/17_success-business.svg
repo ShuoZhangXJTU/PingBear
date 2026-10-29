@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">成败机制与商业模式</text>
+    <text x="60" y="82" font-size="32">产品能否留下，取决于任务、载体、反馈、信任和单位经济性</text>
+  </g>
+  <g id="mechanisms-and-models" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="148" font-size="15" fill="#4D4942">模型能力只是入场券；真正难的是把结果交付、把失败接住、把成本覆盖。</text>
+    <line x1="626" y1="164" x2="626" y2="604" stroke="#D6CFC3" stroke-width="1"/>
+
+    <text x="60" y="194" font-size="14" font-weight="700" letter-spacing="2" fill="#1F5A49">成功产品的共同点</text>
+    <text x="60" y="228" font-size="16" font-weight="700" fill="#1D1C19">01　任务本来就需要多种输入</text>
+    <text x="60" y="252" font-size="14" fill="#6B6760">读字、找物、无障碍、多音区、现场维护。</text>
+    <text x="60" y="292" font-size="16" font-weight="700" fill="#1D1C19">02　载体比替代方案自然</text>
+    <text x="60" y="316" font-size="14" fill="#6B6760">已有手机/眼镜/电视/车机，而不是要求用户再带一个设备。</text>
+    <text x="60" y="356" font-size="16" font-weight="700" fill="#1D1C19">03　系统能发现“没帮对”</text>
+    <text x="60" y="380" font-size="14" fill="#6B6760">镜头纠正、重新聚焦、拒答、人工接管、撤销。</text>
+    <text x="60" y="420" font-size="16" font-weight="700" fill="#1D1C19">04　信任成本可接受</text>
+    <text x="60" y="444" font-size="14" fill="#6B6760">隐私、旁观者、权限、错误代价、责任边界。</text>
+    <text x="60" y="484" font-size="16" font-weight="700" fill="#1D1C19">05　总成本低于节省的价值</text>
+    <text x="60" y="508" font-size="14" fill="#6B6760">设置、网络、推理、运维、培训、人工接管都要算。</text>
+
+    <text x="656" y="194" font-size="14" font-weight="700" letter-spacing="2" fill="#C14E2C">五类商业模式</text>
+    <line x1="656" y1="208" x2="1200" y2="208" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="656" y="240" font-size="16" font-weight="700" fill="#1D1C19">硬件销售与生态捆绑</text>
+    <text x="656" y="264" font-size="14" fill="#3F3B35">Ray-Ban、夸克、华为、Apple、三星、理想/NOMI</text>
+    <text x="656" y="308" font-size="16" font-weight="700" fill="#1D1C19">企业订阅 / 工作场所 SaaS</text>
+    <text x="656" y="332" font-size="14" fill="#3F3B35">Copilot、Be My Eyes Workplace：按席位/组织授权。</text>
+    <text x="656" y="376" font-size="16" font-weight="700" fill="#1D1C19">按量 API / 开发者集成</text>
+    <text x="656" y="400" font-size="14" fill="#3F3B35">TwelveLabs、拍立淘：调用量、视频分钟、平台接入。</text>
+    <text x="656" y="444" font-size="16" font-weight="700" fill="#1D1C19">免费公共服务 / 机构资助</text>
+    <text x="656" y="468" font-size="14" fill="#3F3B35">Seeing AI：用户免费，平台或机构承担成本。</text>
+    <text x="656" y="512" font-size="16" font-weight="700" fill="#1D1C19">消费订阅 / 交易生态</text>
+    <text x="656" y="536" font-size="14" fill="#3F3B35">Gemini/ChatGPT 订阅；夸克/拍立淘导购、支付、佣金。</text>
+    <line x1="656" y1="558" x2="1200" y2="558" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="656" y="590" font-size="14" fill="#A33B27">价格、毛利、复购和 AI/人工收入拆分在现有材料中普遍缺失。</text>
+
+    <text x="60" y="566" font-family="SimSun" font-size="20" font-weight="700" fill="#1D1C19">失败通常不是模型不会看，</text>
+    <text x="60" y="594" font-family="SimSun" font-size="20" font-weight="700" fill="#1D1C19">而是产品无法接住错误与成本。</text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">综合三份洞察：商业化路径与失败机制</text>
+    <text x="1220" y="672" text-anchor="end">17 / 21</text>
+  </g>
+</svg>

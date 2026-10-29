@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">附录 · 年份审计</text>
+    <text x="60" y="82" font-size="32">关键年份、事件和一手来源</text>
+  </g>
+  <g id="date-ledger" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="146" font-size="14" fill="#4D4942">原则：只记录可核验的发布日期/上线窗口；不会把报道日期当产品发表日期。</text>
+    <line x1="60" y1="158" x2="1220" y2="158" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="180" font-size="12" font-weight="700" fill="#6B6760">日期</text><text x="154" y="180" font-size="12" font-weight="700" fill="#6B6760">事件</text><text x="550" y="180" font-size="12" font-weight="700" fill="#6B6760">证据</text>
+    <text x="660" y="180" font-size="12" font-weight="700" fill="#6B6760">日期</text><text x="754" y="180" font-size="12" font-weight="700" fill="#6B6760">事件</text><text x="1090" y="180" font-size="12" font-weight="700" fill="#6B6760">证据</text>
+
+    <text x="60" y="208" font-size="13" font-weight="700" fill="#C14E2C">2011.10</text><text x="154" y="208" font-size="13" fill="#1D1C19">Siri 随 iPhone 4S 发布</text><text x="550" y="208" font-size="12" fill="#6B6760">Apple</text>
+    <text x="660" y="208" font-size="13" font-weight="700" fill="#C14E2C">2020.05</text><text x="754" y="208" font-size="13" fill="#1D1C19">Lens 居家生产力功能</text><text x="1090" y="208" font-size="12" fill="#6B6760">Google</text>
+    <text x="60" y="236" font-size="13" font-weight="700" fill="#C14E2C">2014.11</text><text x="154" y="236" font-size="13" fill="#1D1C19">Amazon Echo / Alexa</text><text x="550" y="236" font-size="12" fill="#6B6760">Amazon</text>
+    <text x="660" y="236" font-size="13" font-weight="700" fill="#C14E2C">2020.09</text><text x="754" y="236" font-size="13" fill="#1D1C19">Echo Show 10 屏幕跟随</text><text x="1090" y="236" font-size="12" fill="#6B6760">Amazon</text>
+    <text x="60" y="264" font-size="13" font-weight="700" fill="#C14E2C">2016.05</text><text x="154" y="264" font-size="13" fill="#1D1C19">Google Assistant 发布</text><text x="550" y="264" font-size="12" fill="#6B6760">Google</text>
+    <text x="660" y="264" font-size="13" font-weight="700" fill="#C14E2C">2021.01</text><text x="754" y="264" font-size="13" fill="#1D1C19">CLIP 公开发布</text><text x="1090" y="264" font-size="12" fill="#6B6760">OpenAI</text>
+    <text x="60" y="292" font-size="13" font-weight="700" fill="#C14E2C">2017.03</text><text x="154" y="292" font-size="13" fill="#1D1C19">Bixby 发布</text><text x="550" y="292" font-size="12" fill="#6B6760">Samsung</text>
+    <text x="660" y="292" font-size="13" font-weight="700" fill="#C14E2C">2021.09</text><text x="754" y="292" font-size="13" fill="#1D1C19">Ray-Ban Stories</text><text x="1090" y="292" font-size="12" fill="#6B6760">Meta</text>
+    <text x="60" y="320" font-size="13" font-weight="700" fill="#C14E2C">2017.05</text><text x="154" y="320" font-size="13" fill="#1D1C19">Google Lens 发布</text><text x="550" y="320" font-size="12" fill="#6B6760">Google</text>
+    <text x="660" y="320" font-size="13" font-weight="700" fill="#C14E2C">2022.04</text><text x="754" y="320" font-size="13" fill="#1D1C19">Flamingo 研究发布</text><text x="1090" y="320" font-size="12" fill="#6B6760">DeepMind</text>
+    <text x="60" y="348" font-size="13" font-weight="700" fill="#C14E2C">2017.07</text><text x="154" y="348" font-size="13" fill="#1D1C19">Seeing AI / Bixby Voice</text><text x="550" y="348" font-size="12" fill="#6B6760">Microsoft/Samsung</text>
+    <text x="660" y="348" font-size="13" font-weight="700" fill="#C14E2C">2023.03</text><text x="754" y="348" font-size="13" fill="#1D1C19">Be My AI 进入测试</text><text x="1090" y="348" font-size="12" fill="#6B6760">Be My Eyes</text>
+    <text x="60" y="376" font-size="13" font-weight="700" fill="#C14E2C">2018.05</text><text x="154" y="376" font-size="13" fill="#1D1C19">Lens 相机实时取景</text><text x="550" y="376" font-size="12" fill="#6B6760">Google</text>
+    <text x="660" y="376" font-size="13" font-weight="700" fill="#C14E2C">2023.09</text><text x="754" y="376" font-size="13" fill="#1D1C19">GPT-4V / Be My AI 公测</text><text x="1090" y="376" font-size="12" fill="#6B6760">OpenAI/Be My Eyes</text>
+    <text x="60" y="404" font-size="13" font-weight="700" fill="#C14E2C">2018.07</text><text x="154" y="404" font-size="13" fill="#1D1C19">Google Smart Display</text><text x="550" y="404" font-size="12" fill="#6B6760">Google/Lenovo</text>
+    <text x="660" y="404" font-size="13" font-weight="700" fill="#C14E2C">2023.12</text><text x="754" y="404" font-size="13" fill="#1D1C19">Gemini 1.0</text><text x="1090" y="404" font-size="12" fill="#6B6760">Google</text>
+    <text x="60" y="432" font-size="13" font-weight="700" fill="#C14E2C">2018.09</text><text x="154" y="432" font-size="13" fill="#1D1C19">Alexa APL 发布</text><text x="550" y="432" font-size="12" fill="#6B6760">Amazon</text>
+    <text x="660" y="432" font-size="13" font-weight="700" fill="#C14E2C">2024.05</text><text x="754" y="432" font-size="13" fill="#1D1C19">GPT-4o / Project Astra</text><text x="1090" y="432" font-size="12" fill="#6B6760">OpenAI/Google</text>
+    <text x="60" y="460" font-size="13" font-weight="700" fill="#C14E2C">2019.05</text><text x="154" y="460" font-size="13" fill="#1D1C19">Lens 实时翻译</text><text x="550" y="460" font-size="12" fill="#6B6760">Google</text>
+    <text x="660" y="460" font-size="13" font-weight="700" fill="#C14E2C">2024.12</text><text x="754" y="460" font-size="13" fill="#1D1C19">Apple Visual / Copilot Vision</text><text x="1090" y="460" font-size="12" fill="#6B6760">Apple/Microsoft</text>
+    <text x="60" y="488" font-size="13" font-weight="700" fill="#C14E2C">2019.09</text><text x="154" y="488" font-size="13" fill="#1D1C19">APL 正式 GA</text><text x="550" y="488" font-size="12" fill="#6B6760">Amazon</text>
+    <text x="660" y="488" font-size="13" font-weight="700" fill="#C14E2C">2025.05</text><text x="754" y="488" font-size="13" fill="#1D1C19">Gemini Live 摄像头铺开</text><text x="1090" y="488" font-size="12" fill="#6B6760">Google</text>
+    <text x="660" y="516" font-size="13" font-weight="700" fill="#C14E2C">2025.08–11</text><text x="754" y="516" font-size="13" fill="#1D1C19">小艺/Meta Display/夸克 S1</text><text x="1090" y="516" font-size="12" fill="#6B6760">华为/Meta/阿里</text>
+    <text x="660" y="544" font-size="13" font-weight="700" fill="#C14E2C">2026.08</text><text x="754" y="544" font-size="13" fill="#1D1C19">SeedRealtime 发布/豆包上线</text><text x="1090" y="544" font-size="12" fill="#6B6760">ByteDance Seed</text>
+    <text x="660" y="572" font-size="13" font-weight="700" fill="#C14E2C">2026.10</text><text x="754" y="572" font-size="13" fill="#1D1C19">Guided Vision 发布</text><text x="1090" y="572" font-size="12" fill="#6B6760">Google</text>
+
+    <line x1="52" y1="590" x2="1220" y2="590" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="52" y="620" font-size="14" fill="#6B6760">注：2025 的小艺、Meta Display、夸克为不同日期事件，合并单元格不代表同一天；完整链接见 P21。</text>
+  </g>
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">所有事件均来自官方发布页或明确日期的权威报道</text>
+    <text x="1220" y="672" text-anchor="end">20 / 21</text>
+  </g>
+</svg>

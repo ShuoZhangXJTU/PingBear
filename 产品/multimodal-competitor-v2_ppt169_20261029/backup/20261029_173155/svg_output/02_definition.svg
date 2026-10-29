@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7" />
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">定义与总判断</text>
+    <text x="60" y="82" font-size="32">多模态交互不是多一种输入，而是把五层能力连成闭环</text>
+  </g>
+
+  <g id="five-layers" data-pptx-bounds="52 122 760 520">
+    <text x="60" y="146" font-size="15" font-weight="700" letter-spacing="2" fill="#6B6760">五层能力栈</text>
+    <rect x="60" y="162" width="744" height="78" fill="#E9E1D4" />
+    <text x="74" y="192" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">01 输入</text>
+    <text x="180" y="190" font-size="16" font-weight="700" fill="#C14E2C">看见、听见、触摸、指向、感知空间</text>
+    <text x="180" y="218" font-size="14" fill="#6B6760">语音 · 图像 · 视频 · 屏幕 · 文档 · ToF/IR · 多音区</text>
+
+    <rect x="60" y="250" width="744" height="78" fill="#EEE7DC" />
+    <text x="74" y="280" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">02 上下文</text>
+    <text x="180" y="278" font-size="16" font-weight="700" fill="#C14E2C">把画面、对话、账号和系统数据接在一起</text>
+    <text x="180" y="306" font-size="14" fill="#6B6760">多轮指代 · 屏幕内容 · 工作数据 · 位置/日历 · 跨设备记忆</text>
+
+    <rect x="60" y="338" width="744" height="78" fill="#E9E1D4" />
+    <text x="74" y="368" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">03 时序</text>
+    <text x="180" y="366" font-size="16" font-weight="700" fill="#C14E2C">一次识别、连续视频、打断接话与全双工</text>
+    <text x="180" y="394" font-size="14" fill="#6B6760">延迟 · 打断 · 镜头纠正 · 主动提醒 · 误触发与沉默</text>
+
+    <rect x="60" y="426" width="744" height="78" fill="#EEE7DC" />
+    <text x="74" y="456" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">04 行动</text>
+    <text x="180" y="454" font-size="16" font-weight="700" fill="#1F5A49">从给答案走向指导、调用工具、完成任务</text>
+    <text x="180" y="482" font-size="14" fill="#6B6760">回答 · 高亮 · 镜头引导 · 系统操作 · 人工接管 · 校验/撤销</text>
+
+    <rect x="60" y="514" width="744" height="78" fill="#E9E1D4" />
+    <text x="74" y="544" font-family="SimSun" font-size="24" font-weight="700" fill="#1D1C19">05 载体</text>
+    <text x="180" y="542" font-size="16" font-weight="700" fill="#1F5A49">手机、电脑、眼镜、电视、汽车和家庭设备</text>
+    <text x="180" y="570" font-size="14" fill="#6B6760">入口 · 权限 · 传感器 · 生态 · 旁观者隐私 · 分发与付费</text>
+    <text x="60" y="622" font-size="15" fill="#4D4942">后续所有竞品都按这五层比较，而不是简单排成“谁最强”。</text>
+  </g>
+
+  <g id="thesis" data-pptx-bounds="844 122 376 520" fill="#1D1C19">
+    <text x="856" y="146" font-size="14" font-weight="700" letter-spacing="2" fill="#C14E2C">全片总判断</text>
+    <text x="856" y="178" font-family="SimSun" font-size="26" font-weight="700">竞争已经<tspan x="856" dy="34">从“看见”转向“帮到”</tspan></text>
+    <line x1="856" y1="232" x2="1200" y2="232" stroke="#C9C1B4" stroke-width="1" />
+    <text x="856" y="260" font-size="17" font-weight="700" fill="#1F5A49">已经发生</text>
+    <text x="856" y="282" font-size="15" fill="#3F3B35">手机、眼镜、汽车和家庭终端<tspan x="856" dy="26">都能持续获取现场信息；语音、视觉</tspan><tspan x="856" dy="26">和屏幕开始进入同一个会话。</tspan></text>
+    <text x="856" y="356" font-size="17" font-weight="700" fill="#A33B27">尚未证明</text>
+    <text x="856" y="384" font-size="15" fill="#3F3B35">独立任务成功率、端到端时延、<tspan x="856" dy="28">纠错后恢复、长期留存和人工接管成本，</tspan><tspan x="856" dy="28">以及 AI 视觉的单独付费意愿。</tspan></text>
+    <text x="856" y="486" font-size="17" font-weight="700" fill="#C14E2C">因此，三个问题决定产品价值</text>
+    <text x="856" y="516" font-size="15" fill="#3F3B35">1　任务是否必须同时用到多种输入？</text>
+    <text x="856" y="542" font-size="15" fill="#3F3B35">2　系统能否发现失败并帮助恢复？</text>
+    <text x="856" y="568" font-size="15" fill="#3F3B35">3　谁愿意为结果，而不是为“多模态”付费？</text>
+    <rect x="856" y="592" width="344" height="42" fill="#1F5A49" fill-opacity="0.09" />
+    <text x="872" y="618" font-size="15" font-weight="700" fill="#1F5A49">结论：技术供给在加速，价值证据仍稀缺。</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">综合三份洞察报告；五层框架是本次汇报的整理，不是厂商官方分类。</text>
+    <text x="1220" y="672" text-anchor="end">02 / 21</text>
+  </g>
+</svg>

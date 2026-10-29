@@ -1,0 +1,336 @@
+{
+  "schema": "ppt-master.pptx-postflight-report.v1",
+  "status": "passed-with-warnings",
+  "output": {
+    "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/exports/multimodal-competitor-v2_20261029_173155.pptx",
+    "bytes": 95649
+  },
+  "source": {
+    "svg_slide_count": 21,
+    "layout_definition_count": 0,
+    "fingerprint": {
+      "algorithm": "sha256",
+      "digest": "ad2a1fe20aa02f84f593c286b5cf6fac61caeb6c1fd58b5b1840ae5dac6b8203",
+      "file_count": 21,
+      "files": [
+        {
+          "file": "01_cover.svg",
+          "sha256": "6dfb19ad5bd7f96b382572038438f95c1844ac3bdcabe76db0660c3161733728"
+        },
+        {
+          "file": "02_definition.svg",
+          "sha256": "582aee59c93866bf60bb736b9419afb859ad71a75320d785c65bbe92b3d7aa47"
+        },
+        {
+          "file": "03_2011_2017.svg",
+          "sha256": "715308d6abaf2890d09d1f26a33a4af7eaf5494d5bebf9293a4e2e202596c8f7"
+        },
+        {
+          "file": "04_2018_2019.svg",
+          "sha256": "02dd7ecbe8557db58c74ff7036b388d0f151e864b13000ee7e0c28bf7c023627"
+        },
+        {
+          "file": "05_2020_2021.svg",
+          "sha256": "da5dc27c5f58b73aaf8225215008426d265c8bba66a909cd5470cdfe3aaaeaba"
+        },
+        {
+          "file": "06_2022_2023.svg",
+          "sha256": "bd0f4fb23e3492847401102bf970e6139408638e6b255a7a13bababd02e63f95"
+        },
+        {
+          "file": "07_2024.svg",
+          "sha256": "31ecc3ed04b23076d08b6105e8213852ccfa18980625bf7695ed2923de2582da"
+        },
+        {
+          "file": "08_2025_2026.svg",
+          "sha256": "8ced08cce99b4fc159405d274ac15436b3809f82c0160cc3a4a4fc66e32f1e8f"
+        },
+        {
+          "file": "09_market-map.svg",
+          "sha256": "08e042bbc5071fc5ac2e79a93c2fa183b105da1eca97060702038812e283e4f9"
+        },
+        {
+          "file": "10_assistants.svg",
+          "sha256": "6fe2d846fbef08af94e323ceefcbe01bc6e2316c74a02335e4878deea5df0547"
+        },
+        {
+          "file": "11_wearables.svg",
+          "sha256": "f48b5085dda0845027f9e10bb3a27168469a7e955065f6167abaa3e41bce6708"
+        },
+        {
+          "file": "12_tv_home.svg",
+          "sha256": "ba47bd859961c867678264167c8d034c51356f604489884f0c4761b02773c409"
+        },
+        {
+          "file": "13_car-spatial.svg",
+          "sha256": "2337a447becdf607165c47d65ca3b0d6eed08a3aff0d2ce40fe0511e290443f7"
+        },
+        {
+          "file": "14_accessibility.svg",
+          "sha256": "53c1a7de9bc18535439cadb6e475953f817090fe2953f65a4c213c3b7a71caec"
+        },
+        {
+          "file": "15_infrastructure.svg",
+          "sha256": "96a6aada81f7050c5713d375922422b23c4aa79056d380c169be7b6497a85ecf"
+        },
+        {
+          "file": "16_reception.svg",
+          "sha256": "78927c55968b52fe1c2ffacd6ddc2b3034d3ebb3d6a085270e1f6a25e8eb471b"
+        },
+        {
+          "file": "17_success-business.svg",
+          "sha256": "e99fbeded127db51977209d8bd477c19be6bfb08fbcf0a617cf69b8b223acad3"
+        },
+        {
+          "file": "18_opportunities.svg",
+          "sha256": "4b9e644b82706aa59e903f6f2c9973620417ed6d024c2ad18ceaa52819b8e4f4"
+        },
+        {
+          "file": "19_trends-watch.svg",
+          "sha256": "2b16eae37c486993bbb04be3e148d0defcc9d1418f2cf07cd7d6ea2c13e0a4f7"
+        },
+        {
+          "file": "20_date-audit.svg",
+          "sha256": "413b862bfc9518f672b486e2f119bccc8374d85ec2c487647cc6551dfdd6d7dd"
+        },
+        {
+          "file": "21_sources-coverage.svg",
+          "sha256": "ba8a28a685e8f92414bfd35047cd9509e1234aae7699e556f4df7ad80ff13309"
+        }
+      ]
+    },
+    "authoring_roundtrip": null
+  },
+  "package": {
+    "zip_integrity": "passed",
+    "corrupt_member": null,
+    "slides": 21,
+    "notes": 0,
+    "masters": 1,
+    "layouts": 1
+  },
+  "checks": {
+    "zip_integrity": "passed",
+    "slide_count": "passed",
+    "internal_relationships": "enforced-at-build",
+    "structured_package": "not-applicable",
+    "transitions": "enforced-at-build",
+    "animations": "enforced-at-build",
+    "project_svg_contract": "enforced-at-build",
+    "compatibility_normalization": "not-applicable",
+    "authoring_roundtrip": "not-applicable",
+    "quality_gate": "passed",
+    "quality_warnings": "warning",
+    "template_tokens": "passed",
+    "external_images": "passed",
+    "font_portability": "passed"
+  },
+  "quality": {
+    "status": "loaded",
+    "path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/validation/svg_quality_report.json",
+    "schema": "ppt-master.svg-quality-report.v1",
+    "stage": "final",
+    "source_match": "passed",
+    "source_fingerprint": {
+      "algorithm": "sha256",
+      "digest": "ad2a1fe20aa02f84f593c286b5cf6fac61caeb6c1fd58b5b1840ae5dac6b8203",
+      "file_count": 21,
+      "files": [
+        {
+          "file": "01_cover.svg",
+          "sha256": "6dfb19ad5bd7f96b382572038438f95c1844ac3bdcabe76db0660c3161733728"
+        },
+        {
+          "file": "02_definition.svg",
+          "sha256": "582aee59c93866bf60bb736b9419afb859ad71a75320d785c65bbe92b3d7aa47"
+        },
+        {
+          "file": "03_2011_2017.svg",
+          "sha256": "715308d6abaf2890d09d1f26a33a4af7eaf5494d5bebf9293a4e2e202596c8f7"
+        },
+        {
+          "file": "04_2018_2019.svg",
+          "sha256": "02dd7ecbe8557db58c74ff7036b388d0f151e864b13000ee7e0c28bf7c023627"
+        },
+        {
+          "file": "05_2020_2021.svg",
+          "sha256": "da5dc27c5f58b73aaf8225215008426d265c8bba66a909cd5470cdfe3aaaeaba"
+        },
+        {
+          "file": "06_2022_2023.svg",
+          "sha256": "bd0f4fb23e3492847401102bf970e6139408638e6b255a7a13bababd02e63f95"
+        },
+        {
+          "file": "07_2024.svg",
+          "sha256": "31ecc3ed04b23076d08b6105e8213852ccfa18980625bf7695ed2923de2582da"
+        },
+        {
+          "file": "08_2025_2026.svg",
+          "sha256": "8ced08cce99b4fc159405d274ac15436b3809f82c0160cc3a4a4fc66e32f1e8f"
+        },
+        {
+          "file": "09_market-map.svg",
+          "sha256": "08e042bbc5071fc5ac2e79a93c2fa183b105da1eca97060702038812e283e4f9"
+        },
+        {
+          "file": "10_assistants.svg",
+          "sha256": "6fe2d846fbef08af94e323ceefcbe01bc6e2316c74a02335e4878deea5df0547"
+        },
+        {
+          "file": "11_wearables.svg",
+          "sha256": "f48b5085dda0845027f9e10bb3a27168469a7e955065f6167abaa3e41bce6708"
+        },
+        {
+          "file": "12_tv_home.svg",
+          "sha256": "ba47bd859961c867678264167c8d034c51356f604489884f0c4761b02773c409"
+        },
+        {
+          "file": "13_car-spatial.svg",
+          "sha256": "2337a447becdf607165c47d65ca3b0d6eed08a3aff0d2ce40fe0511e290443f7"
+        },
+        {
+          "file": "14_accessibility.svg",
+          "sha256": "53c1a7de9bc18535439cadb6e475953f817090fe2953f65a4c213c3b7a71caec"
+        },
+        {
+          "file": "15_infrastructure.svg",
+          "sha256": "96a6aada81f7050c5713d375922422b23c4aa79056d380c169be7b6497a85ecf"
+        },
+        {
+          "file": "16_reception.svg",
+          "sha256": "78927c55968b52fe1c2ffacd6ddc2b3034d3ebb3d6a085270e1f6a25e8eb471b"
+        },
+        {
+          "file": "17_success-business.svg",
+          "sha256": "e99fbeded127db51977209d8bd477c19be6bfb08fbcf0a617cf69b8b223acad3"
+        },
+        {
+          "file": "18_opportunities.svg",
+          "sha256": "4b9e644b82706aa59e903f6f2c9973620417ed6d024c2ad18ceaa52819b8e4f4"
+        },
+        {
+          "file": "19_trends-watch.svg",
+          "sha256": "2b16eae37c486993bbb04be3e148d0defcc9d1418f2cf07cd7d6ea2c13e0a4f7"
+        },
+        {
+          "file": "20_date-audit.svg",
+          "sha256": "413b862bfc9518f672b486e2f119bccc8374d85ec2c487647cc6551dfdd6d7dd"
+        },
+        {
+          "file": "21_sources-coverage.svg",
+          "sha256": "ba8a28a685e8f92414bfd35047cd9509e1234aae7699e556f4df7ad80ff13309"
+        }
+      ]
+    },
+    "summary": {
+      "total": 21,
+      "passed": 13,
+      "warnings": 8,
+      "errors": 0
+    },
+    "categories": {
+      "blocking": {
+        "count": 0,
+        "issues": []
+      },
+      "introduced": {
+        "count": 8,
+        "issues": [
+          {
+            "file": "01_cover.svg",
+            "message": "Detected 1 paragraph-like line run(s) split across sibling <text> elements (<g id=\"cover-tracks\"> x=700.0, y=518.0..546.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+          },
+          {
+            "file": "05_2020_2021.svg",
+            "message": "Detected 2 paragraph-like line run(s) split across sibling <text> elements (<g id=\"period-2020-21\"> x=450.0, y=282.0..308.0, 2 lines; <g id=\"period-2020-21\"> x=840.0, y=378.0..404.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+          },
+          {
+            "file": "08_2025_2026.svg",
+            "message": "Detected 4 paragraph-like line run(s) split across sibling <text> elements (<g id=\"terminal-and-interaction\"> x=78.0, y=422.0..462.0, 3 lines; <g id=\"terminal-and-interaction\"> x=408.0, y=422.0..442.0, 2 lines; <g id=\"terminal-and-interaction\"> x=690.0, y=422.0..442.0, 2 lines; +1 more). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+          },
+          {
+            "file": "09_market-map.svg",
+            "message": "Detected 8 paragraph-like line run(s) split across sibling <text> elements (<g id=\"five-category-map\"> x=60.0, y=254.0..326.0, 4 lines; <g id=\"five-category-map\"> x=294.0, y=254.0..326.0, 4 lines; <g id=\"five-category-map\"> x=520.0, y=254.0..278.0, 2 lines; +5 more). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+          },
+          {
+            "file": "12_tv_home.svg",
+            "message": "Detected 3 paragraph-like line run(s) split across sibling <text> elements (<g id=\"tv-home\"> x=462.0, y=474.0..500.0, 2 lines; <g id=\"tv-home\"> x=852.0, y=382.0..408.0, 2 lines; <g id=\"tv-home\"> x=852.0, y=474.0..500.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+          },
+          {
+            "file": "14_accessibility.svg",
+            "message": "Detected 3 paragraph-like line run(s) split across sibling <text> elements (<g id=\"accessibility-matrix\"> x=370.0, y=244.0..270.0, 2 lines; <g id=\"accessibility-matrix\"> x=370.0, y=404.0..430.0, 2 lines; <g id=\"accessibility-matrix\"> x=370.0, y=484.0..510.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+          },
+          {
+            "file": "17_success-business.svg",
+            "message": "Detected 1 paragraph-like line run(s) split across sibling <text> elements (<g id=\"mechanisms-and-models\"> x=60.0, y=566.0..594.0, 2 lines). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+          },
+          {
+            "file": "18_opportunities.svg",
+            "message": "Detected 6 paragraph-like line run(s) split across sibling <text> elements (<g id=\"opportunity-grid\"> x=60.0, y=242.0..264.0, 2 lines; <g id=\"opportunity-grid\"> x=365.0, y=242.0..264.0, 2 lines; <g id=\"opportunity-grid\"> x=655.0, y=242.0..264.0, 2 lines; +3 more). If each run is one prose paragraph, combine it into one <text>: keep its first line as direct text and use direct <tspan> children with the parent x and positive relative dy values for later lines. An all-<tspan> form may start with dy=\"0\". Keep semantically independent text frames separate."
+          }
+        ]
+      },
+      "inherited": {
+        "count": 0,
+        "issues": []
+      },
+      "source-import": {
+        "count": 0,
+        "summary": {
+          "warning_count": 0,
+          "by_code": {}
+        }
+      }
+    }
+  },
+  "resources": {
+    "unresolved_template_tokens": [],
+    "fonts": {
+      "stacks": [
+        "Microsoft YaHei",
+        "SimSun"
+      ],
+      "generic_only_stacks": [],
+      "unsafe_exported_faces": []
+    },
+    "images": {
+      "data_uri": 0,
+      "local": 0,
+      "external": 0,
+      "external_references": []
+    }
+  },
+  "export_policy": {
+    "project_svg_contract": "strict",
+    "dangerous_normalization_count": 0
+  },
+  "deck_motion": {
+    "transition": {
+      "effect": "fade",
+      "effect_options": {},
+      "duration": 0.4,
+      "auto_advance": null,
+      "sound": null
+    },
+    "animation": {
+      "effect": "none",
+      "effect_request": null,
+      "duration": 0.4,
+      "stagger": 0.5,
+      "trigger": "after-previous"
+    },
+    "cli_overrides": {
+      "transition": false,
+      "transition_duration": false,
+      "auto_advance": false,
+      "transition_sound": false,
+      "animation": false,
+      "animation_duration": false,
+      "animation_stagger": false,
+      "animation_trigger": false
+    },
+    "narration_timings": false
+  },
+  "backup_path": "/Users/zhangshuo/Research/产品/multimodal-competitor-v2_ppt169_20261029/backup/20261029_173155/svg_output",
+  "conversion_trace_path": null
+}

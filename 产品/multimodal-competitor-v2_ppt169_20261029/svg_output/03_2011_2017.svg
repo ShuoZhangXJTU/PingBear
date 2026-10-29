@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">2011–2017 · 入口形成</text>
+    <text x="60" y="82" font-size="32">语音入口和视觉入口分别成立，但还没有真正融合</text>
+  </g>
+
+  <g id="entry-tracks" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="148" font-size="15" fill="#4D4942">两条路线同时前进；它们解决的是“怎么问”，还不是“怎么把任务做完”。</text>
+    <line x1="86" y1="224" x2="1190" y2="224" stroke="#B6AEA1" stroke-width="2"/>
+    <circle cx="150" cy="224" r="8" fill="#1D1C19"/><text x="150" y="202" font-size="14" font-weight="700" text-anchor="middle" fill="#6B6760">2011</text>
+    <text x="150" y="254" font-size="18" font-weight="700" text-anchor="middle" fill="#1D1C19">Siri</text><text x="150" y="278" font-size="14" text-anchor="middle" fill="#6B6760">语音助手进入手机</text>
+    <circle cx="420" cy="224" r="8" fill="#1D1C19"/><text x="420" y="202" font-size="14" font-weight="700" text-anchor="middle" fill="#6B6760">2014</text>
+    <text x="420" y="254" font-size="18" font-weight="700" text-anchor="middle" fill="#1D1C19">Amazon Echo</text><text x="420" y="278" font-size="14" text-anchor="middle" fill="#6B6760">免手语音进入家庭</text>
+    <circle cx="700" cy="224" r="8" fill="#1D1C19"/><text x="700" y="202" font-size="14" font-weight="700" text-anchor="middle" fill="#6B6760">2016</text>
+    <text x="700" y="254" font-size="18" font-weight="700" text-anchor="middle" fill="#1D1C19">Google Assistant</text><text x="700" y="278" font-size="14" text-anchor="middle" fill="#6B6760">跨手机与家庭设备</text>
+    <circle cx="1020" cy="224" r="8" fill="#1D1C19"/><text x="1020" y="202" font-size="14" font-weight="700" text-anchor="middle" fill="#6B6760">2017</text>
+    <text x="1020" y="254" font-size="18" font-weight="700" text-anchor="middle" fill="#1D1C19">Bixby</text><text x="1020" y="278" font-size="14" text-anchor="middle" fill="#6B6760">语音连接手机与 IoT</text>
+
+    <line x1="86" y1="370" x2="1190" y2="370" stroke="#B6AEA1" stroke-width="2"/>
+    <circle cx="480" cy="370" r="8" fill="#C14E2C"/><text x="480" y="348" font-size="14" font-weight="700" text-anchor="middle" fill="#C14E2C">2017.05</text>
+    <text x="480" y="400" font-size="18" font-weight="700" text-anchor="middle" fill="#1D1C19">Google Lens</text><text x="480" y="424" font-size="14" text-anchor="middle" fill="#6B6760">相机“看见”并搜索</text>
+    <circle cx="790" cy="370" r="8" fill="#C14E2C"/><text x="790" y="348" font-size="14" font-weight="700" text-anchor="middle" fill="#C14E2C">2017.07</text>
+    <text x="790" y="400" font-size="18" font-weight="700" text-anchor="middle" fill="#1D1C19">Seeing AI</text><text x="790" y="424" font-size="14" text-anchor="middle" fill="#6B6760">摄像头朗读世界</text>
+    <circle cx="1090" cy="370" r="8" fill="#C14E2C"/><text x="1090" y="348" font-size="14" font-weight="700" text-anchor="middle" fill="#C14E2C">2017.07</text>
+    <text x="1090" y="400" font-size="18" font-weight="700" text-anchor="middle" fill="#1D1C19">Bixby Voice</text><text x="1090" y="424" font-size="14" text-anchor="middle" fill="#6B6760">语音开始控制系统任务</text>
+
+    <line x1="60" y1="458" x2="1220" y2="458" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="492" font-size="16" font-weight="700" fill="#6B6760">这个阶段的真实结果</text>
+    <text x="60" y="526" font-size="16" fill="#1D1C19">语音解决了免手提问，视觉解决了拍完再搜；</text>
+    <text x="60" y="554" font-size="16" fill="#1D1C19">两者尚未共享连续上下文，也还没有“发现失败—纠正—完成任务”的闭环。</text>
+    <text x="770" y="526" font-size="16" font-weight="700" fill="#1F5A49">被验证的价值</text>
+    <text x="770" y="554" font-size="16" fill="#3F3B35">免手操作 · 快速识物 · 无障碍朗读 · 设备控制</text>
+    <text x="770" y="590" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">分：入口先赢，闭环尚未出现。</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">来源：Apple 2011；Amazon 2014；Google 2016/2017；Samsung 2017；Microsoft 2017</text>
+    <text x="1220" y="672" text-anchor="end">03 / 21</text>
+  </g>
+</svg>

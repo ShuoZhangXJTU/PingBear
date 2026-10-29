@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" lang="zh-CN" font-family="Microsoft YaHei" data-pptx-page-role="content">
+  <rect id="background" data-pptx-role="background" x="0" y="0" width="1280" height="720" fill="#F4F0E7"/>
+  <g id="page-title" data-pptx-bounds="52 20 1176 94" font-family="SimSun" fill="#1D1C19" font-weight="700">
+    <text x="60" y="42" font-family="Microsoft YaHei" font-size="14" letter-spacing="2" fill="#C14E2C">2025–2026 · 设备化与主动交互</text>
+    <text x="60" y="82" font-size="32">多模态进入终端，竞争焦点转向全情境 Agent 与行动网络</text>
+  </g>
+
+  <g id="terminal-and-interaction" data-pptx-bounds="52 122 1176 520">
+    <text x="60" y="148" font-size="15" fill="#4D4942">终端路线决定“在哪里感知”，Muse 进一步把入口推进为跨 App、可持续执行的个人代理。</text>
+    <text x="60" y="184" font-size="14" font-weight="700" letter-spacing="2" fill="#1F5A49">终端与 Agent 时间线</text>
+    <line x1="82" y1="258" x2="1200" y2="258" stroke="#B6AEA1" stroke-width="2"/>
+    <circle cx="140" cy="258" r="7" fill="#1F5A49"/><text x="140" y="238" font-size="12" font-weight="700" text-anchor="middle" fill="#6B6760">2025.05</text>
+    <text x="140" y="288" font-size="15" font-weight="700" text-anchor="middle" fill="#1D1C19">Gemini Live 铺开</text><text x="140" y="310" font-size="12" text-anchor="middle" fill="#6B6760">摄像头/屏幕</text>
+    <circle cx="380" cy="258" r="7" fill="#1F5A49"/><text x="380" y="238" font-size="12" font-weight="700" text-anchor="middle" fill="#6B6760">2025.08</text>
+    <text x="380" y="288" font-size="15" font-weight="700" text-anchor="middle" fill="#1D1C19">小艺看世界</text><text x="380" y="310" font-size="12" text-anchor="middle" fill="#6B6760">实时＋指向</text>
+    <circle cx="620" cy="258" r="7" fill="#1F5A49"/><text x="620" y="238" font-size="12" font-weight="700" text-anchor="middle" fill="#6B6760">2025.09 / 11</text>
+    <text x="620" y="288" font-size="15" font-weight="700" text-anchor="middle" fill="#1D1C19">Display / 夸克 S1</text><text x="620" y="310" font-size="12" text-anchor="middle" fill="#6B6760">近眼/导航/支付</text>
+    <circle cx="860" cy="258" r="7" fill="#1F5A49"/><text x="860" y="238" font-size="12" font-weight="700" text-anchor="middle" fill="#6B6760">2026.08</text>
+    <text x="860" y="288" font-size="15" font-weight="700" text-anchor="middle" fill="#1D1C19">SeedRealtime</text><text x="860" y="310" font-size="12" text-anchor="middle" fill="#6B6760">全双工音视频</text>
+    <circle cx="1100" cy="258" r="9" fill="#C14E2C"/><text x="1100" y="238" font-size="12" font-weight="700" text-anchor="middle" fill="#C14E2C">2026.09</text>
+    <text x="1100" y="288" font-size="15" font-weight="700" text-anchor="middle" fill="#C14E2C">Muse + 眼镜</text><text x="1100" y="310" font-size="12" text-anchor="middle" fill="#C14E2C">全情境个人 Agent</text>
+
+    <rect x="60" y="342" width="1160" height="174" fill="#C14E2C" fill-opacity="0.06"/>
+    <text x="78" y="370" font-size="14" font-weight="700" letter-spacing="2" fill="#C14E2C">Meta Muse：2026 年的关键跃迁</text>
+    <text x="78" y="398" font-size="17" font-weight="700" fill="#1D1C19">从问答到后台执行</text>
+    <text x="78" y="422" font-size="12" fill="#3F3B35">计划、浏览器、跨应用、多步任务</text>
+    <text x="78" y="442" font-size="12" fill="#3F3B35">关闭 App 后继续；敏感动作先确认</text>
+    <text x="78" y="462" font-size="12" fill="#3F3B35">Secure VM、Sentinel、权限与审计</text>
+    <text x="78" y="490" font-size="12" fill="#A33B27">Reuters：human concierge 测试中</text>
+
+    <text x="408" y="398" font-size="17" font-weight="700" fill="#1D1C19">公司自报早期信号</text>
+    <text x="408" y="422" font-size="12" fill="#3F3B35">美加六周 1000 万设置；25% 日活</text>
+    <text x="408" y="442" font-size="12" fill="#3F3B35">购物最常见，平均客单超 200 美元</text>
+    <text x="408" y="462" font-size="12" fill="#6B6760">设置量 ≠ 下载、月活或留存</text>
+    <text x="408" y="490" font-size="12" fill="#6B6760">缺独立审计与交易结果</text>
+
+    <text x="690" y="398" font-size="17" font-weight="700" fill="#1D1C19">设备分层</text>
+    <text x="690" y="422" font-size="12" fill="#3F3B35">Audio：无摄像头、43g、12h、349 美元</text>
+    <text x="690" y="442" font-size="12" fill="#3F3B35">Gen 3：保留 12MP 相机、449 美元</text>
+    <text x="690" y="462" font-size="12" fill="#6B6760">隐私/价格/续航与视觉能力被分层</text>
+    <text x="690" y="490" font-size="12" fill="#6B6760">眼镜端 Muse 尚未全量上线</text>
+
+    <text x="1000" y="398" font-size="17" font-weight="700" fill="#1D1C19">下一步：Agent 网络</text>
+    <text x="1000" y="422" font-size="12" fill="#3F3B35">Muse Network / Personal</text>
+    <text x="1000" y="442" font-size="12" fill="#3F3B35">Agent Protocol</text>
+    <text x="1000" y="462" font-size="12" fill="#3F3B35">亲友与商家 Agent 协商交易</text>
+    <text x="1000" y="490" font-size="12" fill="#A33B27">路线图，不是已交付能力</text>
+
+    <line x1="60" y1="536" x2="1220" y2="536" stroke="#C9C1B4" stroke-width="1"/>
+    <text x="60" y="568" font-size="15" font-weight="700" fill="#1F5A49">已经看到</text>
+    <text x="60" y="596" font-size="15" fill="#3F3B35">更低延迟、全双工、镜头纠错、主动提醒、后台执行和商业化入口。</text>
+    <text x="650" y="568" font-size="15" font-weight="700" fill="#A33B27">仍未公开</text>
+    <text x="650" y="596" font-size="15" fill="#3F3B35">独立成功率、误打扰、人工接管率、隐私成本、交易费率与复购。</text>
+    <text x="60" y="626" font-family="SimSun" font-size="22" font-weight="700" fill="#1D1C19">分：2026 的分水岭不是“看见”，而是持续上下文、后台执行与 Agent 协作。</text>
+  </g>
+
+  <g id="page-footer" data-pptx-bounds="52 660 1176 18" fill="#7A756D" font-size="12">
+    <text x="60" y="672">来源：Google；华为；Meta；夸克；字节 Seed；Snap；独立实测（日期口径见 P20）</text>
+    <text x="1220" y="672" text-anchor="end">08 / 21</text>
+  </g>
+</svg>
