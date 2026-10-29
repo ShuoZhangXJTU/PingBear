@@ -6,6 +6,8 @@ topic: "多模态交互"
 
 # 业界洞察：多模态交互
 
+> **2026-10-29 增补**：Meta Muse、无摄像头 Ray-Ban Meta Audio、后台 Agent 与 Muse Network 见 [[业界洞察/2026-10-29-multimodal-meta-muse-update]]。
+
 联网检索 33 个页面 + 本机博客/论文 40 条。
 
 ## 一句话结论

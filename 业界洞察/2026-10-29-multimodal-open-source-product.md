@@ -8,6 +8,8 @@ artifact_revision: rev-e276a4ad424144a295b0ab74eec0b79f
 
 # 业界洞察：多模态交互的开源产品化与垂直场景
 
+> **2026-10-29 增补**：Meta Muse 提供闭源全栈 Agent 对照，包含 Secure VM、应用权限、行动审计、支付与 Agent 协议，见 [[业界洞察/2026-10-29-multimodal-meta-muse-update]]。
+
 联网检索候选 40 条 + 本机博客/论文 0 条；正文读取范围见筛选与核验记录。
 
 ## 一句话结论与关系变化
