@@ -12,6 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 STYLE_VERSION = 2
+AFFILIATION_START_DATE = '2026-10-30'
 TOPICS = {
     'RSI': ['self-improv', 'self-evol', 'recursive', 'self-play', 'curriculum', 'experimental understanding', 'environment generation', 'generating agentic', 'past experience'],
     'Harness': ['harness', 'agent', 'memory', 'tool use', 'tool-use', 'swe-bench', 'trajectory', 'trajectories', 'context management'],
@@ -252,9 +253,20 @@ def collect(args, root):
     print(f'{len(candidates)} papers; candidates: {out}', flush=True)
 
 
-def card(p):
+def paper_affiliation(p):
+    """Return the affiliation supplied by Hugging Face without guessing from names."""
+    value = str(p.get('hf_organization') or '').strip()
+    if not value or value.casefold() in {'unknown', 'none', 'n/a', '未知'}:
+        return 'HF 未标注'
+    return value
+
+
+def card(p, date=None):
     tags = ' '.join('#'+t for t in p.get('tags', p.get('topics', [])))
-    return f"{p['summary']}\n\n{tags}\n\n[PDF](https://arxiv.org/pdf/{p['id']})\n"
+    lines = ([f"**单位：** {paper_affiliation(p)}"]
+             if date and date >= AFFILIATION_START_DATE else []) + [
+        p['summary'], tags, f"[PDF](https://arxiv.org/pdf/{p['id']})"]
+    return '\n\n'.join(lines) + '\n'
 
 
 def digest_body(date, papers):
@@ -262,7 +274,7 @@ def digest_body(date, papers):
     body += f"共 {len(papers)} 篇 · ★ 是你可能更感兴趣的\n\n"
     for p in papers:
         star = '★ ' if p.get('highlight', True) else ''
-        body += f"## {p['number']}. {star}[{p['title']}]({p.get('url') or 'https://arxiv.org/abs/' + p['id']})\n\n" + card(p)
+        body += f"## {p['number']}. {star}[{p['title']}]({p.get('url') or 'https://arxiv.org/abs/' + p['id']})\n\n" + card(p, date)
         body += f"\n[归档](obsidian://research-archive?date={date}&id={p['id']})\n\n"
     if not papers:
         body += '本次没有经过审阅且未推送的合适论文。\n'
@@ -358,7 +370,7 @@ def archive(args, root):
             continue
         head, _tags = note_fields(p, args.date)
         body = head + f"\n# [{p['title']}]({p['url']})\n\n"
-        body += card(p) + f"\n来源日报：[[日报/{args.date}]]，第 {number} 篇。\n\n"
+        body += card(p, args.date) + f"\n来源日报：[[日报/{args.date}]]，第 {number} 篇。\n\n"
         if p.get('topics'):
             body += '相关专题：' + ' · '.join('[[专题/' + t + ']]' for t in p['topics']) + '\n\n'
         body += '## 我的选择理由\n\n' + (args.reason or '待补充。') + '\n\n## 精读笔记\n\n待精读；PDF 尚未下载。\n'

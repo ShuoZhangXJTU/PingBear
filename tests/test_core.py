@@ -42,6 +42,25 @@ class TestArchivePaths(unittest.TestCase):
         self.assertIn('  - RSI', head)
 
 
+class TestPaperAffiliation(unittest.TestCase):
+    def setUp(self):
+        self.paper = {'id': '2610.12345', 'summary': '一句话说明。', 'tags': ['Harness'],
+                      'hf_organization': 'Nanjing University'}
+
+    def test_daily_card_shows_hf_affiliation_from_start_date(self):
+        body = research.card(self.paper, '2026-10-30')
+        self.assertIn('**单位：** Nanjing University', body)
+
+    def test_daily_card_does_not_backfill_old_dates(self):
+        body = research.card(self.paper, '2026-10-29')
+        self.assertNotIn('单位：', body)
+
+    def test_missing_hf_affiliation_is_explicit(self):
+        self.paper['hf_organization'] = '未知'
+        body = research.card(self.paper, '2026-10-30')
+        self.assertIn('**单位：** HF 未标注', body)
+
+
 class TestIdeaRouting(unittest.TestCase):
     def test_harness_keywords(self):
         self.assertIn('Harness', ideas.topics_of('现在 jev as router 或者 controller 是个应用点'))

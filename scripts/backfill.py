@@ -97,7 +97,7 @@ def backfill_day(date, per_day=3, force=False, full=False):
                 f"[归档](obsidian://research-archive?date={date}&id={entry['id']})\n")
         else:
             lines.append(f"## {entry['number']}. [{entry['title']}]({entry['url']})\n\n")
-            lines.append(research.card(entry))
+            lines.append(research.card(entry, date))
             lines.append(f"\n[归档](obsidian://research-archive?date={date}&id={entry['id']})\n\n")
     research.replace(DAILY / f'{date}.md', ''.join(lines))
     existing = ROOT / '.research/digests' / f'{date}.json'
