@@ -1,0 +1,71 @@
+{
+  "focuses": [
+    {
+      "id": "full-duplex-audio-video-dialogue",
+      "label": "全双工音视频对话",
+      "start_date": "2026-11-04",
+      "summary": "系统一边持续看和听，一边生成语音、回应或动作，并自行判断何时继续听、何时接话、何时打断、何时等待、何时主动执行。重点是交互时序与视听协同，不是给语音助手外挂一个摄像头。",
+      "keywords": [
+        "全双工",
+        "full-duplex",
+        "full duplex",
+        "音视频",
+        "视听",
+        "audio-visual",
+        "audiovisual",
+        "audio video",
+        "实时交互",
+        "real-time interaction",
+        "realtime interaction",
+        "streaming",
+        "流式",
+        "turn-taking",
+        "turn taking",
+        "轮次",
+        "打断",
+        "interrupt",
+        "barge-in",
+        "backchannel",
+        "附和",
+        "endpointing",
+        "end-of-turn",
+        "何时说话",
+        "何时提问",
+        "主动交互",
+        "proactive",
+        "speaker",
+        "diarization",
+        "gaze",
+        "眼神",
+        "共享注意力",
+        "joint attention",
+        "低延迟",
+        "latency",
+        "音画同步",
+        "synchronization",
+        "simultaneous speech",
+        "listen while speaking",
+        "生成时理解",
+        "边听边说"
+      ],
+      "tags": [
+        "多模态交互",
+        "多模态"
+      ],
+      "subdirections": [
+        "轮次判断：何时接话、等待、打断、附和和处理重叠语音",
+        "视听线索：谁在说、看哪里、指向什么、当前场景状态和共享注意力",
+        "实时系统：因果流式处理、音画同步、延迟预算、抖动和计算调度",
+        "交互状态：目标、记忆、belief、澄清和主动行动的连续维护",
+        "训练与评测：多轮在线指标、错误时机、打断恢复、长时任务覆盖和独立验收",
+        "部署约束：端云协同、低功耗、隐私、网络波动和真实设备输入"
+      ],
+      "avoid": [
+        "只给离线语音助手增加视频输入，但没有改变交互时机",
+        "只提高单轮音视频理解准确率，却不处理持续交互和是否该说话",
+        "泛化成通用 agent、RSI 或后训练提案，只在末尾附加音视频场景",
+        "用平均延迟或单轮回答质量替代打断、等待、主动性和恢复能力的评测"
+      ]
+    }
+  ]
+}

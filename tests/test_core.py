@@ -10,6 +10,7 @@ import catalog
 import ideas
 import inbox
 import knowledge
+import proposal
 import research
 import weixin_bridge
 
@@ -70,6 +71,32 @@ class TestIdeaRouting(unittest.TestCase):
 
     def test_unknown_goes_other(self):
         self.assertEqual(ideas.topics_of('今天天气不错'), ['其他'])
+
+
+class TestAutomaticResearchFocus(unittest.TestCase):
+    def test_focus_starts_today(self):
+        self.assertIsNone(proposal.focus_profile('2026-11-03'))
+        focus = proposal.focus_profile('2026-11-04')
+        self.assertEqual(focus['label'], '全双工音视频对话')
+
+    def test_focus_ranks_full_duplex_before_unrelated(self):
+        focus = proposal.focus_profile('2026-11-04')
+        records = [
+            {'title': 'Memory compression for long tasks', 'summary': '', 'tags': ['记忆'], 'takeaway': ''},
+            {'title': 'Full-duplex audio-visual turn taking', 'summary': '实时打断与边听边说',
+             'tags': ['多模态交互'], 'takeaway': ''},
+        ]
+        ranked = proposal._focus_ranked(records, focus,
+            lambda item: item['title'] + ' ' + item['summary'] + ' ' + ' '.join(item['tags']), 2)
+        self.assertIn('Full-duplex', ranked[0]['title'])
+
+    def test_focused_schema_requires_focus_angle(self):
+        base = proposal.proposal_schema()
+        focused = proposal.proposal_schema(proposal.focus_profile('2026-11-04'))
+        base_required = base['properties']['proposals']['items']['required']
+        focused_required = focused['properties']['proposals']['items']['required']
+        self.assertNotIn('focus_angle', base_required)
+        self.assertIn('focus_angle', focused_required)
 
 
 class TestWeixinCommands(unittest.TestCase):

@@ -20,6 +20,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import research
+import proposal
 
 ROOT = research.ROOT
 TZ = dt.timezone(dt.timedelta(hours=8))
@@ -105,6 +106,8 @@ def job_health():
 def write(date=None):
     date = date or dt.datetime.now(TZ).date().isoformat()
     count, titles = proposal_digest(date)
+    focus = proposal.focus_profile(date)
+    focus_label = focus.get('label') if focus else 'RSI 提案'
     candidates, counts = rubric_digest(date)
     stages = flywheel_digest()
     books = touched_today('最佳实践', date)
@@ -112,8 +115,10 @@ def write(date=None):
     lines = [f'---\ndate: {date}\ntype: research-digest\n---\n\n',
         f'# {date} 自动科研 · rubrics\n\n',
         f'入口：[[提案/{date}|今日提案]] · [[研究路线/飞轮|飞轮状态]] · [[研究路线/运行总览|运行总览]] · [[研究路线/评价体系|评价体系]]\n\n',
-        '## 自动科研（RSI 提案）\n\n']
+        f'## 自动科研（{focus_label}）\n\n']
     if count:
+        if focus:
+            lines.append(f'- 当前主攻：**{focus.get("label")}**。')
         lines.append(f'- 今天列出 {count} 条提案，全部写在 [[提案/{date}|提案/{date}.md]]。')
         lines += [f'- [[提案/{date}#{title}|{title}]]' for title in titles[:6]]
         if count > 6:
