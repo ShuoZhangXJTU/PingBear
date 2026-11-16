@@ -13,6 +13,7 @@ import knowledge
 import proposal
 import research
 import weixin_bridge
+import xhs
 
 
 class TestTags(unittest.TestCase):
@@ -60,6 +61,24 @@ class TestPaperAffiliation(unittest.TestCase):
         self.paper['hf_organization'] = '未知'
         body = research.card(self.paper, '2026-10-30')
         self.assertIn('**单位：** HF 未标注', body)
+
+
+class TestXhsArxivFallback(unittest.TestCase):
+    def test_extracts_ids_with_ocr_line_breaks(self):
+        text = 'Paper arXiv:2609.\n23153v2 and huggingface.co/papers/2610.12345'
+        self.assertEqual(xhs.interesting_arxiv_ids(text), ['2610.12345', '2609.23153'])
+
+    def test_parses_arxiv_abstract_meta(self):
+        page = '''<meta name="citation_title" content="A &amp; B">
+        <meta name="citation_abstract" content="Useful result.">'''
+        parsed = xhs.parse_arxiv_abs(page, '2609.23153')
+        self.assertEqual(parsed['title'], 'A & B')
+        self.assertEqual(parsed['abstract'], 'Useful result.')
+
+    def test_known_id_avoids_network_lookup(self):
+        known = {'2609.23153': {'arxiv': '2609.23153', 'title': 'Known Paper', 'abstract': 'Known.'}}
+        found = xhs.resolve_image('arXiv:2609.23153', known=known, allow_search=False)
+        self.assertEqual(found[:3], ('2609.23153', 'Known Paper', 'Known.'))
 
 
 class TestIdeaRouting(unittest.TestCase):

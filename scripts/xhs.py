@@ -3,6 +3,7 @@
 import argparse
 import datetime as dt
 import difflib
+import html as html_module
 import json
 import os
 import re
@@ -23,6 +24,8 @@ DIGESTS = STATE / 'digests'
 SEEN = STATE / 'seen.json'
 TARGET = STATE / 'target.json'
 IMAGES = STATE / 'images'
+ARXIV_CACHE = STATE / 'arxiv-cache.json'
+ARXIV_SEARCH_CACHE = STATE / 'arxiv-search-cache.json'
 TOOL_HOME = Path.home() / '.local/share/research-xhs'
 FETCH = TOOL_HOME / 'xhsfetch'
 CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
@@ -241,21 +244,111 @@ def parse_arxiv(xml_bytes):
     return papers
 
 
+def interesting_arxiv_ids(text):
+    """Extract IDs from OCR, including common line breaks inserted by OCR."""
+    found = HF_PAPER.findall(text or '')
+    flat = re.sub(r'\s+', ' ', text or '')
+    flat = re.sub(r'(\d{4})\s*[.\u3002:，,]\s*(\d{4,5})', r'\1.\2', flat)
+    flat = re.sub(r'(?<!\d)(\d{4}) (\d{4,5})(v\d)?(?!\d)', r'\1.\2\3', flat)
+    found += [m.group(1) for m in ARXIV_ID.finditer(flat)]
+    return [re.sub(r'v\d+$', '', item) for item in dict.fromkeys(found)]
+
+
+def _cache_read(path):
+    try:
+        data = research.load(path)
+        return data.get('papers', {}) if isinstance(data, dict) else {}
+    except (OSError, ValueError):
+        return {}
+
+
+def _cache_write(path, papers):
+    if papers:
+        research.replace(path, {'updated_at': dt.datetime.now(TZ).isoformat(), 'papers': papers})
+
+
+def parse_arxiv_abs(page, ident):
+    """Parse title/abstract from an arXiv abstract page when the API is limited."""
+    meta = {}
+    for tag in re.findall(r'<meta\b[^>]*>', page or '', re.I):
+        name = re.search(r'\bname=["\']([^"\']+)', tag, re.I)
+        content = re.search(r'\bcontent=["\']([^"\']*)', tag, re.I)
+        if name and content:
+            meta[name.group(1).lower()] = html_module.unescape(content.group(1)).strip()
+    title = ' '.join(meta.get('citation_title', '').split())
+    abstract = ' '.join(meta.get('citation_abstract', '').split())
+    if title:
+        return {'arxiv': ident, 'title': title, 'abstract': abstract}
+    return None
+
+
+def arxiv_lookup_abs(ids):
+    """Look up known IDs through abstract pages; cache avoids repeated requests."""
+    ids = [re.sub(r'v\d+$', '', item) for item in dict.fromkeys(ids)]
+    cache = _cache_read(ARXIV_CACHE)
+    changed = False
+    for ident in ids:
+        if ident in cache:
+            continue
+        try:
+            page = http_get('https://arxiv.org/abs/' + ident, timeout=12).decode('utf-8', 'replace')
+            paper = parse_arxiv_abs(page, ident)
+        except Exception:
+            paper = None
+        if paper:
+            cache[ident] = paper
+            changed = True
+    if changed:
+        _cache_write(ARXIV_CACHE, cache)
+    return {ident: cache[ident] for ident in ids if ident in cache}
+
+
 def arxiv_lookup(ids):
     if not ids:
         return {}
-    url = 'https://export.arxiv.org/api/query?max_results=50&id_list=' + urllib.parse.quote(','.join(
-        dict.fromkeys(ids)))
-    return parse_arxiv(http_get(url))
+    return arxiv_lookup_abs(ids)
+
+
+def _strip_html(value):
+    text = re.sub(r'<[^>]+>', ' ', value or '')
+    return ' '.join(html_module.unescape(text).split())
+
+
+def arxiv_search_html(title):
+    query = 'https://arxiv.org/search/?query=' + urllib.parse.quote(title[:180]) + \
+        '&searchtype=title&abstracts=show&order=-announced_date_first&size=25'
+    page = http_get(query, timeout=12).decode('utf-8', 'replace')
+    papers = []
+    for block in re.split(r'<li class="arxiv-result">', page)[1:]:
+        ident_match = re.search(r'arxiv\.org/abs/([^"?#<]+)', block)
+        title_match = re.search(r'<p class="title is-5 mathjax">([\s\S]*?)</p>', block)
+        abstract_match = re.search(r'<span class="abstract-full[^"]*"[^>]*>([\s\S]*?)</span>', block)
+        if not ident_match or not title_match:
+            continue
+        ident = re.sub(r'v\d+$', '', html_module.unescape(ident_match.group(1)).strip())
+        papers.append({'arxiv': ident, 'title': _strip_html(title_match.group(1)),
+            'abstract': _strip_html(abstract_match.group(1)) if abstract_match else ''})
+        if len(papers) >= 5:
+            break
+    return papers
 
 
 def arxiv_search(title):
-    query = 'ti:"%s"' % re.sub(r'[\"]', ' ', title)[:180]
-    url = 'https://export.arxiv.org/api/query?max_results=5&search_query=' + urllib.parse.quote(query)
-    try:
-        return list(parse_arxiv(http_get(url)).values())
-    except Exception:
+    title = ' '.join((title or '').split())[:180]
+    if not title:
         return []
+    key = normalize_title(title)
+    cache = _cache_read(ARXIV_SEARCH_CACHE)
+    if cache.get(key):
+        return cache[key]
+    try:
+        papers = arxiv_search_html(title)
+    except Exception:
+        papers = []
+    if papers:
+        cache[key] = papers
+        _cache_write(ARXIV_SEARCH_CACHE, cache)
+    return papers
 
 
 def title_from_ocr(text):
@@ -277,30 +370,23 @@ def title_from_ocr(text):
     return ''
 
 
-def resolve_image(text):
+def resolve_image(text, known=None, allow_search=True):
     """返回 (arxiv id, title, abstract, how)。识别不到论文时返回 None。"""
-    found = HF_PAPER.findall(text or '')
-    # OCR 常把编号断行/断空格（例如 "arXiv:2609" + "11716v1"），先接回来再匹配。
-    flat = re.sub(r'(\d{4})\s*[.\u3002:，,]\s*(\d{4,5})', r'\1.\2', re.sub(r'\s+', ' ', text or ''))
-    flat = re.sub(r'(?<!\d)(\d{4}) (\d{4,5})(v\d)?(?!\d)', r'\1.\2\3', flat)
-    if not found:
-        found = [m.group(1) for m in ARXIV_ID.finditer(flat)]
+    found = interesting_arxiv_ids(text)
     if found:
-        try:
-            papers = arxiv_lookup(found[:3])
-        except Exception:
-            papers = {}
+        papers = known if known is not None else arxiv_lookup(found[:3])
         for ident in found:
             if ident in papers:
-                return papers[ident]['arxiv'], papers[ident]['title'], papers[ident]['abstract'], 'arXiv 编号'
+                paper = papers[ident]
+                return paper['arxiv'], paper['title'], paper.get('abstract', ''), 'arXiv 编号'
         candidate = title_from_ocr(text)
-        if candidate:
+        if candidate and allow_search:
             for hit in arxiv_search(candidate):
                 if hit['arxiv'] == found[0]:
                     return hit['arxiv'], hit['title'], hit['abstract'], 'arXiv 编号（标题补全）'
         return found[0], '', '', 'arXiv 编号（未取到摘要）'
     candidate = title_from_ocr(text)
-    if not candidate:
+    if not candidate or not allow_search:
         return None
     hits = arxiv_search(candidate)
     best, score = None, 0.0
@@ -403,9 +489,18 @@ def process_note(note, target):
         shots.append({'index': index, 'url': url, 'file': str(path), 'ocr': text, 'error': ''})
 
     pages = [shot for shot in shots if shot['ocr'].strip()]
+    ids = []
+    for shot in pages:
+        ids.extend(interesting_arxiv_ids(shot['ocr']))
+    known = arxiv_lookup(ids)
+    search_budget = 4
     by_id = {}
     for shot in pages:
-        shot['found'] = resolve_image(shot['ocr'])
+        has_id = bool(interesting_arxiv_ids(shot['ocr']))
+        allow_search = search_budget > 0 and not has_id
+        shot['found'] = resolve_image(shot['ocr'], known=known, allow_search=allow_search)
+        if allow_search:
+            search_budget -= 1
         if shot['found'] and shot['found'][0] not in by_id:
             by_id[shot['found'][0]] = shot
     entries = []
