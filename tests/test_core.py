@@ -95,27 +95,41 @@ class TestIdeaRouting(unittest.TestCase):
 class TestAutomaticResearchFocus(unittest.TestCase):
     def test_focus_starts_today(self):
         self.assertIsNone(proposal.focus_profile('2026-11-03'))
-        focus = proposal.focus_profile('2026-11-04')
-        self.assertEqual(focus['label'], '全双工音视频对话')
+        self.assertEqual(proposal.focus_profile('2026-11-04')['label'], '全双工音视频对话')
+        self.assertEqual(proposal.focus_profile('2026-11-15')['label'], '全双工音视频对话')
+        self.assertEqual(proposal.focus_profile('2026-11-16')['label'], '多模态交互中的视觉问题与方法')
 
     def test_focus_ranks_full_duplex_before_unrelated(self):
-        focus = proposal.focus_profile('2026-11-04')
+        focus = proposal.focus_profile('2026-11-16')
         records = [
             {'title': 'Memory compression for long tasks', 'summary': '', 'tags': ['记忆'], 'takeaway': ''},
-            {'title': 'Full-duplex audio-visual turn taking', 'summary': '实时打断与边听边说',
-             'tags': ['多模态交互'], 'takeaway': ''},
+            {'title': 'Visual grounding for camera questions', 'summary': '视觉定位与场景理解',
+             'tags': ['多模态交互', '视觉'], 'takeaway': ''},
         ]
         ranked = proposal._focus_ranked(records, focus,
             lambda item: item['title'] + ' ' + item['summary'] + ' ' + ' '.join(item['tags']), 2)
-        self.assertIn('Full-duplex', ranked[0]['title'])
+        self.assertIn('Visual grounding', ranked[0]['title'])
 
     def test_focused_schema_requires_focus_angle(self):
         base = proposal.proposal_schema()
-        focused = proposal.proposal_schema(proposal.focus_profile('2026-11-04'))
+        focused = proposal.proposal_schema(proposal.focus_profile('2026-11-16'))
         base_required = base['properties']['proposals']['items']['required']
         focused_required = focused['properties']['proposals']['items']['required']
         self.assertNotIn('focus_angle', base_required)
         self.assertIn('focus_angle', focused_required)
+
+    def test_tolerant_json_repairs_extra_bracket_before_tags(self):
+        import json
+        import tempfile
+        broken = '{"proposals":[{"risks":"说明。"],"tags":["视觉"]}]}'
+        with tempfile.NamedTemporaryFile('w', suffix='.json', encoding='utf-8', delete=False) as handle:
+            handle.write(broken)
+            path = Path(handle.name)
+        try:
+            parsed = knowledge.load_json_tolerant(path)
+        finally:
+            path.unlink(missing_ok=True)
+        self.assertEqual(parsed['proposals'][0]['tags'], ['视觉'])
 
 
 class TestWeixinCommands(unittest.TestCase):

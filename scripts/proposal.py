@@ -162,12 +162,12 @@ def generate(date, limit_per_run=6):
 【当前主攻方向：{focus.get("label")}（从 {focus.get("start_date")} 起）】
 {focus.get("summary")}
 
-这批提案必须优先围绕这个方向展开，不能把 RSI、后训练、Harness 或通用 agent 当成主题，再在末尾补一句音视频场景。
-- 默认所有提案都要直接推进全双工音视频对话；只有能明确改善它的在线时序、视听状态、训练信号、评测或部署时，跨方向方法才可保留。
-- 每条必须用 focus_angle 说明：它改变了“系统在看/听什么、什么时候接话/等待/打断/行动、怎样边生成边理解”中的哪一环。
+这批提案必须优先围绕“{focus.get("label")}”展开，不能把 RSI、后训练、Harness 或通用 agent 当成主题，再在末尾贴一个方向标签。
+- 默认所有提案都要直接推进“{focus.get("label")}”；只有能明确改善它的关键问题、方法、训练信号、评测或部署时，跨方向方法才可保留。
+- 每条必须用 focus_angle 说明：{focus.get("focus_angle_hint", "它怎样直接推进当前主攻方向")}。
 - 优先覆盖这些子方向：{'；'.join(focus.get('subdirections', []))}。
 - 避免：{'；'.join(focus.get('avoid', []))}。
-- 最小实验必须包含连续音视频流、交互时机和因果延迟；只有离线单轮准确率不算完整验收。
+- {focus.get("experiment_hint", "最小实验必须直接验证当前主攻方向的核心问题，并与相关基线比较。")}
 '''
     prompt = f'''你在帮一位大厂 AI Lab 的 NLP 博士，用他自己积累的素材提出可落地的研究提案。
 主要素材是他的灵感清单、归档论文（含深读 takeaways）和主题手册开放问题；近期业界洞察只用来补充当前主攻方向的语境，不能替代论文证据。
@@ -186,7 +186,7 @@ def generate(date, limit_per_run=6):
         'minimal_experiment': '1–2 周最小实验', 'metric': '判断指标', 'falsify': '什么结果算想法被推翻',
         'risks': '风险与和已有工作的关系', 'tags': ['固定词表里的标签']}
     if focus:
-        example['focus_angle'] = '这个提案怎样改变看/听/说/行动的实时时序'
+        example['focus_angle'] = focus.get('focus_angle_hint', '这个提案怎样直接推进当前主攻方向')
     prompt += '输出结构：\n' + json.dumps({'proposals': [example]}, ensure_ascii=False)
     payload = {'date': date, 'my_ideas': ideas[:40], 'my_papers': papers, 'handbook_open_questions': books,
         'focus': focus, 'focus_materials': focus_material_pool(focus), 'tag_vocabulary': list(research.TAGS)}
@@ -209,7 +209,8 @@ def render(date, proposals):
         tags = ' '.join('#' + t for t in item.get('tags', []) if t)
         lines += [f"## P{index}. {item.get('title','')}\n\n"]
         if item.get('focus_angle'):
-            lines.append(f"- **全双工切入角度**：{item.get('focus_angle')}\n")
+            angle_label = focus.get('angle_label') if focus else '主攻方向'
+            lines.append(f"- **{angle_label}切入角度**：{item.get('focus_angle')}\n")
         lines += [
             f"- **要解决的问题**：{item.get('problem','')}\n",
             f"- **假设**：{item.get('hypothesis','')}\n",

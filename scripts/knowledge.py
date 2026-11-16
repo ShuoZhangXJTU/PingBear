@@ -328,13 +328,24 @@ def codex_json(prompt, payload, schema_object, out_path, log_path, timeout=1800,
 def load_json_tolerant(path):
     """模型偶尔会在 JSON 前后加解释或代码块，这里做一次容错提取。"""
     text = path.read_text(encoding='utf-8')
+
+    def parse(value):
+        try:
+            return json.loads(value)
+        except ValueError:
+            # 偶发结构错误：在 risks 字符串结束后多写一个 ]，随后直接接 tags。
+            repaired = value.replace('"],"tags"', '","tags"').replace('"], "tags"', '", "tags"')
+            if repaired != value:
+                return json.loads(repaired)
+            raise
+
     try:
-        return json.loads(text)
+        return parse(text)
     except ValueError:
         pass
     for block in reversed(re.findall(r'```(?:json)?\s*(.*?)```', text, re.S)):
         try:
-            return json.loads(block)
+            return parse(block)
         except ValueError:
             continue
     for start in range(len(text) - 1, -1, -1):
@@ -359,7 +370,7 @@ def load_json_tolerant(path):
                 depth -= 1
                 if depth == 0:
                     try:
-                        return json.loads(text[start:index + 1])
+                        return parse(text[start:index + 1])
                     except ValueError:
                         break
     raise RuntimeError('模型输出不是 JSON: ' + str(path))
